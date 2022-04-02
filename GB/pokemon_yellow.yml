@@ -135,6 +135,7 @@ properties:
     battleAnimation: {type: "bit", startingAddress: 0xD354, index: 7}
     battleStyle: {type: "bit", startingAddress: 0xD354, index: 6}
     textSpeed: {type: "bit", startingAddress: 0xD354, index: 1}
+    startGameMenu: {type: number, startingAddress: 0xD35E, length: 1}
     
   player:
     name: { type: "string", startingAddress: 0xD157, length: 11 }
