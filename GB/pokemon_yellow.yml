@@ -41,7 +41,14 @@ macros:
   encounter:
     level: { offset: 0, type: "int" }
     pokemon: { offset: 1, type: "reference", size: 1, reference: "pokemon" }
-
+  vermilionCityGym:
+    completed: { offset: 0, type: "bit" }
+    firstCan: { offset: 1, type: "bit" }
+    trainerRight: { offset: 2, type: "bit" }
+    trainerMiddle: { offset: 3, type: "bit" }
+    trainerLeft: { offset: 4, type: "bit" }
+    tmReceived: { offset: 6, type: "bit" }
+    leaderDefeated: { offset: 7, type: "bit" }
 properties:
   player:
     playerId: {type: "int", address: 0xD359, description: "The active player user Id, better tracking for if the game has loaded a new or saved game" }
@@ -118,14 +125,8 @@ properties:
         - { type: "macro", address: 0xD899, macro: "encounter" }
     sound: { type: "int", address: 0xC0ED } #unfinished
     events:
-      vermilionCityGym:
-        completed: { type: "bit", startingAddress: 0xD772, position: 0 }
-        firstCan: { type: "bit", startingAddress: 0xD772, position: 1 }
-        trainerRight: { type: "bit", startingAddress: 0xD772, position: 2 }
-        trainerMiddle: { type: "bit", startingAddress: 0xD772, position: 3 }
-        trainerLeft: { type: "bit", startingAddress: 0xD772, position: 4 }
-        tmReceived: { type: "bit", startingAddress: 0xD772, position: 6 }
-        leaderDefeated: { type: "bit", startingAddress: 0xD772, position: 7 }
+      vermilionGymPuzzle:
+        - { type: "macro", address: 0xD772, macro: "vermilionCityGym" }
   battle:
     type: { type: "reference", address: 0xD056, size: 1, reference: "battleTypes" }
     animationTurn: { type: "reference", address: 0xFFF3, reference: "battleTurn", description: "This dictates which direction battle animations are played. (Enemy attacking player, or player attacking enemy.)" }
