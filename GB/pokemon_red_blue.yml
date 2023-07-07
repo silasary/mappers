@@ -631,7 +631,7 @@ properties:
     text:
       prompt: { type: "string", address: 0xC4F2, reference: "textPrompt" }
     menu:
-      currentItem: { type: "int", address: 0xCC27 }
+      currentItem: { type: "int", address: 0xCC26 }
     tiles:
       column1:
         tile1: { type: "int", address: 0x9C0D }
