@@ -222,6 +222,7 @@
                 <property name="tileset" type="int" address="0xD366" />
                 <property name="height" type="int" address="0xD367" />
                 <property name="width" type="int" address="0xD368" />
+                <property name="palette" type="int" address="0xD35C" /><!-- 0:default, 6:dark cave -->
                 <property name="lastMapLocation" type="int" address="0xD365" reference="maps" />
             </mapData>
         </overworld>

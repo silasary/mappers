@@ -177,6 +177,7 @@ properties:
       tileset: { type: "int", address: 0xD366 } #reference
       height:  { type: "int", address: 0xD367 }
       width:   { type: "int", address: 0xD368 }
+      palette: { type: "int", address: 0xD35C } # 0:default, 6:dark cave
       lastMapLocation: { type: "int", address: 0xD365, reference: "maps" } #test
 
   events:
