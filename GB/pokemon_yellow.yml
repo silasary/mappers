@@ -801,7 +801,8 @@ glossary:
     0x2E: "AGATHA"
     0x2F: "LANCE"
   defaultCharacterMap:
-    0x00: " "
+    0x50: null
+    0x00: null
     0x01: null
     0x02: null
     0x03: null
@@ -837,7 +838,6 @@ glossary:
     0x47: null
     0x48: null
     0x49: null
-    0x50: null
     0x51: null
     0x54: "#"
     0x75: "…"
