@@ -778,6 +778,7 @@
             <entry key="0x2F" value="LANCE"/>
         </trainerClasses>
         <defaultCharacterMap>
+            <entry key="0x50" />
             <entry key="0x00" />
             <entry key="0x01" />
             <entry key="0x02" />
@@ -814,7 +815,6 @@
             <entry key="0x47" />
             <entry key="0x48" />
             <entry key="0x49" />
-            <entry key="0x50" />
             <entry key="0x51" />
             <entry key="0x54" value="#" />
             <entry key="0x75" value="…" />
