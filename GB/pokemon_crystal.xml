@@ -38,10 +38,10 @@
                 <class name="3" type="pokemonInPartyMoveset" var:moveAddress="address + 5" />
             </moves>
             <ivs>
-                <property name="attack"  type="int" address="address + 21" postprocessor-reader="(x - (x % 16))/16" />
-                <property name="defense" type="int" address="address + 21" postprocessor-reader="x % 16" />
-                <property name="speed"   type="int" address="address + 22" postprocessor-reader="(x - (x % 16))/16" />
-                <property name="special" type="int" address="address + 22" postprocessor-reader="x % 16" />
+                <property name="attack"  type="nibble" address="address + 21" position="0" />
+                <property name="defense" type="nibble" address="address + 21" position="1" />
+                <property name="speed"   type="nibble" address="address + 22" position="0" />
+                <property name="special" type="nibble" address="address + 22" position="1" />
             </ivs>
             <evs>
                 <property name="hp"      type="int" address="address + 11" length="2" />
