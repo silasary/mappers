@@ -229,7 +229,7 @@ properties:
       TM38-Fire Blast:    { type: "int", address: 0xD87E }
       TM39-Swift:        { type: "int", address: 0xD87F }
       TM40-Defense Curl:  { type: "int", address: 0xD880 }
-      TM41-Thunder Punch: { type: "int", address: 0xD881 }
+      TM41-Thunderpunch: { type: "int", address: 0xD881 }
       TM42-Dream Eater:   { type: "int", address: 0xD882 }
       TM43-Detect:       { type: "int", address: 0xD883 }
       TM44-Rest:         { type: "int", address: 0xD884 }
@@ -898,7 +898,7 @@ glossary:
     0x06: "Pay Day"
     0x07: "Fire Punch"
     0x08: "Ice Punch"
-    0x09: "Thunder Punch"
+    0x09: "Thunderpunch"
     0x0A: "Scratch"
     0x0B: "ViceGrip"
     0x0C: "Guillotine"
@@ -1375,7 +1375,7 @@ glossary:
     0xE6: "TM38-FireBlast"
     0xE7: "TM39-Swift"
     0xE8: "TM40-DefenseCurl"
-    0xE9: "TM41-ThunderPunch"
+    0xE9: "TM41-Thunderpunch"
     0xEA: "TM42-DreamEater"
     0xEB: "TM43-Detect"
     0xEC: "TM44-Rest"
