@@ -850,6 +850,16 @@
             <property name="frames"  type="int" address="0x02024eb6" />
         </gameTime>
 
+        <pointers>
+            <!-- I am not convinced R/S uses DMA at all
+            <property name="dma1"      type="uint" length="4" address="0x3005D8C" />
+            <property name="dma2"      type="uint" length="4" address="0x3005D90" />
+            <property name="dma3"      type="uint" length="4" address="0x3005D94" /> 
+            -->
+            <property name="callback1" type="int" length="4" address="0x03001770" reference="mainState" />
+            <property name="callback2" type="int" length="4" address="0x03001774" reference="subState" />
+        </pointers>
+
         <game>
             <property name="generation" type="int" value="3" />
         </game>
