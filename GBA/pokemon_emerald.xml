@@ -80,20 +80,20 @@
         <battleStructure>
             <property name="partyPos" type="int" address="partyPosition" length="2" />
             <macro type="pokemon" />
-            <property name="nickname"         address="48" type="string" length="11" characterMap="defaultCharacterMap" />
-            <property name="speciesArray"     address="0"  type="int" length="2" reference="pokemonSpecies" />
-            <property name="level"            address="42" type="int" />
-            <property name="expPoints"        address="68" type="uint" length="4"/>
-            <property name="friendship"       address="43" type="int" />
-            <property name="personalityValue" address="72" type="uint" length="4"/>
-            <property name="ability"          address="32" type="int" reference="abilities" />
-            <property name="heldItem"         address="46" type="int" length="2" reference="items" />
-            <property name="focusEnergy"      address="82" type="bit" position="4" />
-            <property name="type1"            address="33" type="int" reference="pokemonTypes" />
-            <property name="type2"            address="34" type="int" reference="pokemonTypes" />
-            <property name="status1"          address="76" type="int"  reference="statusConditions" />
-            <property name="status2"          address="76" type="int"  reference="statusConditions" />
-            <property name="otName"           address="60" type="string" length="8" characterMap="defaultCharacterMap" />
+            <property name="nickname"         address="address+48" type="string" length="11" characterMap="defaultCharacterMap" />
+            <property name="speciesArray"     address="address+0"  type="int" length="2" reference="pokemonSpecies" />
+            <property name="level"            address="address+42" type="int" />
+            <property name="expPoints"        address="address+68" type="uint" length="4"/>
+            <property name="friendship"       address="address+43" type="int" />
+            <property name="personalityValue" address="address+72" type="uint" length="4"/>
+            <property name="ability"          address="address+32" type="int" reference="abilities" />
+            <property name="heldItem"         address="address+46" type="int" length="2" reference="items" />
+            <property name="focusEnergy"      address="address+82" type="bit" position="4" />
+            <property name="type1"            address="address+33" type="int" reference="pokemonTypes" />
+            <property name="type2"            address="address+34" type="int" reference="pokemonTypes" />
+            <property name="status1"          address="address+76" type="int"  reference="statusConditions" />
+            <property name="status2"          address="address+76" type="int"  reference="statusConditions" />
+            <property name="otName"           address="address+60" type="string" length="8" characterMap="defaultCharacterMap" />
             <stats>
                 <property name="hp"             address="address+44" type="int" length="2" />
                 <property name="maxHp"          address="address+40" type="int" length="2" />
