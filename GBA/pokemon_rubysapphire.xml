@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mapper id="005fdd01-8921-468c-aca3-d4fa864d5911" name="Pokemon Ruby and Sapphire" platform="GBA"
+<mapper id="0ccf4618-3439-4cf7-84f8-4c2de3a89349" name="Pokemon Ruby and Sapphire" platform="GBA"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://schemas.gamehook.io/mapper https://schemas.gamehook.io/mapper.xsd"
     xmlns:var="https://schemas.gamehook.io/attributes/var">
@@ -27,7 +27,12 @@
             <property name="statusCondition"  address="address+80" type="int" reference="statusConditions" />
             <property name="ability"          address="address"    type="bit" preprocessor="data_block_a245dcac(3, 4)" length="4" position="31" />
             <property name="pokerus"          address="address+85" type="int" />
-
+            <moves>
+                <class name="0" type="pokemonMoves" var:offset_moveNumber="0" var:offset_powerPoints="8"  var:offset_ppUp="8" var:bitrange1="1" var:bitrange2="0" />
+                <class name="1" type="pokemonMoves" var:offset_moveNumber="2" var:offset_powerPoints="9"  var:offset_ppUp="8" var:bitrange1="3" var:bitrange2="2" />
+                <class name="2" type="pokemonMoves" var:offset_moveNumber="4" var:offset_powerPoints="10" var:offset_ppUp="8" var:bitrange1="5" var:bitrange2="4" />
+                <class name="3" type="pokemonMoves" var:offset_moveNumber="6" var:offset_powerPoints="11" var:offset_ppUp="8" var:bitrange1="7" var:bitrange2="6" />
+            </moves>
             <stats>
                 <property name="hp"             address="address+86" type="int" length="2" />
                 <property name="maxHp"          address="address+88" type="int" length="2" />
@@ -37,12 +42,6 @@
                 <property name="specialAttack"  address="address+96" type="int" length="2" />
                 <property name="specialDefense" address="address+98" type="int" length="2" />
             </stats>
-            <!-- <moves>
-                <class name="0" type="pokemonPartyMoves" var:moveOffset="0" var:ppOffset="1" />
-                <class name="1" type="pokemonPartyMoves" var:moveOffset="2" var:ppOffset="1" />
-                <class name="2" type="pokemonPartyMoves" var:moveOffset="4" var:ppOffset="1" />
-                <class name="3" type="pokemonPartyMoves" var:moveOffset="6" var:ppOffset="1" />
-            </moves> -->
             <ivs>
                 <!-- <property name="ivEggAbilityBlock" address="address" preprocessor="data_block_a245dcac(3, 4)" type="uint" length="4" /> -->
                 <property name="hp"              address="address" preprocessor="data_block_a245dcac(3, 4)" type="int" length="4" postprocessor-reader="BitRange(x, 4, 0)" />
@@ -94,6 +93,20 @@
             <property name="status1"          address="76" type="int"  reference="statusConditions" />
             <property name="status2"          address="76" type="int"  reference="statusConditions" />
             <property name="otName"           address="60" type="string" length="8" characterMap="defaultCharacterMap" />
+            <moves>
+                <property name="move1" address="address+12" type="int" size="2" reference="moves" />
+                <property name="move2" address="address+14" type="int" size="2" reference="moves" />
+                <property name="move3" address="address+16" type="int" size="2" reference="moves" />
+                <property name="move4" address="address+18" type="int" size="2" reference="moves" />
+                <property name="move1pp" address="address+36" type="int" />
+                <property name="move2pp" address="address+37" type="int" />
+                <property name="move3pp" address="address+38" type="int" />
+                <property name="move4pp" address="address+39" type="int" />
+                <property name="move1ppUp" address="address+59" type="int" postprocessor="BitRange(x, 1, 0)" />
+                <property name="move2ppUp" address="address+59" type="int" postprocessor="BitRange(x, 3, 2)" />
+                <property name="move3ppUp" address="address+59" type="int" postprocessor="BitRange(x, 5, 4)" />
+                <property name="move4ppUp" address="address+59" type="int" postprocessor="BitRange(x, 7, 6)" />
+            </moves>
             <stats>
                 <property name="hp"             address="address+44" type="int" length="2" />
                 <property name="maxHp"          address="address+40" type="int" length="2" />
@@ -112,20 +125,6 @@
                 <property name="specialAttack"   address="address+20" type="int" length="4" postprocessor-reader="BitRange(x, 24, 20)" />
                 <property name="specialDefense"  address="address+20" type="int" length="4" postprocessor-reader="BitRange(x, 29, 25)" />
             </ivs>
-            <!-- <moves>
-                move1: { offset: 12, type: "int", size: 2, reference: "moves" }
-                move2: { offset: 14, type: "int", size: 2, reference: "moves" }
-                move3: { offset: 16, type: "int", size: 2, reference: "moves" }
-                move4: { offset: 18, type: "int", size: 2, reference: "moves" }
-                move1pp: { offset: 36, type: "int" }
-                move2pp: { offset: 37, type: "int" }
-                move3pp: { offset: 38, type: "int" }
-                move4pp: { offset: 39, type: "int" }
-                move1ppUp: { offset: 59, type: "int", postprocessor: "BitRange(x, 1, 0)" }
-                move2ppUp: { offset: 59, type: "int", postprocessor: "BitRange(x, 3, 2)" }
-                move3ppUp: { offset: 59, type: "int", postprocessor: "BitRange(x, 5, 4)" }
-                move4ppUp: { offset: 59, type: "int", postprocessor: "BitRange(x, 7, 6)" }
-            </moves> -->
             <modifiers>
                 <property name="attack"         address="address+25" type="int" reference="stageModifiers" />
                 <property name="defense"        address="address+26" type="int" reference="stageModifiers" />
@@ -137,11 +136,11 @@
             </modifiers>
 
         </battleStructure>
-        <!-- <pokemonPartyMoves>
-            <class name="move" type="pokemonPartyMoves" preprocessor="data_block_a245dcac(1, moveOffset)" length="2" reference="moves" />
-            <class name="pp"   type="pokemonPartyMoves" preprocessor="data_block_a245dcac(1, ppOffset + 8)" />
-            <class name="ppUp" type="pokemonPartyMoves" preprocessor="data_block_a245dcac(0, ppOffset + 8)" postprocessor-reader="BitRange(x, 1, 0)" />
-        </pokemonPartyMoves> -->
+        <pokemonMoves>
+            <property name="move" preprocessor="data_block_a245dcac(1, offset_moveNumber)"  type="int" address="address" reference="moves" />
+            <property name="pp"   preprocessor="data_block_a245dcac(1, offset_powerPoints)" type="int" address="address" postprocessor-reader="x % 64" />
+            <property name="ppUp" preprocessor="data_block_a245dcac(0, 8)"                  type="int" address="address" postprocessor="BitRange(x, bitrange1, bitrange2)" />
+        </pokemonMoves>
         <playerItem>
             <property name="item"     type="int" length="2" preprocessor="dma_967d10cc(0x03005D8C, offset)" reference="items" />
             <property name="quantity" type="int" length="2" preprocessor="dma_967d10cc(0x03005D8C, offset + 2)" />
@@ -154,7 +153,7 @@
             gSaveBlock1: 0x02025734 
          -->
         <player>
-            <property name="playerId"  type="string" address="0x20228D6" length="2" reference="defaultCharacterMap" description="The active player user Id, better tracking for if the game has loaded a new or saved game" />
+            <property name="playerId"  type="int" address="0x20228D6" length="2" description="The active player user Id, better tracking for if the game has loaded a new or saved game" />
             <property name="name"      type="string" length="8" address="0x02024EA4" characterMap="defaultCharacterMap" />
             <property name="gender"    type="int" address="0x2024EAC" reference="gender" />
             <property name="teamCount" type="int" address="0x03004350" />
