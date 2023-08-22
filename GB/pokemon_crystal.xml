@@ -617,110 +617,6 @@
                 <property name="day" type="int" address="0xD4B6" reference="dayNames" />
             </gameClock>
         </time>
-
-        <patch>
-            <property name="patchPresent" type="int" size="1" address="0x3fb5" postprocessor-reader="x != 0" />
-            <property name="turnCounter"  type="int" size="2" address="0xcfd8" />
-            <time>
-                <property name="frameCount"       type="int" size="4" address="0x10191" />
-                <property name="oWFrameCount"     type="int" size="4" address="0x10195" />
-                <property name="battleFrameCount" type="int" size="4" address="0x10199" />
-                <property name="menuFrameCount"   type="int" size="4" address="0x1019d" />
-                <property name="introsFrameCount" type="int" size="4" address="0x101a1" />
-            </time>
-            <saves>
-                <property name="saveCount"       type="int" length="2" address="0x101a5" />
-                <property name="reloadCount"     type="int" length="2" address="0x101a7" />
-                <property name="clockResetCount" type="int" length="2" address="0x101a9" />
-            </saves>
-            <steps>
-                <property name="stepCount"     type="int" length="4" address="0x101ab" />
-                <property name="stepCountWalk" type="int" length="4" address="0x101af" />
-                <property name="stepCountSurf" type="int" length="4" address="0x101b3" />
-                <property name="stepCountBike" type="int" length="4" address="0x101b7" />
-                <property name="bonks"         type="int" length="2" address="0x101bb" />
-            </steps>
-            <battles>
-                <battles>
-                    <property name="battles"        type="int" length="2" address="0x10223" />
-                    <property name="trainerBattles" type="int" length="2" address="0x10225" />
-                    <property name="wildBattles"    type="int" length="2" address="0x10227" />
-                    <property name="battlesFled"    type="int" length="2" address="0x10229" />
-                    <property name="failedRuns"     type="int" length="2" address="0x1022b" />
-                </battles>
-                <battle_info>
-                    <damage>
-                        <property name="totalDamageDealt"  type="int" length="4" address="0x101bd" />
-                        <property name="actualDamageDealt" type="int" length="4" address="0x101c1" />
-                        <property name="totalDamageTaken"  type="int" length="4" address="0x101c5" />
-                        <property name="actualDamageTaken" type="int" length="4" address="0x101c9" />
-                    </damage>
-                    <hits>
-                        <property name="ownMovesHit"      type="int" length="2" address="0x101cd" />
-                        <property name="ownMovesMissed"   type="int" length="2" address="0x101cf" />
-                        <property name="enemyMovesHit"    type="int" length="2" address="0x101d1" />
-                        <property name="enemyMovesMissed" type="int" length="2" address="0x101d3" />
-                        <property name="ownMovesSE"       type="int" length="2" address="0x101d5" />
-                        <property name="ownMovesNVE"      type="int" length="2" address="0x101d7" />
-                        <property name="enemyMovesSE"     type="int" length="2" address="0x101d9" />
-                        <property name="enemyMovesNVE"    type="int" length="2" address="0x101db" />
-                        <property name="criticalsDealt"   type="int" length="2" address="0x101dd" />
-                        <property name="oHKOsDealt"       type="int" length="2" address="0x101df" />
-                        <property name="criticalsTaken"   type="int" length="2" address="0x101e1" />
-                        <property name="oHKOsTaken"       type="int" length="2" address="0x101e3" />
-                    </hits>
-                    <status>
-                        <property name="wasConfused"                type="int" length="2" address="0x101e5" />
-                        <property name="enemyBecameConfused"        type="int" length="2" address="0x101e7" />
-                        <property name="wasParalyzed"               type="int" length="2" address="0x101e9" />
-                        <property name="enemyWasParalyzed"          type="int" length="2" address="0x101eb" />
-                        <property name="wasBurned"                  type="int" length="2" address="0x101ed" />
-                        <property name="enemyWasBurned"             type="int" length="2" address="0x101ef" />
-                        <property name="wasFrozen"                  type="int" length="2" address="0x101f1" />
-                        <property name="enemyWasFrozen"             type="int" length="2" address="0x101f3" />
-                        <property name="wasPoisoned"                type="int" length="2" address="0x101f5" />
-                        <property name="enemyWasPoisoned"           type="int" length="2" address="0x101f7" />
-                        <property name="wasPoisonedBadly"           type="int" length="2" address="0x101f9" />
-                        <property name="enemyWasPoisonedBadly"      type="int" length="2" address="0x101fb" />
-                        <property name="fellAsleep"                 type="int" length="2" address="0x101fd" />
-                        <property name="enemyFellAsleep"            type="int" length="2" address="0x101ff" />
-                        <property name="playerTurnsConfused"        type="int" length="2" address="0x10201" />
-                        <property name="playerTurnsConfusedHitSelf" type="int" length="2" address="0x10203" />
-                        <property name="playerTurnsParalyzed"       type="int" length="2" address="0x10205" />
-                        <property name="playerTurnsParalyzedFully"  type="int" length="2" address="0x10207" />
-                        <property name="enemyTurnsConfused"         type="int" length="2" address="0x10209" />
-                        <property name="enemyTurnsConfusedHitSelf"  type="int" length="2" address="0x1020b" />
-                        <property name="enemyTurnsParalyzed"        type="int" length="2" address="0x1020d" />
-                        <property name="enemyTurnsParalyzedFully"   type="int" length="2" address="0x1020f" />
-                    </status>
-                    <heals>
-                        <property name="playerHPHealed" type="int" length="4" address="0x10211" />
-                        <property name="enemyHPHealed"  type="int" length="4" address="0x10215" />
-                    </heals>
-                    <property name="playerPokemonFainted" type="int" length="2" address="0x10219" />
-                    <property name="enemyPokemonFainted"  type="int" length="2" address="0x1021b" />
-                    <property name="experienceGained"     type="int" length="4" address="0x1021d" />
-                    <property name="switchouts"           type="int" length="2" address="0x10221" />
-                </battle_info>
-                <money>
-                    <property name="moneyMade"  type="int" length="4" address="0x1022d" />
-                    <property name="moneySpent" type="int" length="4" address="0x10231" />
-                    <property name="moneyLost"  type="int" length="4" address="0x10235" />
-                </money>
-                <info>
-                    <property name="itemsPickedUp" type="int" length="2" address="0x10239" />
-                    <property name="itemsBought"   type="int" length="2" address="0x1023b" />
-                    <property name="itemsSold"     type="int" length="2" address="0x1023d" />
-                </info>
-                <catching>
-                    <property name="ballsThrown"          type="int" length="2" address="0x10241" />
-                    <property name="pokemonCaughtInBalls" type="int" length="2" address="0x10243" />
-                    <property name="numPokemaniacsFought" type="int" length="2" address="0x10245" />
-                    <property name="movesLearnt"          type="int" length="2" address="0x1023f" />
-                </catching>
-                <property name="movesLearnt" type="int" length="2" address="0x1023f" />
-            </battles>
-        </patch>
         <game>
             <property name="generation" type="int" value="2" />
         </game>
@@ -1465,6 +1361,71 @@
             <entry key="0xBC" value="Music Mail" />
             <entry key="0xBD" value="Mirage Mail" />
             <entry key="0xBE" value="Teru-Sama" />
+            <entry key="0xBF" value="TM01-DynamicPunch" />
+            <entry key="0xC0" value="TM02-Headbutt" />
+            <entry key="0xC1" value="TM03-Curse" />
+            <entry key="0xC2" value="TM04-Rollout" />
+            <entry key="0xC3" value="Berry" />
+            <entry key="0xC4" value="TM05-Roar" />
+            <entry key="0xC5" value="TM06-Toxic" />
+            <entry key="0xC6" value="TM07-Zap Cannon" />
+            <entry key="0xC7" value="TM08-Rock Smash" />
+            <entry key="0xC8" value="TM09-Psych Up" />
+            <entry key="0xC9" value="TM10-Hidden Power" />
+            <entry key="0xCA" value="TM11-Sunny Day" />
+            <entry key="0xCB" value="TM12-Sweet Scent" />
+            <entry key="0xCC" value="TM13-Snore" />
+            <entry key="0xCD" value="TM14-Blizzard" />
+            <entry key="0xCE" value="TM15-Hyper Beam" />
+            <entry key="0xCF" value="TM16-Icy Wind" />
+            <entry key="0xD0" value="TM17-Protect" />
+            <entry key="0xD1" value="TM18-Rain Dance" />
+            <entry key="0xD2" value="TM19-Giga Drain" />
+            <entry key="0xD3" value="TM20-Endure" />
+            <entry key="0xD4" value="TM21-Frustration" />
+            <entry key="0xD5" value="TM22-SolarBeam" />
+            <entry key="0xD6" value="TM23-Iron Tail" />
+            <entry key="0xD7" value="TM24-DragonBreath" />
+            <entry key="0xD8" value="TM25-Thunder" />
+            <entry key="0xD9" value="TM26-Earthquake" />
+            <entry key="0xDA" value="TM27-Return" />
+            <entry key="0xDB" value="TM28-Dig" />
+            <entry key="0xDC" value="Berry" />
+            <entry key="0xDD" value="TM29-Psychic" />
+            <entry key="0xDE" value="TM30-Shadow Ball" />
+            <entry key="0xDF" value="TM31-Mud-Slap" />
+            <entry key="0xE0" value="TM32-Double Team" />
+            <entry key="0xE1" value="TM33-Ice Punch" />
+            <entry key="0xE2" value="TM34-Swagger" />
+            <entry key="0xE3" value="TM35-Sleep Talk" />
+            <entry key="0xE4" value="TM36-Sludge Bomb" />
+            <entry key="0xE5" value="TM37-Sandstorm" />
+            <entry key="0xE6" value="TM38-Fire Blast" />
+            <entry key="0xE7" value="TM39-Swift" />
+            <entry key="0xE8" value="TM40-Defense Curl" />
+            <entry key="0xE9" value="TM41-ThunderPunch" />
+            <entry key="0xEA" value="TM42-Dream Eater" />
+            <entry key="0xEB" value="TM43-Detect" />
+            <entry key="0xEC" value="TM44-Rest" />
+            <entry key="0xED" value="TM45-Attract" />
+            <entry key="0xEE" value="TM46-Thief" />
+            <entry key="0xEF" value="TM47-Steel Wing" />
+            <entry key="0xF0" value="TM48-Fire Punch" />
+            <entry key="0xF1" value="TM49-Fury Cutter" />
+            <entry key="0xF2" value="TM50-Nightmare" />
+            <entry key="0xF3" value="HM01-Cut" />
+            <entry key="0xF4" value="HM02-Fly" />
+            <entry key="0xF5" value="HM03-Surf" />
+            <entry key="0xF6" value="HM04-Strength" />
+            <entry key="0xF7" value="HM05-Flash" />
+            <entry key="0xF8" value="HM06-Whirlpool" />
+            <entry key="0xF9" value="HM07-Waterfall" />
+            <entry key="0xFA" value="Berry" />
+            <entry key="0xFB" value="HM09" />
+            <entry key="0xFC" value="HM10" />
+            <entry key="0xFD" value="HM11" />
+            <entry key="0xFE" value="HM12" />
+            <entry key="0xFF" value="Berry" />
         </items>
         <pokemonSpecies>
             <entry key="0x00" />
