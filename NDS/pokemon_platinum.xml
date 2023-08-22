@@ -4,15 +4,15 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://schemas.gamehook.io/mapper https://schemas.gamehook.io/mapper.xsd"
     xmlns:var="https://schemas.gamehook.io/attributes/var">
-	<macros>
-        <pokemon>
+    <macros>
+	<pokemon>
 		<property name="species"       type="int" preprocessor="data_block_fa7545e6(8)" address="address" length="2" reference="pokemonSpecies" />
 		<property name="pokedexNumber" type="int" preprocessor="data_block_fa7545e6(8)" address="address" length="2" />
-        </pokemon>
-        <encounter>
+	</pokemon>
+	<encounter>
 		<level address="address" type="int" />
 		<pokemon address="address + 1" type="int" reference="pokemonSpecies" />
-        </encounter>
+	</encounter>
     </macros>
 
 	<classes>
