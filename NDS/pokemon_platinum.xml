@@ -4,15 +4,15 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://schemas.gamehook.io/mapper https://schemas.gamehook.io/mapper.xsd"
     xmlns:var="https://schemas.gamehook.io/attributes/var">
-    <macros>
-	<pokemon>
-		<property name="species"       type="int" preprocessor="data_block_fa7545e6(8)" address="address" length="2" reference="pokemonSpecies" />
-		<property name="pokedexNumber" type="int" preprocessor="data_block_fa7545e6(8)" address="address" length="2" />
-	</pokemon>
-	<encounter>
-		<level address="address" type="int" />
-		<pokemon address="address + 1" type="int" reference="pokemonSpecies" />
-	</encounter>
+	<macros>
+        <pokemon>
+			<property name="species"       type="int" preprocessor="data_block_fa7545e6(8)" address="address" length="2" reference="pokemonSpecies" />
+			<property name="pokedexNumber" type="int" preprocessor="data_block_fa7545e6(8)" address="address" length="2" />
+        </pokemon>
+        <encounter>
+			<level address="address" type="int" />
+			<pokemon address="address + 1" type="int" reference="pokemonSpecies" />
+        </encounter>
     </macros>
 
 	<classes>
@@ -210,8 +210,8 @@
 			<property name="ability"          address="address+39"  type="int" length="2" reference="abilities" />
 			<property name="type1"            address="address+36"  type="int" reference="pokemonTypes" />
 			<property name="type2"            address="address+37"  type="int" reference="pokemonTypes" />
-            		<!-- <property name="heldItem"         address="46" type="int" length="2" reference="items" /> -->
-            		<!-- <property name="focusEnergy"      address="82" type="bit" position="4" /> -->
+            <!-- <property name="heldItem"         address="46" type="int" length="2" reference="items" /> -->
+            <!-- <property name="focusEnergy"      address="82" type="bit" position="4" /> -->
 			<stats>
 				<property name="hp"             address="address+76" type="int" length="2" />
 				<property name="maxHp"          address="address+80" type="int" length="2" />
@@ -270,13 +270,13 @@
 				<class name="5" type="pokemonInParty" var:address="0x227E6E8" />
 			</team>
 			<script type="text/typescript">
-		                <![CDATA[
-		                    getTeam() {
-		                        if (this.teamCount == 0) { return [] }
-		                        return this.team[0..this.teamCount]
-		                    }
-		                ]]>
-            		</script>
+                <![CDATA[
+                    getTeam() {
+                        if (this.teamCount == 0) { return [] }
+                        return this.team[0..this.teamCount]
+                    }
+                ]]>
+            </script>
 		</player>
 		<bag>
 			<!-- 0x294 bytes between start of items and end of items. 165 slots. Only 80 of which are present here. -->
@@ -609,7 +609,7 @@
 		<battle>
 			<class name="playerPokemon1" type="battleStructure" var:address="0x22C5750" />
 			<class name="enemyPokemon1"  type="battleStructure" var:address="0x22C5810" />
-            		<!-- Addresses Unknown -->
+            <!-- Addresses Unknown -->
 			<!-- <class name="playerPokemon2" type="battleStructure" var:address="0x0000000" /> -->
 			<!-- <class name="enemyPokemon2"  type="battleStructure" var:address="0x0000000" /> -->
 		</battle>
