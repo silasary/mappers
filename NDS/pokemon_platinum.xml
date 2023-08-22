@@ -4,22 +4,198 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://schemas.gamehook.io/mapper https://schemas.gamehook.io/mapper.xsd"
     xmlns:var="https://schemas.gamehook.io/attributes/var">
-	<!-- <macros>
+	<macros>
         <pokemon>
-            <property name="species" address="address" type="int" reference="pokemonSpecies" />
-            <property name="pokedexNumber" address="address" type="int" reference="pokemonPokedexNumbers" />
+		<property name="species"       type="int" preprocessor="data_block_fa7545e6(8)" address="address" length="2" reference="pokemonSpecies" />
+		<property name="pokedexNumber" type="int" preprocessor="data_block_fa7545e6(8)" address="address" length="2" />
         </pokemon>
-        <playerItem>
-            <item address="address" type="int" reference="items" />
-            <quantity address="address + 1" type="int" />
-        </playerItem>
         <encounter>
-            <level address="address" type="int" />
-            <pokemon address="address + 1" type="int" reference="pokemonSpecies" />
+		<level address="address" type="int" />
+		<pokemon address="address + 1" type="int" reference="pokemonSpecies" />
         </encounter>
-    </macros> -->
+    </macros>
 
 	<classes>
+		<pokemonInParty>
+			<macro type="pokemon" />
+			<property name="nickname"        address="address" type="string2" preprocessor="data_block_fa7545e6(72)"   length="22" />
+			<property name="otName"          address="address" type="string2" preprocessor="data_block_fa7545e6(104)"  length="16" />
+			<property name="otID"            address="address" type="int"     preprocessor="data_block_fa7545e6(12)"   length="2" />
+			<property name="level"           address="address" type="int"     preprocessor="data_block_fa7545e6(140)"  length="1" />
+			<property name="ability"         address="address" type="int"     preprocessor="data_block_fa7545e6(21)"   length="1" reference="abilities" />
+			<property name="debug_ability"   address="address" type="int"     preprocessor="data_block_fa7545e6(21)"   length="1" />
+			<property name="nature"          address="address" type="uint"    length="4" postprocessor-reader="x % 25" reference="natures" />
+			<property name="heldItem"        address="address" type="int"     preprocessor="data_block_fa7545e6(10)"   length="2" reference="items" />
+			<property name="friendship"      address="address" type="int"     preprocessor="data_block_fa7545e6(20)"   length="1" />
+			<property name="expPoints"       address="address" type="int"     preprocessor="data_block_fa7545e6(16)"   length="4" />
+			<property name="statusCondition" address="address" type="int"     preprocessor="data_block_fa7545e6(136)"  length="1" reference="statusConditions" />
+			<property name="pokerus"         address="address" type="int"     preprocessor="data_block_fa7545e6(130)"  length="1" />
+			<moves>
+				<class name="move1" type="pokemonMoves" var:offset_moveNumber="40" var:offset_powerPoints="48" var:offset_ppUp="52" />
+				<class name="move2" type="pokemonMoves" var:offset_moveNumber="42" var:offset_powerPoints="49" var:offset_ppUp="53" />
+				<class name="move3" type="pokemonMoves" var:offset_moveNumber="44" var:offset_powerPoints="50" var:offset_ppUp="54" />
+				<class name="move4" type="pokemonMoves" var:offset_moveNumber="46" var:offset_powerPoints="51" var:offset_ppUp="55" />
+			</moves>
+			<stats>
+				<property name="hp"              type="int" preprocessor="data_block_fa7545e6(142)" address="address" length="2" />
+				<property name="maxHp"           type="int" preprocessor="data_block_fa7545e6(144)" address="address" length="2" />
+				<property name="attack"          type="int" preprocessor="data_block_fa7545e6(146)" address="address" length="2" />
+				<property name="defense"         type="int" preprocessor="data_block_fa7545e6(148)" address="address" length="2" />
+				<property name="speed"           type="int" preprocessor="data_block_fa7545e6(150)" address="address" length="2" />
+				<property name="specialAttack"   type="int" preprocessor="data_block_fa7545e6(152)" address="address" length="2" />
+				<property name="specialDefense"  type="int" preprocessor="data_block_fa7545e6(154)" address="address" length="2" />
+			</stats>
+			<ivs>
+				<!-- <property name="ivEggAbilityBlock" type="int" preprocessor="data_block_fa7545e6(56)" address="address" length="4" /> -->
+				<property name="hp"              preprocessor="data_block_fa7545e6(56)" address="address" type="int" length="4" postprocessor-reader="BitRange(x, 4, 0)" />
+				<property name="attack"          preprocessor="data_block_fa7545e6(56)" address="address" type="int" length="4" postprocessor-reader="BitRange(x, 9, 5)" />
+				<property name="defense"         preprocessor="data_block_fa7545e6(56)" address="address" type="int" length="4" postprocessor-reader="BitRange(x, 14, 10)" />
+				<property name="speed"           preprocessor="data_block_fa7545e6(56)" address="address" type="int" length="4" postprocessor-reader="BitRange(x, 19, 15)" />
+				<property name="specialAttack"   preprocessor="data_block_fa7545e6(56)" address="address" type="int" length="4" postprocessor-reader="BitRange(x, 24, 20)" />
+				<property name="specialDefense"  preprocessor="data_block_fa7545e6(56)" address="address" type="int" length="4" postprocessor-reader="BitRange(x, 29, 25)" />
+			</ivs>
+			<evs>
+				<property name="hp"             type="int" preprocessor="data_block_fa7545e6(24)" address="address" length="1" />
+				<property name="attack"         type="int" preprocessor="data_block_fa7545e6(25)" address="address" length="1" />
+				<property name="fefense"        type="int" preprocessor="data_block_fa7545e6(26)" address="address" length="1" />
+				<property name="speed"          type="int" preprocessor="data_block_fa7545e6(27)" address="address" length="1" />
+				<property name="specialAttack"  type="int" preprocessor="data_block_fa7545e6(28)" address="address" length="1" />
+				<property name="specialDefense" type="int" preprocessor="data_block_fa7545e6(29)" address="address" length="1" />
+			</evs>
+			<flags>
+				<property name="isEgg"            address="address" preprocessor="data_block_fa7545e6(56)" type="bit" length="4" position="30" />
+				<property name="isNicknamed"      address="address" preprocessor="data_block_fa7545e6(56)" type="bit" length="4" position="31" />
+				<property name="skipChecksum1"    address="address+4" type="bit"  length="1" position="0"/>
+				<property name="skipChecksum2"    address="address+4" type="bit"  length="1" position="1"/>
+				<property name="isBadEgg"         address="address+4" type="bit"  length="1" position="2"/>
+			</flags>
+			<internals>
+				<property name="personalityValue" address="address"   type="uint" length="4"/>
+				<property name="checksum"         address="address+6" type="uint" length="2"/>
+				<property name="secretID"         address="address"   type="int"  preprocessor="data_block_fa7545e6(14)" length="2" />
+				<property name="language"   type="int" preprocessor="data_block_fa7545e6(23)" address="address" length="1" reference="language" />
+			</internals>
+			<misc>
+				<property name="markings"     type="int" preprocessor="data_block_fa7545e6(22)"  address="address" length="1" />
+				<property name="sheen"        type="int" preprocessor="data_block_fa7545e6(35)"  address="address" length="1" />
+				<property name="HGSSBall"     type="int" preprocessor="data_block_fa7545e6(134)" address="address" length="1" />
+				<property name="performance"  type="int" preprocessor="data_block_fa7545e6(135)" address="address" length="1" />
+				<metInfo>
+					<property name="dateEggReceived" type="int" preprocessor="data_block_fa7545e6(120)" address="address" length="3" />
+					<property name="dateMet"         type="int" preprocessor="data_block_fa7545e6(123)" address="address" length="3" />
+					<property name="DPEggLocation"   type="int" preprocessor="data_block_fa7545e6(126)" address="address" length="2" />
+					<property name="DPMetLocation"   type="int" preprocessor="data_block_fa7545e6(128)" address="address" length="2" />
+					<property name="pokeball"        type="int" preprocessor="data_block_fa7545e6(131)" address="address" length="1" />
+					<property name="metLevel"        type="int" preprocessor="data_block_fa7545e6(132)" address="address" length="1" postprocessor-reader="BitRange(x, 6, 0)" />
+					<property name="femaleOTGender"  type="bit" preprocessor="data_block_fa7545e6(132)" address="address" length="1" position="7" />
+					<property name="encounterType"   type="int" preprocessor="data_block_fa7545e6(133)" address="address" length="1" />
+				</metInfo>
+				<contest>
+					<property name="contestCool"   type="int" preprocessor="data_block_fa7545e6(30)" address="address" length="1" />
+					<property name="contestBeauty" type="int" preprocessor="data_block_fa7545e6(31)" address="address" length="1" />
+					<property name="contestCute"   type="int" preprocessor="data_block_fa7545e6(32)" address="address" length="1" />
+					<property name="contestSmart"  type="int" preprocessor="data_block_fa7545e6(33)" address="address" length="1" />
+					<property name="contestTough"  type="int" preprocessor="data_block_fa7545e6(34)" address="address" length="1" />
+				</contest>
+				<ribbons>
+					<property name="ribbonsSinnohSet1" type="int" preprocessor="data_block_fa7545e6(36)" address="address" length="4" />
+				</ribbons>
+			</misc>
+			<system_organization>
+				<unencrypted_data>
+					<property name="personalityValue" address="address"   type="uint" length="4"/>
+					<property name="skipChecksum1"    address="address+4" type="bit"  length="1" position="0"/>
+					<property name="skipChecksum2"    address="address+4" type="bit"  length="1" position="1"/>
+					<property name="isBadEgg"         address="address+4" type="bit"  length="1" position="2"/>
+					<property name="checksum"         address="address+6" type="uint" length="2"/>
+				</unencrypted_data>
+				<blockA>
+					<property name="species"    type="int" preprocessor="data_block_fa7545e6(8)" address="address" length="2" reference="pokemonSpecies" />
+					<property name="heldItem"   type="int" preprocessor="data_block_fa7545e6(10)" address="address" length="2" reference="items" />
+					<property name="otID"       type="int" preprocessor="data_block_fa7545e6(12)" address="address" length="2" />
+					<property name="secretID"   type="int" preprocessor="data_block_fa7545e6(14)" address="address" length="2" />
+					<property name="expPoints"  type="int" preprocessor="data_block_fa7545e6(16)" address="address" length="4" />
+					<property name="friendship" type="int" preprocessor="data_block_fa7545e6(20)" address="address" length="1" />
+					<property name="ability"    type="int" preprocessor="data_block_fa7545e6(21)" address="address" length="1" reference="abilities" />
+					<property name="markings"   type="int" preprocessor="data_block_fa7545e6(22)" address="address" length="1" />
+					<property name="language"   type="int" preprocessor="data_block_fa7545e6(23)" address="address" length="1" reference="language" />
+					<property name="evHp"             type="int" preprocessor="data_block_fa7545e6(24)" address="address" length="1" />
+					<property name="evAttack"         type="int" preprocessor="data_block_fa7545e6(25)" address="address" length="1" />
+					<property name="evDefense"        type="int" preprocessor="data_block_fa7545e6(26)" address="address" length="1" />
+					<property name="evSpeed"          type="int" preprocessor="data_block_fa7545e6(27)" address="address" length="1" />
+					<property name="evSpecialAttack"  type="int" preprocessor="data_block_fa7545e6(28)" address="address" length="1" />
+					<property name="evSpecialDefense" type="int" preprocessor="data_block_fa7545e6(29)" address="address" length="1" />
+					<property name="contestCool"   type="int" preprocessor="data_block_fa7545e6(30)" address="address" length="1" />
+					<property name="contestBeauty" type="int" preprocessor="data_block_fa7545e6(31)" address="address" length="1" />
+					<property name="contestCute"   type="int" preprocessor="data_block_fa7545e6(32)" address="address" length="1" />
+					<property name="contestSmart"  type="int" preprocessor="data_block_fa7545e6(33)" address="address" length="1" />
+					<property name="contestTough"  type="int" preprocessor="data_block_fa7545e6(34)" address="address" length="1" />
+					<property name="sheen" type="int" preprocessor="data_block_fa7545e6(35)" address="address" length="1" />
+					<property name="ribbonsSinnohSet1" type="int" preprocessor="data_block_fa7545e6(36)" address="address" length="4" />
+				</blockA>
+				<blockB>
+					<property name="move1" type="int" preprocessor="data_block_fa7545e6(40)" address="address" length="2" reference="moves" />
+					<property name="move2" type="int" preprocessor="data_block_fa7545e6(42)" address="address" length="2" reference="moves" />
+					<property name="move3" type="int" preprocessor="data_block_fa7545e6(44)" address="address" length="2" reference="moves" />
+					<property name="move4" type="int" preprocessor="data_block_fa7545e6(46)" address="address" length="2" reference="moves" />
+					<property name="move1pp" type="int" preprocessor="data_block_fa7545e6(48)" address="address" length="1" />
+					<property name="move2pp" type="int" preprocessor="data_block_fa7545e6(49)" address="address" length="1" />
+					<property name="move3pp" type="int" preprocessor="data_block_fa7545e6(50)" address="address" length="1" />
+					<property name="move4pp" type="int" preprocessor="data_block_fa7545e6(51)" address="address" length="1" />
+					<property name="move1ppUp" type="int" preprocessor="data_block_fa7545e6(52)" address="address" length="1" />
+					<property name="move2ppUp" type="int" preprocessor="data_block_fa7545e6(53)" address="address" length="1" />
+					<property name="move3ppUp" type="int" preprocessor="data_block_fa7545e6(54)" address="address" length="1" />
+					<property name="move4ppUp" type="int" preprocessor="data_block_fa7545e6(55)" address="address" length="1" />
+					<ivs>
+						<property name="ivEggAbilityBlock" type="int" preprocessor="data_block_fa7545e6(56)" address="address" length="4" />
+						<property name="hp"              preprocessor="data_block_fa7545e6(56)" address="address" type="int" length="4" postprocessor-reader="BitRange(x, 4, 0)" />
+						<property name="attack"          preprocessor="data_block_fa7545e6(56)" address="address" type="int" length="4" postprocessor-reader="BitRange(x, 9, 5)" />
+						<property name="defense"         preprocessor="data_block_fa7545e6(56)" address="address" type="int" length="4" postprocessor-reader="BitRange(x, 14, 10)" />
+						<property name="speed"           preprocessor="data_block_fa7545e6(56)" address="address" type="int" length="4" postprocessor-reader="BitRange(x, 19, 15)" />
+						<property name="specialAttack"   preprocessor="data_block_fa7545e6(56)" address="address" type="int" length="4" postprocessor-reader="BitRange(x, 24, 20)" />
+						<property name="specialDefense"  preprocessor="data_block_fa7545e6(56)" address="address" type="int" length="4" postprocessor-reader="BitRange(x, 29, 25)" />
+					</ivs>
+					<property name="isEgg"        preprocessor="data_block_fa7545e6(56)" address="address" type="bit" length="4" position="30" />
+					<property name="isNicknamed"  preprocessor="data_block_fa7545e6(56)" address="address" type="bit" length="4" position="31" />
+				</blockB>
+				<blockC>
+					<property name="nickname" type="string2" preprocessor="data_block_fa7545e6(72)" address="address" length="22" />
+				</blockC>
+				<blockD>
+					<property name="otName" type="string2" preprocessor="data_block_fa7545e6(104)" address="address" length="16" />
+					<property name="dateEggReceived" type="int" preprocessor="data_block_fa7545e6(120)" address="address" length="3" />
+					<property name="dateMet"         type="int" preprocessor="data_block_fa7545e6(123)" address="address" length="3" />
+					<property name="DPEggLocation"   type="int" preprocessor="data_block_fa7545e6(126)" address="address" length="2" />
+					<property name="DPMetLocation"   type="int" preprocessor="data_block_fa7545e6(128)" address="address" length="2" />
+					<property name="pokerus"        type="int" preprocessor="data_block_fa7545e6(130)" address="address" length="1" />
+					<property name="pokeball"       type="int" preprocessor="data_block_fa7545e6(131)" address="address" length="1" />
+					<property name="metLevel"       type="int" preprocessor="data_block_fa7545e6(132)" address="address" length="1" postprocessor-reader="BitRange(x, 6, 0)" />
+					<property name="femaleOTGender" type="bit" preprocessor="data_block_fa7545e6(132)" address="address" length="1" position="7" />
+					<property name="encounterType"  type="int" preprocessor="data_block_fa7545e6(133)" address="address" length="1" />
+					<property name="HGSSBall"       type="int" preprocessor="data_block_fa7545e6(134)" address="address" length="1" />
+					<property name="performance"    type="int" preprocessor="data_block_fa7545e6(135)" address="address" length="1" />
+				</blockD>
+				<encrypted_temporary_data>
+					<property name="statusCondition" type="int" preprocessor="data_block_fa7545e6(136)" address="address" length="1" />
+					<property name="level"           type="int" preprocessor="data_block_fa7545e6(140)" address="address" length="1" />
+					<property name="seal"            type="int" preprocessor="data_block_fa7545e6(141)" address="address" length="1" />
+					<property name="hp"              type="int" preprocessor="data_block_fa7545e6(142)" address="address" length="2" />
+					<property name="maxHp"           type="int" preprocessor="data_block_fa7545e6(144)" address="address" length="2" />
+					<property name="attack"          type="int" preprocessor="data_block_fa7545e6(146)" address="address" length="2" />
+					<property name="defense"         type="int" preprocessor="data_block_fa7545e6(148)" address="address" length="2" />
+					<property name="speed"           type="int" preprocessor="data_block_fa7545e6(150)" address="address" length="2" />
+					<property name="specialAttack"   type="int" preprocessor="data_block_fa7545e6(152)" address="address" length="2" />
+					<property name="specialDefense"  type="int" preprocessor="data_block_fa7545e6(154)" address="address" length="2" />
+					<!-- <property name="mailData"        type="bitArray" preprocessor="data_block_fa7545e6(156)" address="address" length="55" /> -->
+					<!-- <property name="sealCoordinates" type="bitArray" preprocessor="data_block_fa7545e6(212)" address="address" length="24" /> -->
+				</encrypted_temporary_data>
+			</system_organization>
+		</pokemonInParty>
+		<pokemonMoves>
+			<property name="move" preprocessor="data_block_fa7545e6(offset_moveNumber)"  type="int" address="address" reference="moves" />
+			<property name="pp"   preprocessor="data_block_fa7545e6(offset_powerPoints)" type="int" address="address" postprocessor-reader="x % 64" />
+			<property name="ppUp" preprocessor="data_block_fa7545e6(offset_ppUp)"        type="int" address="address" postprocessor-reader="Floor(x / 64)" />
+		</pokemonMoves>
 		<battleStructure>
 			<!-- <property name="partyPos" type="int" address="partyPosition" length="2" /> -->
 			<!-- <macro type="pokemon" /> -->
@@ -34,8 +210,8 @@
 			<property name="ability"          address="address+39"  type="int" length="2" reference="abilities" />
 			<property name="type1"            address="address+36"  type="int" reference="pokemonTypes" />
 			<property name="type2"            address="address+37"  type="int" reference="pokemonTypes" />
-			<!-- <property name="heldItem"         address="46" type="int" length="2" reference="items" /> -->
-			<!-- <property name="focusEnergy"      address="82" type="bit" position="4" /> -->
+            		<!-- <property name="heldItem"         address="46" type="int" length="2" reference="items" /> -->
+            		<!-- <property name="focusEnergy"      address="82" type="bit" position="4" /> -->
 			<stats>
 				<property name="hp"             address="address+76" type="int" length="2" />
 				<property name="maxHp"          address="address+80" type="int" length="2" />
@@ -74,101 +250,10 @@
 				<property name="evasion"        address="address+31" type="int" reference="stageModifiers" />
 			</modifiers>
 		</battleStructure>
-		<pokemonInParty>
-			<unencrypted_data>
-				<property name="personalityValue" address="address"   type="uint" length="4"/>
-				<property name="skipChecksum1"    address="address+4" type="bit"  length="1" position="0"/>
-				<property name="skipChecksum2"    address="address+4" type="bit"  length="1" position="1"/>
-				<property name="isBadEgg"         address="address+4" type="bit"  length="1" position="2"/>
-				<property name="checksum"         address="address+6" type="uint" length="2"/>
-			</unencrypted_data>
-			<blockA>
-				<property name="species"    type="int" preprocessor="data_block_fa7545e6(8)" address="address" length="2" />
-				<property name="heldItem"   type="int" preprocessor="data_block_fa7545e6(10)" address="address" length="2" />
-				<property name="OTID"       type="int" preprocessor="data_block_fa7545e6(12)" address="address" length="2" />
-				<property name="secretID"   type="int" preprocessor="data_block_fa7545e6(14)" address="address" length="2" />
-				<property name="experience" type="int" preprocessor="data_block_fa7545e6(16)" address="address" length="4" />
-				<property name="friendship" type="int" preprocessor="data_block_fa7545e6(20)" address="address" length="1" />
-				<property name="ability"    type="int" preprocessor="data_block_fa7545e6(21)" address="address" length="1" />
-				<property name="markings"   type="int" preprocessor="data_block_fa7545e6(22)" address="address" length="1" />
-				<property name="language"   type="int" preprocessor="data_block_fa7545e6(23)" address="address" length="1" />
-				<property name="evHp"             type="int" preprocessor="data_block_fa7545e6(24)" address="address" length="1" />
-				<property name="evAttack"         type="int" preprocessor="data_block_fa7545e6(25)" address="address" length="1" />
-				<property name="evDefense"        type="int" preprocessor="data_block_fa7545e6(26)" address="address" length="1" />
-				<property name="evSpeed"          type="int" preprocessor="data_block_fa7545e6(27)" address="address" length="1" />
-				<property name="evSpecialAttack"  type="int" preprocessor="data_block_fa7545e6(28)" address="address" length="1" />
-				<property name="evSpecialDefense" type="int" preprocessor="data_block_fa7545e6(29)" address="address" length="1" />
-				<property name="contestCool"   type="int" preprocessor="data_block_fa7545e6(30)" address="address" length="1" />
-				<property name="contestBeauty" type="int" preprocessor="data_block_fa7545e6(31)" address="address" length="1" />
-				<property name="contestCute"   type="int" preprocessor="data_block_fa7545e6(32)" address="address" length="1" />
-				<property name="contestSmart"  type="int" preprocessor="data_block_fa7545e6(33)" address="address" length="1" />
-				<property name="contestTough"  type="int" preprocessor="data_block_fa7545e6(34)" address="address" length="1" />
-				<property name="sheen" type="int" preprocessor="data_block_fa7545e6(35)" address="address" length="1" />
-				<property name="ribbonsSinnohSet1" type="int" preprocessor="data_block_fa7545e6(36)" address="address" length="4" />
-			</blockA>
-			<blockB>
-				<property name="move1" type="int" preprocessor="data_block_fa7545e6(40)" address="address" length="2" reference="moves" />
-				<property name="move2" type="int" preprocessor="data_block_fa7545e6(42)" address="address" length="2" reference="moves" />
-				<property name="move3" type="int" preprocessor="data_block_fa7545e6(44)" address="address" length="2" reference="moves" />
-				<property name="move4" type="int" preprocessor="data_block_fa7545e6(46)" address="address" length="2" reference="moves" />
-				<property name="move1pp" type="int" preprocessor="data_block_fa7545e6(48)" address="address" length="1" />
-				<property name="move2pp" type="int" preprocessor="data_block_fa7545e6(49)" address="address" length="1" />
-				<property name="move3pp" type="int" preprocessor="data_block_fa7545e6(50)" address="address" length="1" />
-				<property name="move4pp" type="int" preprocessor="data_block_fa7545e6(51)" address="address" length="1" />
-				<property name="move1ppUp" type="int" preprocessor="data_block_fa7545e6(52)" address="address" length="1" />
-				<property name="move2ppUp" type="int" preprocessor="data_block_fa7545e6(53)" address="address" length="1" />
-				<property name="move3ppUp" type="int" preprocessor="data_block_fa7545e6(54)" address="address" length="1" />
-				<property name="move4ppUp" type="int" preprocessor="data_block_fa7545e6(55)" address="address" length="1" />
-				<ivs>
-					<property name="ivEggAbilityBlock" type="int" preprocessor="data_block_fa7545e6(56)" address="address" length="4" />
-					<property name="hp"              preprocessor="data_block_fa7545e6(56)" address="address" type="int" length="4" postprocessor-reader="BitRange(x, 4, 0)" />
-					<property name="attack"          preprocessor="data_block_fa7545e6(56)" address="address" type="int" length="4" postprocessor-reader="BitRange(x, 9, 5)" />
-					<property name="defense"         preprocessor="data_block_fa7545e6(56)" address="address" type="int" length="4" postprocessor-reader="BitRange(x, 14, 10)" />
-					<property name="speed"           preprocessor="data_block_fa7545e6(56)" address="address" type="int" length="4" postprocessor-reader="BitRange(x, 19, 15)" />
-					<property name="specialAttack"   preprocessor="data_block_fa7545e6(56)" address="address" type="int" length="4" postprocessor-reader="BitRange(x, 24, 20)" />
-					<property name="specialDefense"  preprocessor="data_block_fa7545e6(56)" address="address" type="int" length="4" postprocessor-reader="BitRange(x, 29, 25)" />
-				</ivs>
-				<!-- <property name="isEgg"        preprocessor="data_block_fa7545e6(56)" address="address" type="bit" length="4" position="30" /> -->
-				<!-- <property name="isNicknamed"  preprocessor="data_block_fa7545e6(56)" address="address" type="bit" length="4" position="31" /> -->
-			</blockB>
-			<blockC>
-				<property name="nickname" type="string2" preprocessor="data_block_fa7545e6(72)" address="address" length="22" />
-			</blockC>
-			<blockD>
-				<property name="otName" type="string2" preprocessor="data_block_fa7545e6(104)" address="address" length="16" />
-				<property name="dateEggReceived" type="int" preprocessor="data_block_fa7545e6(120)" address="address" length="3" />
-				<property name="dateMet"         type="int" preprocessor="data_block_fa7545e6(124)" address="address" length="3" />
-				<property name="DPEggLocation"   type="int" preprocessor="data_block_fa7545e6(126)" address="address" length="2" />
-				<property name="DPMetLocation"   type="int" preprocessor="data_block_fa7545e6(128)" address="address" length="2" />
-				<property name="pokerus"        type="int" preprocessor="data_block_fa7545e6(130)" address="address" length="1" />
-				<property name="pokeball"       type="int" preprocessor="data_block_fa7545e6(131)" address="address" length="1" />
-				<property name="metLevel"       type="int" preprocessor="data_block_fa7545e6(132)" address="address" length="1" postprocessor-reader="BitRange(x, 6, 0)" />
-				<property name="femaleOTGender" type="bit" preprocessor="data_block_fa7545e6(132)" address="address" length="1" position="7" />
-				<property name="encounterType"  type="int" preprocessor="data_block_fa7545e6(133)" address="address" length="1" />
-				<property name="HGSSBall"       type="int" preprocessor="data_block_fa7545e6(134)" address="address" length="1" />
-				<property name="performance"    type="int" preprocessor="data_block_fa7545e6(135)" address="address" length="1" />
-			</blockD>
-			<encrypted_non-block_data>
-				<property name="statusCondition" type="int" preprocessor="data_block_fa7545e6(136)" address="address" length="1" />
-				<property name="level"           type="int" preprocessor="data_block_fa7545e6(140)" address="address" length="1" />
-				<property name="seal"            type="int" preprocessor="data_block_fa7545e6(141)" address="address" length="1" />
-				<property name="hp"              type="int" preprocessor="data_block_fa7545e6(142)" address="address" length="2" />
-				<property name="maxHp"           type="int" preprocessor="data_block_fa7545e6(144)" address="address" length="2" />
-				<property name="attack"          type="int" preprocessor="data_block_fa7545e6(146)" address="address" length="2" />
-				<property name="defense"         type="int" preprocessor="data_block_fa7545e6(148)" address="address" length="2" />
-				<property name="speed"           type="int" preprocessor="data_block_fa7545e6(150)" address="address" length="2" />
-				<property name="specialAttack"   type="int" preprocessor="data_block_fa7545e6(152)" address="address" length="2" />
-				<property name="specialDefense"  type="int" preprocessor="data_block_fa7545e6(154)" address="address" length="2" />
-				<!-- <property name="mailData"        type="bitArray" preprocessor="data_block_fa7545e6(156)" address="address" length="55" /> -->
-				<!-- <property name="sealCoordinates" type="bitArray" preprocessor="data_block_fa7545e6(212)" address="address" length="24" /> -->
-			</encrypted_non-block_data>
-		</pokemonInParty>
-		<!-- currently unused  -->
-		<pokemonMoves>
-			<property name="move" type="int" address="moveAddress" reference="moves" />
-			<property name="pp"   type="int" address="moveAddress" postprocessor-reader="x % 64" />
-			<property name="ppUp" type="int" address="moveAddress" postprocessor-reader="Floor(x / 64)" />
-		</pokemonMoves>
+		<playerItem>
+            <property name="item" address="address" type="int" length="2" reference="items" />
+            <property name="quantity" address="address + 2" type="int" length="2" />
+        </playerItem>
 	</classes>
 
 	<properties>
@@ -185,18 +270,346 @@
 				<class name="5" type="pokemonInParty" var:address="0x227E6E8" />
 			</team>
 			<script type="text/typescript">
-				<![CDATA[
-                    getTeam() {
-                        if (this.teamCount == 0) { return [] }
-                        return this.team[0..this.teamCount]
-                    }
-                ]]>
-			</script>
+		                <![CDATA[
+		                    getTeam() {
+		                        if (this.teamCount == 0) { return [] }
+		                        return this.team[0..this.teamCount]
+		                    }
+		                ]]>
+            		</script>
 		</player>
+		<bag>
+			<!-- 0x294 bytes between start of items and end of items. 165 slots. Only 80 of which are present here. -->
+			<items>
+				<class name="0" type="playerItem" var:address="0x227E7DC" />
+				<class name="1" type="playerItem" var:address="0x227E7E0" />
+				<class name="2" type="playerItem" var:address="0x227E7E4" />
+				<class name="3" type="playerItem" var:address="0x227E7E8" />
+				<class name="4" type="playerItem" var:address="0x227E7EC" />
+				<class name="5" type="playerItem" var:address="0x227E7F0" />
+				<class name="6" type="playerItem" var:address="0x227E7F4" />
+				<class name="7" type="playerItem" var:address="0x227E7F8" />
+				<class name="8" type="playerItem" var:address="0x227E7FC" />
+				<class name="9" type="playerItem" var:address="0x227E800" />
+				<class name="10" type="playerItem" var:address="0x227E804" />
+				<class name="11" type="playerItem" var:address="0x227E808" />
+				<class name="12" type="playerItem" var:address="0x227E80C" />
+				<class name="13" type="playerItem" var:address="0x227E810" />
+				<class name="14" type="playerItem" var:address="0x227E814" />
+				<class name="15" type="playerItem" var:address="0x227E818" />
+				<class name="16" type="playerItem" var:address="0x227E81C" />
+				<class name="17" type="playerItem" var:address="0x227E820" />
+				<class name="18" type="playerItem" var:address="0x227E824" />
+				<class name="19" type="playerItem" var:address="0x227E828" />
+				<class name="20" type="playerItem" var:address="0x227E82C" />
+				<class name="21" type="playerItem" var:address="0x227E830" />
+				<class name="22" type="playerItem" var:address="0x227E834" />
+				<class name="23" type="playerItem" var:address="0x227E838" />
+				<class name="24" type="playerItem" var:address="0x227E83C" />
+				<class name="25" type="playerItem" var:address="0x227E840" />
+				<class name="26" type="playerItem" var:address="0x227E844" />
+				<class name="27" type="playerItem" var:address="0x227E848" />
+				<class name="28" type="playerItem" var:address="0x227E84C" />
+				<class name="29" type="playerItem" var:address="0x227E850" />
+				<class name="30" type="playerItem" var:address="0x227E854" />
+				<class name="31" type="playerItem" var:address="0x227E858" />
+				<class name="32" type="playerItem" var:address="0x227E85C" />
+				<class name="33" type="playerItem" var:address="0x227E860" />
+				<class name="34" type="playerItem" var:address="0x227E864" />
+				<class name="35" type="playerItem" var:address="0x227E868" />
+				<class name="36" type="playerItem" var:address="0x227E86C" />
+				<class name="37" type="playerItem" var:address="0x227E870" />
+				<class name="38" type="playerItem" var:address="0x227E874" />
+				<class name="39" type="playerItem" var:address="0x227E878" />
+				<class name="40" type="playerItem" var:address="0x227E87C" />
+				<class name="41" type="playerItem" var:address="0x227E880" />
+				<class name="42" type="playerItem" var:address="0x227E884" />
+				<class name="43" type="playerItem" var:address="0x227E888" />
+				<class name="44" type="playerItem" var:address="0x227E88C" />
+				<class name="45" type="playerItem" var:address="0x227E890" />
+				<class name="46" type="playerItem" var:address="0x227E894" />
+				<class name="47" type="playerItem" var:address="0x227E898" />
+				<class name="48" type="playerItem" var:address="0x227E89C" />
+				<class name="49" type="playerItem" var:address="0x227E8A0" />
+				<class name="50" type="playerItem" var:address="0x227E8A4" />
+				<class name="51" type="playerItem" var:address="0x227E8A8" />
+				<class name="52" type="playerItem" var:address="0x227E8AC" />
+				<class name="53" type="playerItem" var:address="0x227E8B0" />
+				<class name="54" type="playerItem" var:address="0x227E8B4" />
+				<class name="55" type="playerItem" var:address="0x227E8B8" />
+				<class name="56" type="playerItem" var:address="0x227E8BC" />
+				<class name="57" type="playerItem" var:address="0x227E8C0" />
+				<class name="58" type="playerItem" var:address="0x227E8C4" />
+				<class name="59" type="playerItem" var:address="0x227E8C8" />
+				<class name="60" type="playerItem" var:address="0x227E8CC" />
+				<class name="61" type="playerItem" var:address="0x227E8D0" />
+				<class name="62" type="playerItem" var:address="0x227E8D4" />
+				<class name="63" type="playerItem" var:address="0x227E8D8" />
+				<class name="64" type="playerItem" var:address="0x227E8DC" />
+				<class name="65" type="playerItem" var:address="0x227E8E0" />
+				<class name="66" type="playerItem" var:address="0x227E8E4" />
+				<class name="67" type="playerItem" var:address="0x227E8E8" />
+				<class name="68" type="playerItem" var:address="0x227E8EC" />
+				<class name="69" type="playerItem" var:address="0x227E8F0" />
+				<class name="70" type="playerItem" var:address="0x227E8F4" />
+				<class name="71" type="playerItem" var:address="0x227E8F8" />
+				<class name="72" type="playerItem" var:address="0x227E8FC" />
+				<class name="73" type="playerItem" var:address="0x227E900" />
+				<class name="74" type="playerItem" var:address="0x227E904" />
+				<class name="75" type="playerItem" var:address="0x227E908" />
+				<class name="76" type="playerItem" var:address="0x227E90C" />
+				<class name="77" type="playerItem" var:address="0x227E910" />
+				<class name="78" type="playerItem" var:address="0x227E914" />
+				<class name="79" type="playerItem" var:address="0x227E918" />
+			</items>
+			<!-- 104 medicine slots -->
+			<medicine>
+				<class name="0" type="playerItem" var:address="0x227ECF8" />
+				<class name="1" type="playerItem" var:address="0x227ECFC" />
+				<class name="2" type="playerItem" var:address="0x227ED00" />
+				<class name="3" type="playerItem" var:address="0x227ED04" />
+				<class name="4" type="playerItem" var:address="0x227ED08" />
+				<class name="5" type="playerItem" var:address="0x227ED0C" />
+				<class name="6" type="playerItem" var:address="0x227ED10" />
+				<class name="7" type="playerItem" var:address="0x227ED14" />
+				<class name="8" type="playerItem" var:address="0x227ED18" />
+				<class name="9" type="playerItem" var:address="0x227ED1C" />
+				<class name="10" type="playerItem" var:address="0x227ED20" />
+				<class name="11" type="playerItem" var:address="0x227ED24" />
+				<class name="12" type="playerItem" var:address="0x227ED28" />
+				<class name="13" type="playerItem" var:address="0x227ED2C" />
+				<class name="14" type="playerItem" var:address="0x227ED30" />
+				<class name="15" type="playerItem" var:address="0x227ED34" />
+				<class name="16" type="playerItem" var:address="0x227ED38" />
+				<class name="17" type="playerItem" var:address="0x227ED3C" />
+				<class name="18" type="playerItem" var:address="0x227ED40" />
+				<class name="19" type="playerItem" var:address="0x227ED44" />
+				<class name="20" type="playerItem" var:address="0x227ED48" />
+				<class name="21" type="playerItem" var:address="0x227ED4C" />
+				<class name="22" type="playerItem" var:address="0x227ED50" />
+				<class name="23" type="playerItem" var:address="0x227ED54" />
+				<class name="24" type="playerItem" var:address="0x227ED58" />
+				<class name="25" type="playerItem" var:address="0x227ED5C" />
+				<class name="26" type="playerItem" var:address="0x227ED60" />
+				<class name="27" type="playerItem" var:address="0x227ED64" />
+				<class name="28" type="playerItem" var:address="0x227ED68" />
+				<class name="29" type="playerItem" var:address="0x227ED6C" />
+				<class name="30" type="playerItem" var:address="0x227ED70" />
+				<class name="31" type="playerItem" var:address="0x227ED74" />
+				<class name="32" type="playerItem" var:address="0x227ED78" />
+				<class name="33" type="playerItem" var:address="0x227ED7C" />
+				<class name="34" type="playerItem" var:address="0x227ED80" />
+				<class name="35" type="playerItem" var:address="0x227ED84" />
+				<class name="36" type="playerItem" var:address="0x227ED88" />
+				<class name="37" type="playerItem" var:address="0x227ED8C" />
+				<class name="38" type="playerItem" var:address="0x227ED90" />
+				<class name="39" type="playerItem" var:address="0x227ED94" />
+			</medicine>
+			<!-- 0x3C addresses in the pokeBall pocket. 15 total slots. -->
+			<pokeBalls>
+				<class name="0" type="playerItem" var:address="0x227EE98" />
+				<class name="1" type="playerItem" var:address="0x227EE9C" />
+				<class name="2" type="playerItem" var:address="0x227EEA0" />
+				<class name="3" type="playerItem" var:address="0x227EEA4" />
+				<class name="4" type="playerItem" var:address="0x227EEA8" />
+				<class name="5" type="playerItem" var:address="0x227EEAC" />
+				<class name="6" type="playerItem" var:address="0x227EEB0" />
+				<class name="7" type="playerItem" var:address="0x227EEB4" />
+				<class name="8" type="playerItem" var:address="0x227EEB8" />
+				<class name="9" type="playerItem" var:address="0x227EEBC" />
+				<class name="10" type="playerItem" var:address="0x227EEC0" />
+				<class name="11" type="playerItem" var:address="0x227EEC4" />
+				<class name="12" type="playerItem" var:address="0x227EEC8" />
+				<class name="13" type="playerItem" var:address="0x227EECC" />
+				<class name="14" type="playerItem" var:address="0x227EED0" />
+			</pokeBalls>
+			<!-- 0x1C0 bytes to store tm and hms. 112 slots. -->
+			<tmhm>
+				<class name="0" type="playerItem" var:address="0x227EB38" />
+				<class name="1" type="playerItem" var:address="0x227EB3C" />
+				<class name="2" type="playerItem" var:address="0x227EB40" />
+				<class name="3" type="playerItem" var:address="0x227EB44" />
+				<class name="4" type="playerItem" var:address="0x227EB48" />
+				<class name="5" type="playerItem" var:address="0x227EB4C" />
+				<class name="6" type="playerItem" var:address="0x227EB50" />
+				<class name="7" type="playerItem" var:address="0x227EB54" />
+				<class name="8" type="playerItem" var:address="0x227EB58" />
+				<class name="9" type="playerItem" var:address="0x227EB5C" />
+				<class name="10" type="playerItem" var:address="0x227EB60" />
+				<class name="11" type="playerItem" var:address="0x227EB64" />
+				<class name="12" type="playerItem" var:address="0x227EB68" />
+				<class name="13" type="playerItem" var:address="0x227EB6C" />
+				<class name="14" type="playerItem" var:address="0x227EB70" />
+				<class name="15" type="playerItem" var:address="0x227EB74" />
+				<class name="16" type="playerItem" var:address="0x227EB78" />
+				<class name="17" type="playerItem" var:address="0x227EB7C" />
+				<class name="18" type="playerItem" var:address="0x227EB80" />
+				<class name="19" type="playerItem" var:address="0x227EB84" />
+				<class name="20" type="playerItem" var:address="0x227EB88" />
+				<class name="21" type="playerItem" var:address="0x227EB8C" />
+				<class name="22" type="playerItem" var:address="0x227EB90" />
+				<class name="23" type="playerItem" var:address="0x227EB94" />
+				<class name="24" type="playerItem" var:address="0x227EB98" />
+				<class name="25" type="playerItem" var:address="0x227EB9C" />
+				<class name="26" type="playerItem" var:address="0x227EBA0" />
+				<class name="27" type="playerItem" var:address="0x227EBA4" />
+				<class name="28" type="playerItem" var:address="0x227EBA8" />
+				<class name="29" type="playerItem" var:address="0x227EBAC" />
+				<class name="30" type="playerItem" var:address="0x227EBB0" />
+				<class name="31" type="playerItem" var:address="0x227EBB4" />
+				<class name="32" type="playerItem" var:address="0x227EBB8" />
+				<class name="33" type="playerItem" var:address="0x227EBBC" />
+				<class name="34" type="playerItem" var:address="0x227EBC0" />
+				<class name="35" type="playerItem" var:address="0x227EBC4" />
+				<class name="36" type="playerItem" var:address="0x227EBC8" />
+				<class name="37" type="playerItem" var:address="0x227EBCC" />
+				<class name="38" type="playerItem" var:address="0x227EBD0" />
+				<class name="39" type="playerItem" var:address="0x227EBD4" />
+				<class name="40" type="playerItem" var:address="0x227EBD8" />
+				<class name="41" type="playerItem" var:address="0x227EBDC" />
+				<class name="42" type="playerItem" var:address="0x227EBE0" />
+				<class name="43" type="playerItem" var:address="0x227EBE4" />
+				<class name="44" type="playerItem" var:address="0x227EBE8" />
+				<class name="45" type="playerItem" var:address="0x227EBEC" />
+				<class name="46" type="playerItem" var:address="0x227EBF0" />
+				<class name="47" type="playerItem" var:address="0x227EBF4" />
+				<class name="48" type="playerItem" var:address="0x227EBF8" />
+				<class name="49" type="playerItem" var:address="0x227EBFC" />
+				<class name="50" type="playerItem" var:address="0x227EC00" />
+				<class name="51" type="playerItem" var:address="0x227EC04" />
+				<class name="52" type="playerItem" var:address="0x227EC08" />
+				<class name="53" type="playerItem" var:address="0x227EC0C" />
+				<class name="54" type="playerItem" var:address="0x227EC10" />
+				<class name="55" type="playerItem" var:address="0x227EC14" />
+				<class name="56" type="playerItem" var:address="0x227EC18" />
+				<class name="57" type="playerItem" var:address="0x227EC1C" />
+				<class name="58" type="playerItem" var:address="0x227EC20" />
+				<class name="59" type="playerItem" var:address="0x227EC24" />
+				<class name="60" type="playerItem" var:address="0x227EC28" />
+				<class name="61" type="playerItem" var:address="0x227EC2C" />
+				<class name="62" type="playerItem" var:address="0x227EC30" />
+				<class name="63" type="playerItem" var:address="0x227EC34" />
+				<class name="64" type="playerItem" var:address="0x227EC38" />
+				<class name="65" type="playerItem" var:address="0x227EC3C" />
+				<class name="66" type="playerItem" var:address="0x227EC40" />
+				<class name="67" type="playerItem" var:address="0x227EC44" />
+				<class name="68" type="playerItem" var:address="0x227EC48" />
+				<class name="69" type="playerItem" var:address="0x227EC4C" />
+				<class name="70" type="playerItem" var:address="0x227EC50" />
+				<class name="71" type="playerItem" var:address="0x227EC54" />
+				<class name="72" type="playerItem" var:address="0x227EC58" />
+				<class name="73" type="playerItem" var:address="0x227EC5C" />
+				<class name="74" type="playerItem" var:address="0x227EC60" />
+				<class name="75" type="playerItem" var:address="0x227EC64" />
+				<class name="76" type="playerItem" var:address="0x227EC68" />
+				<class name="77" type="playerItem" var:address="0x227EC6C" />
+				<class name="78" type="playerItem" var:address="0x227EC70" />
+				<class name="79" type="playerItem" var:address="0x227EC74" />
+				<class name="80" type="playerItem" var:address="0x227EC78" />
+				<class name="81" type="playerItem" var:address="0x227EC7C" />
+				<class name="82" type="playerItem" var:address="0x227EC80" />
+				<class name="83" type="playerItem" var:address="0x227EC84" />
+				<class name="84" type="playerItem" var:address="0x227EC88" />
+				<class name="85" type="playerItem" var:address="0x227EC8C" />
+				<class name="86" type="playerItem" var:address="0x227EC90" />
+				<class name="87" type="playerItem" var:address="0x227EC94" />
+				<class name="88" type="playerItem" var:address="0x227EC98" />
+				<class name="89" type="playerItem" var:address="0x227EC9C" />
+				<class name="90" type="playerItem" var:address="0x227ECA0" />
+				<class name="91" type="playerItem" var:address="0x227ECA4" />
+				<class name="92" type="playerItem" var:address="0x227ECA8" />
+				<class name="93" type="playerItem" var:address="0x227ECAC" />
+				<class name="94" type="playerItem" var:address="0x227ECB0" />
+				<class name="95" type="playerItem" var:address="0x227ECB4" />
+				<class name="96" type="playerItem" var:address="0x227ECB8" />
+				<class name="97" type="playerItem" var:address="0x227ECBC" />
+				<class name="98" type="playerItem" var:address="0x227ECC0" />
+				<class name="99" type="playerItem" var:address="0x227ECC4" />
+				<class name="100" type="playerItem" var:address="0x227ECC8" />
+				<class name="101" type="playerItem" var:address="0x227ECCC" />
+				<class name="102" type="playerItem" var:address="0x227ECD0" />
+				<class name="103" type="playerItem" var:address="0x227ECD4" />
+				<class name="104" type="playerItem" var:address="0x227ECD8" />
+				<class name="105" type="playerItem" var:address="0x227ECDC" />
+				<class name="106" type="playerItem" var:address="0x227ECE0" />
+				<class name="107" type="playerItem" var:address="0x227ECE4" />
+				<class name="108" type="playerItem" var:address="0x227ECE8" />
+				<class name="109" type="playerItem" var:address="0x227ECEC" />
+				<class name="110" type="playerItem" var:address="0x227ECF0" />
+				<class name="111" type="playerItem" var:address="0x227ECF4" />
+			</tmhm>
+			<!-- 0x100 address in the berries pocket. 64 slots available. -->
+			<berries>
+				<class name="0" type="playerItem" var:address="0x227ED98" />
+				<class name="1" type="playerItem" var:address="0x227ED9C" />
+				<class name="2" type="playerItem" var:address="0x227EDA0" />
+				<class name="3" type="playerItem" var:address="0x227EDA4" />
+				<class name="4" type="playerItem" var:address="0x227EDA8" />
+				<class name="5" type="playerItem" var:address="0x227EDAC" />
+				<class name="6" type="playerItem" var:address="0x227EDB0" />
+				<class name="7" type="playerItem" var:address="0x227EDB4" />
+				<class name="8" type="playerItem" var:address="0x227EDB8" />
+				<class name="9" type="playerItem" var:address="0x227EDBC" />
+				<class name="10" type="playerItem" var:address="0x227EDC0" />
+				<class name="11" type="playerItem" var:address="0x227EDC4" />
+				<class name="12" type="playerItem" var:address="0x227EDC8" />
+				<class name="13" type="playerItem" var:address="0x227EDCC" />
+				<class name="14" type="playerItem" var:address="0x227EDD0" />
+				<class name="15" type="playerItem" var:address="0x227EDD4" />
+				<class name="16" type="playerItem" var:address="0x227EDD8" />
+				<class name="17" type="playerItem" var:address="0x227EDDC" />
+				<class name="18" type="playerItem" var:address="0x227EDE0" />
+				<class name="19" type="playerItem" var:address="0x227EDE4" />
+				<class name="20" type="playerItem" var:address="0x227EDE8" />
+				<class name="21" type="playerItem" var:address="0x227EDEC" />
+				<class name="22" type="playerItem" var:address="0x227EDF0" />
+				<class name="23" type="playerItem" var:address="0x227EDF4" />
+				<class name="24" type="playerItem" var:address="0x227EDF8" />
+				<class name="25" type="playerItem" var:address="0x227EDFC" />
+				<class name="26" type="playerItem" var:address="0x227EE00" />
+				<class name="27" type="playerItem" var:address="0x227EE04" />
+				<class name="28" type="playerItem" var:address="0x227EE08" />
+				<class name="29" type="playerItem" var:address="0x227EE0C" />
+				<class name="30" type="playerItem" var:address="0x227EE10" />
+				<class name="31" type="playerItem" var:address="0x227EE14" />
+				<class name="32" type="playerItem" var:address="0x227EE18" />
+				<class name="33" type="playerItem" var:address="0x227EE1C" />
+				<class name="34" type="playerItem" var:address="0x227EE20" />
+				<class name="35" type="playerItem" var:address="0x227EE24" />
+				<class name="36" type="playerItem" var:address="0x227EE28" />
+				<class name="37" type="playerItem" var:address="0x227EE2C" />
+				<class name="38" type="playerItem" var:address="0x227EE30" />
+				<class name="39" type="playerItem" var:address="0x227EE34" />
+				<class name="40" type="playerItem" var:address="0x227EE38" />
+				<class name="41" type="playerItem" var:address="0x227EE3C" />
+				<class name="42" type="playerItem" var:address="0x227EE40" />
+				<class name="43" type="playerItem" var:address="0x227EE44" />
+				<class name="44" type="playerItem" var:address="0x227EE48" />
+				<class name="45" type="playerItem" var:address="0x227EE4C" />
+				<class name="46" type="playerItem" var:address="0x227EE50" />
+				<class name="47" type="playerItem" var:address="0x227EE54" />
+				<class name="48" type="playerItem" var:address="0x227EE58" />
+				<class name="49" type="playerItem" var:address="0x227EE5C" />
+				<class name="50" type="playerItem" var:address="0x227EE60" />
+				<class name="51" type="playerItem" var:address="0x227EE64" />
+				<class name="52" type="playerItem" var:address="0x227EE68" />
+				<class name="53" type="playerItem" var:address="0x227EE6C" />
+				<class name="54" type="playerItem" var:address="0x227EE70" />
+				<class name="55" type="playerItem" var:address="0x227EE74" />
+				<class name="56" type="playerItem" var:address="0x227EE78" />
+				<class name="57" type="playerItem" var:address="0x227EE7C" />
+				<class name="58" type="playerItem" var:address="0x227EE80" />
+				<class name="59" type="playerItem" var:address="0x227EE84" />
+				<class name="60" type="playerItem" var:address="0x227EE88" />
+				<class name="61" type="playerItem" var:address="0x227EE8C" />
+				<class name="62" type="playerItem" var:address="0x227EE90" />
+				<class name="63" type="playerItem" var:address="0x227EE94" />
+			</berries>
+		</bag>
 		<battle>
 			<class name="playerPokemon1" type="battleStructure" var:address="0x22C5750" />
 			<class name="enemyPokemon1"  type="battleStructure" var:address="0x22C5810" />
-			<!-- Addresses Unknown -->
+            		<!-- Addresses Unknown -->
 			<!-- <class name="playerPokemon2" type="battleStructure" var:address="0x0000000" /> -->
 			<!-- <class name="enemyPokemon2"  type="battleStructure" var:address="0x0000000" /> -->
 		</battle>
@@ -209,8 +622,7 @@
 
 	<references>
 		<defaultCharacterMap>
-			<!-- THIS NEEDS TO BE REWRITTEN -->
-			<!-- UNTESTED -->
+			<!-- THIS CHARACTER MAP IS INCOMPLETE -->
 			<entry key="0xFFFF" />
 			<entry key="0x0121" value="0" />
 			<entry key="0x0122" value="1" />
@@ -285,7 +697,7 @@
 			<entry key="0x01C5" value=";" />
 		</defaultCharacterMap>
 		<items>
-			<entry key="0x0000"	value="None" />
+			<entry key="0x0000" />
 			<entry key="0x0001"	value="Master Ball" />
 			<entry key="0x0002" value="Ultra Ball" />
 			<entry key="0x0003" value="Great Ball" />
@@ -2084,7 +2496,54 @@
 			<entry key="75" value="Shell Armor" />
 			<entry key="76" value="Cacophony" />
 			<entry key="77" value="Air Lock" />
-			<!-- MUST ADD THE PLATINUM ABILITIES AFTER THESE -->
+			<entry key="109" value="Unaware" />
+			<!-- THESE NEED TO BE MAPPED -->
+			<entry key="78" value="Adaptability" />
+			<entry key="79" value="Aftermath" />
+			<entry key="80" value="Anger Point" />
+			<entry key="81" value="Anticipation" />
+			<entry key="82" value="Bad Dreams" />
+			<entry key="83" value="Download" />
+			<entry key="84" value="Dry Skin" />
+			<entry key="85" value="Filter" />
+			<entry key="86" value="Flower Gift" />
+			<entry key="87" value="Forewarn" />
+			<entry key="88" value="Frisk" />
+			<entry key="89" value="Gluttony" />
+			<entry key="90" value="Heatproof" />
+			<entry key="91" value="Honey Gather" />
+			<entry key="92" value="Hydration" />
+			<entry key="93" value="Ice Body" />
+			<entry key="94" value="Iron Fist" />
+			<entry key="95" value="Klutz" />
+			<entry key="96" value="Leaf Guard" />
+			<entry key="97" value="Magic Guard" />
+			<entry key="98" value="Mold Breaker" />
+			<entry key="99" value="Motor Drive" />
+			<entry key="100" value="Multitype" />
+			<entry key="101" value="No Guard" />
+			<entry key="102" value="Normalize" />
+			<entry key="103" value="Poison Heal" />
+			<entry key="104" value="Quick Feet" />
+			<entry key="105" value="Reckless" />
+			<entry key="106" value="Rivalry" />
+			<entry key="107" value="Scrappy" />
+			<entry key="108" value="Simple" />
+			<entry key="110" value="Slow Start" />
+			<entry key="111" value="Sniper" />
+			<entry key="112" value="Snow Cloak" />
+			<entry key="113" value="Snow Warning" />
+			<entry key="114" value="Solar Power" />
+			<entry key="115" value="Solid Rock" />
+			<entry key="116" value="Stall" />
+			<entry key="117" value="Steadfast" />
+			<entry key="118" value="Storm Drain" />
+			<entry key="119" value="Super Luck" />
+			<entry key="120" value="Tangled Feet" />
+			<entry key="121" value="Technician" />
+			<entry key="122" value="Tinted Lens" />
+			<entry key="123" value="Skill Link" />
+			<entry key="124" value="Unburden" />
 		</abilities>
 		<stageModifiers type="number">
 			<entry key="0x00" value="-6" />
@@ -2105,5 +2564,25 @@
 			<entry key="0x0F" />
 			<entry key="0x14" />
 		</stageModifiers>
+		<language>
+			<entry key="0x01" value="Japanese" />
+			<entry key="0x02" value="English" />
+			<entry key="0x03" value="French" />
+			<entry key="0x04" value="Italian" />
+			<entry key="0x05" value="German" />
+			<entry key="0x07" value="Spanish" />
+			<entry key="0x08" value="Korean" />
+		</language>
+		<statusConditions>
+			<entry key="0x00" />
+			<entry key="0x01" value="Asleep" />
+			<entry key="0x02" value="Asleep" />
+			<entry key="0x04" value="Asleep" />
+			<entry key="0x08" value="Poisoned" />
+			<entry key="0x10" value="Burned" />
+			<entry key="0x20" value="Frozen" />
+			<entry key="0x40" value="Paralyzed" />
+			<entry key="0x80" value="Badly Poisoned" />
+		</statusConditions>
 	</references>
 </mapper>
