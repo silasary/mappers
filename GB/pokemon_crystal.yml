@@ -341,13 +341,6 @@ properties:
       speed:   { type: "int", address: 0xC644, size: 2, description: "The Player's active Pokemon's Speed stat as calculated in battle (badge boosts and stat modifications included" } #memoryLocation
       specialAttack: { type: "int", address: 0xC646, size: 2, description: "The Player's active Pokemon's Special Attack stat as calculated in battle (badge boosts and stat modifications included" } #memoryLocation
       specialDefense: { type: "int", address: 0xC648, size: 2, description: "The Player's active Pokemon's Special Defense stat as calculated in battle (badge boosts and stat modifications included" } #memoryLocation
-      battleStatHp:      { type: "int", address: 0xC63C, size: 2 } #deprecated
-      battleStatMaxHp:   { type: "int", address: 0xC63E, size: 2 } #deprecated
-      battleStatAttack:         { type: "int", address: 0xC640, size: 2, description: "The Player's active Pokemon's Attack stat as calculated in battle (badge boosts and stat modifications included" } #deprecated
-      battleStatDefense:        { type: "int", address: 0xC642, size: 2, description: "The Player's active Pokemon's Defense stat as calculated in battle (badge boosts and stat modifications included" } #deprecated
-      battleStatSpecialAttack:  { type: "int", address: 0xC646, size: 2, description: "The Player's active Pokemon's Special Attack stat as calculated in battle (badge boosts and stat modifications included" } #deprecated
-      battleStatSpecialDefense: { type: "int", address: 0xC648, size: 2, description: "The Player's active Pokemon's Special Defense stat as calculated in battle (badge boosts and stat modifications included" } #deprecated
-      battleStatSpeed:          { type: "int", address: 0xC644, size: 2, description: "The Player's active Pokemon's Speed stat as calculated in battle (badge boosts and stat modifications included"} #deprecated
       move1: { type: "reference", address: 0xC62E, reference: "moves" }
       move2: { type: "reference", address: 0xC62F, reference: "moves" }
       move3: { type: "reference", address: 0xC630, reference: "moves" }
@@ -602,10 +595,6 @@ properties:
         tile5: { type: "int", address: 0x988C }
         tile6: { type: "int", address: 0x98AC }
         tile7: { type: "int", address: 0x98CC }
-
-  patch: # Scott's Thoughts turn counter patch (used for rollout power display)
-    patchPresent: { type: "int", size: 1, address: 0x3fb5, postprocessor: "x != 0" } 
-    turnCounter:  { type: "int", size: 2, address: 0xcfd8 }
 
 glossary:
   dayNames:
