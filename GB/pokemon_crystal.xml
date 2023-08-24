@@ -630,7 +630,7 @@
             <entry key="0x03" value="Wednesday" />
             <entry key="0x04" value="Thursday" />
             <entry key="0x05" value="Friday" />
-            <entry key="0x06" value="Satuday" />
+            <entry key="0x06" value="Saturday" />
         </dayNames>
         <timeOfDay>
             <entry key="0x00" value="Morning" />
