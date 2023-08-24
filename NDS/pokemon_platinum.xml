@@ -57,7 +57,7 @@
 			<evs>
 				<property name="hp"             type="int" preprocessor="data_block_fa7545e6(24)" address="address" length="1" />
 				<property name="attack"         type="int" preprocessor="data_block_fa7545e6(25)" address="address" length="1" />
-				<property name="fefense"        type="int" preprocessor="data_block_fa7545e6(26)" address="address" length="1" />
+				<property name="defense"        type="int" preprocessor="data_block_fa7545e6(26)" address="address" length="1" />
 				<property name="speed"          type="int" preprocessor="data_block_fa7545e6(27)" address="address" length="1" />
 				<property name="specialAttack"  type="int" preprocessor="data_block_fa7545e6(28)" address="address" length="1" />
 				<property name="specialDefense" type="int" preprocessor="data_block_fa7545e6(29)" address="address" length="1" />
