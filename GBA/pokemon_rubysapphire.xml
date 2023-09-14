@@ -165,16 +165,15 @@
                 <class name="4" type="pokemonInParty" var:address="0x30044f0" />
                 <class name="5" type="pokemonInParty" var:address="0x3004554" />
             </team>
-            <!-- <badges>
-                // WIP: gSaveBlock1 + flags Offset (0x1220) + Badge01 (0x100 bit7 ??) - I think my math is wrong.
-                <property name="badge1" type="bit" position="7" address="0x30070B0" description="stonebadge" />
-                <property name="badge2" type="bit" position="0" address="0x30070B1" description="knucklebadge" />
-                <property name="badge3" type="bit" position="1" address="0x30070B1" description="dynamobadge" />
-                <property name="badge4" type="bit" position="2" address="0x30070B1" description="heatbadge" />
-                <property name="badge5" type="bit" position="3" address="0x30070B1" description="balancebadge" />
-                <property name="badge6" type="bit" position="4" address="0x30070B1" description="featherbadge" />
-                <property name="badge7" type="bit" position="5" address="0x30070B1" description="mindbadge" />
-                <property name="badge8" type="bit" position="6" address="0x30070B1" description="rainbadge" />
+            <-- <badges>
+                <property name="badge1" type="bit" position="1" address="0x2026a15" description="stonebadge" />
+                <property name="badge2" type="bit" position="2" address="0x2026a15" description="knucklebadge" />
+                <property name="badge3" type="bit" position="3" address="0x2026a15" description="dynamobadge" />
+                <property name="badge4" type="bit" position="4" address="0x2026a15" description="heatbadge" />
+                <property name="badge5" type="bit" position="5" address="0x2026a15" description="balancebadge" />
+                <property name="badge6" type="bit" position="6" address="0x2026a15" description="featherbadge" />
+                <property name="badge7" type="bit" position="7" address="0x2026a15" description="mindbadge" />
+                <property name="badge8" type="bit" position="0" address="0x2026a16" description="rainbadge" />
             </badges> -->
         </player>
 
