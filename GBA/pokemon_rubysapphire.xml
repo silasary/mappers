@@ -173,7 +173,7 @@
                 <property name="badge5" type="bit" position="5" address="0x2026a15" description="balancebadge" />
                 <property name="badge6" type="bit" position="6" address="0x2026a15" description="featherbadge" />
                 <property name="badge7" type="bit" position="7" address="0x2026a15" description="mindbadge" />
-                <property name="badge8" type="bit" position="0" address="0x2026a15" description="rainbadge" />
+                <property name="badge8" type="bit" position="0" address="0x2026a16" description="rainbadge" />
             </badges> -->
         </player>
 
