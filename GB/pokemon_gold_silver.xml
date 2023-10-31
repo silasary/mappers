@@ -62,18 +62,18 @@
 
         <pokemonInPartyMoveset>
             <property name="type" type="int" address="moveAddress" reference="moves" />
-            <property name="pp" type="int" address="moveAddress + 21" postprocessor-reader="x % 64" />
-            <property name="ppUp" type="int" address="moveAddress + 21" postprocessor-reader="Floor(x / 64)" />
+            <property name="pp"   type="int" address="moveAddress + 21" after-read-value-expression="value % 64" />
+            <property name="ppUp" type="int" address="moveAddress + 21" after-read-value-expression="Floor(value / 64)" />
         </pokemonInPartyMoveset>
 
         <pokemonBattleMoves>
             <property name="type" type="int" address="moveAddress" reference="moves" />
-            <property name="pp" type="int" address="moveAddress + 6" postprocessor-reader="x % 64" />
-            <property name="ppUp" type="int" address="moveAddress + 6" postprocessor-reader="Floor(x / 64)" />
+            <property name="pp"   type="int" address="moveAddress + 6" after-read-value-expression="value % 64" />
+            <property name="ppUp" type="int" address="moveAddress + 6" after-read-value-expression="Floor(value / 64)" />
         </pokemonBattleMoves>
 
         <playerItem>
-            <property name="item" address="address" type="int" reference="items" />
+            <property name="item"     address="address" type="int" reference="items" />
             <property name="quantity" address="address + 1" type="int" />
         </playerItem>
 
@@ -83,12 +83,12 @@
             <property name="mapGroup"  address="address+2" type="int" length="1" reference="mapGroups" />
             <property name="mapNumber" address="address+3" type="int" length="1" />
             <property name="hp"        address="address+4" type="int" length="1" />
-            <!-- <dvs>
-                <property name="attack"  address="address+5" type="int" postprocessor-reader="(x - (x % 16))/16" />
-                <property name="defense" address="address+5" type="int" postprocessor-reader="x % 16" />
-                <property name="speed"   address="address+6" type="int" postprocessor-reader="(x - (x % 16))/16" />
-                <property name="special" address="address+6" type="int" postprocessor-reader="x % 16" />
-            </dvs> -->
+            <!-- <ivs>
+                <property name="attack"  address="address+5" type="nibble" position="0" />
+                <property name="defense" address="address+5" type="nibble" position="1" />
+                <property name="speed"   address="address+6" type="nibble" position="0" />
+                <property name="special" address="address+6" type="nibble" position="1" />
+            </ivs> -->
         </roamer>
     </classes>
 
@@ -426,12 +426,12 @@
                     <property name="evasion"        type="int" address="0xCBB8" reference="stageModifiers" />
                 </modifiers>
                 <property name="enemyMonEnd" type="int" address="0xd116" />
-                <dvs>
-                    <property name="attack"  type="int" address="0xD0F5" postprocessor-reader="(x - (x % 16))/16" />
-                    <property name="defense" type="int" address="0xD0F5" postprocessor-reader="x % 16" />
-                    <property name="speed"   type="int" address="0xD0F6" postprocessor-reader="(x - (x % 16))/16" />
-                    <property name="special" type="int" address="0xD0F6" postprocessor-reader="x % 16" />
-                </dvs>
+                <ivs>
+                    <property name="attack"  type="nibble" address="0xD0F5" position="0" />
+                    <property name="defense" type="nibble" address="0xD0F5" position="1" />
+                    <property name="speed"   type="nibble" address="0xD0F6" position="0" />
+                    <property name="special" type="nibble" address="0xD0F6" position="1" />
+                </ivs>
                 <counters>
                     <property name="rollout"    type="int" address="0xCB58" />
                     <property name="confuse"    type="int" address="0xCB59" />
@@ -581,7 +581,7 @@
 
         <time>
             <current>
-                <property name="day"       type="int" address="0xD1F2" reference="dayNames" postprocessor-reader="x % 7" />
+                <property name="day"       type="int" address="0xD1F2" reference="dayNames" after-read-value-expression="value % 7" />
                 <property name="hour"      type="int" address="0xFF96" />
                 <property name="minute"    type="int" address="0xFF98" />
                 <property name="second"    type="int" address="0xFF9a" />
@@ -595,7 +595,7 @@
                 <property name="second"    type="int" address="0xD1DF" />
             </start>
             <rtc>
-                <property name="day"       type="int" address="0xff8f" length="2" postprocessor-reader="(x % 512) % 7" />
+                <property name="day"       type="int" address="0xff8f" length="2" after-read-value-expression="(value % 512) % 7" />
                 <property name="hour"      type="int" address="0xFF91" />
                 <property name="minute"    type="int" address="0xFF92" />
                 <property name="second"    type="int" address="0xFF93" />
@@ -608,7 +608,7 @@
         </time>
 
         <patch>
-            <property name="patchPresent" type="int" size="1" address="0x3fb5" postprocessor-reader="x != 0" />
+            <property name="patchPresent" type="int" size="1" address="0x3fb5" after-read-value-expression="value != 0" />
             <property name="turnCounter"  type="int" size="2" address="0xCfd8" />
             <time>
                 <property name="frameCount"       type="int" size="4" address="0x10191" />

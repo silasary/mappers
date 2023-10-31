@@ -4,666 +4,666 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://schemas.gamehook.io/mapper https://schemas.gamehook.io/mapper.xsd"
     xmlns:var="https://schemas.gamehook.io/attributes/var">
-    <macros>
+    <!-- <macros>
         <pokemon>
-            <property name="species" address="address" type="int" length="2" reference="pokemonSpecies" />
-            <property name="pokedexNumber" address="address" type="int" length="2" reference="pokemonPokedexNumbers" />
+            <property name="species"       type="int" address="address" memoryContainer="memoryContainer" length="2" reference="pokemonSpecies" />
+            <property name="pokedexNumber" type="int" address="address" memoryContainer="memoryContainer" length="2" reference="pokemonPokedexNumbers" />
         </pokemon>
-    </macros>
-
+    </macros> -->
     <classes>
         <pokemonInParty>
-            <property name="personalityValue" address="address"    type="uint" length="4" />
-            <property name="checksum"         address="address+28" type="int" length="2" description="Used to valid the decrypted data block" />
-            <property name="otID"             address="address+4"  type="uint" length="4" />
-            <property name="nickname"         address="address+8"  type="string" length="10"/>
-            <macro type="pokemon" />
-            <property name="speciesArray"     address="address"    type="int" preprocessor="data_block_a245dcac(0, 0)" length="2" reference="pokemonSpecies" />
-            <property name="level"            address="address+84" type="int" />
-            <property name="itemHeld"         address="address"    type="int" preprocessor="data_block_a245dcac(0, 2)" length="2" reference="items" />
-            <property name="expPoints"        address="address"    type="uint" preprocessor="data_block_a245dcac(0, 4)" length="4" />
-            <property name="nature"           address="address"    type="uint" length="4" postprocessor-reader="x % 25" />
-            <property name="friendship"       address="address"    type="int" preprocessor="data_block_a245dcac(0, 9)" />
-            <property name="statusCondition"  address="address+80" type="int" reference="statusConditions" />
-            <property name="ability"          address="address"    type="bit" preprocessor="data_block_a245dcac(3, 4)" length="4" position="31" />
-            <property name="pokerus"          address="address+85" type="int" />
+            <property name="personalityValue" type="uint"   address="0"       memoryContainer="memoryContainer" length="4" />
+            <property name="checksum"         type="int"    address="28"      memoryContainer="memoryContainer" length="2" description="Used to valid the decrypted data block" />
+            <property name="otID"             type="uint"   address="4"       memoryContainer="memoryContainer" length="4" />
+            <property name="species"          type="int"    address="32"      memoryContainer="memoryContainer" length="2" reference="pokemonSpecies" />
+            <property name="pokedexNumber"    type="int"    address="32"      memoryContainer="memoryContainer" length="2" reference="pokemonPokedexNumbers" />
+            <property name="nickname"         type="string" address="8"       memoryContainer="memoryContainer" length="10"/>
+            <property name="level"            type="int"    address="84"      memoryContainer="memoryContainer" />
+            <property name="itemHeld"         type="int"    address="32 + 2"  memoryContainer="memoryContainer" length="2" reference="items" />
+            <property name="expPoints"        type="uint"   address="32 + 4"  memoryContainer="memoryContainer" length="4" />
+            <property name="nature"           type="uint"   address="0"       memoryContainer="memoryContainer" length="4" after-read-value-expression="value % 25" />
+            <property name="friendship"       type="int"    address="32 + 9"  memoryContainer="memoryContainer" />
+            <property name="statusCondition"  type="int"    address="80"      memoryContainer="memoryContainer" reference="statusConditions" />
+            <property name="ability"          type="bit"    address="32 + 40" memoryContainer="memoryContainer" length="4" position="31" />
+            <property name="pokerus"          type="int"    address="85"      memoryContainer="memoryContainer" />
 
             <stats>
-                <property name="hp"             address="address+86" type="int" length="2" />
-                <property name="maxHp"          address="address+88" type="int" length="2" />
-                <property name="attack"         address="address+90" type="int" length="2" />
-                <property name="defense"        address="address+92" type="int" length="2" />
-                <property name="speed"          address="address+94" type="int" length="2" />
-                <property name="specialAttack"  address="address+96" type="int" length="2" />
-                <property name="specialDefense" address="address+98" type="int" length="2" />
+                <property name="hp"             type="int" address="86" memoryContainer="memoryContainer" length="2" />
+                <property name="maxHp"          type="int" address="88" memoryContainer="memoryContainer" length="2" />
+                <property name="attack"         type="int" address="90" memoryContainer="memoryContainer" length="2" />
+                <property name="defense"        type="int" address="92" memoryContainer="memoryContainer" length="2" />
+                <property name="speed"          type="int" address="94" memoryContainer="memoryContainer" length="2" />
+                <property name="specialAttack"  type="int" address="96" memoryContainer="memoryContainer" length="2" />
+                <property name="specialDefense" type="int" address="98" memoryContainer="memoryContainer" length="2" />
             </stats>
-            <!-- <moves>
-                <class name="0" type="pokemonPartyMoves" var:moveOffset="0" var:ppOffset="1" />
-                <class name="1" type="pokemonPartyMoves" var:moveOffset="2" var:ppOffset="1" />
-                <class name="2" type="pokemonPartyMoves" var:moveOffset="4" var:ppOffset="1" />
-                <class name="3" type="pokemonPartyMoves" var:moveOffset="6" var:ppOffset="1" />
-            </moves> -->
+            <moves>
+				<class name="0" type="pokemonMoves" var:offset_moveNumber="32 + 12" var:offset_powerPoints="32 + 20" var:offset_ppUp="32 + 59" memoryContainer="memoryContainer" />
+				<class name="1" type="pokemonMoves" var:offset_moveNumber="32 + 14" var:offset_powerPoints="32 + 21" var:offset_ppUp="32 + 59" memoryContainer="memoryContainer" />
+				<class name="2" type="pokemonMoves" var:offset_moveNumber="32 + 16" var:offset_powerPoints="32 + 22" var:offset_ppUp="32 + 59" memoryContainer="memoryContainer" />
+				<class name="3" type="pokemonMoves" var:offset_moveNumber="32 + 18" var:offset_powerPoints="32 + 23" var:offset_ppUp="32 + 59" memoryContainer="memoryContainer" />
+			</moves>
             <ivs>
-                <!-- <property name="ivEggAbilityBlock" address="address" preprocessor="data_block_a245dcac(3, 4)" type="uint" length="4" /> -->
-                <property name="hp"              address="address" preprocessor="data_block_a245dcac(3, 4)" type="int" length="4" postprocessor-reader="BitRange(x, 4, 0)" />
-                <property name="attack"          address="address" preprocessor="data_block_a245dcac(3, 4)" type="int" length="4" postprocessor-reader="BitRange(x, 9, 5)" />
-                <property name="defense"         address="address" preprocessor="data_block_a245dcac(3, 4)" type="int" length="4" postprocessor-reader="BitRange(x, 14, 10)" />
-                <property name="speed"           address="address" preprocessor="data_block_a245dcac(3, 4)" type="int" length="4" postprocessor-reader="BitRange(x, 19, 15)" />
-                <property name="specialAttack"   address="address" preprocessor="data_block_a245dcac(3, 4)" type="int" length="4" postprocessor-reader="BitRange(x, 24, 20)" />
-                <property name="specialDefense"  address="address" preprocessor="data_block_a245dcac(3, 4)" type="int" length="4" postprocessor-reader="BitRange(x, 29, 25)" />
+                <property name="hp"             type="int" address="32 + 40" memoryContainer="memoryContainer" length="4" after-read-value-expression="BitRange(value, 4, 0)" />
+                <property name="attack"         type="int" address="32 + 40" memoryContainer="memoryContainer" length="4" after-read-value-expression="BitRange(value, 9, 5)" />
+                <property name="defense"        type="int" address="32 + 40" memoryContainer="memoryContainer" length="4" after-read-value-expression="BitRange(value, 14, 10)" />
+                <property name="speed"          type="int" address="32 + 40" memoryContainer="memoryContainer" length="4" after-read-value-expression="BitRange(value, 19, 15)" />
+                <property name="specialAttack"  type="int" address="32 + 40" memoryContainer="memoryContainer" length="4" after-read-value-expression="BitRange(value, 24, 20)" />
+                <property name="specialDefense" type="int" address="32 + 40" memoryContainer="memoryContainer" length="4" after-read-value-expression="BitRange(value, 29, 25)" />
             </ivs>
             <evs>
-                <property name="hp"             address="address" preprocessor="data_block_a245dcac(2, 0)" type="int" />
-                <property name="attack"         address="address" preprocessor="data_block_a245dcac(2, 1)" type="int" />
-                <property name="defense"        address="address" preprocessor="data_block_a245dcac(2, 2)" type="int" />
-                <property name="speed"          address="address" preprocessor="data_block_a245dcac(2, 3)" type="int" />
-                <property name="specialAttack"  address="address" preprocessor="data_block_a245dcac(2, 4)" type="int" />
-                <property name="specialDefense" address="address" preprocessor="data_block_a245dcac(2, 5)" type="int" />
+                <property name="hp"             type="int" address="32 + 24" memoryContainer="memoryContainer" />
+                <property name="attack"         type="int" address="32 + 25" memoryContainer="memoryContainer" />
+                <property name="defense"        type="int" address="32 + 26" memoryContainer="memoryContainer" />
+                <property name="speed"          type="int" address="32 + 27" memoryContainer="memoryContainer" />
+                <property name="specialAttack"  type="int" address="32 + 28" memoryContainer="memoryContainer" />
+                <property name="specialDefense" type="int" address="32 + 29" memoryContainer="memoryContainer" />
             </evs>
             <misc> 
-                <property name="isEgg"            address="address" preprocessor="data_block_a245dcac(3, 4)" type="bit" length="4" position="30" />
-                <property name="language"         address="address+18" type="int" reference="language" />
-                <property name="isBadEgg"         address="address+19" type="bit" position="0" />
-                <property name="hasSpecies"       address="address+19" type="bit" position="1" />
-                <property name="useEggName"       address="address+19" type="bit" position="2" />
-                <property name="otName"           address="address+20" type="string" length="7"/>
-                <property name="markingCircle"    address="address+27" type="bit" position="0" />
-                <property name="markingSquare"    address="address+27" type="bit" position="1" />
-                <property name="markingTriangle"  address="address+27" type="bit" position="2" />
-                <property name="markingHeart"     address="address+27" type="bit" position="3" />
-                <property name="pokerusStatus"    address="address" preprocessor="data_block_a245dcac(3, 0)" type="int" />
-                <property name="metLocation"      address="address" preprocessor="data_block_a245dcac(3, 1)" type="int" />
-                <property name="originsInfo"      address="address" preprocessor="data_block_a245dcac(3, 2)" type="int" length="2" />
-                <property name="robbinsObedience" address="address" preprocessor="data_block_a245dcac(3, 8)" type="int" length="4" />
+                <property name="isEgg"            type="bit"    address="40" memoryContainer="memoryContainer" length="4" position="30" />
+                <property name="language"         type="int"    address="18" memoryContainer="memoryContainer" reference="language" />
+                <property name="isBadEgg"         type="bit"    address="19" memoryContainer="memoryContainer" position="0" />
+                <property name="hasSpecies"       type="bit"    address="19" memoryContainer="memoryContainer" position="1" />
+                <property name="useEggName"       type="bit"    address="19" memoryContainer="memoryContainer" position="2" />
+                <property name="otName"           type="string" address="20" memoryContainer="memoryContainer" length="7"/>
+                <property name="markingCircle"    type="bit"    address="27" memoryContainer="memoryContainer" position="0" />
+                <property name="markingSquare"    type="bit"    address="27" memoryContainer="memoryContainer" position="1" />
+                <property name="markingTriangle"  type="bit"    address="27" memoryContainer="memoryContainer" position="2" />
+                <property name="markingHeart"     type="bit"    address="27" memoryContainer="memoryContainer" position="3" />
+                <property name="pokerusStatus"    type="int"    address="36" memoryContainer="memoryContainer" />
+                <property name="metLocation"      type="int"    address="37" memoryContainer="memoryContainer" />
+                <property name="originsInfo"      type="int"    address="38" memoryContainer="memoryContainer" length="2" />
+                <property name="robbinsObedience" type="int"    address="44" memoryContainer="memoryContainer" length="4" />
             </misc> 
         </pokemonInParty>
         <battleStructure>
             <property name="partyPos" type="int" address="partyPosition" length="2" />
-            <macro type="pokemon" />
-            <property name="nickname"         address="address+48" type="string" length="11" characterMap="defaultCharacterMap" />
-            <property name="speciesArray"     address="address+0"  type="int" length="2" reference="pokemonSpecies" />
-            <property name="level"            address="address+42" type="int" />
-            <property name="expPoints"        address="address+68" type="uint" length="4"/>
-            <property name="friendship"       address="address+43" type="int" />
-            <property name="personalityValue" address="address+72" type="uint" length="4"/>
-            <property name="ability"          address="address+32" type="int" reference="abilities" />
-            <property name="heldItem"         address="address+46" type="int" length="2" reference="items" />
-            <property name="focusEnergy"      address="address+82" type="bit" position="4" />
-            <property name="type1"            address="address+33" type="int" reference="pokemonTypes" />
-            <property name="type2"            address="address+34" type="int" reference="pokemonTypes" />
-            <property name="status1"          address="address+76" type="int"  reference="statusConditions" />
-            <property name="status2"          address="address+76" type="int"  reference="statusConditions" />
-            <property name="otName"           address="address+60" type="string" length="8" characterMap="defaultCharacterMap" />
+            <!-- <macro type="pokemon" /> -->
+            <property name="species"          type="int"    address="address" length="2" reference="pokemonSpecies" />
+            <property name="nickname"         type="string" address="address + 48" length="11" characterMap="defaultCharacterMap" />
+            <property name="level"            type="int"    address="address + 42" />
+            <property name="expPoints"        type="uint"   address="address + 68" length="4"/>
+            <property name="friendship"       type="int"    address="address + 43" />
+            <property name="personalityValue" type="uint"   address="address + 72" length="4"/>
+            <property name="ability"          type="int"    address="address + 32" reference="abilities" />
+            <property name="heldItem"         type="int"    address="address + 46" length="2" reference="items" />
+            <property name="focusEnergy"      type="bit"    address="address + 82" position="4" />
+            <property name="type1"            type="int"    address="address + 33" reference="pokemonTypes" />
+            <property name="type2"            type="int"    address="address + 34" reference="pokemonTypes" />
+            <property name="status1"          type="int"    address="address + 76" reference="statusConditions" />
+            <property name="status2"          type="int"    address="address + 76" reference="statusConditions" />
+            <property name="otName"           type="string" address="address + 60" length="8" characterMap="defaultCharacterMap" />
             <stats>
-                <property name="hp"             address="address+44" type="int" length="2" />
-                <property name="maxHp"          address="address+40" type="int" length="2" />
-                <property name="attack"         address="address+2"  type="int" length="2" />
-                <property name="defense"        address="address+4"  type="int" length="2" />
-                <property name="speed"          address="address+6"  type="int" length="2" />
-                <property name="specialAttack"  address="address+8"  type="int" length="2" />
-                <property name="specialDefense" address="address+10" type="int" length="2" />
+                <property name="hp"             type="int" address="address + 44" length="2" />
+                <property name="maxHp"          type="int" address="address + 40" length="2" />
+                <property name="attack"         type="int" address="address + 2"  length="2" />
+                <property name="defense"        type="int" address="address + 4"  length="2" />
+                <property name="speed"          type="int" address="address + 6"  length="2" />
+                <property name="specialAttack"  type="int" address="address + 8"  length="2" />
+                <property name="specialDefense" type="int" address="address + 10" length="2" />
             </stats>
             <ivs>
                 <!-- <property name="ivEggAbilityBlock" address="address+20" type="uint" length="4" /> -->
-                <property name="hp"              address="address+20" type="int" length="4" postprocessor-reader="BitRange(x, 4, 0)" />
-                <property name="attack"          address="address+20" type="int" length="4" postprocessor-reader="BitRange(x, 9, 5)" />
-                <property name="defense"         address="address+20" type="int" length="4" postprocessor-reader="BitRange(x, 14, 10)" />
-                <property name="speed"           address="address+20" type="int" length="4" postprocessor-reader="BitRange(x, 19, 15)" />
-                <property name="specialAttack"   address="address+20" type="int" length="4" postprocessor-reader="BitRange(x, 24, 20)" />
-                <property name="specialDefense"  address="address+20" type="int" length="4" postprocessor-reader="BitRange(x, 29, 25)" />
+                <property name="hp"             type="int" address="address + 20" length="4" after-read-value-expression="BitRange(value, 4, 0)" />
+                <property name="attack"         type="int" address="address + 20" length="4" after-read-value-expression="BitRange(value, 9, 5)" />
+                <property name="defense"        type="int" address="address + 20" length="4" after-read-value-expression="BitRange(value, 14, 10)" />
+                <property name="speed"          type="int" address="address + 20" length="4" after-read-value-expression="BitRange(value, 19, 15)" />
+                <property name="specialAttack"  type="int" address="address + 20" length="4" after-read-value-expression="BitRange(value, 24, 20)" />
+                <property name="specialDefense" type="int" address="address + 20" length="4" after-read-value-expression="BitRange(value, 29, 25)" />
             </ivs>
-            <!-- <moves>
-                move1: { offset: 12, type: "int", size: 2, reference: "moves" }
-                move2: { offset: 14, type: "int", size: 2, reference: "moves" }
-                move3: { offset: 16, type: "int", size: 2, reference: "moves" }
-                move4: { offset: 18, type: "int", size: 2, reference: "moves" }
-                move1pp: { offset: 36, type: "int" }
-                move2pp: { offset: 37, type: "int" }
-                move3pp: { offset: 38, type: "int" }
-                move4pp: { offset: 39, type: "int" }
-                move1ppUp: { offset: 59, type: "int", postprocessor: "BitRange(x, 1, 0)" }
-                move2ppUp: { offset: 59, type: "int", postprocessor: "BitRange(x, 3, 2)" }
-                move3ppUp: { offset: 59, type: "int", postprocessor: "BitRange(x, 5, 4)" }
-                move4ppUp: { offset: 59, type: "int", postprocessor: "BitRange(x, 7, 6)" }
-            </moves> -->
+ 			<moves>
+				<class name="0" address="address" type="pokemonBattleMoves" var:offset_moveNumber="12" var:offset_powerPoints="44" />
+				<class name="1" address="address" type="pokemonBattleMoves" var:offset_moveNumber="14" var:offset_powerPoints="45" />
+				<class name="2" address="address" type="pokemonBattleMoves" var:offset_moveNumber="16" var:offset_powerPoints="46" />
+				<class name="3" address="address" type="pokemonBattleMoves" var:offset_moveNumber="18" var:offset_powerPoints="47" />
+			</moves>
             <modifiers>
-                <property name="attack"         address="address+25" type="int" reference="stageModifiers" />
-                <property name="defense"        address="address+26" type="int" reference="stageModifiers" />
-                <property name="speed"          address="address+27" type="int" reference="stageModifiers" />
-                <property name="specialAttack"  address="address+28" type="int" reference="stageModifiers" />
-                <property name="specialDefense" address="address+29" type="int" reference="stageModifiers" />
-                <property name="accuracy"       address="address+30" type="int" reference="stageModifiers" />
-                <property name="evasion"        address="address+31" type="int" reference="stageModifiers" />
+                <property name="attack"         type="int" address="address + 25" reference="stageModifiers" />
+                <property name="defense"        type="int" address="address + 26" reference="stageModifiers" />
+                <property name="speed"          type="int" address="address + 27" reference="stageModifiers" />
+                <property name="specialAttack"  type="int" address="address + 28" reference="stageModifiers" />
+                <property name="specialDefense" type="int" address="address + 29" reference="stageModifiers" />
+                <property name="accuracy"       type="int" address="address + 30" reference="stageModifiers" />
+                <property name="evasion"        type="int" address="address + 31" reference="stageModifiers" />
             </modifiers>
-
         </battleStructure>
-        <!-- <pokemonPartyMoves>
-            <class name="move" type="pokemonPartyMoves" preprocessor="data_block_a245dcac(1, moveOffset)" length="2" reference="moves" />
-            <class name="pp"   type="pokemonPartyMoves" preprocessor="data_block_a245dcac(1, ppOffset + 8)" />
-            <class name="ppUp" type="pokemonPartyMoves" preprocessor="data_block_a245dcac(0, ppOffset + 8)" postprocessor-reader="BitRange(x, 1, 0)" />
-        </pokemonPartyMoves> -->
+		<pokemonMoves>
+			<property name="move" type="int" address="offset_moveNumber"  memoryContainer="memoryContainer" reference="moves" length="2" />
+			<property name="pp"   type="int" address="offset_powerPoints" memoryContainer="memoryContainer" after-read-value-expression="value % 64" />
+			<property name="ppUp" type="int" address="offset_ppUp"        memoryContainer="memoryContainer" after-read-value-expression="Floor(value / 64)" />
+		</pokemonMoves>
+        <pokemonBattleMoves>
+			<property name="move" type="int" address="address + offset_moveNumber"  reference="moves" length="2" />
+			<property name="pp"   type="int" address="address + offset_powerPoints" after-read-value-expression="value % 64" />
+			<property name="ppUp" type="int" value="null" />
+		</pokemonBattleMoves>
         <playerItem>
-            <property name="item"     type="int" length="2" preprocessor="dma_967d10cc(0x03005D8C, offset)" reference="items" />
-            <property name="quantity" type="int" length="2" preprocessor="dma_967d10cc(0x03005D8C, offset + 2)" />
+            <property name="item"     type="int" length="2" address="dma_a + offset" reference="items" />
+            <property name="quantity" type="int" length="2" address="dma_a + offset + 2" />
         </playerItem>
     </classes>
 
     <properties>
+        <meta>
+			<property name="generation" type="int" value="3" />
+			<property name="gameName"   type="int" value="Emerald" />
+			<property name="gameType"   type="int" value="Third Version" />
+			<property name="state"      type="string" />
+			<property name="stateEnemy" type="string" />
+		</meta>
         <player>
-            <property name="playerId"  type="string" address="0x020228CC" length="2" reference="defaultCharacterMap" description="The active player user Id, better tracking for if the game has loaded a new or saved game" />
-            <property name="name"      type="string" length="8" preprocessor="dma_967d10cc(0x03005D90, 0)" characterMap="defaultCharacterMap" />
-            <property name="gender"    type="int" preprocessor="dma_967d10cc(0x03005D90, 8)" reference="gender" />
-            <property name="teamCount" type="int" address="0x20244E9" />
+            <property name="playerId"  type="string" address="0x20228CC" length="2" reference="defaultCharacterMap" description="The active player user Id, better tracking for if the game has loaded a new or saved game" />
+            <property name="name"      type="string" address="dma_b"     length="8" characterMap="defaultCharacterMap" />
+            <property name="gender"    type="int"    address="dma_b + 8" reference="gender" />
             <team>
-                <class name="0" type="pokemonInParty" var:address="0x20244EC" />
-                <class name="1" type="pokemonInParty" var:address="0x2024550" />
-                <class name="2" type="pokemonInParty" var:address="0x20245B4" />
-                <class name="3" type="pokemonInParty" var:address="0x2024618" />
-                <class name="4" type="pokemonInParty" var:address="0x202467C" />
-                <class name="5" type="pokemonInParty" var:address="0x20246E0" />
+                <class name="0" type="pokemonInParty" var:memoryContainer="player_party_structure_0" />
+                <class name="1" type="pokemonInParty" var:memoryContainer="player_party_structure_1" />
+                <class name="2" type="pokemonInParty" var:memoryContainer="player_party_structure_2" />
+                <class name="3" type="pokemonInParty" var:memoryContainer="player_party_structure_3" />
+                <class name="4" type="pokemonInParty" var:memoryContainer="player_party_structure_4" />
+                <class name="5" type="pokemonInParty" var:memoryContainer="player_party_structure_5" />
             </team>
             <badges>
-                <property name="badge1" type="bit" position="0" preprocessor="dma_967d10cc(0x03005D90, 8890)" description="stonebadge" />
-                <property name="badge2" type="bit" position="1" preprocessor="dma_967d10cc(0x03005D90, 8890)" description="knucklebadge" />
-                <property name="badge3" type="bit" position="2" preprocessor="dma_967d10cc(0x03005D90, 8890)" description="dynamobadge" />
-                <property name="badge4" type="bit" position="3" preprocessor="dma_967d10cc(0x03005D90, 8890)" description="heatbadge" />
-                <property name="badge5" type="bit" position="4" preprocessor="dma_967d10cc(0x03005D90, 8890)" description="balancebadge" />
-                <property name="badge6" type="bit" position="5" preprocessor="dma_967d10cc(0x03005D90, 8890)" description="featherbadge" />
-                <property name="badge7" type="bit" position="6" preprocessor="dma_967d10cc(0x03005D90, 8890)" description="mindbadge" />
-                <property name="badge8" type="bit" position="7" preprocessor="dma_967d10cc(0x03005D90, 8890)" description="rainbadge" />
+                <property name="badge1" type="bit" position="0" address="dma_b + 8890" description="stonebadge" />
+                <property name="badge2" type="bit" position="1" address="dma_b + 8890" description="knucklebadge" />
+                <property name="badge3" type="bit" position="2" address="dma_b + 8890" description="dynamobadge" />
+                <property name="badge4" type="bit" position="3" address="dma_b + 8890" description="heatbadge" />
+                <property name="badge5" type="bit" position="4" address="dma_b + 8890" description="balancebadge" />
+                <property name="badge6" type="bit" position="5" address="dma_b + 8890" description="featherbadge" />
+                <property name="badge7" type="bit" position="6" address="dma_b + 8890" description="mindbadge" />
+                <property name="badge8" type="bit" position="7" address="dma_b + 8890" description="rainbadge" />
             </badges>
         </player>
 
         <bag>
-            <property name="quantityDecyptionKey" type="int" length="2" preprocessor="dma_967d10cc(0x03005d90, 172)" />
+            <property name="quantityDecyptionKey" type="int" length="2" address="dma_b + 172" />
             <items>
-                <!-- <class name="0" type="playerItem" var:offset="1376" /> -->
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1376)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1378)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1380)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1382)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1384)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1386)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1388)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1390)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1392)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1394)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1396)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1398)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1400)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1402)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1404)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1406)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1408)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1410)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1412)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1414)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1416)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1418)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1420)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1422)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1424)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1426)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1428)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1430)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1432)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1434)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1436)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1438)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1440)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1442)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1444)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1446)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1448)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1450)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1452)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1454)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1456)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1458)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1460)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1462)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1464)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1466)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1468)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1470)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1472)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1474)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1476)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1478)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1480)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1482)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1484)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1486)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1488)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1490)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1492)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1494)" } # xor value with [quantityDecyptionKey]
+                <class name="0" type="playerItem" var:offset="1376" />
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1376)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1378)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1380)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1382)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1384)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1386)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1388)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1390)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1392)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1394)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1396)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1398)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1400)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1402)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1404)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1406)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1408)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1410)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1412)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1414)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1416)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1418)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1420)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1422)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1424)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1426)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1428)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1430)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1432)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1434)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1436)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1438)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1440)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1442)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1444)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1446)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1448)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1450)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1452)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1454)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1456)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1458)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1460)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1462)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1464)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1466)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1468)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1470)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1472)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1474)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1476)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1478)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1480)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1482)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1484)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1486)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1488)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1490)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1492)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1494)" } # xor value with [quantityDecyptionKey]
             </items>
             <keyItems>
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1496)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1498)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1500)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1502)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1504)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1506)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1508)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1510)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1512)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1514)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1516)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1518)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1520)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1522)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1524)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1526)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1528)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1530)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1532)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1534)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1536)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1538)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1540)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1542)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1544)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1546)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1548)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1550)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1552)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1554)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1556)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1558)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1560)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1562)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1564)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1566)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1568)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1570)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1572)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1574)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1576)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1578)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1580)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1582)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1584)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1586)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1588)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1590)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1592)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1594)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1596)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1598)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1600)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1602)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1604)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1606)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1608)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1610)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1612)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1614)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1496)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1498)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1500)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1502)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1504)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1506)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1508)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1510)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1512)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1514)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1516)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1518)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1520)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1522)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1524)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1526)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1528)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1530)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1532)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1534)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1536)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1538)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1540)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1542)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1544)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1546)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1548)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1550)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1552)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1554)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1556)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1558)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1560)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1562)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1564)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1566)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1568)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1570)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1572)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1574)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1576)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1578)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1580)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1582)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1584)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1586)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1588)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1590)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1592)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1594)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1596)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1598)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1600)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1602)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1604)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1606)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1608)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1610)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1612)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1614)" } # xor value with [quantityDecyptionKey]
             </keyItems>
             
             <pokeBalls>
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1616)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1618)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1620)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1622)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1624)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1626)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1628)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1630)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1632)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1634)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1636)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1638)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1640)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1642)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1644)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1646)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1648)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1650)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1652)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1654)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1656)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1658)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1660)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1662)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1664)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1666)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1668)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1670)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1672)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1674)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1676)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1678)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1616)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1618)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1620)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1622)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1624)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1626)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1628)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1630)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1632)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1634)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1636)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1638)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1640)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1642)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1644)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1646)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1648)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1650)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1652)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1654)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1656)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1658)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1660)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1662)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1664)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1666)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1668)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1670)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1672)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1674)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1676)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1678)" } # xor value with [quantityDecyptionKey]
             </pokeBalls>
             
             <tmhm>
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1680)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1682)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1684)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1686)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1688)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1690)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1692)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1694)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1696)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1698)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1700)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1702)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1704)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1706)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1708)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1710)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1712)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1714)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1716)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1718)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1720)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1722)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1724)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1726)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1728)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1730)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1732)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1734)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1736)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1738)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1740)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1742)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1744)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1746)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1748)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1750)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1752)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1754)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1756)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1758)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1760)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1762)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1764)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1766)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1768)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1770)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1772)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1774)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1776)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1778)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1780)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1782)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1784)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1786)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1788)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1790)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1792)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1794)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1796)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1798)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1800)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1802)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1804)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1806)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1808)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1810)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1812)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1814)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1816)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1818)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1820)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1822)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1824)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1826)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1828)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1830)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1832)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1834)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1836)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1838)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1840)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1842)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1844)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1846)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1848)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1850)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1852)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1854)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1856)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1858)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1860)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1862)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1864)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1866)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1868)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1870)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1872)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1874)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1876)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1878)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1880)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1882)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1884)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1886)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1888)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1890)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1892)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1894)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1896)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1898)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1900)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1902)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1904)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1906)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1908)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1910)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1912)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1914)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1916)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1918)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1920)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1922)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1924)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1926)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1928)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1930)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1932)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1934)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1680)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1682)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1684)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1686)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1688)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1690)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1692)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1694)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1696)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1698)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1700)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1702)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1704)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1706)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1708)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1710)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1712)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1714)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1716)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1718)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1720)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1722)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1724)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1726)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1728)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1730)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1732)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1734)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1736)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1738)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1740)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1742)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1744)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1746)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1748)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1750)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1752)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1754)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1756)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1758)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1760)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1762)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1764)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1766)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1768)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1770)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1772)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1774)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1776)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1778)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1780)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1782)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1784)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1786)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1788)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1790)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1792)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1794)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1796)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1798)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1800)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1802)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1804)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1806)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1808)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1810)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1812)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1814)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1816)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1818)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1820)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1822)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1824)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1826)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1828)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1830)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1832)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1834)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1836)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1838)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1840)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1842)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1844)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1846)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1848)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1850)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1852)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1854)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1856)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1858)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1860)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1862)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1864)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1866)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1868)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1870)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1872)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1874)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1876)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1878)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1880)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1882)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1884)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1886)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1888)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1890)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1892)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1894)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1896)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1898)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1900)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1902)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1904)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1906)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1908)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1910)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1912)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1914)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1916)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1918)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1920)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1922)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1924)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1926)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1928)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1930)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1932)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1934)" } # xor value with [quantityDecyptionKey]
             </tmhm>
             
             <berries>
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1936)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1938)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1940)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1942)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1944)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1946)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1948)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1950)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1952)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1954)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1956)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1958)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1960)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1962)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1964)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1966)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1968)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1970)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1972)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1974)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1976)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1978)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1980)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1982)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1984)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1986)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1988)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1990)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1992)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1994)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1996)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1998)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2000)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2002)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2004)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2006)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2008)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2010)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2012)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2014)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2016)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2018)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2020)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2022)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2024)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2026)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2028)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2030)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2032)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2034)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2036)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2038)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2040)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2042)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2044)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2046)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2048)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2050)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2052)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2054)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2056)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2058)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2060)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2062)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2064)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2066)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2068)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2070)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2072)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2074)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2076)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2078)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2080)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2082)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2084)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2086)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2088)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2090)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2092)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2094)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2096)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2098)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2100)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2102)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2104)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2106)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2108)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2110)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2112)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2114)" } # xor value with [quantityDecyptionKey]
-                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2116)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 2118)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1936)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1938)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1940)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1942)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1944)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1946)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1948)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1950)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1952)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1954)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1956)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1958)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1960)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1962)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1964)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1966)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1968)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1970)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1972)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1974)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1976)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1978)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1980)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1982)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1984)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1986)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1988)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1990)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1992)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1994)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1996)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1998)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2000)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2002)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2004)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2006)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2008)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2010)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2012)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2014)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2016)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2018)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2020)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2022)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2024)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2026)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2028)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2030)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2032)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2034)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2036)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2038)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2040)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2042)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2044)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2046)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2048)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2050)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2052)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2054)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2056)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2058)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2060)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2062)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2064)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2066)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2068)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2070)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2072)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2074)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2076)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2078)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2080)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2082)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2084)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2086)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2088)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2090)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2092)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2094)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2096)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2098)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2100)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2102)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2104)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2106)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2108)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2110)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2112)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2114)" } # xor value with [quantityDecyptionKey]
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2116)", reference: "items" }
+                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 2118)" } # xor value with [quantityDecyptionKey]
             </berries>
             
             <pcItems>
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1176)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1178)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1180)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1182)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1184)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1186)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1188)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1190)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1192)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1194)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1196)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1198)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1200)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1202)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1204)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1206)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1208)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1210)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1212)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1214)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1216)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1218)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1220)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1222)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1224)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1226)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1228)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1230)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1232)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1234)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1236)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1238)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1240)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1242)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1244)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1246)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1248)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1250)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1252)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1254)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1256)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1258)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1260)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1262)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1264)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1266)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1268)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1270)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1272)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1274)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1276)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1278)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1280)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1282)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1284)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1286)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1288)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1290)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1292)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1294)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1296)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1298)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1300)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1302)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1304)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1306)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1308)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1310)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1312)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1314)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1316)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1318)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1320)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1322)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1324)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1326)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1328)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1330)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1332)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1334)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1336)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1338)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1340)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1342)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1344)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1346)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1348)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1350)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1352)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1354)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1356)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1358)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1360)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1362)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1364)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1366)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1368)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1370)" } # value not encrypted
-            - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1372)", reference: "items" }
-                quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(0x03005D8C, 1374)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1176)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1178)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1180)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1182)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1184)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1186)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1188)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1190)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1192)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1194)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1196)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1198)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1200)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1202)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1204)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1206)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1208)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1210)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1212)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1214)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1216)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1218)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1220)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1222)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1224)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1226)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1228)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1230)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1232)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1234)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1236)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1238)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1240)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1242)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1244)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1246)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1248)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1250)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1252)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1254)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1256)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1258)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1260)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1262)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1264)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1266)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1268)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1270)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1272)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1274)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1276)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1278)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1280)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1282)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1284)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1286)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1288)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1290)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1292)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1294)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1296)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1298)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1300)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1302)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1304)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1306)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1308)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1310)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1312)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1314)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1316)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1318)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1320)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1322)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1324)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1326)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1328)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1330)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1332)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1334)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1336)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1338)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1340)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1342)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1344)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1346)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1348)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1350)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1352)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1354)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1356)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1358)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1360)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1362)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1364)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1366)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1368)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1370)" } # value not encrypted
+                - item:     { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1372)", reference: "items" }
+                    quantity: { type: "int", size: 2, preprocessor: "dma_967d10cc(dma_a + 1374)" } # value not encrypted
             </pcItems>
 
             <!-- # items: #imported from FireRed to ensure same structure - do not use these addresses
@@ -673,71 +673,77 @@
         </bag>
 
         <overworld>
-            <property name="mapName"      type="int" length="2" address="0x020322e4" reference="mapName" />
-            <property name="walkRunState" type="int" address="0x2037078" reference="walkRunState"/>
-            <property name="safariSteps"  type="int" address="0x02039996" />
+            <property name="mapName"      type="int" address="0x20322E4" length="2" reference="mapName" />
+            <property name="walkRunState" type="int" address="0x2037078"  reference="walkRunState"/>
+            <property name="safariSteps"  type="int" address="0x2039996" />
         </overworld>
 
         <battle>
-            <property name="outcome" type="int" address="0x0202433a" reference="battleOutcome" />
-            <type>
-                <property name="double"           type="bit" address="0x02022fec" length="4" position="0" />
-                <property name="link"             type="bit" address="0x02022fec" length="4" position="1" />
-                <property name="is_battle"        type="bit" address="0x02022fec" length="4" position="2" />
-                <property name="trainer"          type="bit" address="0x02022fec" length="4" position="3" />
-                <property name="first_battle"     type="bit" address="0x02022fec" length="4" position="4" />
-                <property name="link_in_battle"   type="bit" address="0x02022fec" length="4" position="5" />
-                <property name="multi"            type="bit" address="0x02022fec" length="4" position="6" />
-                <property name="safari"           type="bit" address="0x02022fec" length="4" position="7" />
-                <property name="battle_tower"     type="bit" address="0x02022fec" length="4" position="8" />
-                <property name="old_man_tutorial" type="bit" address="0x02022fec" length="4" position="9" />
-                <property name="roamer"           type="bit" address="0x02022fec" length="4" position="10" />
-                <property name="eReader_trainer"  type="bit" address="0x02022fec" length="4" position="11" />
-                <property name="kyogre_groudon"   type="bit" address="0x02022fec" length="4" position="12" />
-                <property name="ghost_unveiled"   type="bit" address="0x02022fec" length="4" position="13" />
-                <property name="regi"             type="bit" address="0x02022fec" length="4" position="14" />
-                <property name="ghost"            type="bit" address="0x02022fec" length="4" position="15" />
-                <property name="pokedude"         type="bit" address="0x02022fec" length="4" position="16" />
-                <property name="wild_scripted"    type="bit" address="0x02022fec" length="4" position="17" />
-                <property name="legenadry_frlg"   type="bit" address="0x02022fec" length="4" position="18" />
-                <property name="trainer_tower"    type="bit" address="0x02022fec" length="4" position="19" />
-            </type>
-            <trainer>
-                <property name="opponentA"    type="int" length="2" address="0x2038bca" reference="trainerClasses" />
-                <property name="opponentAId"  type="int" length="2" address="0x2038bca" />
-                <property name="opponentB"    type="int" length="2" address="0x2038bcc" reference="trainerClasses" /> 
-                <property name="opponentBId"  type="int" length="2" address="0x2038bcc"/> 
-                <property name="partnerId"    type="int" length="2" address="0x2038bce" reference="trainerClasses" />
-                <property name="totalPokemon" type="int" address="0x20244ea" />
+            <property name="outcome" type="int" address="0x202433A" reference="battleOutcome" />
+            <player>
+                <class name="activePokemon"  type="battleStructure" var:address="0x2024084" var:partyPosition="0x202406E" length="2" />
+                <class name="activePokemon2" type="battleStructure" var:address="0x2024134" var:partyPosition="0x2024072" length="2" />
+                <property name="teamCount"   type="int" address="0x20244EC - 3" />
                 <team>
-                    <class name="0" type="pokemonInParty" var:address="0x2024744" />
-                    <class name="1" type="pokemonInParty" var:address="0x20247A8" />
-                    <class name="2" type="pokemonInParty" var:address="0x202480C" />
-                    <class name="3" type="pokemonInParty" var:address="0x2024870" />
-                    <class name="4" type="pokemonInParty" var:address="0x20248D4" />
-                    <class name="5" type="pokemonInParty" var:address="0x2024938" />
+                    <class name="0" type="pokemonInParty" var:memoryContainer="playerAlt_party_structure_0" />
+                    <class name="1" type="pokemonInParty" var:memoryContainer="playerAlt_party_structure_1" />
+                    <class name="2" type="pokemonInParty" var:memoryContainer="playerAlt_party_structure_2" />
+                    <class name="3" type="pokemonInParty" var:memoryContainer="playerAlt_party_structure_3" />
+                    <class name="4" type="pokemonInParty" var:memoryContainer="playerAlt_party_structure_4" />
+                    <class name="5" type="pokemonInParty" var:memoryContainer="playerAlt_party_structure_5" />
                 </team>
-            </trainer>
-            <class name="playerPokemon"       type="battleStructure" var:address="0x202406E" var:partyPosition="0x0202406E" length="2" />
-            <class name="playerSecondPokemon" type="battleStructure" var:address="0x2024134" var:partyPosition="0x02024072" length="2" />
-            <class name="enemyPokemon"        type="battleStructure" var:address="0x20240DC" var:partyPosition="0x02024070" length="2" />
-            <class name="enemySecondPokemon"  type="battleStructure" var:address="0x202418C" var:partyPosition="0x02024074" length="2" />
+            </player>
+            <ally>
+                <property name="trainer" type="int" address="0x2038BCE" length="2" reference="trainerClasses" />
+                <property name="id"      type="int" address="0x2038BCE" length="2" />
+                <!-- <class name="activePokemon"  type="battleStructure" var:address="0x20240DC" var:partyPosition="0x2024070" length="2" /> -->
+                <team>
+                    <class name="0" type="pokemonInParty" var:memoryContainer="playerAlt_party_structure_3" />
+                    <class name="1" type="pokemonInParty" var:memoryContainer="playerAlt_party_structure_4" />
+                    <class name="2" type="pokemonInParty" var:memoryContainer="playerAlt_party_structure_5" />
+                </team>
+            </ally>
+            <opponentA>
+                <property name="trainer"     type="int" address="0x2038BCA" length="2" reference="trainerClasses" />
+                <property name="id"          type="int" address="0x2038BCA" length="2" />
+                <property name="teamCount"   type="int" address="0x20244EA" />
+                <class name="activePokemon"  type="battleStructure" var:address="0x2023A68" var:partyPosition="0x2024070" length="2" />
+                <class name="activePokemon2" type="battleStructure" var:address="0x202418C" var:partyPosition="0x2024074" length="2" />
+                <team>
+                    <class name="0" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_0" />
+                    <class name="1" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_1" />
+                    <class name="2" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_2" />
+                    <class name="3" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_3" />
+                    <class name="4" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_4" />
+                    <class name="5" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_5" />
+                </team>
+            </opponentA>
+            <opponentB>
+                <property name="trainer"    type="int" length="2" address="0x2038BCC" reference="trainerClasses" /> 
+                <property name="id"         type="int" length="2" address="0x2038BCC"/> 
+                <class name="activePokemon" type="battleStructure" var:address="0x202418C" var:partyPosition="0x2024074" length="2" />
+                <team>
+                    <class name="0" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_3" />
+                    <class name="1" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_4" />
+                    <class name="2" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_5" />
+                </team>
+            </opponentB>
             <field>
                 <player>
-                    <property name="statusSafeguard"   type="bit" address="0x0202428E" length="2" position="5" />
-                    <property name="statusReflect"     type="bit" address="0x0202428E" length="2" position="0" />
-                    <property name="statusLightScreen" type="bit" address="0x0202428E" length="2" position="1" />
-                    <property name="safeguardCount"    type="int" address="0x0202429A" />
-                    <property name="lightScreenCount"  type="int" address="0x02024296" />
-                    <property name="reflectCount"      type="int" address="0x02024294" />
+                    <property name="statusSafeguard"   type="bit" address="0x202428E" length="2" position="5" />
+                    <property name="statusReflect"     type="bit" address="0x202428E" length="2" position="0" />
+                    <property name="statusLightScreen" type="bit" address="0x202428E" length="2" position="1" />
+                    <property name="safeguardCount"    type="int" address="0x202429A" />
+                    <property name="lightScreenCount"  type="int" address="0x2024296" />
+                    <property name="reflectCount"      type="int" address="0x2024294" />
                 </player>
                 <enemy>
-                    <property name="statusSafeguard"   type="bit" address="0x02024290" length="2" position="5" />
-                    <property name="statusReflect"     type="bit" address="0x02024290" length="2" position="0" />
-                    <property name="statusLightScreen" type="bit" address="0x02024290" length="2" position="1" />
-                    <property name="safeguardCount"    type="int" address="0x020242A5" />
-                    <property name="lightScreenCount"  type="int" address="0x020242A1" />
-                    <property name="reflectCount"      type="int" address="0x0202429F" />
+                    <property name="statusSafeguard"   type="bit" address="0x2024290" length="2" position="5" />
+                    <property name="statusReflect"     type="bit" address="0x2024290" length="2" position="0" />
+                    <property name="statusLightScreen" type="bit" address="0x2024290" length="2" position="1" />
+                    <property name="safeguardCount"    type="int" address="0x20242A5" />
+                    <property name="lightScreenCount"  type="int" address="0x20242A1" />
+                    <property name="reflectCount"      type="int" address="0x202429F" />
                 </enemy>
                 <property name="weather" type="int" address="0x20243cc" reference="battleWeather" />
                 <property name="weatherCount" type="int" address="0x20243F8" />
@@ -747,113 +753,125 @@
                 <property name="battleBackgroundTiles"       type="int" address="0x202305c" length="4" />
                 <property name="battleBackgroundTilesBuffer" type="int" address="0x2023060" length="4" />
                 <property name="battleDialogue"              type="int" address="0x2023064" reference="battleDialogue" />
+                <type>
+                    <property name="double"           type="bit" address="0x2022FEC" length="4" position="0" />
+                    <property name="link"             type="bit" address="0x2022FEC" length="4" position="1" />
+                    <property name="is_battle"        type="bit" address="0x2022FEC" length="4" position="2" />
+                    <property name="trainer"          type="bit" address="0x2022FEC" length="4" position="3" />
+                    <property name="first_battle"     type="bit" address="0x2022FEC" length="4" position="4" />
+                    <property name="link_in_battle"   type="bit" address="0x2022FEC" length="4" position="5" />
+                    <property name="multi"            type="bit" address="0x2022FEC" length="4" position="6" />
+                    <property name="safari"           type="bit" address="0x2022FEC" length="4" position="7" />
+                    <property name="battle_tower"     type="bit" address="0x2022FEC" length="4" position="8" />
+                    <property name="old_man_tutorial" type="bit" address="0x2022FEC" length="4" position="9" />
+                    <property name="roamer"           type="bit" address="0x2022FEC" length="4" position="10" />
+                    <property name="eReader_trainer"  type="bit" address="0x2022FEC" length="4" position="11" />
+                    <property name="kyogre_groudon"   type="bit" address="0x2022FEC" length="4" position="12" />
+                    <property name="ghost_unveiled"   type="bit" address="0x2022FEC" length="4" position="13" />
+                    <property name="regi"             type="bit" address="0x2022FEC" length="4" position="14" />
+                    <property name="ghost"            type="bit" address="0x2022FEC" length="4" position="15" />
+                    <property name="pokedude"         type="bit" address="0x2022FEC" length="4" position="16" />
+                    <property name="wild_scripted"    type="bit" address="0x2022FEC" length="4" position="17" />
+                    <property name="legenadry_frlg"   type="bit" address="0x2022FEC" length="4" position="18" />
+                    <property name="trainer_tower"    type="bit" address="0x2022FEC" length="4" position="19" />
+                </type>
             </turnInfo>
         </battle>
-
         <event>
-            <property name="shoalCaveTidePatch"     type="bit" position="2" preprocessor="dma_967d10cc(0x03005D8C, 4995)" />
-            <property name="rayquazaAwakeOW"        type="bit" position="0" preprocessor="dma_967d10cc(0x03005D90, 8742)" />
-            <property name="gameclockSet"           type="bit" position="1" preprocessor="dma_967d10cc(0x03005D90, 8742)" />
-            <property name="savedBirch"             type="bit" position="2" preprocessor="dma_967d10cc(0x03005D90, 8742)" />
-            <property name="afterKyogre"            type="bit" position="3" preprocessor="dma_967d10cc(0x03005D90, 8742)" />
-            <property name="pokeballContestRoomOW"  type="bit" position="6" preprocessor="dma_967d10cc(0x03005D90, 8742)" />
-            <property name="labAssistant"           type="bit" position="0" preprocessor="dma_967d10cc(0x03005D90, 8743)" />
-            <property name="mauvilleRewardReceived" type="bit" position="3" preprocessor="dma_967d10cc(0x03005D90, 8743)" />
-            <property name="scottBattleFrontier"    type="bit" position="4" preprocessor="dma_967d10cc(0x03005D90, 8743)" />
-            <property name="safariZoneEntrance"     type="bit" position="5" preprocessor="dma_967d10cc(0x03005D90, 8743)" />
-            <property name="wailmerPail"            type="bit" position="6" preprocessor="dma_967d10cc(0x03005D90, 8743)" />
-            <property name="pokeblockCase"          type="bit" position="7" preprocessor="dma_967d10cc(0x03005D90, 8743)" />
-            <property name="secretPowerTM"          type="bit" position="0" preprocessor="dma_967d10cc(0x03005D90, 8744)" />
-            <property name="tvPersonMauville"       type="bit" position="2" preprocessor="dma_967d10cc(0x03005D90, 8744)" />
-            <property name="obtainedFlash"          type="bit" position="5" preprocessor="dma_967d10cc(0x03005D90, 8745)" />
-            <property name="obtainedFly"            type="bit" position="6" preprocessor="dma_967d10cc(0x03005D90, 8745)" />
-            <property name="aquaHideoutCleared"     type="bit" position="1" preprocessor="dma_967d10cc(0x03005D90, 8746)" />
-            <property name="obtainedMeteorite"      type="bit" position="3" preprocessor="dma_967d10cc(0x03005D90, 8746)" />
-            <property name="obtainedHiddenPower"    type="bit" position="6" preprocessor="dma_967d10cc(0x03005D90, 8746)" />
-            <property name="obtainedBrickBreak"     type="bit" position="1" preprocessor="dma_967d10cc(0x03005D90, 8747)" />
-            <property name="obtainedSurf"           type="bit" position="2" preprocessor="dma_967d10cc(0x03005D90, 8747)" />
-            <property name="tide"                   type="bit" position="2" preprocessor="dma_967d10cc(0x03005D90, 9007)" />
+            <property name="rayquazaAwakeOW"        type="bit" position="0" address="dma_b + 8742" />
+            <property name="gameclockSet"           type="bit" position="1" address="dma_b + 8742" />
+            <property name="savedBirch"             type="bit" position="2" address="dma_b + 8742" />
+            <property name="afterKyogre"            type="bit" position="3" address="dma_b + 8742" />
+            <property name="pokeballContestRoomOW"  type="bit" position="6" address="dma_b + 8742" />
+            <property name="labAssistant"           type="bit" position="0" address="dma_b + 8743" />
+            <property name="mauvilleRewardReceived" type="bit" position="3" address="dma_b + 8743" />
+            <property name="scottBattleFrontier"    type="bit" position="4" address="dma_b + 8743" />
+            <property name="safariZoneEntrance"     type="bit" position="5" address="dma_b + 8743" />
+            <property name="wailmerPail"            type="bit" position="6" address="dma_b + 8743" />
+            <property name="pokeblockCase"          type="bit" position="7" address="dma_b + 8743" />
+            <property name="secretPowerTM"          type="bit" position="0" address="dma_b + 8744" />
+            <property name="tvPersonMauville"       type="bit" position="2" address="dma_b + 8744" />
+            <property name="obtainedFlash"          type="bit" position="5" address="dma_b + 8745" />
+            <property name="obtainedFly"            type="bit" position="6" address="dma_b + 8745" />
+            <property name="aquaHideoutCleared"     type="bit" position="1" address="dma_b + 8746" />
+            <property name="obtainedMeteorite"      type="bit" position="3" address="dma_b + 8746" />
+            <property name="obtainedHiddenPower"    type="bit" position="6" address="dma_b + 8746" />
+            <property name="obtainedBrickBreak"     type="bit" position="1" address="dma_b + 8747" />
+            <property name="obtainedSurf"           type="bit" position="2" address="dma_b + 8747" />
+            <property name="tide"                   type="bit" position="2" address="dma_b + 9007" />
             <menu>
-                <property name="pokemon" type="bit" position="0" preprocessor="dma_967d10cc(0x03005D90, 9000)" />
-                <property name="pokedex" type="bit" position="1" preprocessor="dma_967d10cc(0x03005D90, 9000)" />
-                <property name="pokenav" type="bit" position="2" preprocessor="dma_967d10cc(0x03005D90, 9000)" /> 
+                <property name="pokemon" type="bit" position="0" address="dma_b + 9000" />
+                <property name="pokedex" type="bit" position="1" address="dma_b + 9000" />
+                <property name="pokenav" type="bit" position="2" address="dma_b + 9000" /> 
             </menu>
         </event>
 
         <screen>
             <menu>
-                <property name="itemsMenu"      type="int" address="0x0203ce60" length="2" />
-                <property name="itemsOffset"    type="int" address="0x0203ce6a" length="2" />
-                <property name="ballsMenu"      type="int" address="0x0203ce62" length="2" />
-                <property name="ballsOffset"    type="int" address="0x0203ce6c" length="2" />
-                <property name="tmhmMenu"       type="int" address="0x0203ce64" length="2" />
-                <property name="tmhmOffset"     type="int" address="0x0203ce6e" length="2" />
-                <property name="berriesMenu"    type="int" address="0x0203ce66" length="2" />
-                <property name="berriesOffset"  type="int" address="0x0203ce70" length="2" />
-                <property name="keyItemsMenu"   type="int" address="0x0203ce68" length="2" />
-                <property name="keyItemsOffset" type="int" address="0x0203ce72" length="2" />
-                <property name="partyMenu"      type="int" address="0x0203ced1" />
+                <property name="itemsMenu"      type="int" address="0x203ce60" length="2" />
+                <property name="itemsOffset"    type="int" address="0x203ce6a" length="2" />
+                <property name="ballsMenu"      type="int" address="0x203ce62" length="2" />
+                <property name="ballsOffset"    type="int" address="0x203ce6c" length="2" />
+                <property name="tmhmMenu"       type="int" address="0x203ce64" length="2" />
+                <property name="tmhmOffset"     type="int" address="0x203ce6e" length="2" />
+                <property name="berriesMenu"    type="int" address="0x203ce66" length="2" />
+                <property name="berriesOffset"  type="int" address="0x203ce70" length="2" />
+                <property name="keyItemsMenu"   type="int" address="0x203ce68" length="2" />
+                <property name="keyItemsOffset" type="int" address="0x203ce72" length="2" />
+                <property name="partyMenu"      type="int" address="0x203ced1" />
                 <battleAction>
-                    <property name="playerL" type="int" address="0x020244ac" reference="battleAction" />
-                    <property name="enemyL"  type="int" address="0x020244ad" reference="battleAction" />
-                    <property name="playerR" type="int" address="0x020244ae" reference="battleAction" />
-                    <property name="enemyR"  type="int" address="0x020244af" reference="battleAction" />
+                    <property name="playerL" type="int" address="0x20244ac" reference="battleAction" />
+                    <property name="enemyL"  type="int" address="0x20244ad" reference="battleAction" />
+                    <property name="playerR" type="int" address="0x20244ae" reference="battleAction" />
+                    <property name="enemyR"  type="int" address="0x20244af" reference="battleAction" />
                 </battleAction>
                 <battleMove>
-                    <property name="playerL" type="int" address="0x020244b0" />
-                    <property name="enemyL"  type="int" address="0x020244b1" />
-                    <property name="playerR" type="int" address="0x020244b2" />
-                    <property name="enemyR"  type="int" address="0x020244b3" />
+                    <property name="playerL" type="int" address="0x20244b0" />
+                    <property name="enemyL"  type="int" address="0x20244b1" />
+                    <property name="playerR" type="int" address="0x20244b2" />
+                    <property name="enemyR"  type="int" address="0x20244b3" />
                 </battleMove>
             </menu>
             <enemy_sprite>
                 <battlerSpriteIndex>
-                    <property name="playerL" type="int" address="0x020241e4" />
-                    <property name="enemyL"  type="int" address="0x020241e5" />
-                    <property name="playerR" type="int" address="0x020241e6" />
-                    <property name="enemyR"  type="int" address="0x020241e7" />
+                    <property name="playerL" type="int" address="0x20241e4" />
+                    <property name="enemyL"  type="int" address="0x20241e5" />
+                    <property name="playerR" type="int" address="0x20241e6" />
+                    <property name="enemyR"  type="int" address="0x20241e7" />
                 </battlerSpriteIndex>
             </enemy_sprite>
         </screen>
 
         <trainers>
             <eliteFour>    
-                <property name="sidney"  type="bit" position="3" preprocessor="dma_967d10cc(0x03005D90, 8892)" />
-                <property name="phoebe"  type="bit" position="4" preprocessor="dma_967d10cc(0x03005D90, 8892)" />
-                <property name="glacia"  type="bit" position="5" preprocessor="dma_967d10cc(0x03005D90, 8892)" />
-                <property name="drake"   type="bit" position="6" preprocessor="dma_967d10cc(0x03005D90, 8892)" />
-                <property name="wallace" type="bit" position="7" preprocessor="dma_967d10cc(0x03005D90, 9004)" />
+                <property name="sidney"  type="bit" position="3" address="dma_b + 8892" />
+                <property name="phoebe"  type="bit" position="4" address="dma_b + 8892" />
+                <property name="glacia"  type="bit" position="5" address="dma_b + 8892" />
+                <property name="drake"   type="bit" position="6" address="dma_b + 8892" />
+                <property name="wallace" type="bit" position="7" address="dma_b + 9004" />
             </eliteFour>    
         </trainers>
-
-
-        <options> 
-            <property name="textSpeed"   type="int" preprocessor="dma_967d10cc(0x03005D90, 20), 2, 0)" postprocessor-reader="BitRange(x, 2, 0)" />
-            <property name="battleAnim"  type="bit" preprocessor="dma_967d10cc(0x03005D90, 21)" position="2" />
-            <property name="battleStyle" type="bit" preprocessor="dma_967d10cc(0x03005D90, 21)" position="1" />
-            <property name="sound"       type="bit" preprocessor="dma_967d10cc(0x03005D90, 21)" position="0" />
-            <property name="buttonMode"  type="int" preprocessor="dma_967d10cc(0x03005D90, 19)" />
-            <property name="windowFrame" type="int" preprocessor="dma_967d10cc(0x03005D90, 20), 7, 3)" postprocessor-reader="BitRange(x, 2, 0)" />
+        <options>
+            <property name="textSpeed"   type="int" address="dma_b + 20" postprocessor-reader="BitRange(value, 2, 0)" />
+            <property name="battleAnim"  type="bit" address="dma_b + 21" position="2" />
+            <property name="battleStyle" type="bit" address="dma_b + 21" position="1" />
+            <property name="sound"       type="bit" address="dma_b + 21" position="0" />
+            <property name="buttonMode"  type="int" address="dma_b + 19" />
+            <property name="windowFrame" type="int" address="dma_b + 20" postprocessor-reader="BitRange(value, 2, 0)" />
         </options> 
-
         <gameTime>
-            <property name="hours"   type="int" preprocessor="dma_967d10cc(0x03005D90, 14)" />
-            <property name="minutes" type="int" preprocessor="dma_967d10cc(0x03005D90, 16)" />
-            <property name="seconds" type="int" preprocessor="dma_967d10cc(0x03005D90, 17)" />
-            <property name="frames"  type="int" preprocessor="dma_967d10cc(0x03005D90, 18)" />
+            <property name="hours"   type="int" address="dma_b + 14" />
+            <property name="minutes" type="int" address="dma_b + 16" />
+            <property name="seconds" type="int" address="dma_b + 17" />
+            <property name="frames"  type="int" address="dma_b + 18" />
         </gameTime>
-
         <pointers>
             <property name="dma1"      type="uint" length="4" address="0x3005D8C" />
             <property name="dma2"      type="uint" length="4" address="0x3005D90" />
             <property name="dma3"      type="uint" length="4" address="0x3005D94" />
-            <property name="callback1" type="int" length="4" address="0x030022c0" reference="mainState" />
-            <property name="callback2" type="int" length="4" address="0x030022c4" reference="subState" />
+            <property name="callback1" type="int"  length="4" address="0x30022c0" reference="mainState" />
+            <property name="callback2" type="int"  length="4" address="0x30022c4" reference="subState" />
         </pointers>
-
-        <game>
-            <property name="generation" type="int" value="3" />
-        </game>
     </properties>
 
     <references>
@@ -917,11 +935,12 @@
             <entry key="0x09" value="TEACHER_THROW" />
             <entry key="0x0A" value="EXEC_SCRIPT" />
             <entry key="0x0B" value="TRY_FINISH" />
+            <entry key="0x0C" value="FINISHED" />
             <entry key="0x0C" value="CANCEL_PARTNER" />
             <entry key="0x0D" value="NOTHING_FAINTED" />
             <entry key="0xFF" value="NONE" />
         </battleAction>
-        <stageModifiers type="number">
+        <stageModifiers>
             <entry key="0x00" value="-6" />
             <entry key="0x01" value="-5" />
             <entry key="0x02" value="-4" />
@@ -1006,6 +1025,22 @@
             <entry key="0x15" value="Bag" />
             <entry key="0x16" value="Party Screen" />
         </battleDialogue>
+        <!-- Alternate way to name status conditions -->
+        <!-- <statusConditions>
+            <entry key="0" />
+            <entry key="1" value="Asleep" />
+            <entry key="2" value="Asleep" />
+            <entry key="3" value="Asleep" />
+            <entry key="4" value="Asleep" />
+            <entry key="5" value="Asleep" />
+            <entry key="6" value="Asleep" />
+            <entry key="7" value="Asleep" />
+            <entry key="8" value="Poisoned" />
+            <entry key="16" value="Burned" />
+            <entry key="32" value="Frozen" />
+            <entry key="64" value="Paralyzed" />
+            <entry key="128" value="Badly Posioned" />
+        </statusConditions> -->
         <statusConditions>
             <entry key="0x00" />
             <entry key="0x01" value="SLP" />

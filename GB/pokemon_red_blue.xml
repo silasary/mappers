@@ -5,29 +5,29 @@
     xmlns:var="https://schemas.gamehook.io/attributes/var">
     <macros>
         <pokemon>
-            <property name="species" address="address" type="int" reference="pokemonSpecies" />
-            <property name="pokedexNumber" address="address" type="int" reference="pokemonPokedexNumbers" />
+            <property name="species"       type="int" address="address" reference="pokemonSpecies" />
+            <property name="pokedexNumber" type="int" address="address" reference="pokemonPokedexNumbers" />
         </pokemon>
     </macros>
 
     <classes>
         <pokemonInParty>
             <macro type="pokemon" />
-            <property name="nickname" type="string" address="nicknameAddress" length="11" />
-            <property name="level" address="address + 33" type="int" />
-            <property name="expPoints" address="address + 14" type="int" length="3" />
-            <property name="statusCondition" address="address + 4" type="int" reference="statusConditions" />
-            <property name="type1" address="address + 5" type="int" reference="pokemonTypes" />
-            <property name="type2" address="address + 6" type="int" reference="pokemonTypes" />
-            <property name="trainerId" address="address + 12" type="int" length="2" />
-            <property name="catchRate" address="address + 7" type="int" description="Held item when traded to gen2" /> <!-- this gives a bad value. For Squirtle, it says 8, but the offical number is 45 -->
+            <property name="nickname"        type="string" address="nicknameAddress" length="11" />
+            <property name="level"           type="int" address="address + 33" />
+            <property name="expPoints"       type="int" address="address + 14" length="3" />
+            <property name="statusCondition" type="int" address="address + 4"  reference="statusConditions" />
+            <property name="type1"           type="int" address="address + 5"  reference="pokemonTypes" />
+            <property name="type2"           type="int" address="address + 6"  reference="pokemonTypes" />
+            <property name="trainerId"       type="int" address="address + 12" length="2" />
+            <property name="catchRate"       type="int" address="address + 7"  description="Held item when traded to gen2" /> <!-- this gives a bad value. For Squirtle, it says 8, but the offical number is 45 -->
             <stats>
-                <property name="hp" address="address + 1" type="int" length="2" />
-                <property name="maxHp" address="address + 34" type="int" length="2" />
-                <property name="attack" address="address + 36" type="int" length="2" description="The Attack stat as it appears in the Pokemon's summary page in game" />
-                <property name="defense" address="address + 38" type="int" length="2" description="The Attack stat as it appears in the Pokemon's summary page in game" />
-                <property name="speed" address="address + 40" type="int" length="2" description="The Attack stat as it appears in the Pokemon's summary page in game" />
-                <property name="special" address="address + 42" type="int" length="2" description="The Attack stat as it appears in the Pokemon's summary page in game" />
+                <property name="hp"      type="int" address="address + 1"  length="2" />
+                <property name="maxHp"   type="int" address="address + 34" length="2" />
+                <property name="attack"  type="int" address="address + 36" length="2" description="The Attack stat as it appears in the Pokemon's summary page in game" />
+                <property name="defense" type="int" address="address + 38" length="2" description="The Attack stat as it appears in the Pokemon's summary page in game" />
+                <property name="speed"   type="int" address="address + 40" length="2" description="The Attack stat as it appears in the Pokemon's summary page in game" />
+                <property name="special" type="int" address="address + 42" length="2" description="The Attack stat as it appears in the Pokemon's summary page in game" />
             </stats>
             <moves>
                 <class name="0" type="pokemonPartyMoves" var:moveAddress="address + 8" />
@@ -42,11 +42,11 @@
                 <property name="special" type="nibble" address="address + 28" position="1" />
             </ivs>
             <evs>
-                <property name="hp" address="address + 17" type="int" length="2" description="HP EV (stat experience)" />
-                <property name="attack" address="address + 19" type="int" length="2" description="Attack EV (stat experience)" />
-                <property name="defense" address="address + 21" type="int" length="2" description="Defense EV (stat experience)" />
-                <property name="speed" address="address + 23" type="int" length="2" description="Speed EV (stat experience)" />
-                <property name="special" address="address + 25" type="int" length="2" description="Special EV (stat experience)" />
+                <property name="hp"      type="int" address="address + 17" length="2" description="HP EV (stat experience)" />
+                <property name="attack"  type="int" address="address + 19" length="2" description="Attack EV (stat experience)" />
+                <property name="defense" type="int" address="address + 21" length="2" description="Defense EV (stat experience)" />
+                <property name="speed"   type="int" address="address + 23" length="2" description="Speed EV (stat experience)" />
+                <property name="special" type="int" address="address + 25" length="2" description="Special EV (stat experience)" />
             </evs>
 
             <script type="text/typescript">
@@ -60,15 +60,16 @@
 
         <storedPokemon>
             <macro type="pokemon" />
-            <property name="nickname" type="string" address="nicknameAddress" length="11" />
-            <property name="level" address="address + 3" type="int" />
-            <property name="expPoints" address="address + 14" type="int" length="3" />
-            <property name="statusCondition" address="address + 4" type="int" reference="statusConditions" />
-            <property name="type1" address="address + 5" type="int" reference="pokemonTypes" />
-            <property name="type2" address="address + 6" type="int" reference="pokemonTypes" />
-            <property name="trainerId" address="address + 12" type="int" length="2" />
+            <property name="nickname"        type="string" address="nicknameAddress" length="11" />
+            <property name="level"           type="int"    address="address + 3" />
+            <property name="expPoints"       type="int"    address="address + 14" length="3" />
+            <property name="statusCondition" type="int"    address="address + 4"  reference="statusConditions" />
+            <property name="type1"           type="int"    address="address + 5"  reference="pokemonTypes" />
+            <property name="type2"           type="int"    address="address + 6"  reference="pokemonTypes" />
+            <property name="trainerId"       type="int"    address="address + 12" length="2" />
             <stats>
-                <property name="hp" address="address + 1" type="int" length="2" />
+                <property name="hp" type="int" address="address + 1" length="2" />
+                <!-- incomplete stats -->
             </stats>
             <moves>
                 <class name="0" type="pokemonPartyMoves" var:moveAddress="address + 2" />
@@ -77,29 +78,29 @@
                 <class name="3" type="pokemonPartyMoves" var:moveAddress="address + 5" />
             </moves>
             <ivs>
-                <property name="attack" address="address + 27" type="nibble"  position="0" />
-                <property name="defense" address="address + 27" type="nibble" position="1" />
-                <property name="speed" address="address + 28" type="nibble" position="0" />
-                <property name="special" address="address + 28" type="nibble" position="1" />
+                <property type="nibble" name="attack"  address="address + 27" position="0" />
+                <property type="nibble" name="defense" address="address + 27" position="1" />
+                <property type="nibble" name="speed"   address="address + 28" position="0" />
+                <property type="nibble" name="special" address="address + 28" position="1" />
             </ivs>
             <evs>
-                <property name="hp" address="address + 17" type="int" length="2" description="HP EV (stat experience)" />
-                <property name="attack" address="address + 19" type="int" length="2" description="Attack EV (stat experience)" />
-                <property name="defense" address="address + 21" type="int" length="2" description="Defense EV (stat experience)" />
-                <property name="speed" address="address + 23" type="int" length="2" description="Speed EV (stat experience)" />
-                <property name="special" address="address + 25" type="int" length="2" description="Special EV (stat experience)" />
+                <property name="hp"      type="int" address="address + 17" length="2" description="HP EV (stat experience)" />
+                <property name="attack"  type="int" address="address + 19" length="2" description="Attack EV (stat experience)" />
+                <property name="defense" type="int" address="address + 21" length="2" description="Defense EV (stat experience)" />
+                <property name="speed"   type="int" address="address + 23" length="2" description="Speed EV (stat experience)" />
+                <property name="special" type="int" address="address + 25" length="2" description="Special EV (stat experience)" />
             </evs>
         </storedPokemon>
 
         <pokemonPartyMoves>
             <property name="move" type="int" address="moveAddress" reference="moves" />
-            <property name="pp" type="int" address="moveAddress + 21" postprocessor-reader="x % 64" />
-            <property name="ppUp" type="int" address="moveAddress + 21" postprocessor-reader="Floor(x / 64)" />
+            <property name="pp"   type="int" address="moveAddress + 21" read-function="x % 64" />
+            <property name="ppUp" type="int" address="moveAddress + 21" read-function="Math.floor(x / 64)" />
         </pokemonPartyMoves>
 
         <pokemonBattleMoves>
             <property name="move" type="int" address="moveAddress" reference="moves" />
-            <property name="pp" type="int" address="moveAddress + 17" postprocessor-reader="x % 64" />
+            <property name="pp"   type="int" address="moveAddress + 17" read-function="x % 64" />
         </pokemonBattleMoves>
 
         <pokemonEnemyBattleMoves>
@@ -107,23 +108,23 @@
         </pokemonEnemyBattleMoves>
 
         <playerItem>
-            <property name="item" address="address" type="int" reference="items" />
-            <property name="quantity" address="address + 1" type="int" />
+            <property name="item"     type="int" address="address"     reference="items" />
+            <property name="quantity" type="int" address="address + 1" />
         </playerItem>
 
         <encounter>
-            <property name="level" address="address" type="int" />
-            <property name="species" address="address + 1" type="int" reference="pokemonSpecies" />
-            <property name="pokedexNumber" address="address + 1" type="int" reference="pokemonPokedexNumbers" />
+            <property name="level"         type="int" address="address"     />
+            <property name="species"       type="int" address="address + 1" reference="pokemonSpecies" />
+            <property name="pokedexNumber" type="int" address="address + 1" reference="pokemonPokedexNumbers" />
         </encounter>
     </classes>
 
     <properties>        
         <player>
-            <property name="test" type="string" address="0xFF90" length= "11"/>
-            <property name="name" type="string" address="0xD158" length="11" />
-            <property name="playerId" type="int" address="0xD359" length="2" />
-            <property name="teamCount" type="int" address="0xD163" />
+            <property name="test"      type="string" address="0xFF90" length= "11"/>
+            <property name="name"      type="string" address="0xD158" length="11" />
+            <property name="playerId"  type="int"    address="0xD359" length="2" />
+            <property name="teamCount" type="int"    address="0xD163" />
 
             <team>
                 <class name="0" type="pokemonInParty" var:address="0xD16B" var:nicknameAddress="0xD2B5" />
@@ -144,11 +145,11 @@
                 <property name="badge7" type="bit" address="0xD356" position="6" description="volcanobadge" />
                 <property name="badge8" type="bit" address="0xD356" position="7" description="earthbadge" />
             </badges>
-            <property name="pokedexSeen" type="bitArray" address="0xD30A" length="19" />    
-            <property name="pokedexCaught" type="bitArray" address="0xD2F7" length="19" />
-            <property name="starterPokemon" type="int" address="0xD717" reference="pokemonSpecies" description="The starter Pokemon received from Oak." />
-            <property name="joypadSimulation" type="bool" address="0xCD38" description="Setting this to true will disable collision for your character." />
-            <property name="joypadIgnore" type="int" address="0xCD6B" description="Setting this to true will disable collision for your character." />
+            <property name="pokedexSeen"      type="bitArray" address="0xD30A" length="19" />    
+            <property name="pokedexCaught"    type="bitArray" address="0xD2F7" length="19" />
+            <property name="starterPokemon"   type="int"      address="0xD717" reference="pokemonSpecies" description="The starter Pokemon received from Oak." />
+            <property name="joypadSimulation" type="bool"     address="0xCD38" description="Setting this to true will disable collision for your character." />
+            <property name="joypadIgnore"     type="int"      address="0xCD6B" description="Setting this to true will disable collision for your character." />
 
             <script type="text/typescript">
                 <![CDATA[
@@ -160,9 +161,9 @@
             </script>
         </player>
         <bag>
-            <property name="money" type="int" address="0xD347" length="3" />
+            <property name="money"           type="int" address="0xD347" length="3" />
             <property name="gameCornerCoins" type="int" address="0xD5A4" length="2" />
-            <property name="itemCount" type="int" address="0xD31D" />
+            <property name="itemCount"       type="int" address="0xD31D" />
             <items>
                 <class name="0"  type="playerItem" var:address="0xD31E" />
                 <class name="1"  type="playerItem" var:address="0xD320" />
@@ -187,9 +188,9 @@
             </items>
         </bag>
         <overworld>
-            <property name="map" type="int" address="0xD35E" reference="maps" />
-            <property name="y" type="int" address="0xD361" />
-            <property name="x" type="int" address="0xD362" />
+            <property name="map"           type="int" address="0xD35E" reference="maps" />
+            <property name="y"             type="int" address="0xD361" />
+            <property name="x"             type="int" address="0xD362" />
             <property name="encounterRate" type="int" address="0xD887" />
             <encounters>
                 <common>
@@ -213,15 +214,15 @@
             <property name="repelCount" type="int" address="0xD0DB" />
             <!-- <property name="flash" type="int" address="0xD35D" /> -->
             <safariZone>
-                <property name="safariTime" type="int" address="0xD70D" length="2" />
+                <property name="safariTime"  type="int" address="0xD70D" length="2" />
                 <property name="safariBalls" type="int" address="0xDA47" />
                 <!-- <property name="oppEscapingFactor" type="int" address="0xCCE7" /> -->
                 <property name="oppBaitingFactor" type="int" address="0xCCE9" />
             </safariZone>
             <mapData>
                 <property name="tileset" type="int" address="0xD367" />
-                <property name="height" type="int" address="0xD368" />
-                <property name="width" type="int" address="0xD369" />
+                <property name="height"  type="int" address="0xD368" />
+                <property name="width"   type="int" address="0xD369" />
                 <property name="palette" type="int" address="0xD35D" /><!-- 0:default, 6:dark cave -->
                 <property name="lastMapLocation" type="int" address="0xD364" reference="maps" /> <!-- This needs to update address dynamically -->
             </mapData>
@@ -248,16 +249,16 @@
             <property name="trashCanPuzzle"        type="bit" address="0xD773" position="0" description="Set value to 3 to solve the puzzle. Freezing this property breaks the gym trainers." />
         </events>
         <battle>
-            <property name="mode" type="int" address="0xD057" reference="battleModes" />
-            <property name="animationTurn" type="int" address="0xFFF4" reference="battleTurn" description="This dictates which direction battle animations are played. (Enemy attacking player, or player attacking enemy.)" />
-            <property name="type" type="int" address="0xD05A" reference="battleTypes" />
+            <property name="mode"           type="int" address="0xD057" reference="battleModes" />
+            <property name="animationTurn"  type="int" address="0xFFF4" reference="battleTurn" description="This dictates which direction battle animations are played. (Enemy attacking player, or player attacking enemy.)" />
+            <property name="type"           type="int" address="0xD05A" reference="battleTypes" />
             <property name="lowHealthAlarm" type="int" address="0xCCF6" reference="lowHealthAlarm" description="This is set to 0 at the start of battle and 1 when the opponent has lost" />
-            <property name="attackDamage" type="int" address="0xD0D8" description="Amount of damage attack is about to do. Max possible damage may appear one frame before actual damage." /> <!--duplicate property-->
+            <property name="attackDamage"   type="int" address="0xD0D8" description="Amount of damage attack is about to do. Max possible damage may appear one frame before actual damage." /> <!--duplicate property-->
             <trainer>
-                <property name="name" type="string" address="0xD04A" length="11" />
-                <property name="class" type="int" address="0xD031" reference="trainerClasses" />
-                <property name="number" type="int" address="0xD05D" />
-                <property name="gymLeader" type="int" address="0xD05C" />
+                <property name="name"         type="string" address="0xD04A" length="11" />
+                <property name="class"        type="int" address="0xD031" reference="trainerClasses" />
+                <property name="number"       type="int" address="0xD05D" />
+                <property name="gymLeader"    type="int" address="0xD05C" />
                 <property name="totalPokemon" type="int" address="0xD89C" />
                 <team>
                     <class name="0" type="pokemonInParty" var:address="0xD9EE" var:nicknameAddress="0xD8A4"/>
@@ -269,17 +270,17 @@
                 </team>
             </trainer>
             <playerPokemon>
-                <property name="partyPos" type="int" address="0xCC2F" />
-                <property name="nickname" type="string" address="0xD009" length="11" />
-                <property name="species" type="int" address="0xD014" reference="pokemonSpecies" />
+                <property name="partyPos"      type="int" address="0xCC2F" />
+                <property name="nickname"      type="string" address="0xD009" length="11" />
+                <property name="species"       type="int" address="0xD014" reference="pokemonSpecies" />
                 <property name="pokedexNumber" type="int" address="0xD014" reference="pokemonPokedexNumbers" />
-                <property name="type1" type="int" address="0xD019" reference="pokemonTypes" />
-                <property name="type2" type="int" address="0xD01A" reference="pokemonTypes" />
-                <property name="level" type="int" address="0xD022" />
-                <property name="catchRate" type="int" address="0xD172" /> <!-- this gives a bad value. For Squirtle, it says 8, but the offical number is 45 -->
+                <property name="type1"         type="int" address="0xD019" reference="pokemonTypes" />
+                <property name="type2"         type="int" address="0xD01A" reference="pokemonTypes" />
+                <property name="level"         type="int" address="0xD022" />
+                <property name="catchRate"     type="int" address="0xD172" /> <!-- this gives a bad value. For Squirtle, it says 8, but the offical number is 45 -->
                 <status>
-                    <property name="status1" type="int" address="0xD018" reference="statusConditions" /> <!--Yellow has 2 values, I only found 1-->
-                    <property name="status2" type="int" address="0xD018" reference="statusConditions" />
+                    <property name="status1"             type="int" address="0xD018" reference="statusConditions" /> <!--Yellow has 2 values, I only found 1-->
+                    <property name="status2"             type="int" address="0xD018" reference="statusConditions" />
                     <property name="tempStatusConfusion" type="int" address="0xd062" reference="tempStatusConfused" />
                     <property name="tempStatusBadPoison" type="int" address="0xd064" reference="tempStatusBadPoison" />
                 </status>
@@ -337,18 +338,18 @@
                     <property name="effect"   type="int" address="0xCFD3" />
                     <property name="power"    type="int" address="0xCFD4" />
                     <property name="type"     type="int" address="0xCFD5" reference="pokemonTypes" />
-                    <property name="accuracy" type="int" address="0xCFD6" postprocessor-reader="Round(((x / 255) * 100), 2)" />
+                    <property name="accuracy" type="int" address="0xCFD6" read-function="Round(((x / 255) * 100), 2)" />
                     <property name="maxPP"    type="int" address="0xCFD7" />
                 </lastUsedMove>
             </playerPokemon>
             <enemyPokemon>
-                <property name="partyPos" type="int" address="0xCFE8" />
-                <property name="species"  type="int" address="0xCFD8" reference="pokemonSpecies" />
-                <property name="pokedexNumber" type="int" address="0xCFD8" reference="pokemonPokedexNumbers" />
-                <property name="type1"    type="int" address="0xCFEA" reference="pokemonTypes" />
-                <property name="type2"    type="int" address="0xCFEB" reference="pokemonTypes" />
-                <property name="level"    type="int" address="0xCFF3" />
-                <property name="statusCondition"   type="int" address="0xCFE9" reference="statusConditions" />
+                <property name="partyPos"        type="int" address="0xCFE8" />
+                <property name="species"         type="int" address="0xCFD8" reference="pokemonSpecies" />
+                <property name="pokedexNumber"   type="int" address="0xCFD8" reference="pokemonPokedexNumbers" />
+                <property name="type1"           type="int" address="0xCFEA" reference="pokemonTypes" />
+                <property name="type2"           type="int" address="0xCFEB" reference="pokemonTypes" />
+                <property name="level"           type="int" address="0xCFF3" />
+                <property name="statusCondition" type="int" address="0xCFE9" reference="statusConditions" />
                 <stats>
                     <property name="hp"       type="int" address="0xCFE6" length="2" />
                     <property name="maxHp"    type="int" address="0xCFF4" length="2" />
@@ -378,12 +379,12 @@
                     <property name="special" type="nibble" address="0xCFF2" position="1" />
                 </ivs>
                 <baseStats>
-                    <property name="hp"      type="int" address="0xD002" postprocessor-reader="x % 16" />
-                    <property name="attack"  type="int" address="0xD003" postprocessor-reader="x % 16" />
-                    <property name="defense" type="int" address="0xD004" postprocessor-reader="x % 16" />
-                    <property name="speed"   type="int" address="0xD005" postprocessor-reader="x % 16" />
-                    <property name="special" type="int" address="0xD006" postprocessor-reader="x % 16" />
-                    <property name="exp"     type="int" address="0xD008" postprocessor-reader="x % 16" />
+                    <property name="hp"      type="int" address="0xD002" read-function="x % 16" />
+                    <property name="attack"  type="int" address="0xD003" read-function="x % 16" />
+                    <property name="defense" type="int" address="0xD004" read-function="x % 16" />
+                    <property name="speed"   type="int" address="0xD005" read-function="x % 16" />
+                    <property name="special" type="int" address="0xD006" read-function="x % 16" />
+                    <property name="exp"     type="int" address="0xD008" read-function="x % 16" />
                 </baseStats>
                 <effects>
                     <property name="bide"          type="bit" address="0xD067" position="0" />
@@ -417,7 +418,7 @@
                     <property name="effect"   type="int" address="0xCFCD" />
                     <property name="power"    type="int" address="0xCFCE" />
                     <property name="type"     type="int" address="0xCFCF" reference="pokemonTypes" />
-                    <property name="accuracy" type="int" address="0xCFD0" postprocessor-reader="Round(((x / 255) * 100), 2)" />
+                    <property name="accuracy" type="int" address="0xCFD0" read-function="Round(((x / 255) * 100), 2)" />
                     <property name="maxPP"    type="int" address="0xCFD1" />
                 </lastUsedMove>
             </enemyPokemon>
@@ -439,7 +440,7 @@
                 <property name="item7"  type="int" address="0xCF82" reference="items" />
                 <property name="item8"  type="int" address="0xCF83" reference="items" />
                 <property name="item9"  type="int" address="0xCF84" reference="items" />
-                <property name="item10"  type="int" address="0xCF85" reference="items" />
+                <property name="item10" type="int" address="0xCF85" reference="items" />
                 <property name="item11" type="int" address="0xCF86" reference="items" />
             </items>
         </pokemart>
