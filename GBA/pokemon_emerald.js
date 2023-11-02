@@ -41,16 +41,16 @@ function DATA32_BE(data, offset) {
 //As the Pokemon's PID never changes, the order of the blocks always remains the same for that Pokemon
 //Each individial Pokemon receives its own unique shuffle order
 const shuffleOrders = {
-    0: [0, 1, 2, 3],
-    1: [0, 1, 3, 2],
-    2: [0, 2, 1, 3],
-    3: [0, 3, 1, 2],
-    4: [0, 2, 3, 1],
-    5: [0, 3, 2, 1],
-    6: [1, 0, 2, 3],
-    7: [1, 0, 3, 2],
-    8: [2, 0, 1, 3],
-    9: [3, 0, 1, 2],
+    0:  [0, 1, 2, 3],
+    1:  [0, 1, 3, 2],
+    2:  [0, 2, 1, 3],
+    3:  [0, 3, 1, 2],
+    4:  [0, 2, 3, 1],
+    5:  [0, 3, 2, 1],
+    6:  [1, 0, 2, 3],
+    7:  [1, 0, 3, 2],
+    8:  [2, 0, 1, 3],
+    9:  [3, 0, 1, 2],
     10: [2, 0, 3, 1],
     11: [3, 0, 2, 1],
     12: [1, 2, 0, 3],
@@ -96,8 +96,6 @@ function preprocessor() {
             }
 
             let pokemonData = memory.defaultNamespace.getBytes(startingAddress, 100)
-            // let pokemonData2 = memory.defaultNamespace.getBytes(startingAddress, 100).get_uint32_le()
-            // console.info(pokemonData2)
             let pid = pokemonData.get_uint32_le();
             let otid = pokemonData.get_uint32_le(4);
             let checksum = pokemonData.get_uint16_le(28);

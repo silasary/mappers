@@ -143,13 +143,6 @@
     </classes>
 
     <properties>
-        <meta>
-			<property name="generation" type="int" value="3" />
-			<property name="gameName"   type="int" value="Emerald" />
-			<property name="gameType"   type="int" value="Third Version" />
-			<property name="state"      type="string" />
-			<property name="stateEnemy" type="string" />
-		</meta>
         <player>
             <!-- Need memory address -->
             <!-- <property name="playerId"  type="int"    address="0x20228CC" length="2" description="The active player user Id, better tracking for if the game has loaded a new or saved game" /> -->
@@ -873,6 +866,13 @@
             <property name="callback1" type="int"  length="4" address="0x30022c0" reference="mainState" />
             <property name="callback2" type="int"  length="4" address="0x30022c4" reference="subState" />
         </pointers>
+        <meta>
+			<property name="generation" type="int" value="3" />
+			<property name="gameName"   type="int" value="Emerald" />
+			<property name="gameType"   type="int" value="Third Version" />
+			<property name="state"      type="string" />
+			<property name="stateEnemy" type="string" />
+		</meta>
     </properties>
 
     <references>

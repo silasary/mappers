@@ -338,7 +338,7 @@
                     <property name="effect"   type="int" address="0xCFD3" />
                     <property name="power"    type="int" address="0xCFD4" />
                     <property name="type"     type="int" address="0xCFD5" reference="pokemonTypes" />
-                    <property name="accuracy" type="int" address="0xCFD6" read-function="Round(((x / 255) * 100), 2)" />
+                    <property name="accuracy" type="int" address="0xCFD6" read-function="Math.round(((x / 255) * 100), 2)" />
                     <property name="maxPP"    type="int" address="0xCFD7" />
                 </lastUsedMove>
             </playerPokemon>
@@ -418,7 +418,7 @@
                     <property name="effect"   type="int" address="0xCFCD" />
                     <property name="power"    type="int" address="0xCFCE" />
                     <property name="type"     type="int" address="0xCFCF" reference="pokemonTypes" />
-                    <property name="accuracy" type="int" address="0xCFD0" read-function="Round(((x / 255) * 100), 2)" />
+                    <property name="accuracy" type="int" address="0xCFD0" read-function="Math.round(((x / 255) * 100), 2)" />
                     <property name="maxPP"    type="int" address="0xCFD1" />
                 </lastUsedMove>
             </enemyPokemon>

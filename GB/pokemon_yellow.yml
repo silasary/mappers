@@ -19,22 +19,22 @@ macros:
     defense: { offset: 38, type: "int", size: 2, description: "The Attack stat as it appears in the Pokemon's summary page in game" }
     speed:   { offset: 40, type: "int", size: 2, description: "The Attack stat as it appears in the Pokemon's summary page in game" }
     special: { offset: 42, type: "int", size: 2, description: "The Attack stat as it appears in the Pokemon's summary page in game" }
-    dvAttack:  { offset: 27, type: "int", postprocessor: "(x - (x % 16))/16" }
-    dvDefense: { offset: 27, type: "int", postprocessor: "x % 16" }
-    dvSpeed:   { offset: 28, type: "int", postprocessor: "(x - (x % 16))/16" }
-    dvSpecial: { offset: 28, type: "int", postprocessor: "x % 16" }
+    dvAttack:  { offset: 27, type: "int", read-function: "(x - (x % 16))/16" }
+    dvDefense: { offset: 27, type: "int", read-function: "x % 16" }
+    dvSpeed:   { offset: 28, type: "int", read-function: "(x - (x % 16))/16" }
+    dvSpecial: { offset: 28, type: "int", read-function: "x % 16" }
     move1: { offset: 8, type: "int", reference: "moves", description: "Top moveslot" }
     move2: { offset: 9, type: "int", reference: "moves", }
     move3: { offset: 10, type: "int", reference: "moves" }
     move4: { offset: 11, type: "int", reference: "moves",  description: "Bottom moveslot" }
-    move1pp: { offset: 29, type: "int", postprocessor: "x % 64" }
-    move2pp: { offset: 30, type: "int", postprocessor: "x % 64" }
-    move3pp: { offset: 31, type: "int", postprocessor: "x % 64" }
-    move4pp: { offset: 32, type: "int", postprocessor: "x % 64" }
-    move1ppUp: { offset: 29, type: "int", postprocessor: "Floor(x / 64)" }
-    move2ppUp: { offset: 30, type: "int", postprocessor: "Floor(x / 64)" }
-    move3ppUp: { offset: 31, type: "int", postprocessor: "Floor(x / 64)" }
-    move4ppUp: { offset: 32, type: "int", postprocessor: "Floor(x / 64)" }
+    move1pp: { offset: 29, type: "int", read-function: "x % 64" }
+    move2pp: { offset: 30, type: "int", read-function: "x % 64" }
+    move3pp: { offset: 31, type: "int", read-function: "x % 64" }
+    move4pp: { offset: 32, type: "int", read-function: "x % 64" }
+    move1ppUp: { offset: 29, type: "int", read-function: "Floor(x / 64)" }
+    move2ppUp: { offset: 30, type: "int", read-function: "Floor(x / 64)" }
+    move3ppUp: { offset: 31, type: "int", read-function: "Floor(x / 64)" }
+    move4ppUp: { offset: 32, type: "int", read-function: "Floor(x / 64)" }
     statExpHp:      { offset: 17, type: "int", size: 2, description: "HP EV (stat experience)" }
     statExpAttack:  { offset: 19, type: "int", size: 2, description: "Attack EV (stat experience)" }
     statExpDefense: { offset: 21, type: "int", size: 2, description: "Defense EV (stat experience)" }
@@ -56,10 +56,10 @@ macros:
     expPoints: { offset: 14, type: "int", size: 3 }
     statusCondition: { offset: 4, type: "int", reference: "statusConditions" }
     hp:        { offset: 1, type: "int", size: 2 }
-    dvAttack:  { offset: 27, type: "int", postprocessor: "(x - (x % 16))/16" }
-    dvDefense: { offset: 27, type: "int", postprocessor: "x % 16" }
-    dvSpeed:   { offset: 28, type: "int", postprocessor: "(x - (x % 16))/16" }
-    dvSpecial: { offset: 28, type: "int", postprocessor: "x % 16" }
+    dvAttack:  { offset: 27, type: "int", read-function: "(x - (x % 16))/16" }
+    dvDefense: { offset: 27, type: "int", read-function: "x % 16" }
+    dvSpeed:   { offset: 28, type: "int", read-function: "(x - (x % 16))/16" }
+    dvSpecial: { offset: 28, type: "int", read-function: "x % 16" }
     statExpHp:      { offset: 17, type: "int", size: 2, description: "HP EV (stat experience)" }
     statExpAttack:  { offset: 19, type: "int", size: 2, description: "Attack EV (stat experience)" }
     statExpDefense: { offset: 21, type: "int", size: 2, description: "Defense EV (stat experience)" }
@@ -69,10 +69,10 @@ macros:
     move2: { offset: 9, type: "int", reference: "moves", }
     move3: { offset: 10, type: "int", reference: "moves" }
     move4: { offset: 11, type: "int", reference: "moves",  description: "Bottom moveslot" }
-    move1pp: { offset: 29, type: "int", postprocessor: "x % 64" }
-    move2pp: { offset: 30, type: "int", postprocessor: "x % 64" }
-    move3pp: { offset: 31, type: "int", postprocessor: "x % 64" }
-    move4pp: { offset: 32, type: "int", postprocessor: "x % 64" }
+    move1pp: { offset: 29, type: "int", read-function: "x % 64" }
+    move2pp: { offset: 30, type: "int", read-function: "x % 64" }
+    move3pp: { offset: 31, type: "int", read-function: "x % 64" }
+    move4pp: { offset: 32, type: "int", read-function: "x % 64" }
     type1: { offset: 5, type: "int", reference: "pokemonTypes" }
     type2: { offset: 6, type: "int", reference: "pokemonTypes" }
     trainerId: { offset: 12, type: "int", size: 2 }
@@ -119,8 +119,8 @@ properties:
       - { type: "macro", address: 0xD343, macro: "playerItem" }
     money:           { type: "binaryCodedDecimal", address: 0xD346, size: 3 }
     gameCornerCoins: { type: "binaryCodedDecimal", address: 0xD5A3, size: 2 }
-    pokedexSeen:   { type: "bitArray", address: 0xD309, size: 19 }
-    pokedexCaught: { type: "bitArray", address: 0xD2F6, size: 19 }
+    pokedexSeen:   { type: "bitField", address: 0xD309, size: 19 }
+    pokedexCaught: { type: "bitField", address: 0xD2F6, size: 19 }
     badges:
       badge1: { type: "bit", address: 0xD355, position: 0, description: "boulderbadge" }
       badge2: { type: "bit", address: 0xD355, position: 1, description: "cascadebadge" }
@@ -131,7 +131,7 @@ properties:
       badge7: { type: "bit", address: 0xD355, position: 6, description: "volcanobadge" }
       badge8: { type: "bit", address: 0xD355, position: 7, description: "earthbadge" }
     starterPokemon: { type: "int", address: 0xD716, reference: "pokemonSpecies", description: "The starter Pokemon received from Oak."}
-    joypadSimulation: { type: "bool", address: 0xCD38, description: "Setting this to true will disable collision for your character." }
+    joypadSimulation: { type: "bit", address: 0xCD38, position: 0, description: "Setting this to true will disable collision for your character." }
     joypadIgnore:     { type: "int", address: 0xCD6B, description: 
         "Buttons to ignore in the joypad (bit mask). Each button corresponds to the following bits:
           * A Button:    bit 0 (0x01, dec 1)
@@ -345,10 +345,10 @@ properties:
       move2: { type: "int", address: 0xD01C, reference: "moves" }
       move3: { type: "int", address: 0xD01D, reference: "moves" }
       move4: { type: "int", address: 0xD01E, reference: "moves" }
-      move1pp: { type: "int", address: 0xD02C, postprocessor: "x % 64" }
-      move2pp: { type: "int", address: 0xD02D, postprocessor: "x % 64" }
-      move3pp: { type: "int", address: 0xD02E, postprocessor: "x % 64" }
-      move4pp: { type: "int", address: 0xD02F, postprocessor: "x % 64" }
+      move1pp: { type: "int", address: 0xD02C, read-function: "x % 64" }
+      move2pp: { type: "int", address: 0xD02D, read-function: "x % 64" }
+      move3pp: { type: "int", address: 0xD02E, read-function: "x % 64" }
+      move4pp: { type: "int", address: 0xD02F, read-function: "x % 64" }
       effects:
         bide:         { type: "bit", address: 0xD061, position: 0 }
         thrash:       { type: "bit", address: 0xD061, position: 1 }
@@ -398,16 +398,16 @@ properties:
       move2: { type: "int", address: 0xCFED, reference: "moves" }
       move3: { type: "int", address: 0xCFEE, reference: "moves" }
       move4: { type: "int", address: 0xCFEF, reference: "moves" }
-      dvAttack:  { type: "int", address: 0xCFF0, postprocessor: "(x - (x % 16))/16" }
-      dvDefense: { type: "int", address: 0xCFF0, postprocessor: "x % 16" }
-      dvSpeed:   { type: "int", address: 0xCFF1, postprocessor: "(x - (x % 16))/16" }
-      dvSpecial: { type: "int", address: 0xCFF1, postprocessor: "x % 16" }
-      baseHp:      { type: "int", address: 0xD001, postprocessor: "x % 16" }
-      baseAttack:  { type: "int", address: 0xD002, postprocessor: "x % 16" }
-      baseDefense: { type: "int", address: 0xD003, postprocessor: "x % 16" }
-      baseSpeed:   { type: "int", address: 0xD004, postprocessor: "x % 16" }
-      baseSpecial: { type: "int", address: 0xD005, postprocessor: "x % 16" }
-      baseExp:     { type: "int", address: 0xD007, postprocessor: "x % 16" }
+      dvAttack:  { type: "int", address: 0xCFF0, read-function: "(x - (x % 16))/16" }
+      dvDefense: { type: "int", address: 0xCFF0, read-function: "x % 16" }
+      dvSpeed:   { type: "int", address: 0xCFF1, read-function: "(x - (x % 16))/16" }
+      dvSpecial: { type: "int", address: 0xCFF1, read-function: "x % 16" }
+      baseHp:      { type: "int", address: 0xD001, read-function: "x % 16" }
+      baseAttack:  { type: "int", address: 0xD002, read-function: "x % 16" }
+      baseDefense: { type: "int", address: 0xD003, read-function: "x % 16" }
+      baseSpeed:   { type: "int", address: 0xD004, read-function: "x % 16" }
+      baseSpecial: { type: "int", address: 0xD005, read-function: "x % 16" }
+      baseExp:     { type: "int", address: 0xD007, read-function: "x % 16" }
       effects:
         bide:         { type: "bit", address: 0xD066, position: 0 }
         thrash:       { type: "bit", address: 0xD066, position: 1 }
@@ -439,14 +439,14 @@ properties:
       effect:   { type: "int", address: 0xCFD2 } #Will need a reference table  - Player's Move Effect
       power:    { type: "int", address: 0xCFD3 }
       type:     { type: "int", address: 0xCFD4, reference: "pokemonTypes" }
-      accuracy: { type: "int", address: 0xCFD5, postprocessor: "Round(((x / 255) * 100), 2)" }
+      accuracy: { type: "int", address: 0xCFD5, read-function: "Round(((x / 255) * 100), 2)" }
       maxPP:    { type: "int", address: 0xCFD6 }
     enemyMove:
       move:     { type: "int", address: 0xCFCB, reference: "moves" }
       effect:   { type: "int", address: 0xCFCC } #Will need a reference table  - Player's Move Effect
       power:    { type: "int", address: 0xCFCD }
       type:     { type: "int", address: 0xCFCE, reference: "pokemonTypes" }
-      accuracy: { type: "int", address: 0xCFCF, postprocessor: "Round(((x / 255) * 100), 2)" }
+      accuracy: { type: "int", address: 0xCFCF, read-function: "Round(((x / 255) * 100), 2)" }
       maxPP:    { type: "int", address: 0xCFD0 }
 
     turnInfo:

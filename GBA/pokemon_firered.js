@@ -16,6 +16,7 @@ function DATA16_LE(data, offset) {
     let val = (data[offset] << 0) | (data[offset + 1] << 8);
     return val & 0xFFFF;
 }
+
 function DATA32_LE(data, offset) {
     let val = (data[offset] << 0)
         | (data[offset + 1] << 8)
@@ -77,41 +78,34 @@ function preprocessor() {
     //This process applies to all the the Player's Pokemon as well as to Pokemon loaded NPCs parties
     //All Pokemon have a data structure of 100-bytes
     //Only 48-bytes of data are encrypted and shuffled in generation 3
-    const partyStructures = ["player", "opponentA",];
+    const partyStructures = ["player", "opponentA"];
     for (let i = 0; i < partyStructures.length; i++) {
         let user = partyStructures[i];
+
         for (let slotIndex = 0; slotIndex < 6; slotIndex++) {
              //Determine the starting address for the party we are decrypting
             let startingAddress = 0
             if (user == "player") {
                 startingAddress = 0x2024284 + (100 * slotIndex); 
             }
-            // if (user == "playerAlt") {
-            //     startingAddress = address_unknown + 0x38014 + (100 * slotIndex); 
-            // }
             if (user == "opponentA") {
                 startingAddress = 0x202402C + (100 * slotIndex); 
             }
-            // if (user == "ally") {
-            //     startingAddress = address_unknown + (100 * slotIndex);
-            // }
-            // if (user == "opponentB") {
-            //     startingAddress = address_unknown + (100 * slotIndex);
-            // }
 
             let pokemonData = memory.defaultNamespace.getBytes(startingAddress, 100)
-            let pid = DATA32_LE(pokemonData, 0);
-            let otid = DATA32_LE(pokemonData, 4);
-            let checksum = DATA16_LE(pokemonData, 28);
+            let pid = pokemonData.get_uint32_le();
+            let otid = pokemonData.get_uint32_le(4);
+            let checksum = pokemonData.get_uint16_le(28);
+
             let decryptedData = []
             for (let i = 0; i < 100; i++) { //Transfer the first 32-bytes of unencrypted data to the decrypted data array
-                decryptedData[i] = pokemonData[i];
+                decryptedData[i] = pokemonData.Data[i];
             }
 
             //Begin the decryption process for the block data
             let key = otid ^ pid; //Calculate the encryption key using the Oritinal Trainer ID XODed with the PID
             for (let i = 32; i < 80; i += 4) {
-                let data = DATA32_LE(pokemonData, i) ^ key; //XOR the data with the key
+                let data = DATA32_LE(pokemonData.Data, i) ^ key; //XOR the data with the key
                 decryptedData[i + 0] = data & 0xFF;         // Isolates the least significant byte
                 decryptedData[i + 1] = (data >> 8) & 0xFF;  // Isolates the 2nd least significant byte
                 decryptedData[i + 2] = (data >> 16) & 0xFF; // Isolates the 3rd least significant byte
@@ -135,9 +129,9 @@ function preprocessor() {
 
             //Transfer the remaining 20-bytes of unencrypted data to the decrypted data array
             for (let i = 80; i < 100; i++) { 
-                decryptedData[i] = pokemonData[i];
+                decryptedData[i] = pokemonData.Data[i];
             }
-            console.info(`${user}_party_structure_${slotIndex}`)
+
             //Fills the memory contains for the mapper's class to interpret
             memory.fill(`${user}_party_structure_${slotIndex}`, 0x00, decryptedData) 
         }
