@@ -151,7 +151,8 @@
 			<property name="stateEnemy" type="string" />
 		</meta>
         <player>
-            <property name="playerId"  type="string" address="0x20228CC" length="2" reference="defaultCharacterMap" description="The active player user Id, better tracking for if the game has loaded a new or saved game" />
+            <!-- Need memory address -->
+            <!-- <property name="playerId"  type="int"    address="0x20228CC" length="2" description="The active player user Id, better tracking for if the game has loaded a new or saved game" /> -->
             <property name="name"      type="string" address="dma_b"     length="8" characterMap="defaultCharacterMap" />
             <property name="gender"    type="int"    address="dma_b + 8" reference="gender" />
             <team>
