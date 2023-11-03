@@ -2,7 +2,7 @@ meta:
   schemaVersion: 1
   id: 476ab621-ce78-414f-9d81-4f292a9d18dd
   gameName: "The Legend of Zelda: Link's Awakening DX"
-  gamePlatform: "GB"
+  gamePlatform: "GBC"
 
 properties:
   map:

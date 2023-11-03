@@ -2,7 +2,7 @@ meta:
   schemaVersion: 1
   id: 161a9132-9f4d-4679-9cc1-11f794253cf1
   gameName: "Pokemon Gold & Silver"
-  gamePlatform: "GB"
+  gamePlatform: "GBC"
 
 macros:
   pokemonMacro:

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mapper id="161a9132-9f4d-4679-9cc1-11f794253cf1" name="Pokemon Gold / Silver" platform="GB"
+<mapper id="161a9132-9f4d-4679-9cc1-11f794253cf1" name="Pokemon Gold / Silver" platform="GBC"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://schemas.gamehook.io/mapper https://schemas.gamehook.io/mapper.xsd"
     xmlns:var="https://schemas.gamehook.io/attributes/var">
@@ -607,6 +607,7 @@
             </gameClock>
         </time>
                 <property name="clockResetCount" type="int" length="2" address="0x101A9" />
+                
         <game>
             <property name="generation" type="int" value="2" />
         </game>
