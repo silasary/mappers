@@ -153,21 +153,21 @@ For all new software, please use the paths within 'pokemon_yellow.xml'
 			<property name="encounterRate" type="int" address="0xD886" />
 			<encounters>
 				<common>
-					<encounter type="macro" address="0xD887" macro="encounter" />
-					<encounter type="macro" address="0xD889" macro="encounter" />
-					<encounter type="macro" address="0xD88B" macro="encounter" />
-					<encounter type="macro" address="0xD88D" macro="encounter" />
-					<encounter type="macro" address="0xD88F" macro="encounter" />
+					<class name="0" type="encounter" var:address="0xD887" />
+					<class name="1" type="encounter" var:address="0xD889" />
+					<class name="2" type="encounter" var:address="0xD88B" />
+					<class name="3" type="encounter" var:address="0xD88D" />
+					<class name="4" type="encounter" var:address="0xD88F" />
 				</common>
 				<uncommon>
-					<encounter type="macro" address="0xD889" macro="encounter" />
-					<encounter type="macro" address="0xD891" macro="encounter" />
-					<encounter type="macro" address="0xD893" macro="encounter" />
-					<encounter type="macro" address="0xD895" macro="encounter" />
+					<class name="0" type="encounter" var:address="0xD889" />
+					<class name="1" type="encounter" var:address="0xD891" />
+					<class name="2" type="encounter" var:address="0xD893" />
+					<class name="3" type="encounter" var:address="0xD895" />
 				</uncommon>
 				<rare>
-					<encounter type="macro" address="0xD897" macro="encounter" />
-					<encounter type="macro" address="0xD899" macro="encounter" />
+					<class name="0" type="encounter" var:address="0xD897" />
+					<class name="1" type="encounter" var:address="0xD899" />
 				</rare>
 			</encounters>
 			<property name="repelCount" type="int" address="0xD0DA" />
