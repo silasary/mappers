@@ -160,6 +160,29 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
       </badges>
     </player>
     <battle>
+      <type>
+          <property name="double"           type="bit" address="0x020239f8" length="4" position="0" />
+          <property name="link"             type="bit" address="0x020239f8" length="4" position="1" />
+          <property name="is_battle"        type="bit" address="0x020239f8" length="4" position="2" />
+          <property name="trainer"          type="bit" address="0x020239f8" length="4" position="3" />
+          <property name="first_battle"     type="bit" address="0x020239f8" length="4" position="4" />
+          <property name="link_in_battle"   type="bit" address="0x020239f8" length="4" position="5" />
+          <property name="multi"            type="bit" address="0x020239f8" length="4" position="6" />
+          <property name="safari"           type="bit" address="0x020239f8" length="4" position="7" />
+          <property name="battle_tower"     type="bit" address="0x020239f8" length="4" position="8" />
+          <property name="old_man_tutorial" type="bit" address="0x020239f8" length="4" position="9" />
+          <property name="roamer"           type="bit" address="0x020239f8" length="4" position="10" />
+          <property name="eReader_trainer"  type="bit" address="0x020239f8" length="4" position="11" />
+          <property name="kyogre_groudon"   type="bit" address="0x020239f8" length="4" position="12" />
+          <!-- TODO: Verify values below are accurate -->
+          <property name="ghost_unveiled"   type="bit" address="0x020239f8" length="4" position="13" />
+          <property name="regi"             type="bit" address="0x020239f8" length="4" position="14" />
+          <property name="ghost"            type="bit" address="0x020239f8" length="4" position="15" />
+          <property name="pokedude"         type="bit" address="0x020239f8" length="4" position="16" />
+          <property name="wild_scripted"    type="bit" address="0x020239f8" length="4" position="17" />
+          <property name="legenadry_frlg"   type="bit" address="0x020239f8" length="4" position="18" />
+          <property name="trainer_tower"    type="bit" address="0x020239f8" length="4" position="19" />
+      </type>
       <trainer>
         <team>
           <class name="0" type="pokemonInParty" var:memoryContainer="opponent_party_structure_0"/>
