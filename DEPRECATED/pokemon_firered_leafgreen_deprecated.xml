@@ -652,10 +652,12 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
     </battleOutcome>
     <battleWeather>
       <entry key="0" />
-      <entry key="1"   value="Rain" />
-      <entry key="8"   value="Sandstorm" />
-      <entry key="24"  value="Sandstorm" />
-      <entry key="32"  value="Sun" />
+      <entry key="1" value="Rain" />
+      <entry key="5" value="Rain" />
+      <entry key="8" value="Sandstorm" />
+      <entry key="24" value="Sandstorm" />
+      <entry key="32" value="Sun" />
+      <entry key="96" value="Sun" />
       <entry key="128" value="Hail" />
     </battleWeather>
     <battleDialogue>
@@ -798,7 +800,7 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
       <entry key="6" value="PAY DAY" />
       <entry key="7" value="FIRE PUNCH" />
       <entry key="8" value="ICE PUNCH" />
-      <entry key="9" value="ThunderPunch" />
+      <entry key="9" value="THUNDERPUNCH" />
       <entry key="10" value="SCRATCH" />
       <entry key="11" value="VICEGRIP" />
       <entry key="12" value="GUILLOTINE" />
@@ -838,7 +840,7 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
       <entry key="46" value="ROAR" />
       <entry key="47" value="SING" />
       <entry key="48" value="SUPERSONIC" />
-      <entry key="49" value="SonicBoom" />
+      <entry key="49" value="SONICBOOM" />
       <entry key="50" value="DISABLE" />
       <entry key="51" value="ACID" />
       <entry key="52" value="EMBER" />
