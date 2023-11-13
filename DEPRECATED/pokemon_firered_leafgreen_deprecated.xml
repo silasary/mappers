@@ -510,8 +510,10 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
       <property name="dma1" type="uint" length="4" address="0x3005008" />
       <property name="dma2" type="uint" length="4" address="0x300500C" />
       <property name="dma3" type="uint" length="4" address="0x3005010" />
-      <property name="callback1" type="int" length="4" address="0x030030f0" reference="mainState" />
-      <property name="callback2" type="int" length="4" address="0x030030f4" reference="subState" />
+      <property name="callback1" type="int" length="4" address="0x30030f0" reference="mainState" />
+      <property name="callback1test" type="int" length="4" address="0x30030f0" />
+      <property name="callback2" type="int" length="4" address="0x30030f4" reference="subState" />
+      <property name="callback2test" type="int" length="4" address="0x30030f4" />
     </pointers>
     <meta>
 			<property name="generation" type="int" value="3" />
@@ -525,50 +527,43 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
   <references>
     <mainState>
       <entry key="0" />
-      <entry key="134766085" value="Overworld" />
-      <entry key="134455025" value="Battle" />
+      <entry key="134571337" value="Overworld" />
+      <entry key="134292473" value="Battle" />
     </mainState>
     <subState>
-      <entry key="0" />
-      <entry key="134766173" value="Overworld" />
-      <entry key="134448161" value="Battle" />
-      <entry key="134766161" value="Battle Animation" />
-      <entry key="134442925" value="Black Transition #battle transition" />
-      <entry key="134767153" value="Black Transition #from main menu to overworld" />
-      <entry key="135147013" value="Black Transition #to naming screen after catching a Pokemon" />
-      <entry key="135415441" value="Black Transition #to Fly menu" />
-      <entry key="135492097" value="Black Transition #door" />
-      <entry key="135134613" value="Black Transition #to mart" />
-      <entry key="134766793" value="Black Transition #closing pc" />
-      <entry key="134766541" value="Black Transition #door" />
-      <entry key="135134565" value="Mart Menu Opening" />
-      <entry key="135134565" value="Mart Menu" />
-      <entry key="134766589" value="Transition to Overworld" />
-      <entry key="135416021" value="Fly Menu" />
-      <entry key="134440801" value="Intro to Battle" />
-      <entry key="135987633" value="Party Menu" />
-      <entry key="135966045" value="Bag" />
-      <entry key="136082433" value="Pokenav" />
-      <entry key="135014161" value="Trainer Card" />
-      <entry key="134980785" value="Options Menu" />
-      <entry key="134985589" value="Pokedex" />
-      <entry key="135712429" value="Owners" />
-      <entry key="135711745" value="Intro Cinematic" />
-      <entry key="135711829" value="White Screen" />
-      <entry key="134916005" value="Transition to Title Screen" />
-      <entry key="134916909" value="Title Screen" />
-      <entry key="134411887" value="Transition to Main Menu" />
-      <entry key="134411953" value="Main Menu" />
-      <entry key="134766997" value="Black Transition" />
-      <entry key="134766837" value="Transition to Overworld" />
-      <entry key="134985013" value="Opening Pokedex" />
-      <entry key="135987681" value="Opening Party Menu" />
-      <entry key="135966093" value="Opening Bag" />
-      <entry key="136082001" value="Opening Pokenav" />
-      <entry key="135015553" value="Opening Trainer Card" />
-      <entry key="134980829" value="Opening Options" />
-      <entry key="135155545" value="Naming Screen #character naming &amp; Pokemon naming" />
-      <entry key="135036245" value="PC" />
+      <entry key="134571465" value="Overworld" />
+      <entry key="135298953" value="Opening Bag" />
+      <entry key="135298905" value="Bag" />
+      <entry key="134572061" value="Black Transition (Short)" />
+      <entry key="135469277" value="TM Case" />
+      <entry key="135515769" value="Berry Case" />
+      <entry key="134571873" value="Black Transition" />
+      <entry key="134571825" value="Black Transition" />
+      <entry key="135044113" value="Black Transition" />
+      <entry key="135392329" value="Opening Party Menu" />
+      <entry key="135392281" value="Party Menu" />
+      <entry key="134775913" value="Opening Options Menu" />
+      <entry key="134775665" value="Options Menu" />
+      <entry key="134780365" value="Opening Trainer Card" />
+      <entry key="134779013" value="Trainer Card" />
+      <entry key="135275853" value="Pokedex" />
+      <entry key="135276501" value="Opening Pokedex" />
+      <entry key="135276753" value="Closing Pokedex" />
+      <entry key="135006409" value="Fly Menu" />
+      <entry key="135004437" value="Opening Fly Menu" />
+      <entry key="135044069" value="White Transition" />
+      <entry key="134571453" value="Battle Animation" />
+      <entry key="134287637" value="Battle" />
+      <entry key="134284573" value="Battle Transition - Black" />
+      <entry key="134282673" value="Battle Transition - Black" />
+      <entry key="134852089" value="Mart Menu" />
+      <entry key="134852137" value="Opening Mart Menu" />
+      <entry key="135457673" value="New Game" />
+      <entry key="134267625" value="Main Menu" />
+      <entry key="134871941" value="Naming Screen" />
+      <entry key="135186485" value="Owners" />
+      <entry key="135186921" value="Intro Cinematic" />
+      <entry key="134712241" value="Title Screen" />
     </subState>
     <battleAction>
       <entry key="0x00" value="USE_MOVE" />
