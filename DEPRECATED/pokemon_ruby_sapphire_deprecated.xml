@@ -160,6 +160,7 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
       </badges>
     </player>
     <battle>
+      <property name="outcome" type="int" address="0x02024d26" reference="battleOutcome" />
       <type>
           <property name="double"           type="bit" address="0x020239f8" length="4" position="0" />
           <property name="link"             type="bit" address="0x020239f8" length="4" position="1" />
