@@ -500,8 +500,6 @@ For all new software, please use the paths within 'pokemon_yellow.xml'
 				<property name="sfx"   type="int" address="0xC0EA" length="2" />
 			</tempo>
 		</audio>
-
-	
 		<pc>
 			<pokemonStorage>
 				<property name="currentBoxCount" type="int" address="0xDA7F" />
@@ -766,7 +764,7 @@ For all new software, please use the paths within 'pokemon_yellow.xml'
 		</patch>
 		<meta>
 			<property name="generation" type="int" value="1" />
-			<property name="gameName"   type="int" value="Yellow" />
+			<property name="gameName"   type="int" value="Pokemon Yellow" />
 			<property name="gameType"   type="int" value="Third Version" />
 			<property name="mapperType" type="int" value="Deprecated" />
 			<!-- <property name="state" type="string" />

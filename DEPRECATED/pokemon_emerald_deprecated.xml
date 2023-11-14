@@ -601,7 +601,7 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
     </pointers>
     <meta>
 			<property name="generation" type="int" value="3" />
-			<property name="gameName"   type="int" value="Emerald" />
+			<property name="gameName"   type="int" value="Pokemon Emerald" />
 			<property name="gameType"   type="int" value="Third Version" />
 			<property name="mapperType" type="int" value="Deprecated" />
 			<!-- <property name="state" type="string" />

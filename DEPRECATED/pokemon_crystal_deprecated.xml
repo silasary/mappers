@@ -558,7 +558,6 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
         <property name="minute"    type="int" address="0xd4b8" />
         <property name="second"    type="int" address="0xd4b9" />
       </start>
-
       <rtc>
         <property name="day"       type="int" address="0xff8d" length="2" read-function="(x % 512) % 7" />
         <property name="hour"      type="int" address="0xff8f" />
@@ -780,7 +779,7 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
     </patch>
     <meta>
       <property name="generation" type="int" value="2" />
-      <property name="gameName"   type="int" value="Crystal" />
+      <property name="gameName"   type="int" value="Pokemon Crystal" />
       <property name="gameType"   type="int" value="Third Version" />
       <property name="mapperType" type="int" value="Deprecated" />
       <!-- <property name="state" type="string" />

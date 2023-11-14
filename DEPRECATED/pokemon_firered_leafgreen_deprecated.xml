@@ -515,7 +515,7 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
     </pointers>
     <meta>
 			<property name="generation" type="int" value="3" />
-			<property name="gameName"   type="int" value="FireRed and LeafGreen" />
+			<property name="gameName"   type="int" value="Pokemon FireRed and LeafGreen" />
 			<property name="gameType"   type="int" value="Remakes" />
 			<property name="mapperType" type="int" value="Deprecated" />
 			<!-- <property name="state" type="string" />

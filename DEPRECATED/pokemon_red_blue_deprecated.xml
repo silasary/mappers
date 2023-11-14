@@ -573,7 +573,7 @@ For all new software, please use the paths within 'pokemon_red_and_blue.xml'
     </gameTime>
     <meta>
 		<property name="generation" type="int" value="1" />
-		<property name="gameName"   type="int" value="Red and Blue" />
+		<property name="gameName"   type="int" value="Pokemon Red and Blue" />
 		<property name="gameType"   type="int" value="Originals" />
 		<property name="mapperType" type="int" value="Deprecated" />
 		<!-- <property name="state" type="string" />
