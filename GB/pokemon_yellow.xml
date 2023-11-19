@@ -160,8 +160,8 @@
             </script>
         </player>
         <bag>
-            <property name="money"           type="int" address="0xD346" length="3" />
-            <property name="gameCornerCoins" type="int" address="0xD5A3" length="2" />
+            <property name="money"           type="binaryCodedDecimal" address="0xD346" length="3" />
+            <property name="gameCornerCoins" type="binaryCodedDecimal" address="0xD5A3" length="2" />
             <property name="itemCount"       type="int" address="0xD31C" />
             <items>
                 <class name="0"  type="playerItem" var:address="0xD31D" />

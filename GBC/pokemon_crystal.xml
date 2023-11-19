@@ -190,32 +190,32 @@
             </balls>
             <property name="totalKeyItems" type="int" address="0xD8BC" />
             <keyItems>
-                <class name="0"  type="playerItem" var:address="0xD8BD" />
-                <class name="1"  type="playerItem" var:address="0xD8BE" />
-                <class name="2"  type="playerItem" var:address="0xD8BF" />
-                <class name="3"  type="playerItem" var:address="0xD8C0" />
-                <class name="4"  type="playerItem" var:address="0xD8C1" />
-                <class name="5"  type="playerItem" var:address="0xD8C2" />
-                <class name="6"  type="playerItem" var:address="0xD8C3" />
-                <class name="7"  type="playerItem" var:address="0xD8C4" />
-                <class name="8"  type="playerItem" var:address="0xD8C5" />
-                <class name="9"  type="playerItem" var:address="0xD8C6" />
-                <class name="10" type="playerItem" var:address="0xD8C7" />
-                <class name="11" type="playerItem" var:address="0xD8C8" />
-                <class name="12" type="playerItem" var:address="0xD8C9" />
-                <class name="13" type="playerItem" var:address="0xD8CA" />
-                <class name="14" type="playerItem" var:address="0xD8CB" />
-                <class name="15" type="playerItem" var:address="0xD8CC" />
-                <class name="16" type="playerItem" var:address="0xD8CD" />
-                <class name="17" type="playerItem" var:address="0xD8CE" />
-                <class name="18" type="playerItem" var:address="0xD8CF" />
-                <class name="19" type="playerItem" var:address="0xD8D0" />
-                <class name="20" type="playerItem" var:address="0xD8D1" />
-                <class name="21" type="playerItem" var:address="0xD8D2" />
-                <class name="22" type="playerItem" var:address="0xD8D3" />
-                <class name="23" type="playerItem" var:address="0xD8D4" />
-                <class name="24" type="playerItem" var:address="0xD8D5" />
-                <class name="25" type="playerItem" var:address="0xD8D6" />
+                <property name="0"  type="int" address="0xD8BD" reference="items" />
+                <property name="1"  type="int" address="0xD8BE" reference="items" />
+                <property name="2"  type="int" address="0xD8BF" reference="items" />
+                <property name="3"  type="int" address="0xD8C0" reference="items" />
+                <property name="4"  type="int" address="0xD8C1" reference="items" />
+                <property name="5"  type="int" address="0xD8C2" reference="items" />
+                <property name="6"  type="int" address="0xD8C3" reference="items" />
+                <property name="7"  type="int" address="0xD8C4" reference="items" />
+                <property name="8"  type="int" address="0xD8C5" reference="items" />
+                <property name="9"  type="int" address="0xD8C6" reference="items" />
+                <property name="10" type="int" address="0xD8C7" reference="items" />
+                <property name="11" type="int" address="0xD8C8" reference="items" />
+                <property name="12" type="int" address="0xD8C9" reference="items" />
+                <property name="13" type="int" address="0xD8CA" reference="items" />
+                <property name="14" type="int" address="0xD8CB" reference="items" />
+                <property name="15" type="int" address="0xD8CC" reference="items" />
+                <property name="16" type="int" address="0xD8CD" reference="items" />
+                <property name="17" type="int" address="0xD8CE" reference="items" />
+                <property name="18" type="int" address="0xD8CF" reference="items" />
+                <property name="19" type="int" address="0xD8D0" reference="items" />
+                <property name="20" type="int" address="0xD8D1" reference="items" />
+                <property name="21" type="int" address="0xD8D2" reference="items" />
+                <property name="22" type="int" address="0xD8D3" reference="items" />
+                <property name="23" type="int" address="0xD8D4" reference="items" />
+                <property name="24" type="int" address="0xD8D5" reference="items" />
+                <property name="25" type="int" address="0xD8D6" reference="items" />
             </keyItems>
             <tms>
                 <property name="tm01-dynamicpunch" type="int" address="0xD859" />
