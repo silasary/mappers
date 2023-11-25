@@ -16,7 +16,7 @@
             <macro type="pokemon" />
             <property name="nickname"         type="string" address="nicknameAddress" length="11" />
             <property name="level"            type="int" address="address + 31" />
-            <property name="experiencePoints" type="int" address="address + 8" />
+            <property name="experiencePoints" type="int" address="address + 8" length="3" />
             <property name="friendshipPoints" type="int" address="address + 27" />
             <property name="statusCondition"  type="int" address="address + 32" reference="statusConditions" />
             <property name="heldItem"         type="int" address="address + 1" reference="items" />
