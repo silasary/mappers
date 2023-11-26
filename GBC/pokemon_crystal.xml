@@ -21,6 +21,7 @@
             <property name="statusCondition"  type="int" address="address + 32" reference="statusConditions" />
             <property name="heldItem"         type="int" address="address + 1" reference="items" />
             <property name="pokerus"          type="int" address="address + 28" />
+            <property name="shiny"            type="bool" description="Calculated from the IVs; not actually stored in memory" />
             <property name="trainerId"        type="int" address="address + 6" length="2" />
             <stats>
                 <property name="hp"             type="int" address="address + 34" length="2" before-read="test" />
@@ -38,6 +39,7 @@
                 <class name="3" type="pokemonInPartyMoveset" var:moveAddress="address + 5" />
             </moves>
             <ivs>
+                <property name="hp"      type="int"    description="Calculated from the IVs; not actually stored in memory" />
                 <property name="attack"  type="nibble" address="address + 21" position="0" before-read="test" />
                 <property name="defense" type="nibble" address="address + 21" position="1" before-read="test" />
                 <property name="speed"   type="nibble" address="address + 22" position="0" before-read="test" />
@@ -50,6 +52,10 @@
                 <property name="speed"   type="int" address="address + 17" length="2" before-read="test" />
                 <property name="special" type="int" address="address + 19" length="2" before-read="test" />
             </evs>
+            <hiddenPower>
+                <property name="type" type="int" reference="types" description="Calculated from the IVs; not actually stored in memory" />
+                <property name="power" type="int" description="Calculated from the IVs; not actually stored in memory" />
+            </hiddenPower>
 
             <script type="text/typescript">
                 <![CDATA[
