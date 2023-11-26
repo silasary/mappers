@@ -183,7 +183,7 @@ function preprocessor() {
 
                     let data = encryptedData.get_uint16_le(i) ^ key;
                     decryptedData[i + 0] = data & 0xFF;
-                    decryptedData[i + 1] = data >> 16;
+                    decryptedData[i + 1] = (data >> 8) & 0xFF;
                 }
             }
 
