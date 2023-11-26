@@ -7000,7 +7000,7 @@
 			<entry key="0x01FB" value="Rotom"/>
 		</pokemonSpecies>
 		<moves>
-			<entry key="0" value="-" />
+			<entry key="0" />
 			<entry key="1" value="Pound" />
 			<entry key="2" value="Karate Chop" />
 			<entry key="3" value="DoubleSlap" />
@@ -7185,7 +7185,7 @@
 			<entry key="182" value="Protect" />
 			<entry key="183" value="Mach Punch" />
 			<entry key="184" value="Scary Face" />
-			<entry key="185" value="Feint Attack" />
+			<entry key="185" value="Faint Attack" />
 			<entry key="186" value="Sweet Kiss" />
 			<entry key="187" value="Belly Drum" />
 			<entry key="188" value="Sludge Bomb" />
@@ -7404,7 +7404,7 @@
 			<entry key="401" value="Aqua Tail" />
 			<entry key="402" value="Seed Bomb" />
 			<entry key="403" value="Air Slash" />
-			<entry key="404" value="X-scissor" />
+			<entry key="404" value="X-Scissor" />
 			<entry key="405" value="Bug Buzz" />
 			<entry key="406" value="Dragon Pulse" />
 			<entry key="407" value="Dragon Rush" />
