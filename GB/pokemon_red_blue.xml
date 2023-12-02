@@ -448,7 +448,7 @@
 
         <rival>
             <property name="name"      type="string" address="0xD34A" length="8" description="The rival's name." />
-            <property name="finalTeam" type="int"    address="0xD714" reference="finalTeam" />
+            <property name="finalTeam" type="int"    address="0xD715" reference="finalTeam" />
         </rival>
 
         <audio>
@@ -725,9 +725,10 @@
         </options>
         <finalTeam>
             <entry key="0x00" value="No Team Selected" />
-            <entry key="0x01" value="Jolteon" />
-            <entry key="0x02" value="Flareon" />
-            <entry key="0x03" value="Vaporeon" />
+            <!-- actually the indices for Charmander, Squirtle, and Bulbasaur, respectively, but set to final evolution to remain 1:1 with pokemon_yellow.xml -->
+            <entry key="0xB0" value="Charizard" />
+            <entry key="0xB1" value="Blastoise" />
+            <entry key="0x99" value="Venusaur" />
         </finalTeam>
         <trainerClasses>
             <entry key="0x00" value="NOBODY"/>
