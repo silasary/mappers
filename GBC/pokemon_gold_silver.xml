@@ -86,6 +86,7 @@
         <roamer>
             <macro type="pokemon" />
             <property name="level"     address="address+1" type="int" length="1" />
+            <property name="map"       address="address+2" type="int" length="2" reference="maps" />
             <property name="mapGroup"  address="address+2" type="int" length="1" reference="mapGroups" />
             <property name="mapNumber" address="address+3" type="int" length="1" />
             <property name="hp"        address="address+4" type="int" length="1" />
@@ -286,6 +287,7 @@
         </bag>
 
         <overworld>
+            <property name="map"       type="int" address="0xDA00" length="2" reference="maps" />
             <property name="mapGroup"  type="int" address="0xDA00" reference="mapGroups" />
             <property name="mapNumber" type="int" address="0xDA01" />
             <property name="y"         type="int" address="0xDA02" />
@@ -1895,9 +1897,377 @@
             <entry key="0x19" value="Saffron" />
             <entry key="0x1A" value="Cherrygrove" />
         </mapGroups>
-        <mapNumber> 
-            <entry key="0x00" />
-        </mapNumber>
+        <maps>
+            <entry key="0x0000" value="None" />
+            <entry key="0x0101" value="Olivine City - Pokecenter - 1F" />
+            <entry key="0x0102" value="Olivine City - Gym" />
+            <entry key="0x0103" value="Olivine City - Tim's House" />
+            <entry key="0x0104" value="Olivine City - House (Beta)" />
+            <entry key="0x0105" value="Olivine City - Punishment Speech House" />
+            <entry key="0x0106" value="Olivine City - Good Rod House" />
+            <entry key="0x0107" value="Olivine City - Cafe" />
+            <entry key="0x0108" value="Olivine City - Mart" />
+            <entry key="0x0109" value="Route 38 - Gate" />
+            <entry key="0x010A" value="Route 39 - Barn" />
+            <entry key="0x010B" value="Route 39 - Farmhouse" />
+            <entry key="0x010C" value="Route 38" />
+            <entry key="0x010D" value="Route 39" />
+            <entry key="0x010E" value="Olivine City" />
+            <entry key="0x0201" value="Mahogany Town - Red Gyarados Speech House" />
+            <entry key="0x0202" value="Mahogany Town - Gym" />
+            <entry key="0x0203" value="Mahogany Town - Pokecenter - 1F" />
+            <entry key="0x0204" value="Route 42 - Gate" />
+            <entry key="0x0205" value="Route 42" />
+            <entry key="0x0206" value="Route 44" />
+            <entry key="0x0207" value="Mahogany Town" />
+            <entry key="0x0301" value="Violet City - Sprout Tower - 1F" />
+            <entry key="0x0302" value="Violet City - Sprout Tower - 2F" />
+            <entry key="0x0303" value="Violet City - Sprout Tower - 3F" />
+            <entry key="0x0304" value="Ecruteak City - Tin Tower - 1F" />
+            <entry key="0x0305" value="Ecruteak City - Tin Tower - 2F" />
+            <entry key="0x0306" value="Ecruteak City - Tin Tower - 3F" />
+            <entry key="0x0307" value="Ecruteak City - Tin Tower - 4F" />
+            <entry key="0x0308" value="Ecruteak City - Tin Tower - 5F" />
+            <entry key="0x0309" value="Ecruteak City - Tin Tower - 6F" />
+            <entry key="0x030A" value="Ecruteak City - Tin Tower - 7F" />
+            <entry key="0x030B" value="Ecruteak City - Tin Tower - 8F" />
+            <entry key="0x030C" value="Ecruteak City - Tin Tower - 9F" />
+            <entry key="0x030D" value="Ecruteak City - Burned Tower - 1F" />
+            <entry key="0x030E" value="Ecruteak City - Burned Tower - B1F" />
+            <entry key="0x030F" value="National Park" />
+            <entry key="0x0310" value="National Park - National Park Bug Contest" />
+            <entry key="0x0311" value="Goldenrod City - Radio Tower - 1F" />
+            <entry key="0x0312" value="Goldenrod City - Radio Tower - 2F" />
+            <entry key="0x0313" value="Goldenrod City - Radio Tower - 3F" />
+            <entry key="0x0314" value="Goldenrod City - Radio Tower - 4F" />
+            <entry key="0x0315" value="Goldenrod City - Radio Tower - 5F" />
+            <entry key="0x0316" value="Ruins of Alph" />
+            <entry key="0x0317" value="Ruins of Alph - Ho Oh Chamber" />
+            <entry key="0x0318" value="Ruins of Alph - Kabuto Chamber" />
+            <entry key="0x0319" value="Ruins of Alph - Omanyte Chamber" />
+            <entry key="0x031A" value="Ruins of Alph - Aerodactyl Chamber" />
+            <entry key="0x031B" value="Ruins of Alph - Inner Chamber" />
+            <entry key="0x031C" value="Ruins of Alph - Research Center" />
+            <entry key="0x031D" value="Union Cave - 1F" />
+            <entry key="0x031E" value="Union Cave - B1F" />
+            <entry key="0x031F" value="Union Cave - B2F" />
+            <entry key="0x0320" value="Slowpoke Well - B1F" />
+            <entry key="0x0321" value="Slowpoke Well - B2F" />
+            <entry key="0x0322" value="Olivine City - Lighthouse - 1F" />
+            <entry key="0x0323" value="Olivine City - Lighthouse - 2F" />
+            <entry key="0x0324" value="Olivine City - Lighthouse - 3F" />
+            <entry key="0x0325" value="Olivine City - Lighthouse - 4F" />
+            <entry key="0x0326" value="Olivine City - Lighthouse - 5F" />
+            <entry key="0x0327" value="Olivine City - Lighthouse - 6F" />
+            <entry key="0x0328" value="Mahogany Mart - 1F" />
+            <entry key="0x0329" value="Mahogany Town - Team Rocket Base - B1F" />
+            <entry key="0x032A" value="Mahogany Town - Team Rocket Base - B2F" />
+            <entry key="0x032B" value="Mahogany Town - Team Rocket Base - B3F" />
+            <entry key="0x032C" value="Ilex Forest" />
+            <entry key="0x032D" value="Goldenrod City - Underground" />
+            <entry key="0x032E" value="Goldenrod City - Underground - Switch Room / Entrances" />
+            <entry key="0x032F" value="Goldenrod City - Department Store - B1F" />
+            <entry key="0x0330" value="Goldenrod City - Underground Warehouse" />
+            <entry key="0x0331" value="Mt. Mortar - 1F - Outside" />
+            <entry key="0x0332" value="Mt. Mortar - 1F - Inside" />
+            <entry key="0x0333" value="Mt. Mortar - 2F - Inside" />
+            <entry key="0x0334" value="Mt. Mortar - B1F" />
+            <entry key="0x0335" value="Ice Path - 1F" />
+            <entry key="0x0336" value="Ice Path - B1F" />
+            <entry key="0x0337" value="Ice Path - B2F - Mahogany Side" />
+            <entry key="0x0338" value="Ice Path - B2F - Blackthorn Side" />
+            <entry key="0x0339" value="Ice Path - B3F" />
+            <entry key="0x033A" value="Whirl Islands (Northwest)" />
+            <entry key="0x033B" value="Whirl Islands (Northeast)" />
+            <entry key="0x033C" value="Whirl Islands (Southwest)" />
+            <entry key="0x033D" value="Whirl Islands" />
+            <entry key="0x033E" value="Whirl Islands (Southeast)" />
+            <entry key="0x033F" value="Whirl Islands - B1F" />
+            <entry key="0x0340" value="Whirl Islands - B2F" />
+            <entry key="0x0341" value="Whirl Islands - Lugia Chamber" />
+            <entry key="0x0342" value="Silver Cave - 1F" />
+            <entry key="0x0343" value="Silver Cave - 2F" />
+            <entry key="0x0344" value="Silver Cave - 3F" />
+            <entry key="0x0345" value="Silver Cave - Item Rooms" />
+            <entry key="0x0346" value="Dark Cave - Violet Entrance" />
+            <entry key="0x0347" value="Dark Cave - Blackthorn Entrance" />
+            <entry key="0x0348" value="Dragon's Den - 1F" />
+            <entry key="0x0349" value="Dragon's Den - B1F" />
+            <entry key="0x034A" value="Tohjo Falls" />
+            <entry key="0x034B" value="Diglett's Cave" />
+            <entry key="0x034C" value="Mt. Moon" />
+            <entry key="0x034D" value="Underground Path" />
+            <entry key="0x034E" value="Rock Tunnel - 1F" />
+            <entry key="0x034F" value="Rock Tunnel - B1F" />
+            <entry key="0x0350" value="Safari Zone (Beta) - Gate" />
+            <entry key="0x0351" value="Safari Zone (Beta)" />
+            <entry key="0x0352" value="Victory Road" />
+            <entry key="0x0401" value="Ecruteak City - Tin Tower Entrance" />
+            <entry key="0x0402" value="Ecruteak City - Tin Tower Back Entrance" />
+            <entry key="0x0403" value="Ecruteak City - Pokecenter - 1F" />
+            <entry key="0x0404" value="Ecruteak City - Lugia Speech House" />
+            <entry key="0x0405" value="Ecruteak City - Dance Theater" />
+            <entry key="0x0406" value="Ecruteak City - Mart" />
+            <entry key="0x0407" value="Ecruteak City - Gym" />
+            <entry key="0x0408" value="Ecruteak City - Itemfinder House" />
+            <entry key="0x0409" value="Ecruteak City - Ecruteak City" />
+            <entry key="0x0501" value="Blackthorn City - Gym - 1F" />
+            <entry key="0x0502" value="Blackthorn City - Gym - 2F" />
+            <entry key="0x0503" value="Blackthorn City - Dragon Speech House" />
+            <entry key="0x0504" value="Blackthorn City - Emy's House" />
+            <entry key="0x0505" value="Blackthorn City - Mart" />
+            <entry key="0x0506" value="Blackthorn City - Pokecenter - 1F" />
+            <entry key="0x0507" value="Blackthorn City - Move Deleter's House" />
+            <entry key="0x0508" value="Route 45" />
+            <entry key="0x0509" value="Route 46" />
+            <entry key="0x050A" value="Blackthorn City" />
+            <entry key="0x0601" value="Cinnabar Island - Pokecenter - 1F" />
+            <entry key="0x0602" value="Cinnabar Island - Pokecenter 2F (Beta)" />
+            <entry key="0x0603" value="Route 19 - Gate" />
+            <entry key="0x0604" value="Cinnabar Island - Gym" />
+            <entry key="0x0605" value="Route 19" />
+            <entry key="0x0606" value="Route 20" />
+            <entry key="0x0607" value="Route 21" />
+            <entry key="0x0608" value="Cinnabar Island" />
+            <entry key="0x0701" value="Cerulean City - Gym Badge Speech House" />
+            <entry key="0x0702" value="Cerulean City - Police Station" />
+            <entry key="0x0703" value="Cerulean City - Trade Speech House" />
+            <entry key="0x0704" value="Cerulean City - Pokecenter - 1F" />
+            <entry key="0x0705" value="Cerulean City - Pokecenter 2F (Beta)" />
+            <entry key="0x0706" value="Cerulean City - Gym" />
+            <entry key="0x0707" value="Cerulean City - Mart" />
+            <entry key="0x0708" value="Route 10 - Pokecenter - 1F" />
+            <entry key="0x0709" value="Route 10 - Pokecenter - 2F (Beta)" />
+            <entry key="0x070A" value="Power Plant" />
+            <entry key="0x070B" value="Bill's House" />
+            <entry key="0x070C" value="Route 4" />
+            <entry key="0x070D" value="Route 9" />
+            <entry key="0x070E" value="Route 10 (North)" />
+            <entry key="0x070F" value="Route 24" />
+            <entry key="0x0710" value="Route 25" />
+            <entry key="0x0711" value="Cerulean City" />
+            <entry key="0x0801" value="Azalea Town - Pokecenter - 1F" />
+            <entry key="0x0802" value="Azalea Town - Charcoal Kiln" />
+            <entry key="0x0803" value="Azalea Town - Mart" />
+            <entry key="0x0804" value="Azalea Town - Kurt's House" />
+            <entry key="0x0805" value="Azalea Town - Gym" />
+            <entry key="0x0806" value="Route 33" />
+            <entry key="0x0807" value="Azalea Town - Town" />
+            <entry key="0x0901" value="Lake of Rage - Hidden Power House" />
+            <entry key="0x0902" value="Lake of Rage - Magikarp House" />
+            <entry key="0x0903" value="Route 43 - Mahogany City Gate" />
+            <entry key="0x0904" value="Route 43 - Sludge Bomb Gate" />
+            <entry key="0x0905" value="Route 43" />
+            <entry key="0x0906" value="Lake of Rage" />
+            <entry key="0x0A01" value="Route 32" />
+            <entry key="0x0A02" value="Route 35" />
+            <entry key="0x0A03" value="Route 36" />
+            <entry key="0x0A04" value="Route 37" />
+            <entry key="0x0A05" value="Violet City" />
+            <entry key="0x0A06" value="Violet City - Mart" />
+            <entry key="0x0A07" value="Violet City - Gym" />
+            <entry key="0x0A08" value="Violet City - Earl's Pokemon Academy" />
+            <entry key="0x0A09" value="Violet City - Nickname Speech House" />
+            <entry key="0x0A0A" value="Violet City - Pokecenter - 1F" />
+            <entry key="0x0A0B" value="Violet City - Kyle's House" />
+            <entry key="0x0A0C" value="Route 32 - Gate" />
+            <entry key="0x0A0D" value="Route 32 - Pokecenter - 1F" />
+            <entry key="0x0A0E" value="Route 35 - Goldenrod City Gate" />
+            <entry key="0x0A0F" value="Route 35 - National Park Gate" />
+            <entry key="0x0A10" value="Route 36 - Ruins of Alph Gate" />
+            <entry key="0x0A11" value="Route 36 - National Park Gate" />
+            <entry key="0x0B01" value="Route 34" />
+            <entry key="0x0B02" value="Goldenrod City" />
+            <entry key="0x0B03" value="Goldenrod City - Gym" />
+            <entry key="0x0B04" value="Goldenrod City - Bike Shop" />
+            <entry key="0x0B05" value="Goldenrod City - Happiness Rater" />
+            <entry key="0x0B06" value="Goldenrod City - Bill's Family's House" />
+            <entry key="0x0B07" value="Goldenrod City - Magnet Train Station" />
+            <entry key="0x0B08" value="Goldenrod City - Flower Shop" />
+            <entry key="0x0B09" value="Goldenrod City - Pokecenter - 1F" />
+            <entry key="0x0B0A" value="Goldenrod City - PP Speech House" />
+            <entry key="0x0B0B" value="Goldenrod City - Name Rater" />
+            <entry key="0x0B0C" value="Goldenrod City - Department Store - 1F" />
+            <entry key="0x0B0D" value="Goldenrod City - Department Store - 2F" />
+            <entry key="0x0B0E" value="Goldenrod City - Department Store - 3F" />
+            <entry key="0x0B0F" value="Goldenrod City - Department Store - 4F" />
+            <entry key="0x0B10" value="Goldenrod City - Department Store - 5F" />
+            <entry key="0x0B11" value="Goldenrod City - Department Store - 6F" />
+            <entry key="0x0B12" value="Goldenrod City - Department Store Elevator" />
+            <entry key="0x0B13" value="Goldenrod City - Game Corner" />
+            <entry key="0x0B14" value="Azalea Town - Gate" />
+            <entry key="0x0B15" value="Route 34 - Gate" />
+            <entry key="0x0B16" value="Route 34 - Day Care" />
+            <entry key="0x0C01" value="Route 6" />
+            <entry key="0x0C02" value="Route 11" />
+            <entry key="0x0C03" value="Vermilion City" />
+            <entry key="0x0C04" value="Vermilion City - Fishing Speech House" />
+            <entry key="0x0C05" value="Vermilion City - Pokecenter - 1F" />
+            <entry key="0x0C06" value="Vermilion City - Pokecenter 2F (Beta)" />
+            <entry key="0x0C07" value="Vermilion City - Pokemon Fan Club" />
+            <entry key="0x0C08" value="Vermilion City - Magnet Train Speech House" />
+            <entry key="0x0C09" value="Vermilion City - Mart" />
+            <entry key="0x0C0A" value="Vermilion City - Diglett's Cave Speech House" />
+            <entry key="0x0C0B" value="Vermilion City - Gym" />
+            <entry key="0x0C0C" value="Route 6 - Gate" />
+            <entry key="0x0C0D" value="Route 6 - Underground Path Entrance" />
+            <entry key="0x0D01" value="Route 1" />
+            <entry key="0x0D02" value="Pallet Town" />
+            <entry key="0x0D03" value="Pallet Town - Red's House - 1F" />
+            <entry key="0x0D04" value="Pallet Town - Red's House - 2F" />
+            <entry key="0x0D05" value="Pallet Town - Blue's House" />
+            <entry key="0x0D06" value="Pallet Town - Oak's Lab" />
+            <entry key="0x0E01" value="Route 3" />
+            <entry key="0x0E02" value="Pewter City" />
+            <entry key="0x0E03" value="Pewter City - Nidoran Speech House" />
+            <entry key="0x0E04" value="Pewter City - Gym" />
+            <entry key="0x0E05" value="Pewter City - Mart" />
+            <entry key="0x0E06" value="Pewter City - Pokecenter - 1F" />
+            <entry key="0x0E07" value="Pewter City - Pokecenter 2F (Beta)" />
+            <entry key="0x0E08" value="Pewter City - Snooze Speech House" />
+            <entry key="0x0F01" value="Olivine City - Port" />
+            <entry key="0x0F02" value="Vermilion City - Port" />
+            <entry key="0x0F03" value="Fast Ship - 1F" />
+            <entry key="0x0F04" value="Fast Ship - NNW / NNE / NE Cabins" />
+            <entry key="0x0F05" value="Fast Ship - SW / SSW / NW Cabins" />
+            <entry key="0x0F06" value="Fast Ship - SE / SSE / Captain's Cabins" />
+            <entry key="0x0F07" value="Fast Ship - B1F" />
+            <entry key="0x0F08" value="Fast Ship - Olivine Port Passage" />
+            <entry key="0x0F09" value="Fast Ship - Vermilion Port Passage" />
+            <entry key="0x0F0A" value="Mt. Moon - Mt. Moon Square" />
+            <entry key="0x0F0B" value="Mt. Moon - Mt. Moon Gift Shop" />
+            <entry key="0x0F0C" value="Ecruteak City - Tin Tower - Roof" />
+            <entry key="0x1001" value="Route 23" />
+            <entry key="0x1002" value="Indigo Plateau - 1F" />
+            <entry key="0x1003" value="Indigo Plateau - Will's Room" />
+            <entry key="0x1004" value="Indigo Plateau - Koga's Room" />
+            <entry key="0x1005" value="Indigo Plateau - Bruno's Room" />
+            <entry key="0x1006" value="Indigo Plateau - Karen's Room" />
+            <entry key="0x1007" value="Indigo Plateau - Lance's Room" />
+            <entry key="0x1008" value="Indigo Plateau - Hall of Fame" />
+            <entry key="0x1101" value="Route 13" />
+            <entry key="0x1102" value="Route 14" />
+            <entry key="0x1103" value="Route 15" />
+            <entry key="0x1104" value="Route 18" />
+            <entry key="0x1105" value="Fuchsia City" />
+            <entry key="0x1106" value="Fuchsia City - Mart" />
+            <entry key="0x1107" value="Fuchsia City - Safari Zone Main Office" />
+            <entry key="0x1108" value="Fuchsia City - Gym" />
+            <entry key="0x1109" value="Fuchsia City - Bill's Brother's House" />
+            <entry key="0x110A" value="Fuchsia City - Pokecenter - 1F" />
+            <entry key="0x110B" value="Fuchsia City - Pokecenter - 2F (Beta)" />
+            <entry key="0x110C" value="Fuchsia City - Safari Zone Warden's Home" />
+            <entry key="0x110D" value="Route 15 - Gate" />
+            <entry key="0x1201" value="Route 8" />
+            <entry key="0x1202" value="Route 12" />
+            <entry key="0x1203" value="Route 10 (South)" />
+            <entry key="0x1204" value="Lavender Town" />
+            <entry key="0x1205" value="Lavender Town - Pokecenter - 1F" />
+            <entry key="0x1206" value="Lavender Town - Pokecenter 2F (Beta)" />
+            <entry key="0x1207" value="Lavender Town - Mr. Fuji's House" />
+            <entry key="0x1208" value="Lavender Town - Speech House" />
+            <entry key="0x1209" value="Lavender Town - Name Rater" />
+            <entry key="0x120A" value="Lavender Town - Mart" />
+            <entry key="0x120B" value="Lavender Town - Soul House" />
+            <entry key="0x120C" value="Lavender Town - Radio Tower - 1F" />
+            <entry key="0x120D" value="Route 8 - Gate" />
+            <entry key="0x120E" value="Route 12 - Super Rod House" />
+            <entry key="0x1301" value="Route 28" />
+            <entry key="0x1302" value="Mt. Silver" />
+            <entry key="0x1303" value="Mt. Silver - Pokecenter - 1F" />
+            <entry key="0x1304" value="Route 28 - Steel Wing House" />
+            <entry key="0x1401" value="Cable Club - Pokecenter - 2F" />
+            <entry key="0x1402" value="Cable Club - Trade Center" />
+            <entry key="0x1403" value="Cable Club - Colosseum" />
+            <entry key="0x1404" value="Cable Club - Time Capsule" />
+            <entry key="0x1501" value="Route 7" />
+            <entry key="0x1502" value="Route 16" />
+            <entry key="0x1503" value="Route 17" />
+            <entry key="0x1504" value="Celadon City" />
+            <entry key="0x1505" value="Celadon City - Department Store - 1F" />
+            <entry key="0x1506" value="Celadon City - Department Store - 2F" />
+            <entry key="0x1507" value="Celadon City - Department Store - 3F" />
+            <entry key="0x1508" value="Celadon City - Department Store - 4F" />
+            <entry key="0x1509" value="Celadon City - Department Store - 5F" />
+            <entry key="0x150A" value="Celadon City - Department Store - 6F" />
+            <entry key="0x150B" value="Celadon City - Department Store - Elevator" />
+            <entry key="0x150C" value="Celadon City - Mansion - 1F" />
+            <entry key="0x150D" value="Celadon City - Mansion - 2F" />
+            <entry key="0x150E" value="Celadon City - Mansion - 3F" />
+            <entry key="0x150F" value="Celadon City - Mansion - Roof" />
+            <entry key="0x1510" value="Celadon City - Mansion - Roof - House" />
+            <entry key="0x1511" value="Celadon City - Pokecenter - 1F" />
+            <entry key="0x1512" value="Celadon City - Pokecenter 2F (Beta)" />
+            <entry key="0x1513" value="Celadon City - Game Corner" />
+            <entry key="0x1514" value="Celadon City - Game Corner Prize Room" />
+            <entry key="0x1515" value="Celadon City - Gym" />
+            <entry key="0x1516" value="Celadon City - Cafe" />
+            <entry key="0x1517" value="Route 16 - Fuchsia Speech House" />
+            <entry key="0x1518" value="Route 16 - Gate" />
+            <entry key="0x1519" value="Route 7 - Gate" />
+            <entry key="0x151A" value="Route 17 - Gate" />
+            <entry key="0x1601" value="Route 40" />
+            <entry key="0x1602" value="Route 41" />
+            <entry key="0x1603" value="Cianwood City" />
+            <entry key="0x1604" value="Cianwood City - Mania's House" />
+            <entry key="0x1605" value="Cianwood City - Gym" />
+            <entry key="0x1606" value="Cianwood City - Pokecenter - 1F" />
+            <entry key="0x1607" value="Cianwood City - Pharmacy" />
+            <entry key="0x1608" value="Cianwood City - Photo Studio" />
+            <entry key="0x1609" value="Cianwood City - Lugia Speech House" />
+            <entry key="0x1701" value="Route 2" />
+            <entry key="0x1702" value="Route 22" />
+            <entry key="0x1703" value="Viridian City" />
+            <entry key="0x1704" value="Viridian City - Gym" />
+            <entry key="0x1705" value="Viridian City - Nickname Speech House" />
+            <entry key="0x1706" value="Viridian City - Trainer House - 1F" />
+            <entry key="0x1707" value="Viridian City - Trainer House - B1F" />
+            <entry key="0x1708" value="Viridian City - Mart" />
+            <entry key="0x1709" value="Viridian City - Pokecenter - 1F" />
+            <entry key="0x170A" value="Viridian City - Pokecenter 2F (Beta)" />
+            <entry key="0x170B" value="Route 2 - Nugget House" />
+            <entry key="0x170C" value="Route 2 - Gate" />
+            <entry key="0x170D" value="Victory Road - Gate" />
+            <entry key="0x1801" value="Route 26" />
+            <entry key="0x1802" value="Route 27" />
+            <entry key="0x1803" value="Route 29" />
+            <entry key="0x1804" value="New Bark Town" />
+            <entry key="0x1805" value="New Bark Town - Elm's Lab" />
+            <entry key="0x1806" value="New Bark Town - Player's House - 1F" />
+            <entry key="0x1807" value="New Bark Town - Player's House - 2F" />
+            <entry key="0x1808" value="New Bark Town - Neighbor's House" />
+            <entry key="0x1809" value="New Bark Town - Elm's House" />
+            <entry key="0x180A" value="Route 26 - Heal House" />
+            <entry key="0x180B" value="New Bark Town - Day of Week Sibling's House" />
+            <entry key="0x180C" value="Route 27 - Sandstorm House" />
+            <entry key="0x180D" value="Route 29 - Gate" />
+            <entry key="0x1901" value="Route 5" />
+            <entry key="0x1902" value="Saffron City" />
+            <entry key="0x1903" value="Saffron City - Fighting Dojo" />
+            <entry key="0x1904" value="Saffron City - Gym" />
+            <entry key="0x1905" value="Saffron City - Mart" />
+            <entry key="0x1906" value="Saffron City - Pokecenter - 1F" />
+            <entry key="0x1907" value="Saffron City - Pokecenter 2F (Beta)" />
+            <entry key="0x1908" value="Saffron City - Mr. Psychic's House" />
+            <entry key="0x1909" value="Saffron City - Magnet Train Station" />
+            <entry key="0x190A" value="Saffron City - Silph Co - 1F" />
+            <entry key="0x190B" value="Saffron City - Copycat's House - 1F" />
+            <entry key="0x190C" value="Saffron City - Copycat's House - 2F" />
+            <entry key="0x190D" value="Route 5 - Underground Path Entrance" />
+            <entry key="0x190E" value="Route 5 - Gate" />
+            <entry key="0x190F" value="Route 5 - Cleanse Tag House" />
+            <entry key="0x1A01" value="Route 30" />
+            <entry key="0x1A02" value="Route 31" />
+            <entry key="0x1A03" value="Cherrygrove City" />
+            <entry key="0x1A04" value="Cherrygrove City - Mart" />
+            <entry key="0x1A05" value="Cherrygrove City - Pokecenter - 1F" />
+            <entry key="0x1A06" value="Cherrygrove City - Gym Speech House" />
+            <entry key="0x1A07" value="Cherrygrove City - Guide Gent's House" />
+            <entry key="0x1A08" value="Cherrygrove City - Evolution Speech House" />
+            <entry key="0x1A09" value="Route 30 - Berry House" />
+            <entry key="0x1A0A" value="Route 30 - Mr. Pokemon's House" />
+            <entry key="0x1A0B" value="Route 31 - Gate" />
+        </maps>
         <textPrompt>
             <entry key="0x58" value="▼" />
             <entry key="0xEE" value="▼" />
