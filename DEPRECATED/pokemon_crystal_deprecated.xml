@@ -320,14 +320,12 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
         <property name="id"    type="int" address="0xD231" />
         <property name="totalPokemon" type="int" address="0xD280" />
         <team> 
-          <team>
-              <class name="0" type="pokemonInParty" var:address="0xD288" var:nicknameAddress="0xD3EA" />
-              <class name="1" type="pokemonInParty" var:address="0xD2B8" var:nicknameAddress="0xD3F5" />
-              <class name="2" type="pokemonInParty" var:address="0xD2E8" var:nicknameAddress="0xD400" />
-              <class name="3" type="pokemonInParty" var:address="0xD318" var:nicknameAddress="0xD40B" />
-              <class name="4" type="pokemonInParty" var:address="0xD348" var:nicknameAddress="0xD416" />
-              <class name="5" type="pokemonInParty" var:address="0xD378" var:nicknameAddress="0xD421" />
-          </team>
+          <class name="0" type="pokemonInParty" var:address="0xD288" var:nicknameAddress="0xD3EA" />
+          <class name="1" type="pokemonInParty" var:address="0xD2B8" var:nicknameAddress="0xD3F5" />
+          <class name="2" type="pokemonInParty" var:address="0xD2E8" var:nicknameAddress="0xD400" />
+          <class name="3" type="pokemonInParty" var:address="0xD318" var:nicknameAddress="0xD40B" />
+          <class name="4" type="pokemonInParty" var:address="0xD348" var:nicknameAddress="0xD416" />
+          <class name="5" type="pokemonInParty" var:address="0xD378" var:nicknameAddress="0xD421" />
         </team> 
       </trainer>
       <yourPokemon>
