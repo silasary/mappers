@@ -2433,7 +2433,6 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
       <entry key="0x0A07" value="Violet City" />
       <entry key="0x0A06" value="Violet City" />
       <entry key="0x0A09" value="Violet City" />
-      <entry key="0x0A0B" value="Violet City" />
       <entry key="0x0301" value="Sprout Tower" />
       <entry key="0x0302" value="Sprout Tower" />
       <entry key="0x0303" value="Sprout Tower" />
@@ -2464,7 +2463,6 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
       <entry key="0x0801" value="Azalea Town" />
       <entry key="0x0802" value="Azalea Town" />
       <entry key="0x0805" value="Azalea Town" />
-      <entry key="0x0803" value="Azalea Town" />
       <entry key="0x0804" value="Azalea Town" />
       <entry key="0x0B16" value="Ilex Forest" />
       <entry key="0x0334" value="Ilex Forest" />
@@ -2473,7 +2471,6 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
       <entry key="0x0B18" value="Route 34" />
       <entry key="0x0B02" value="Goldenrod City" />
       <entry key="0x0B14" value="Goldenrod City" />
-      <entry key="0x0B02" value="Goldenrod City" />
       <entry key="0x0B0B" value="Goldenrod City" />
       <entry key="0x0B0C" value="Goldenrod City" />
       <entry key="0x0B0D" value="Goldenrod City" />
@@ -2481,7 +2478,6 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
       <entry key="0x0B0F" value="Goldenrod City" />
       <entry key="0x0B10" value="Goldenrod City" />
       <entry key="0x0B11" value="Goldenrod City" />
-      <entry key="0x0B0C" value="Goldenrod City" />
       <entry key="0x0B12" value="Goldenrod City" />
       <entry key="0x0B05" value="Goldenrod City" />
       <entry key="0x0B04" value="Goldenrod City" />
@@ -2490,7 +2486,6 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
       <entry key="0x0B09" value="Goldenrod City" />
       <entry key="0x0B0A" value="Goldenrod City" />
       <entry key="0x0B07" value="Goldenrod City" />
-      <entry key="0x0B0A" value="Goldenrod City" />
       <entry key="0x0311" value="Radio Tower" />
       <entry key="0x0312" value="Radio Tower" />
       <entry key="0x0313" value="Radio Tower" />
@@ -2517,7 +2512,6 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
       <entry key="0x0403" value="Ecruteak City" />
       <entry key="0x0406" value="Ecruteak City" />
       <entry key="0x0404" value="Ecruteak City" />
-      <entry key="0x0406" value="Ecruteak City" />
       <entry key="0x0407" value="Ecruteak City" />
       <entry key="0x030D" value="Burned Tower" />
       <entry key="0x030E" value="Burned Tower" />
@@ -2633,7 +2627,6 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
       <entry key="0x1007" value="Pokémon League" />
       <entry key="0x1008" value="Hall of Fame"/>
       <entry key="0x1401" value="Pokémon Center"/>
-      <entry key="0x0202" value="Mahogany Town"/>
       <entry key="0x1702" value="Route 22"/>
       <entry key="0x0D06" value="Pallet Town"/>
       <entry key="0x0D05" value="Pallet Town"/>
@@ -2646,13 +2639,11 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
       <entry key="0x0606" value="Route 20"/>
       <entry key="0x0604" value="Seafoam Islands"/>
       <entry key="0x0605" value="Route 19"/>
-      <entry key="0x0608" value="Cinnabar Island"/>
       <entry key="0x0603" value="Fuchsia City"/>
       <entry key="0x0D01" value="Route 1"/>
       <entry key="0x1703" value="Viridian City"/>
       <entry key="0x1709" value="Viridian City"/>
       <entry key="0x1708" value="Viridian City"/>
-      <entry key="0x1703" value="Viridian City"/>
       <entry key="0x1705" value="Viridian City"/>
       <entry key="0x1704" value="Viridian City"/>
       <entry key="0x1706" value="Viridian City"/>
@@ -2681,7 +2672,6 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
       <entry key="0x0707" value="Cerulean City"/>
       <entry key="0x070F" value="Route 24"/>
       <entry key="0x0710" value="Route 25"/>
-      <entry key="0x0711" value="Cerulean City"/>
       <entry key="0x070D" value="Route 9"/>
       <entry key="0x070E" value="Route 10"/>
       <entry key="0x0708" value="Route 10"/>
@@ -2746,7 +2736,6 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
       <entry key="0x1108" value="Fuchsia City"/>
       <entry key="0x1109" value="Fuchsia City"/>
       <entry key="0x110A" value="Fuchsia City"/>
-      <entry key="0x1105" value="Fuchsia City"/>
       <entry key="0x110C" value="Fuchsia City"/>
       <entry key="0x1107" value="Fuchsia City"/>
       <entry key="0x1106" value="Fuchsia City"/>
@@ -2768,7 +2757,6 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
       <entry key="0x1302" value="Silver Cave"/>
       <entry key="0x1301" value="Route 28"/>
       <entry key="0x1304" value="Route 28"/>
-      <entry key="0x1303" value="Silver Cave"/>
       <entry key="0x1303" value="Silver Cave"/>
       <entry key="0x034A" value="Silver Cave"/>
       <entry key="0x034B" value="Silver Cave"/>
