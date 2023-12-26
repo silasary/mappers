@@ -634,7 +634,7 @@
 
     <references>
         <battleModes>
-            <entry key="0x00" value="None" />
+            <entry key="0x00" />
             <entry key="0x01" value="Wild" />
             <entry key="0x02" value="Trainer" />
             <entry key="0xFF" value="Lost Battle" />
