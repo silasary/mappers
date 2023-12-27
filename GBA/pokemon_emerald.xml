@@ -144,7 +144,6 @@
         </apointers>
         <player>
             <!-- Need memory address -->
-            <!-- <property name="playerId"  type="int"    address="0x20228CC" length="2" description="The active player user Id, better tracking for if the game has loaded a new or saved game" /> -->
             <property name="name"      type="string" address="dma_b"     length="8" characterMap="defaultCharacterMap" />
             <property name="gender"    type="int"    address="dma_b + 8" reference="gender" />
             <property name="playerId"  type="int"    address="dma_b + 10" length="2" />
@@ -254,83 +253,120 @@
                 <class name="15" type="playerItem" var:offset="1676" />
             </pokeBalls>
             <tmhm>
-                <class name="TM01-Focus Punch" type="playerItem" var:offset="1680" />
-                <class name="TM02-Dragon Claw" type="playerItem" var:offset="1684" />
-                <class name="TM03-Water Pulse" type="playerItem" var:offset="1688" />
-                <class name="TM04-Calm Mind" type="playerItem" var:offset="1692" />
-                <class name="TM05-Roar" type="playerItem" var:offset="1696" />
-                <class name="TM06-Toxic" type="playerItem" var:offset="1700" />
-                <class name="TM07-Hail" type="playerItem" var:offset="1704" />
-                <class name="TM08-Bulk Up" type="playerItem" var:offset="1708" />
-                <class name="TM09-Bullet Seed" type="playerItem" var:offset="1712" />
-                <class name="TM10-Hidden Power" type="playerItem" var:offset="1716" />
-                <class name="TM11-Sunny Day" type="playerItem" var:offset="1720" />
-                <class name="TM12-Taunt" type="playerItem" var:offset="1724" />
-                <class name="TM13-Ice Beam" type="playerItem" var:offset="1728" />
-                <class name="TM14-Blizzard" type="playerItem" var:offset="1732" />
-                <class name="TM15-Hyper Beam" type="playerItem" var:offset="1736" />
-                <class name="TM16-Light Screen" type="playerItem" var:offset="1740" />
-                <class name="TM17-Protect" type="playerItem" var:offset="1744" />
-                <class name="TM18-Rain Dance" type="playerItem" var:offset="1748" />
-                <class name="TM19-Giga Drain" type="playerItem" var:offset="1752" />
-                <class name="TM20-Safeguard" type="playerItem" var:offset="1756" />
-                <class name="TM21-Frustration" type="playerItem" var:offset="1760" />
-                <class name="TM22-SolarBeam" type="playerItem" var:offset="1764" />
-                <class name="TM23-Iron Tail" type="playerItem" var:offset="1768" />
-                <class name="TM24-Thunderbolt" type="playerItem" var:offset="1772" />
-                <class name="TM25-Thunder" type="playerItem" var:offset="1776" />
-                <class name="TM26-Earthquake" type="playerItem" var:offset="1780" />
-                <class name="TM27-Return" type="playerItem" var:offset="1784" />
-                <class name="TM28-Dig" type="playerItem" var:offset="1788" />
-                <class name="TM29-Psychic" type="playerItem" var:offset="1792" />
-                <class name="TM30-Shadow Ball" type="playerItem" var:offset="1796" />
-                <class name="TM31-Brick Break" type="playerItem" var:offset="1800" />
-                <class name="TM32-Double Team" type="playerItem" var:offset="1804" />
-                <class name="TM33-Reflect" type="playerItem" var:offset="1808" />
-                <class name="TM34-Shock Wave" type="playerItem" var:offset="1812" />
-                <class name="TM35-Flamethrower" type="playerItem" var:offset="1816" />
-                <class name="TM36-Sludge Bomb" type="playerItem" var:offset="1820" />
-                <class name="TM37-Sandstorm" type="playerItem" var:offset="1824" />
-                <class name="TM38-Fire Blast" type="playerItem" var:offset="1828" />
-                <class name="TM39-Rock Tomb" type="playerItem" var:offset="1832" />
-                <class name="TM40-Aerial Ace" type="playerItem" var:offset="1836" />
-                <class name="TM41-Torment" type="playerItem" var:offset="1840" />
-                <class name="TM42-Facade" type="playerItem" var:offset="1844" />
-                <class name="TM43-Secret Power" type="playerItem" var:offset="1848" />
-                <class name="TM44-Rest" type="playerItem" var:offset="1852" />
-                <class name="TM45-Attract" type="playerItem" var:offset="1856" />
-                <class name="TM46-Thief" type="playerItem" var:offset="1860" />
-                <class name="TM47-Steel Wing" type="playerItem" var:offset="1864" />
-                <class name="TM48-Skill Swap" type="playerItem" var:offset="1868" />
-                <class name="TM49-Snatch" type="playerItem" var:offset="1872" />
-                <class name="TM50-Overheat" type="playerItem" var:offset="1876" />
-                <class name="HM01-Cut" type="playerItem" var:offset="1880" />
-                <class name="HM02-Fly" type="playerItem" var:offset="1884" />
-                <class name="HM03-Surf" type="playerItem" var:offset="1888" />
-                <class name="HM04-Strength" type="playerItem" var:offset="1892" />
-                <class name="HM05-Flash" type="playerItem" var:offset="1896" />
-                <class name="HM06-Rock Smash" type="playerItem" var:offset="1900" />
-                <class name="HM07-Waterfall" type="playerItem" var:offset="1904" />
-                <class name="HM08-Dive" type="playerItem" var:offset="1908" />
+                <class name="0" type="playerItem" var:offset="1680" />
+                <class name="1" type="playerItem" var:offset="1684" />
+                <class name="2" type="playerItem" var:offset="1688" />
+                <class name="3" type="playerItem" var:offset="1692" />
+                <class name="4" type="playerItem" var:offset="1696" />
+                <class name="5" type="playerItem" var:offset="1700" />
+                <class name="6" type="playerItem" var:offset="1704" />
+                <class name="7" type="playerItem" var:offset="1708" />
+                <class name="8" type="playerItem" var:offset="1712" />
+                <class name="9" type="playerItem" var:offset="1716" />
+                <class name="10" type="playerItem" var:offset="1720" />
+                <class name="11" type="playerItem" var:offset="1724" />
+                <class name="12" type="playerItem" var:offset="1728" />
+                <class name="13" type="playerItem" var:offset="1732" />
+                <class name="14" type="playerItem" var:offset="1736" />
+                <class name="15" type="playerItem" var:offset="1740" />
+                <class name="16" type="playerItem" var:offset="1744" />
+                <class name="17" type="playerItem" var:offset="1748" />
+                <class name="18" type="playerItem" var:offset="1752" />
+                <class name="19" type="playerItem" var:offset="1756" />
+                <class name="20" type="playerItem" var:offset="1760" />
+                <class name="21" type="playerItem" var:offset="1764" />
+                <class name="22" type="playerItem" var:offset="1768" />
+                <class name="23" type="playerItem" var:offset="1772" />
+                <class name="24" type="playerItem" var:offset="1776" />
+                <class name="25" type="playerItem" var:offset="1780" />
+                <class name="26" type="playerItem" var:offset="1784" />
+                <class name="27" type="playerItem" var:offset="1788" />
+                <class name="28" type="playerItem" var:offset="1792" />
+                <class name="29" type="playerItem" var:offset="1796" />
+                <class name="30" type="playerItem" var:offset="1800" />
+                <class name="31" type="playerItem" var:offset="1804" />
+                <class name="32" type="playerItem" var:offset="1808" />
+                <class name="33" type="playerItem" var:offset="1812" />
+                <class name="34" type="playerItem" var:offset="1816" />
+                <class name="35" type="playerItem" var:offset="1820" />
+                <class name="36" type="playerItem" var:offset="1824" />
+                <class name="37" type="playerItem" var:offset="1828" />
+                <class name="38" type="playerItem" var:offset="1832" />
+                <class name="39" type="playerItem" var:offset="1836" />
+                <class name="40" type="playerItem" var:offset="1840" />
+                <class name="41" type="playerItem" var:offset="1844" />
+                <class name="42" type="playerItem" var:offset="1848" />
+                <class name="43" type="playerItem" var:offset="1852" />
+                <class name="44" type="playerItem" var:offset="1856" />
+                <class name="45" type="playerItem" var:offset="1860" />
+                <class name="46" type="playerItem" var:offset="1864" />
+                <class name="47" type="playerItem" var:offset="1868" />
+                <class name="48" type="playerItem" var:offset="1872" />
+                <class name="49" type="playerItem" var:offset="1876" />
+                <class name="50" type="playerItem" var:offset="1880" />
+                <class name="51" type="playerItem" var:offset="1884" />
+                <class name="52" type="playerItem" var:offset="1888" />
+                <class name="53" type="playerItem" var:offset="1892" />
+                <class name="54" type="playerItem" var:offset="1896" />
+                <class name="55" type="playerItem" var:offset="1900" />
+                <class name="56" type="playerItem" var:offset="1904" />
+                <class name="57" type="playerItem" var:offset="1908" />
+                <class name="58" type="playerItem" var:offset="1912" />
+                <class name="59" type="playerItem" var:offset="1916" />
+                <class name="60" type="playerItem" var:offset="1920" />
+                <class name="61" type="playerItem" var:offset="1924" />
+                <class name="62" type="playerItem" var:offset="1928" />
+                <class name="63" type="playerItem" var:offset="1932" />
             </tmhm>
             
             <berries>
-                <class name="0" type="playerItem" var:offset="1616" />
-                <class name="1" type="playerItem" var:offset="1620" />
-                <class name="2" type="playerItem" var:offset="1624" />
-                <class name="3" type="playerItem" var:offset="1628" />
-                <class name="4" type="playerItem" var:offset="1632" />
-                <class name="5" type="playerItem" var:offset="1636" />
-                <class name="6" type="playerItem" var:offset="1640" />
-                <class name="7" type="playerItem" var:offset="1644" />
-                <class name="8" type="playerItem" var:offset="1648" />
-                <class name="9" type="playerItem" var:offset="1652" />
-                <class name="10" type="playerItem" var:offset="1656" />
-                <class name="11" type="playerItem" var:offset="1660" />
-                <class name="12" type="playerItem" var:offset="1664" />
-                <class name="13" type="playerItem" var:offset="1668" />
-                <class name="14" type="playerItem" var:offset="1672" />
-                <class name="15" type="playerItem" var:offset="1676" />
+                <class name="0" type="playerItem" var:offset="1936" />
+                <class name="1" type="playerItem" var:offset="1940" />
+                <class name="2" type="playerItem" var:offset="1944" />
+                <class name="3" type="playerItem" var:offset="1948" />
+                <class name="4" type="playerItem" var:offset="1952" />
+                <class name="5" type="playerItem" var:offset="1956" />
+                <class name="6" type="playerItem" var:offset="1960" />
+                <class name="7" type="playerItem" var:offset="1964" />
+                <class name="8" type="playerItem" var:offset="1968" />
+                <class name="9" type="playerItem" var:offset="1972" />
+                <class name="10" type="playerItem" var:offset="1976" />
+                <class name="11" type="playerItem" var:offset="1980" />
+                <class name="12" type="playerItem" var:offset="1984" />
+                <class name="13" type="playerItem" var:offset="1988" />
+                <class name="14" type="playerItem" var:offset="1992" />
+                <class name="15" type="playerItem" var:offset="1996" />
+                <class name="16" type="playerItem" var:offset="2000" />
+                <class name="17" type="playerItem" var:offset="2004" />
+                <class name="18" type="playerItem" var:offset="2008" />
+                <class name="19" type="playerItem" var:offset="2012" />
+                <class name="20" type="playerItem" var:offset="2016" />
+                <class name="21" type="playerItem" var:offset="2020" />
+                <class name="22" type="playerItem" var:offset="2024" />
+                <class name="23" type="playerItem" var:offset="2028" />
+                <class name="24" type="playerItem" var:offset="2032" />
+                <class name="25" type="playerItem" var:offset="2036" />
+                <class name="26" type="playerItem" var:offset="2040" />
+                <class name="27" type="playerItem" var:offset="2044" />
+                <class name="28" type="playerItem" var:offset="2048" />
+                <class name="29" type="playerItem" var:offset="2052" />
+                <class name="30" type="playerItem" var:offset="2056" />
+                <class name="31" type="playerItem" var:offset="2060" />
+                <class name="32" type="playerItem" var:offset="2064" />
+                <class name="33" type="playerItem" var:offset="2068" />
+                <class name="34" type="playerItem" var:offset="2072" />
+                <class name="35" type="playerItem" var:offset="2076" />
+                <class name="36" type="playerItem" var:offset="2080" />
+                <class name="37" type="playerItem" var:offset="2084" />
+                <class name="38" type="playerItem" var:offset="2088" />
+                <class name="39" type="playerItem" var:offset="2092" />
+                <class name="40" type="playerItem" var:offset="2096" />
+                <class name="41" type="playerItem" var:offset="2100" />
+                <class name="42" type="playerItem" var:offset="2104" />
+                <class name="43" type="playerItem" var:offset="2108" />
+                <class name="44" type="playerItem" var:offset="2112" />
+                <class name="45" type="playerItem" var:offset="2116" />
+                <class name="46" type="playerItem" var:offset="2120" />
             </berries>
             
             <pcItems>
@@ -359,49 +395,38 @@
                 <class name="activePokemon2" type="battleStructure" var:address="0x2024134" var:partyPosition="0x2024072" length="2" />
                 <property name="teamCount"   type="int" address="0x20244EC - 3" />
                 <team>
-                    <class name="0" type="pokemonInParty" var:memoryContainer="playerAlt_party_structure_0" />
-                    <class name="1" type="pokemonInParty" var:memoryContainer="playerAlt_party_structure_1" />
-                    <class name="2" type="pokemonInParty" var:memoryContainer="playerAlt_party_structure_2" />
-                    <class name="3" type="pokemonInParty" var:memoryContainer="playerAlt_party_structure_3" />
-                    <class name="4" type="pokemonInParty" var:memoryContainer="playerAlt_party_structure_4" />
-                    <class name="5" type="pokemonInParty" var:memoryContainer="playerAlt_party_structure_5" />
+                    <class name="0" type="pokemonInParty" var:memoryContainer="player_party_structure_0" />
+                    <class name="1" type="pokemonInParty" var:memoryContainer="player_party_structure_1" />
+                    <class name="2" type="pokemonInParty" var:memoryContainer="player_party_structure_2" />
+                    <class name="3" type="pokemonInParty" var:memoryContainer="player_party_structure_3" />
+                    <class name="4" type="pokemonInParty" var:memoryContainer="player_party_structure_4" />
+                    <class name="5" type="pokemonInParty" var:memoryContainer="player_party_structure_5" />
                 </team>
+                <property name="allyTrainer" type="int" address="0x2038BCE" length="2" reference="trainerClasses" />
+                <property name="allyId"      type="int" address="0x2038BCE" length="2" />
+                <allyTeam>
+                    <class name="0" type="pokemonInParty" var:memoryContainer="player_party_structure_3" />
+                    <class name="1" type="pokemonInParty" var:memoryContainer="player_party_structure_4" />
+                    <class name="2" type="pokemonInParty" var:memoryContainer="player_party_structure_5" />
+                </allyTeam>
             </player>
-            <ally>
-                <property name="trainer" type="int" address="0x2038BCE" length="2" reference="trainerClasses" />
-                <property name="id"      type="int" address="0x2038BCE" length="2" />
-                <team>
-                    <class name="0" type="pokemonInParty" var:memoryContainer="playerAlt_party_structure_3" />
-                    <class name="1" type="pokemonInParty" var:memoryContainer="playerAlt_party_structure_4" />
-                    <class name="2" type="pokemonInParty" var:memoryContainer="playerAlt_party_structure_5" />
-                </team>
-            </ally>
-            <opponentA>
+            <opponent>
                 <property name="trainer"     type="int" address="0x2038BCA" length="2" reference="trainerClasses" />
                 <property name="id"          type="int" address="0x2038BCA" length="2" />
-                <property name="teamCount"   type="int" address="0x20244EA" />
-                <class name="activePokemon"  type="battleStructure" var:address="0x2023A68" var:partyPosition="0x2024070" length="2" />
-                <class name="activePartyPokemon"  type="pokemonInParty" var:memoryContainer="opponentA_party_structure_active_pokemon" />
+                <property name="secondTrainer"    type="int" length="2" address="0x2038BCC" reference="trainerClasses" /> 
+                <property name="secondId"         type="int" length="2" address="0x2038BCC"/> 
+                <property name="teamCount"   type="int" length="2" address="0x20244EA" />
+                <class name="activePokemon"  type="battleStructure" var:address="0x20240DC" var:partyPosition="0x2024070" length="2" />
                 <class name="activePokemon2" type="battleStructure" var:address="0x202418C" var:partyPosition="0x2024074" length="2" />
                 <team>
-                    <class name="0" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_0" />
-                    <class name="1" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_1" />
-                    <class name="2" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_2" />
-                    <class name="3" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_3" />
-                    <class name="4" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_4" />
-                    <class name="5" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_5" />
+                    <class name="0" type="pokemonInParty" var:memoryContainer="opponent_party_structure_0" />
+                    <class name="1" type="pokemonInParty" var:memoryContainer="opponent_party_structure_1" />
+                    <class name="2" type="pokemonInParty" var:memoryContainer="opponent_party_structure_2" />
+                    <class name="3" type="pokemonInParty" var:memoryContainer="opponent_party_structure_3" />
+                    <class name="4" type="pokemonInParty" var:memoryContainer="opponent_party_structure_4" />
+                    <class name="5" type="pokemonInParty" var:memoryContainer="opponent_party_structure_5" />
                 </team>
-            </opponentA>
-            <opponentB>
-                <property name="trainer"    type="int" length="2" address="0x2038BCC" reference="trainerClasses" /> 
-                <property name="id"         type="int" length="2" address="0x2038BCC"/> 
-                <class name="activePokemon" type="battleStructure" var:address="0x202418C" var:partyPosition="0x2024074" length="2" />
-                <team>
-                    <class name="0" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_3" />
-                    <class name="1" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_4" />
-                    <class name="2" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_5" />
-                </team>
-            </opponentB>
+            </opponent>
             <field>
                 <player>
                     <property name="statusSafeguard"   type="bit" address="0x202428E" length="2" position="5" />
@@ -443,7 +468,7 @@
                     <property name="kyogre_groudon"   type="bit" address="0x2022FEC" length="4" position="12" />
                     <property name="ghost_unveiled"   type="bit" address="0x2022FEC" length="4" position="13" />
                     <property name="regi"             type="bit" address="0x2022FEC" length="4" position="14" />
-                    <property name="ghost"            type="bit" address="0x2022FEC" length="4" position="15" />
+                    <property name="two_opponents"    type="bit" address="0x2022FEC" length="4" position="15" />
                     <property name="pokedude"         type="bit" address="0x2022FEC" length="4" position="16" />
                     <property name="wild_scripted"    type="bit" address="0x2022FEC" length="4" position="17" />
                     <property name="legenadry_frlg"   type="bit" address="0x2022FEC" length="4" position="18" />
@@ -533,6 +558,12 @@
             <property name="buttonMode"  type="int" address="dma_b + 19" />
             <property name="windowFrame" type="int" address="dma_b + 20" postprocessor-reader="BitRange(value, 2, 0)" />
         </options> 
+        <audio>
+            <property name="soundEffect1"  type="int" address="0x030075f0" length="4" />
+            <property name="soundEffect1Played"  type="bit" address="0x030075f4" length="4" position="31" />
+            <property name="soundEffect2"  type="int" address="0x03007630" length="4" />
+            <property name="soundEffect2Played"  type="bit" address="0x03007634" length="4" position="31" />
+        </audio>
         <gameTime>
             <property name="hours"   type="int" address="dma_b + 14" />
             <property name="minutes" type="int" address="dma_b + 16" />
