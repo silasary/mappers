@@ -627,9 +627,13 @@
             <property name="seconds" type="int" address="0xDA43" />
             <property name="frames"  type="int" address="0xDA44" />
         </gameTime>
-        <game>
-            <property name="generation" type="int" value="1" />
-        </game>
+        <meta>
+			<property name="generation" type="int" value="1" />
+			<property name="gameName"   type="int" value="Yellow" />
+			<property name="gameType"   type="int" value="Third Version" />
+			<property name="state"      type="string" />
+			<!-- <property name="stateEnemy" type="string" /> -->
+		</meta>
     </properties>
 
     <references>

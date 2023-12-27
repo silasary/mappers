@@ -143,13 +143,6 @@
     </classes>
 
     <properties>
-        <meta>
-			<property name="generation" type="int" value="3" />
-			<property name="gameName"   type="int" value="FireRed and LeafGreen" />
-			<property name="gameType"   type="int" value="Remake" />
-			<!-- <property name="state"          type="string" />
-			<property name="stateEnemy"     type="string" /> -->
-		</meta>
         <player>
             <!-- <property name="playerId"  type="string" address="0x20228CC" length="2" reference="defaultCharacterMap" description="The active player user Id, better tracking for if the game has loaded a new or saved game" /> -->
             <property name="name"      type="string" address="dma_b"     length="8" characterMap="defaultCharacterMap" />
@@ -295,6 +288,13 @@
             <property name="callback1" type="int"  length="4" address="0x30030F0" reference="mainState" />
             <property name="callback2" type="int"  length="4" address="0x30030F4" reference="subState" />
         </pointers>
+        <meta>
+            <property name="generation" type="int" value="3" />
+			<property name="gameName"   type="int" value="FireRed and LeafGreen" />
+			<property name="gameType"   type="int" value="Remake" />
+			<!-- <property name="state"          type="string" /> -->
+			<!-- <property name="stateEnemy"     type="string" /> -->
+		</meta>
     </properties>
 
     <references>

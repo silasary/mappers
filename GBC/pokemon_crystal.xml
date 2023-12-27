@@ -624,9 +624,13 @@
                 <property name="day" type="int" address="0xD4B6" reference="dayNames" />
             </gameClock>
         </time>
-        <game>
+        <meta>
             <property name="generation" type="int" value="2" />
-        </game>
+			<property name="gameName"   type="int" value="Crystal" />
+            <property name="gameType"   type="int" value="Third Version" />
+            <property name="mapperType" type="int" value="Standard" />
+			<property name="state"      type="string" />
+        </meta>
     </properties>
 
     <references>

@@ -613,12 +613,15 @@
             <gameClock>
                 <property name="day" type="int" address="0xD4B6" reference="dayNames" />
             </gameClock>
+            <!-- <property name="clockResetCount" type="int" length="2" address="0x101A9" /> -->
         </time>
-                <property name="clockResetCount" type="int" length="2" address="0x101A9" />
-                
-        <game>
+        <meta>
             <property name="generation" type="int" value="2" />
-        </game>
+			<property name="gameName"   type="int" value="Gold and Silver" />
+            <property name="gameType"   type="int" value="Originals" />
+            <property name="mapperType" type="int" value="Standard" />
+			<property name="state"      type="string" />
+        </meta>
     </properties>
 
     <references>

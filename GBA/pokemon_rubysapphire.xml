@@ -857,10 +857,13 @@
             <property name="callback1" type="int" length="4" address="0x03001770" reference="mainState" />
             <property name="callback2" type="int" length="4" address="0x03001774" reference="subState" />
         </pointers>
-
-        <game>
+        <meta>
             <property name="generation" type="int" value="3" />
-        </game>
+			<property name="gameName"   type="int" value="Ruby and Sapphire" />
+            <property name="gameType"   type="int" value="Originals" />
+            <property name="mapperType" type="int" value="Standard" />
+			<!-- <property name="state"      type="string" /> -->
+        </meta>
     </properties>
 
     <references>
