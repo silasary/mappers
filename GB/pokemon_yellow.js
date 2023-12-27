@@ -100,7 +100,7 @@ function preprocessor() {
 }
 
 function updatePropertiesForPartyPokemon(path) {
-    const generation = Number(getPropertyValue("game.generation"))
+    const generation = Number(getPropertyValue("meta.generation"))
     
     const attack = Number(getPropertyValue(`${path}.ivs.attack`))
     const defense = Number(getPropertyValue(`${path}.ivs.defense`))

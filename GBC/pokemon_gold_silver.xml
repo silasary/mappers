@@ -310,11 +310,172 @@
             <property name="result"      type="int"    address="0xCFE9" reference="battleResults" />
             <property name="textBuffer"  type="string" address="0xD064" length="11" />
             <property name="battleStart" type="int"    address="0xC664" />
-            <trainer>
+            <player>
+                <activePokemon>
+                    <property name="partyPos"      type="int" address="0xCFC6" />
+                    <property name="heldItem"      type="int" address="0xCB2D" reference="items" />
+                    <property name="species"       type="int" address="0xCB0C" reference="pokemonSpecies"  />
+                    <property name="pokedexNumber" type="int" address="0xCB0C" reference="pokemonPokedexNumbers"  />
+                    <property name="type1"         type="int" address="0xCB2A" reference="types"  />
+                    <property name="type2"         type="int" address="0xCB2B" reference="types"  />
+                    <property name="level"         type="int" address="0xCB19" />
+                    <stats>
+                        <property name="hp"             type="int" address="0xCB1C" length="2" />
+                        <property name="maxHp"          type="int" address="0xCBBF" length="2" />
+                        <property name="attack"         type="int" address="0xCBC1" length="2" description="The Player's active Pokemon's Attack stat as calculated in battle (badge boosts and stat modifications included" />
+                        <property name="defense"        type="int" address="0xCBC3" length="2" description="The Player's active Pokemon's Defense stat as calculated in battle (badge boosts and stat modifications included" />
+                        <property name="specialAttack"  type="int" address="0xCBC7" length="2" description="The Player's active Pokemon's Special Attack stat as calculated in battle (badge boosts and stat modifications included" />
+                        <property name="specialDefense" type="int" address="0xCBC9" length="2" description="The Player's active Pokemon's Special Defense stat as calculated in battle (badge boosts and stat modifications included" />
+                        <property name="speed"          type="int" address="0xCBC5" length="2" description="The Player's active Pokemon's Speed stat as calculated in battle (badge boosts and stat modifications included" />
+                    </stats>
+                    <modifiers>
+                        <property name="attack"         type="int" address="0xCBAA" reference="stageModifiers" />
+                        <property name="defense"        type="int" address="0xCBAB" reference="stageModifiers" />
+                        <property name="speed"          type="int" address="0xCBAC" reference="stageModifiers" />
+                        <property name="specialAttack"  type="int" address="0xCBAD" reference="stageModifiers" />
+                        <property name="specialDefense" type="int" address="0xCBAE" reference="stageModifiers" />
+                        <property name="accuracy"       type="int" address="0xCBAF" reference="stageModifiers" />
+                        <property name="evasion"        type="int" address="0xCBB0" reference="stageModifiers" />
+                    </modifiers>
+                    <moves>
+                        <class name="0" type="pokemonBattleMoves" var:moveAddress="0xCB0E" />
+                        <class name="1" type="pokemonBattleMoves" var:moveAddress="0xCB0F" />
+                        <class name="2" type="pokemonBattleMoves" var:moveAddress="0xCB10" />
+                        <class name="3" type="pokemonBattleMoves" var:moveAddress="0xCB11" />
+                    </moves>
+                    <counters>
+                        <property name="rollout"    type="int" address="0xCB50" />
+                        <property name="confuse"    type="int" address="0xCB51" />
+                        <property name="toxic"      type="int" address="0xCB52" />
+                        <property name="disable"    type="int" address="0xCB53" />
+                        <property name="encore"     type="int" address="0xCB54" />
+                        <property name="perish"     type="int" address="0xCB55" />
+                        <property name="furyCutter" type="int" address="0xCB56" />
+                        <property name="protect"    type="int" address="0xCB57" />
+                    </counters>
+                    <status>
+                        <property name="nightmare"   type="bit" address="0xC668" position="0" />
+                        <property name="curse"       type="bit" address="0xC668" position="1" />
+                        <property name="protect"     type="bit" address="0xC668" position="2" />
+                        <property name="identified"  type="bit" address="0xC668" position="3" />
+                        <property name="perish"      type="bit" address="0xC668" position="4" />
+                        <property name="endure"      type="bit" address="0xC668" position="5" />
+                        <property name="rollout"     type="bit" address="0xC668" position="6" />
+                        <property name="in_love"     type="bit" address="0xC668" position="7" />
+                        <property name="curled"      type="bit" address="0xC669" position="0" />
+                        <property name="bide"        type="bit" address="0xC66A" position="0" />
+                        <property name="rampage"     type="bit" address="0xC66A" position="1" />
+                        <property name="in_loop"     type="bit" address="0xC66A" position="2" />
+                        <property name="flinched"    type="bit" address="0xC66A" position="3" />
+                        <property name="charged"     type="bit" address="0xC66A" position="4" />
+                        <property name="underground" type="bit" address="0xC66A" position="5" />
+                        <property name="flying"      type="bit" address="0xC66A" position="6" />
+                        <property name="confused"    type="bit" address="0xC66A" position="7" />
+                        <property name="x_accuracy"  type="bit" address="0xC66B" position="0" />
+                        <property name="mist"        type="bit" address="0xC66B" position="1" />
+                        <property name="focus_energ" type="bit" address="0xC66B" position="2" />
+                        <property name="substitute"  type="bit" address="0xC66B" position="4" />
+                        <property name="recharge"    type="bit" address="0xC66B" position="5" />
+                        <property name="rage"        type="bit" address="0xC66B" position="6" />
+                        <property name="leech_seed"  type="bit" address="0xC66B" position="7" />
+                        <property name="toxic"       type="bit" address="0xC66C" position="0" />
+                        <property name="transformed" type="bit" address="0xC66C" position="3" />
+                        <property name="encored"     type="bit" address="0xC66C" position="4" />
+                        <property name="lock_on"     type="bit" address="0xC66C" position="5" />
+                        <property name="destiny_bon" type="bit" address="0xC66C" position="6" />
+                        <property name="cant_run"    type="bit" address="0xC66C" position="7" />
+                    </status>
+                </activePokemon>
+            </player>
+            <opponent>
                 <property name="name"  type="string" address="0xD118" length="11" />
                 <property name="class" type="int"    address="0xD22F" reference="trainerClasses" />
                 <property name="id"    type="int"    address="0xD231" />
                 <property name="totalPokemon" type="int" address="0xDD55" />
+                <activePokemon>
+                    <property name="partyPos"       type="int" address="0xCB41" />
+                    <property name="species"        type="int" address="0xD0EF" reference="pokemonSpecies" />
+                    <property name="pokedexNumber"  type="int" address="0xD0EF" reference="pokemonPokedexNumbers" />
+                    <property name="type1"          type="int" address="0xD127" reference="types" />
+                    <property name="type2"          type="int" address="0xD128" reference="types" />
+                    <property name="heldItem"       type="int" address="0xD0F0" reference="items" />
+                    <property name="level"          type="int" address="0xD0FC" />
+                    <property name="statsCondition" type="int" address="0xD0FD" reference="statusConditions" />
+                    <!--<property name="gender"         type="int" address="0xD10F" reference="gender" />-->
+                    <moves>
+                        <class name="0" type="pokemonBattleMoves" var:moveAddress="0xD0F1" />
+                        <class name="1" type="pokemonBattleMoves" var:moveAddress="0xD0F2" />
+                        <class name="2" type="pokemonBattleMoves" var:moveAddress="0xD0F3" />
+                        <class name="3" type="pokemonBattleMoves" var:moveAddress="0xD0F4" />
+                    </moves>
+                    <stats>
+                        <property name="hp"             type="int" address="0xD0FF" length="2" />
+                        <property name="maxHp"          type="int" address="0xD101" length="2" />
+                        <property name="attack"         type="int" address="0xD103" length="2" />
+                        <property name="defense"        type="int" address="0xD105" length="2" />
+                        <property name="specialAttack"  type="int" address="0xD109" length="2" />
+                        <property name="specialDefense" type="int" address="0xD10B" length="2" />
+                        <property name="speed"          type="int" address="0xD107" length="2" />
+                    </stats>
+                    <modifiers>
+                        <property name="attack"         type="int" address="0xCBB2" reference="stageModifiers" />
+                        <property name="defense"        type="int" address="0xCBB3" reference="stageModifiers" />
+                        <property name="speed"          type="int" address="0xCBB4" reference="stageModifiers" />
+                        <property name="specialAttack"  type="int" address="0xCBB5" reference="stageModifiers" />
+                        <property name="specialDefense" type="int" address="0xCBB6" reference="stageModifiers" />
+                        <property name="accuracy"       type="int" address="0xCBB7" reference="stageModifiers" />
+                        <property name="evasion"        type="int" address="0xCBB8" reference="stageModifiers" />
+                    </modifiers>
+                    <property name="enemyMonEnd" type="int" address="0xd116" />
+                    <ivs>
+                        <property name="attack"  type="nibble" address="0xD0F5" position="0" />
+                        <property name="defense" type="nibble" address="0xD0F5" position="1" />
+                        <property name="speed"   type="nibble" address="0xD0F6" position="0" />
+                        <property name="special" type="nibble" address="0xD0F6" position="1" />
+                    </ivs>
+                    <counters>
+                        <property name="rollout"    type="int" address="0xCB58" />
+                        <property name="confuse"    type="int" address="0xCB59" />
+                        <property name="toxic"      type="int" address="0xCB5a" />
+                        <property name="disable"    type="int" address="0xCB5b" />
+                        <property name="encore"     type="int" address="0xCB5c" />
+                        <property name="perish"     type="int" address="0xCB5d" />
+                        <property name="furyCutter" type="int" address="0xCB5e" />
+                        <property name="protect"    type="int" address="0xCB5f" />
+                    </counters>
+                    <status>
+                        <property name="nightmare"   type="bit" address="0xC66D" position="0" />
+                        <property name="curse"       type="bit" address="0xC66D" position="1" />
+                        <property name="protect"     type="bit" address="0xC66D" position="2" />
+                        <property name="identified"  type="bit" address="0xC66D" position="3" />
+                        <property name="perish"      type="bit" address="0xC66D" position="4" />
+                        <property name="endure"      type="bit" address="0xC66D" position="5" />
+                        <property name="rollout"     type="bit" address="0xC66D" position="6" />
+                        <property name="in_love"     type="bit" address="0xC66D" position="7" />
+                        <property name="curled"      type="bit" address="0xC66E" position="0" />
+                        <property name="bide"        type="bit" address="0xC66F" position="0" />
+                        <property name="rampage"     type="bit" address="0xC66F" position="1" />
+                        <property name="in_loop"     type="bit" address="0xC66F" position="2" />
+                        <property name="flinched"    type="bit" address="0xC66F" position="3" />
+                        <property name="charged"     type="bit" address="0xC66F" position="4" />
+                        <property name="underground" type="bit" address="0xC66F" position="5" />
+                        <property name="flying"      type="bit" address="0xC66F" position="6" />
+                        <property name="confused"    type="bit" address="0xC66F" position="7" />
+                        <property name="x_accuracy"  type="bit" address="0xC670" position="0" />
+                        <property name="mist"        type="bit" address="0xC670" position="1" />
+                        <property name="focus_energ" type="bit" address="0xC670" position="2" />
+                        <property name="substitute"  type="bit" address="0xC670" position="4" />
+                        <property name="recharge"    type="bit" address="0xC670" position="5" />
+                        <property name="rage"        type="bit" address="0xC670" position="6" />
+                        <property name="leech_seed"  type="bit" address="0xC670" position="7" />
+                        <property name="toxic"       type="bit" address="0xC671" position="0" />
+                        <property name="transformed" type="bit" address="0xC671" position="3" />
+                        <property name="encored"     type="bit" address="0xC671" position="4" />
+                        <property name="lock_on"     type="bit" address="0xC671" position="5" />
+                        <property name="destiny_bon" type="bit" address="0xC671" position="6" />
+                        <property name="cant_run"    type="bit" address="0xC671" position="7" />
+                    </status>
+                </activePokemon>
                 <team>
                     <class name="0" type="pokemonInParty" var:address="0xDD5D" var:nicknameAddress="0xDEBF" />
                     <class name="1" type="pokemonInParty" var:address="0xDD8D" var:nicknameAddress="0xDECA" />
@@ -323,166 +484,7 @@
                     <class name="4" type="pokemonInParty" var:address="0xDE1D" var:nicknameAddress="0xDEEB" />
                     <class name="5" type="pokemonInParty" var:address="0xDE4D" var:nicknameAddress="0xDEF6" />
                 </team>
-            </trainer>
-            <playerPokemon>
-                <property name="partyPos"      type="int" address="0xCFC6" />
-                <property name="heldItem"      type="int" address="0xCB2D" reference="items" />
-                <property name="species"       type="int" address="0xCB0C" reference="pokemonSpecies"  />
-                <property name="pokedexNumber" type="int" address="0xCB0C" reference="pokemonPokedexNumbers"  />
-                <property name="type1"         type="int" address="0xCB2A" reference="types"  />
-                <property name="type2"         type="int" address="0xCB2B" reference="types"  />
-                <property name="level"         type="int" address="0xCB19" />
-                <stats>
-                    <property name="hp"             type="int" address="0xCB1C" length="2" />
-                    <property name="maxHp"          type="int" address="0xCBBF" length="2" />
-                    <property name="attack"         type="int" address="0xCBC1" length="2" description="The Player's active Pokemon's Attack stat as calculated in battle (badge boosts and stat modifications included" />
-                    <property name="defense"        type="int" address="0xCBC3" length="2" description="The Player's active Pokemon's Defense stat as calculated in battle (badge boosts and stat modifications included" />
-                    <property name="specialAttack"  type="int" address="0xCBC7" length="2" description="The Player's active Pokemon's Special Attack stat as calculated in battle (badge boosts and stat modifications included" />
-                    <property name="specialDefense" type="int" address="0xCBC9" length="2" description="The Player's active Pokemon's Special Defense stat as calculated in battle (badge boosts and stat modifications included" />
-                    <property name="speed"          type="int" address="0xCBC5" length="2" description="The Player's active Pokemon's Speed stat as calculated in battle (badge boosts and stat modifications included" />
-                </stats>
-                <modifiers>
-                    <property name="attack"         type="int" address="0xCBAA" reference="stageModifiers" />
-                    <property name="defense"        type="int" address="0xCBAB" reference="stageModifiers" />
-                    <property name="speed"          type="int" address="0xCBAC" reference="stageModifiers" />
-                    <property name="specialAttack"  type="int" address="0xCBAD" reference="stageModifiers" />
-                    <property name="specialDefense" type="int" address="0xCBAE" reference="stageModifiers" />
-                    <property name="accuracy"       type="int" address="0xCBAF" reference="stageModifiers" />
-                    <property name="evasion"        type="int" address="0xCBB0" reference="stageModifiers" />
-                </modifiers>
-                <moves>
-                    <class name="0" type="pokemonBattleMoves" var:moveAddress="0xCB0E" />
-                    <class name="1" type="pokemonBattleMoves" var:moveAddress="0xCB0F" />
-                    <class name="2" type="pokemonBattleMoves" var:moveAddress="0xCB10" />
-                    <class name="3" type="pokemonBattleMoves" var:moveAddress="0xCB11" />
-                </moves>
-                <counters>
-                    <property name="rollout"    type="int" address="0xCB50" />
-                    <property name="confuse"    type="int" address="0xCB51" />
-                    <property name="toxic"      type="int" address="0xCB52" />
-                    <property name="disable"    type="int" address="0xCB53" />
-                    <property name="encore"     type="int" address="0xCB54" />
-                    <property name="perish"     type="int" address="0xCB55" />
-                    <property name="furyCutter" type="int" address="0xCB56" />
-                    <property name="protect"    type="int" address="0xCB57" />
-                </counters>
-                <status>
-                    <property name="nightmare"   type="bit" address="0xC668" position="0" />
-                    <property name="curse"       type="bit" address="0xC668" position="1" />
-                    <property name="protect"     type="bit" address="0xC668" position="2" />
-                    <property name="identified"  type="bit" address="0xC668" position="3" />
-                    <property name="perish"      type="bit" address="0xC668" position="4" />
-                    <property name="endure"      type="bit" address="0xC668" position="5" />
-                    <property name="rollout"     type="bit" address="0xC668" position="6" />
-                    <property name="in_love"     type="bit" address="0xC668" position="7" />
-                    <property name="curled"      type="bit" address="0xC669" position="0" />
-                    <property name="bide"        type="bit" address="0xC66A" position="0" />
-                    <property name="rampage"     type="bit" address="0xC66A" position="1" />
-                    <property name="in_loop"     type="bit" address="0xC66A" position="2" />
-                    <property name="flinched"    type="bit" address="0xC66A" position="3" />
-                    <property name="charged"     type="bit" address="0xC66A" position="4" />
-                    <property name="underground" type="bit" address="0xC66A" position="5" />
-                    <property name="flying"      type="bit" address="0xC66A" position="6" />
-                    <property name="confused"    type="bit" address="0xC66A" position="7" />
-                    <property name="x_accuracy"  type="bit" address="0xC66B" position="0" />
-                    <property name="mist"        type="bit" address="0xC66B" position="1" />
-                    <property name="focus_energ" type="bit" address="0xC66B" position="2" />
-                    <property name="substitute"  type="bit" address="0xC66B" position="4" />
-                    <property name="recharge"    type="bit" address="0xC66B" position="5" />
-                    <property name="rage"        type="bit" address="0xC66B" position="6" />
-                    <property name="leech_seed"  type="bit" address="0xC66B" position="7" />
-                    <property name="toxic"       type="bit" address="0xC66C" position="0" />
-                    <property name="transformed" type="bit" address="0xC66C" position="3" />
-                    <property name="encored"     type="bit" address="0xC66C" position="4" />
-                    <property name="lock_on"     type="bit" address="0xC66C" position="5" />
-                    <property name="destiny_bon" type="bit" address="0xC66C" position="6" />
-                    <property name="cant_run"    type="bit" address="0xC66C" position="7" />
-                </status>
-            </playerPokemon>
-            <enemyPokemon>
-                <property name="partyPos"       type="int" address="0xCB41" />
-                <property name="species"        type="int" address="0xD0EF" reference="pokemonSpecies" />
-                <property name="pokedexNumber"  type="int" address="0xD0EF" reference="pokemonPokedexNumbers" />
-                <property name="type1"          type="int" address="0xD127" reference="types" />
-                <property name="type2"          type="int" address="0xD128" reference="types" />
-                <property name="heldItem"       type="int" address="0xD0F0" reference="items" />
-                <property name="level"          type="int" address="0xD0FC" />
-                <property name="statsCondition" type="int" address="0xD0FD" reference="statusConditions" />
-                <!--<property name="gender"         type="int" address="0xD10F" reference="gender" />-->
-                <moves>
-                    <class name="0" type="pokemonBattleMoves" var:moveAddress="0xD0F1" />
-                    <class name="1" type="pokemonBattleMoves" var:moveAddress="0xD0F2" />
-                    <class name="2" type="pokemonBattleMoves" var:moveAddress="0xD0F3" />
-                    <class name="3" type="pokemonBattleMoves" var:moveAddress="0xD0F4" />
-                </moves>
-                <stats>
-                    <property name="hp"             type="int" address="0xD0FF" length="2" />
-                    <property name="maxHp"          type="int" address="0xD101" length="2" />
-                    <property name="attack"         type="int" address="0xD103" length="2" />
-                    <property name="defense"        type="int" address="0xD105" length="2" />
-                    <property name="specialAttack"  type="int" address="0xD109" length="2" />
-                    <property name="specialDefense" type="int" address="0xD10B" length="2" />
-                    <property name="speed"          type="int" address="0xD107" length="2" />
-                </stats>
-                <modifiers>
-                    <property name="attack"         type="int" address="0xCBB2" reference="stageModifiers" />
-                    <property name="defense"        type="int" address="0xCBB3" reference="stageModifiers" />
-                    <property name="speed"          type="int" address="0xCBB4" reference="stageModifiers" />
-                    <property name="specialAttack"  type="int" address="0xCBB5" reference="stageModifiers" />
-                    <property name="specialDefense" type="int" address="0xCBB6" reference="stageModifiers" />
-                    <property name="accuracy"       type="int" address="0xCBB7" reference="stageModifiers" />
-                    <property name="evasion"        type="int" address="0xCBB8" reference="stageModifiers" />
-                </modifiers>
-                <property name="enemyMonEnd" type="int" address="0xd116" />
-                <ivs>
-                    <property name="attack"  type="nibble" address="0xD0F5" position="0" />
-                    <property name="defense" type="nibble" address="0xD0F5" position="1" />
-                    <property name="speed"   type="nibble" address="0xD0F6" position="0" />
-                    <property name="special" type="nibble" address="0xD0F6" position="1" />
-                </ivs>
-                <counters>
-                    <property name="rollout"    type="int" address="0xCB58" />
-                    <property name="confuse"    type="int" address="0xCB59" />
-                    <property name="toxic"      type="int" address="0xCB5a" />
-                    <property name="disable"    type="int" address="0xCB5b" />
-                    <property name="encore"     type="int" address="0xCB5c" />
-                    <property name="perish"     type="int" address="0xCB5d" />
-                    <property name="furyCutter" type="int" address="0xCB5e" />
-                    <property name="protect"    type="int" address="0xCB5f" />
-                </counters>
-                <status>
-                    <property name="nightmare"   type="bit" address="0xC66D" position="0" />
-                    <property name="curse"       type="bit" address="0xC66D" position="1" />
-                    <property name="protect"     type="bit" address="0xC66D" position="2" />
-                    <property name="identified"  type="bit" address="0xC66D" position="3" />
-                    <property name="perish"      type="bit" address="0xC66D" position="4" />
-                    <property name="endure"      type="bit" address="0xC66D" position="5" />
-                    <property name="rollout"     type="bit" address="0xC66D" position="6" />
-                    <property name="in_love"     type="bit" address="0xC66D" position="7" />
-                    <property name="curled"      type="bit" address="0xC66E" position="0" />
-                    <property name="bide"        type="bit" address="0xC66F" position="0" />
-                    <property name="rampage"     type="bit" address="0xC66F" position="1" />
-                    <property name="in_loop"     type="bit" address="0xC66F" position="2" />
-                    <property name="flinched"    type="bit" address="0xC66F" position="3" />
-                    <property name="charged"     type="bit" address="0xC66F" position="4" />
-                    <property name="underground" type="bit" address="0xC66F" position="5" />
-                    <property name="flying"      type="bit" address="0xC66F" position="6" />
-                    <property name="confused"    type="bit" address="0xC66F" position="7" />
-                    <property name="x_accuracy"  type="bit" address="0xC670" position="0" />
-                    <property name="mist"        type="bit" address="0xC670" position="1" />
-                    <property name="focus_energ" type="bit" address="0xC670" position="2" />
-                    <property name="substitute"  type="bit" address="0xC670" position="4" />
-                    <property name="recharge"    type="bit" address="0xC670" position="5" />
-                    <property name="rage"        type="bit" address="0xC670" position="6" />
-                    <property name="leech_seed"  type="bit" address="0xC670" position="7" />
-                    <property name="toxic"       type="bit" address="0xC671" position="0" />
-                    <property name="transformed" type="bit" address="0xC671" position="3" />
-                    <property name="encored"     type="bit" address="0xC671" position="4" />
-                    <property name="lock_on"     type="bit" address="0xC671" position="5" />
-                    <property name="destiny_bon" type="bit" address="0xC671" position="6" />
-                    <property name="cant_run"    type="bit" address="0xC671" position="7" />
-                </status>
-            </enemyPokemon>
+            </opponent>
             <field>
                 <player>
                     <property name="statusSafeguard"   type="bit" address="0xCBDD" position="2" />

@@ -697,7 +697,7 @@
                     <class name="2" type="pokemonInParty" var:memoryContainer="playerAlt_party_structure_5" />
                 </team>
             </ally>
-            <opponentA>
+            <opponent>
                 <property name="trainer"     type="int" address="0x2038BCA" length="2" reference="trainerClasses" />
                 <property name="id"          type="int" address="0x2038BCA" length="2" />
                 <property name="teamCount"   type="int" address="0x20244EA" />
@@ -711,8 +711,8 @@
                     <class name="4" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_4" />
                     <class name="5" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_5" />
                 </team>
-            </opponentA>
-            <opponentB>
+            </opponent>
+            <opponent2>
                 <property name="trainer"    type="int" length="2" address="0x2038BCC" reference="trainerClasses" /> 
                 <property name="id"         type="int" length="2" address="0x2038BCC"/> 
                 <class name="activePokemon" type="battleStructure" var:address="0x202418C" var:partyPosition="0x2024074" length="2" />
@@ -721,7 +721,7 @@
                     <class name="1" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_4" />
                     <class name="2" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_5" />
                 </team>
-            </opponentB>
+            </opponent2>
             <field>
                 <player>
                     <property name="statusSafeguard"   type="bit" address="0x202428E" length="2" position="5" />

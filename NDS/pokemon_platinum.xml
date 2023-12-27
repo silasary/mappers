@@ -509,7 +509,7 @@
 					<class name="5" type="pokemonInParty" var:memoryContainer="ally_party_structure_5" />
 				</team>
 			</ally>
-			<opponentA>
+			<opponent>
 				<property name="trainer"    type="int" address="global_pointer + 0x4E87E" length="2" reference="trainers" />
 				<property name="partyPos"   type="int" address="global_pointer + 0x54598 + 0x3F2"/>
 				<property name="teamCount"  type="int" address="global_pointer + 0x54598 + 0x48A0" />
@@ -541,8 +541,8 @@
 					<class name="4" type="pokemonInParty" var:memoryContainer="updOpA_party_structure_4" />
 					<class name="5" type="pokemonInParty" var:memoryContainer="updOpA_party_structure_5" />
 				</updatingTeam> -->
-			</opponentA>
-			<opponentB>
+			</opponent>
+			<opponent2>
 				<property name="trainer"    type="int" address="global_pointer + 0x4E882" length="2" reference="trainers" />
 				<property name="partyPos"   type="int" address="global_pointer + 0x54598 + 0x3FE"/>
 				<property name="teamCount"  type="int" address="global_pointer + 0x54598 + 0x4E50" />
@@ -555,7 +555,7 @@
 					<class name="4" type="pokemonInParty" var:memoryContainer="opponentB_party_structure_4" />
 					<class name="5" type="pokemonInParty" var:memoryContainer="opponentB_party_structure_5" />
 				</team>
-			</opponentB>
+			</opponent2>
             <weather>
                 <property name="weather" type="int" address="global_pointer + 0x519DC - 3" length="2" reference="battleWeather" />
                 <property name="counter" type="int" address="global_pointer + 0x519DC" />

@@ -254,12 +254,167 @@
             <property name="type"           type="int" address="0xD059" reference="battleTypes" />
             <property name="lowHealthAlarm" type="int" address="0xCCF6" reference="lowHealthAlarm" description="This is set to 0 at the start of battle and 1 when the opponent has lost" />
             <property name="attackDamage"   type="int" address="0xD0D7" description="Amount of damage attack is about to do. Max possible damage may appear one frame before actual damage." /> <!--duplicate property-->
-            <trainer>
+            <player>
+                <activePokemon>
+                    <property name="partyPos"      type="int" address="0xCC2F" />
+                    <property name="nickname"      type="string" address="0xD008" length="11" />
+                    <property name="species"       type="int" address="0xD013" reference="pokemonSpecies" />
+                    <property name="pokedexNumber" type="int" address="0xD013" reference="pokemonPokedexNumbers" />
+                    <property name="type1"         type="int" address="0xD018" reference="pokemonTypes" />
+                    <property name="type2"         type="int" address="0xD019" reference="pokemonTypes" />
+                    <property name="level"         type="int" address="0xD021" />
+                    <property name="catchRate"     type="int" address="0xD032" />
+                    <status>
+                        <property name="status1" type="int" address="0xD030" reference="statusConditions" />
+                        <property name="status2" type="int" address="0xD031" reference="statusConditions" />
+                        <property name="tempStatusConfusion" type="int" address="0xD061" reference="tempStatusConfused" />
+                        <property name="tempStatusBadPoison" type="int" address="0xD063" reference="tempStatusBadPoison" />
+                    </status>
+                    <stats>
+                        <property name="hp"      type="int" address="0xD014" length="2" />
+                        <property name="maxHp"   type="int" address="0xD022" length="2" />
+                        <property name="attack"  type="int" address="0xD024" length="2" />
+                        <property name="defense" type="int" address="0xD026" length="2" />
+                        <property name="speed"   type="int" address="0xD028" length="2" />
+                        <property name="special" type="int" address="0xD02A" length="2" />
+                    </stats>
+                    <modifiers>
+                        <property name="attack"   type="int" address="0xCD1A" reference="stageModifiers" /> <!--same memory location across all Gen1 games-->
+                        <property name="defense"  type="int" address="0xCD1B" reference="stageModifiers" /> <!--same memory location across all Gen1 games-->
+                        <property name="speed"    type="int" address="0xCD1C" reference="stageModifiers" /> <!--same memory location across all Gen1 games-->
+                        <property name="special"  type="int" address="0xCD1D" reference="stageModifiers" /> <!--same memory location across all Gen1 games-->
+                        <property name="accuracy" type="int" address="0xCD1E" reference="stageModifiers" /> <!--same memory location across all Gen1 games-->
+                        <property name="evasion"  type="int" address="0xCD1F" reference="stageModifiers" /> <!--same memory location across all Gen1 games-->
+                    </modifiers>
+                    <moves>
+                        <class name="0" type="pokemonBattleMoves" var:moveAddress="0xD01B" />
+                        <class name="1" type="pokemonBattleMoves" var:moveAddress="0xD01C" />
+                        <class name="2" type="pokemonBattleMoves" var:moveAddress="0xD01D" />
+                        <class name="3" type="pokemonBattleMoves" var:moveAddress="0xD01E" />
+                    </moves>
+                    <effects>
+                        <property name="bide"          type="bit" address="0xD061" position="0" />
+                        <property name="thrash"        type="bit" address="0xD061" position="1" />
+                        <property name="multiHit"      type="bit" address="0xD061" position="2" />
+                        <property name="flinch"        type="bit" address="0xD061" position="3" />
+                        <property name="charging"      type="bit" address="0xD061" position="4" />
+                        <property name="multiTurn"     type="bit" address="0xD061" position="5" />
+                        <property name="invulnerable"  type="bit" address="0xD061" position="6" />
+                        <property name="confusion"     type="bit" address="0xD061" position="6" />     
+                        <property name="xAccuracy"     type="bit" address="0xD062" position="0" />
+                        <property name="mist"          type="bit" address="0xD062" position="1" />
+                        <property name="focusEnergy"   type="bit" address="0xD062" position="2" />
+                        <property name="hasSubstitute" type="bit" address="0xD062" position="4" />
+                        <property name="recharge"      type="bit" address="0xD062" position="5" />
+                        <property name="rage"          type="bit" address="0xD062" position="6" />
+                        <property name="leechSeeded"   type="bit" address="0xD062" position="7" />
+                        <property name="toxic"         type="bit" address="0xD063" position="0" />
+                        <property name="lightScreen"   type="bit" address="0xD063" position="1" />
+                        <property name="reflect"       type="bit" address="0xD063" position="2" />
+                        <property name="transformed"   type="bit" address="0xD063" position="3" />
+                    </effects>
+                    <counters>
+                        <property name="multiHit"  type="int" address="0xD069" />
+                        <property name="confusion" type="int" address="0xD063" />
+                        <property name="toxic"     type="int" address="0xD06A" />
+                        <property name="disable"   type="int" address="0xD06C" length="2" />
+                    </counters>
+                    <lastUsedMove>
+                        <property name="move"     type="int" address="0xCFD1" reference="moves" />
+                        <property name="effect"   type="int" address="0xCFD2" />
+                        <property name="power"    type="int" address="0xCFD3" />
+                        <property name="type"     type="int" address="0xCFD4" reference="pokemonTypes" />
+                        <property name="accuracy" type="int" address="0xCFD5" read-function="Math.round(((x / 255) * 100), 2)" />
+                        <property name="maxPP"    type="int" address="0xCFD6" />
+                    </lastUsedMove>
+                </activePokemon>
+            </player>
+            <opponent>
                 <property name="name"         type="string" address="0xD049" length="11" />
                 <property name="class"        type="int"    address="0xD030" reference="trainerClasses" />
                 <property name="number"       type="int"    address="0xD05C" />
                 <property name="gymLeader"    type="int"    address="0xD05B" />
                 <property name="totalPokemon" type="int"    address="0xD89B" />
+                <activePokemon>
+                    <property name="partyPos"        type="int" address="0xCFE7" />
+                    <property name="species"         type="int" address="0xCFD7" reference="pokemonSpecies" />
+                    <property name="pokedexNumber"   type="int" address="0xCFD7" reference="pokemonPokedexNumbers" />
+                    <property name="type1"           type="int" address="0xCFE9" reference="pokemonTypes" />
+                    <property name="type2"           type="int" address="0xCFEA" reference="pokemonTypes" />
+                    <property name="level"           type="int" address="0xCFF2" />
+                    <property name="statusCondition" type="int" address="0xCFE8" reference="statusConditions" />
+                    <stats>
+                        <property name="hp"      type="int" address="0xCFE5" length="2" />
+                        <property name="maxHp"   type="int" address="0xCFF3" length="2" />
+                        <property name="attack"  type="int" address="0xCFF5" length="2" />
+                        <property name="defense" type="int" address="0xCFF7" length="2" />
+                        <property name="speed"   type="int" address="0xCFF9" length="2" />
+                        <property name="special" type="int" address="0xCFFB" length="2" />
+                    </stats>
+                    <modifiers>
+                        <property name="attack"   type="int" address="0xCD2E" reference="stageModifiers" />
+                        <property name="defense"  type="int" address="0xCD2F" reference="stageModifiers" />
+                        <property name="speed"    type="int" address="0xCD30" reference="stageModifiers" />
+                        <property name="special"  type="int" address="0xCD31" reference="stageModifiers" />
+                        <property name="accuracy" type="int" address="0xCD32" reference="stageModifiers" />
+                        <property name="evasion"  type="int" address="0xCD33" reference="stageModifiers" />
+                    </modifiers>
+                    <moves>
+                        <class name="0" type="pokemonEnemyBattleMoves" var:moveAddress="0xCFEC" />
+                        <class name="1" type="pokemonEnemyBattleMoves" var:moveAddress="0xCFED" />
+                        <class name="2" type="pokemonEnemyBattleMoves" var:moveAddress="0xCFEE" />
+                        <class name="3" type="pokemonEnemyBattleMoves" var:moveAddress="0xCFEF" />
+                    </moves>
+                    <dvs>
+                        <property name="attack"  type="int" address="0xCFF0" read-function="(x - (x % 16))/16" />
+                        <property name="defense" type="int" address="0xCFF0" read-function="x % 16" />
+                        <property name="speed"   type="int" address="0xCFF1" read-function="(x - (x % 16))/16" />
+                        <property name="special" type="int" address="0xCFF1" read-function="x % 16" />
+                    </dvs>
+                    <baseStats>
+                        <property name="hp"      type="int" address="0xD001" read-function="x % 16" />
+                        <property name="attack"  type="int" address="0xD002" read-function="x % 16" />
+                        <property name="defense" type="int" address="0xD003" read-function="x % 16" />
+                        <property name="speed"   type="int" address="0xD004" read-function="x % 16" />
+                        <property name="special" type="int" address="0xD005" read-function="x % 16" />
+                        <property name="exp"     type="int" address="0xD007" read-function="x % 16" />
+                    </baseStats>
+                    <effects>
+                        <property name="bide"          type="bit" address="0xD066" position="0" />
+                        <property name="thrash"        type="bit" address="0xD066" position="1" />
+                        <property name="multiHit"      type="bit" address="0xD066" position="2" />
+                        <property name="flinch"        type="bit" address="0xD066" position="3" />
+                        <property name="charging"      type="bit" address="0xD066" position="4" />
+                        <property name="multiTurn"     type="bit" address="0xD066" position="5" />
+                        <property name="invulnerable"  type="bit" address="0xD066" position="6" />
+                        <property name="confusion"     type="bit" address="0xD066" position="6" />     
+                        <property name="xAccuracy"     type="bit" address="0xD067" position="0" />
+                        <property name="mist"          type="bit" address="0xD067" position="1" />
+                        <property name="focusEnergy"   type="bit" address="0xD067" position="2" />
+                        <property name="hasSubstitute" type="bit" address="0xD067" position="4" />
+                        <property name="recharge"      type="bit" address="0xD067" position="5" />
+                        <property name="rage"          type="bit" address="0xD067" position="6" />
+                        <property name="leechSeeded"   type="bit" address="0xD067" position="7" />
+                        <property name="toxic"         type="bit" address="0xD068" position="0" />
+                        <property name="lightScreen"   type="bit" address="0xD068" position="1" />
+                        <property name="reflect"       type="bit" address="0xD068" position="2" />
+                        <property name="transformed"   type="bit" address="0xD068" position="3" />
+                    </effects>
+                    <counters>
+                        <property name="multiHit"  type="int" address="0xD06E" />
+                        <property name="confusion" type="int" address="0xD06F" />
+                        <property name="toxic"     type="int" address="0xD070" />
+                        <property name="disable"   type="int" address="0xD071" />
+                    </counters>
+                    <lastUsedMove>
+                        <property name="move"     type="int" address="0xCFCB" reference="moves" />
+                        <property name="effect"   type="int" address="0xCFCC" />
+                        <property name="power"    type="int" address="0xCFCD" />
+                        <property name="type"     type="int" address="0xCFCE" reference="pokemonTypes" />
+                        <property name="accuracy" type="int" address="0xCFCF" read-function="Math.round(((x / 255) * 100), 2)" />
+                        <property name="maxPP"    type="int" address="0xCFD0" />
+                    </lastUsedMove>
+                </activePokemon>
                 <team>
                     <class name="0" type="pokemonInParty" var:address="0xD8A3" var:nicknameAddress="0xD9ED"/>
                     <class name="1" type="pokemonInParty" var:address="0xD8CF" var:nicknameAddress="0xD9F8"/>
@@ -268,160 +423,7 @@
                     <class name="4" type="pokemonInParty" var:address="0xD953" var:nicknameAddress="0xDA19"/>
                     <class name="5" type="pokemonInParty" var:address="0xD97F" var:nicknameAddress="0xDA24"/>
                 </team>
-            </trainer>
-            <playerPokemon>
-                <property name="partyPos"      type="int" address="0xCC2F" />
-                <property name="nickname"      type="string" address="0xD008" length="11" />
-                <property name="species"       type="int" address="0xD013" reference="pokemonSpecies" />
-                <property name="pokedexNumber" type="int" address="0xD013" reference="pokemonPokedexNumbers" />
-                <property name="type1"         type="int" address="0xD018" reference="pokemonTypes" />
-                <property name="type2"         type="int" address="0xD019" reference="pokemonTypes" />
-                <property name="level"         type="int" address="0xD021" />
-                <property name="catchRate"     type="int" address="0xD032" />
-                <status>
-                    <property name="status1" type="int" address="0xD030" reference="statusConditions" />
-                    <property name="status2" type="int" address="0xD031" reference="statusConditions" />
-                    <property name="tempStatusConfusion" type="int" address="0xD061" reference="tempStatusConfused" />
-                    <property name="tempStatusBadPoison" type="int" address="0xD063" reference="tempStatusBadPoison" />
-                </status>
-                <stats>
-                    <property name="hp"      type="int" address="0xD014" length="2" />
-                    <property name="maxHp"   type="int" address="0xD022" length="2" />
-                    <property name="attack"  type="int" address="0xD024" length="2" />
-                    <property name="defense" type="int" address="0xD026" length="2" />
-                    <property name="speed"   type="int" address="0xD028" length="2" />
-                    <property name="special" type="int" address="0xD02A" length="2" />
-                </stats>
-                <modifiers>
-                    <property name="attack"   type="int" address="0xCD1A" reference="stageModifiers" /> <!--same memory location across all Gen1 games-->
-                    <property name="defense"  type="int" address="0xCD1B" reference="stageModifiers" /> <!--same memory location across all Gen1 games-->
-                    <property name="speed"    type="int" address="0xCD1C" reference="stageModifiers" /> <!--same memory location across all Gen1 games-->
-                    <property name="special"  type="int" address="0xCD1D" reference="stageModifiers" /> <!--same memory location across all Gen1 games-->
-                    <property name="accuracy" type="int" address="0xCD1E" reference="stageModifiers" /> <!--same memory location across all Gen1 games-->
-                    <property name="evasion"  type="int" address="0xCD1F" reference="stageModifiers" /> <!--same memory location across all Gen1 games-->
-                </modifiers>
-                <moves>
-                    <class name="0" type="pokemonBattleMoves" var:moveAddress="0xD01B" />
-                    <class name="1" type="pokemonBattleMoves" var:moveAddress="0xD01C" />
-                    <class name="2" type="pokemonBattleMoves" var:moveAddress="0xD01D" />
-                    <class name="3" type="pokemonBattleMoves" var:moveAddress="0xD01E" />
-                </moves>
-                <effects>
-                    <property name="bide"          type="bit" address="0xD061" position="0" />
-                    <property name="thrash"        type="bit" address="0xD061" position="1" />
-                    <property name="multiHit"      type="bit" address="0xD061" position="2" />
-                    <property name="flinch"        type="bit" address="0xD061" position="3" />
-                    <property name="charging"      type="bit" address="0xD061" position="4" />
-                    <property name="multiTurn"     type="bit" address="0xD061" position="5" />
-                    <property name="invulnerable"  type="bit" address="0xD061" position="6" />
-                    <property name="confusion"     type="bit" address="0xD061" position="6" />     
-                    <property name="xAccuracy"     type="bit" address="0xD062" position="0" />
-                    <property name="mist"          type="bit" address="0xD062" position="1" />
-                    <property name="focusEnergy"   type="bit" address="0xD062" position="2" />
-                    <property name="hasSubstitute" type="bit" address="0xD062" position="4" />
-                    <property name="recharge"      type="bit" address="0xD062" position="5" />
-                    <property name="rage"          type="bit" address="0xD062" position="6" />
-                    <property name="leechSeeded"   type="bit" address="0xD062" position="7" />
-                    <property name="toxic"         type="bit" address="0xD063" position="0" />
-                    <property name="lightScreen"   type="bit" address="0xD063" position="1" />
-                    <property name="reflect"       type="bit" address="0xD063" position="2" />
-                    <property name="transformed"   type="bit" address="0xD063" position="3" />
-                </effects>
-                <counters>
-                    <property name="multiHit"  type="int" address="0xD069" />
-                    <property name="confusion" type="int" address="0xD063" />
-                    <property name="toxic"     type="int" address="0xD06A" />
-                    <property name="disable"   type="int" address="0xD06C" length="2" />
-                </counters>
-                <lastUsedMove>
-                    <property name="move"     type="int" address="0xCFD1" reference="moves" />
-                    <property name="effect"   type="int" address="0xCFD2" />
-                    <property name="power"    type="int" address="0xCFD3" />
-                    <property name="type"     type="int" address="0xCFD4" reference="pokemonTypes" />
-                    <property name="accuracy" type="int" address="0xCFD5" read-function="Math.round(((x / 255) * 100), 2)" />
-                    <property name="maxPP"    type="int" address="0xCFD6" />
-                </lastUsedMove>
-            </playerPokemon>
-            <enemyPokemon>
-                <property name="partyPos"        type="int" address="0xCFE7" />
-                <property name="species"         type="int" address="0xCFD7" reference="pokemonSpecies" />
-                <property name="pokedexNumber"   type="int" address="0xCFD7" reference="pokemonPokedexNumbers" />
-                <property name="type1"           type="int" address="0xCFE9" reference="pokemonTypes" />
-                <property name="type2"           type="int" address="0xCFEA" reference="pokemonTypes" />
-                <property name="level"           type="int" address="0xCFF2" />
-                <property name="statusCondition" type="int" address="0xCFE8" reference="statusConditions" />
-                <stats>
-                    <property name="hp"      type="int" address="0xCFE5" length="2" />
-                    <property name="maxHp"   type="int" address="0xCFF3" length="2" />
-                    <property name="attack"  type="int" address="0xCFF5" length="2" />
-                    <property name="defense" type="int" address="0xCFF7" length="2" />
-                    <property name="speed"   type="int" address="0xCFF9" length="2" />
-                    <property name="special" type="int" address="0xCFFB" length="2" />
-                </stats>
-                <statModifiers>
-                    <property name="attack"   type="int" address="0xCD2E" reference="stageModifiers" />
-                    <property name="defense"  type="int" address="0xCD2F" reference="stageModifiers" />
-                    <property name="speed"    type="int" address="0xCD30" reference="stageModifiers" />
-                    <property name="special"  type="int" address="0xCD31" reference="stageModifiers" />
-                    <property name="accuracy" type="int" address="0xCD32" reference="stageModifiers" />
-                    <property name="evasion"  type="int" address="0xCD33" reference="stageModifiers" />
-                </statModifiers>
-                <moves>
-                    <class name="0" type="pokemonEnemyBattleMoves" var:moveAddress="0xCFEC" />
-                    <class name="1" type="pokemonEnemyBattleMoves" var:moveAddress="0xCFED" />
-                    <class name="2" type="pokemonEnemyBattleMoves" var:moveAddress="0xCFEE" />
-                    <class name="3" type="pokemonEnemyBattleMoves" var:moveAddress="0xCFEF" />
-                </moves>
-                <dvs>
-                    <property name="attack"  type="int" address="0xCFF0" read-function="(x - (x % 16))/16" />
-                    <property name="defense" type="int" address="0xCFF0" read-function="x % 16" />
-                    <property name="speed"   type="int" address="0xCFF1" read-function="(x - (x % 16))/16" />
-                    <property name="special" type="int" address="0xCFF1" read-function="x % 16" />
-                </dvs>
-                <baseStats>
-                    <property name="hp"      type="int" address="0xD001" read-function="x % 16" />
-                    <property name="attack"  type="int" address="0xD002" read-function="x % 16" />
-                    <property name="defense" type="int" address="0xD003" read-function="x % 16" />
-                    <property name="speed"   type="int" address="0xD004" read-function="x % 16" />
-                    <property name="special" type="int" address="0xD005" read-function="x % 16" />
-                    <property name="exp"     type="int" address="0xD007" read-function="x % 16" />
-                </baseStats>
-                <effects>
-                    <property name="bide"          type="bit" address="0xD066" position="0" />
-                    <property name="thrash"        type="bit" address="0xD066" position="1" />
-                    <property name="multiHit"      type="bit" address="0xD066" position="2" />
-                    <property name="flinch"        type="bit" address="0xD066" position="3" />
-                    <property name="charging"      type="bit" address="0xD066" position="4" />
-                    <property name="multiTurn"     type="bit" address="0xD066" position="5" />
-                    <property name="invulnerable"  type="bit" address="0xD066" position="6" />
-                    <property name="confusion"     type="bit" address="0xD066" position="6" />     
-                    <property name="xAccuracy"     type="bit" address="0xD067" position="0" />
-                    <property name="mist"          type="bit" address="0xD067" position="1" />
-                    <property name="focusEnergy"   type="bit" address="0xD067" position="2" />
-                    <property name="hasSubstitute" type="bit" address="0xD067" position="4" />
-                    <property name="recharge"      type="bit" address="0xD067" position="5" />
-                    <property name="rage"          type="bit" address="0xD067" position="6" />
-                    <property name="leechSeeded"   type="bit" address="0xD067" position="7" />
-                    <property name="toxic"         type="bit" address="0xD068" position="0" />
-                    <property name="lightScreen"   type="bit" address="0xD068" position="1" />
-                    <property name="reflect"       type="bit" address="0xD068" position="2" />
-                    <property name="transformed"   type="bit" address="0xD068" position="3" />
-                </effects>
-                <counters>
-                    <property name="multiHit"  type="int" address="0xD06E" />
-                    <property name="confusion" type="int" address="0xD06F" />
-                    <property name="toxic"     type="int" address="0xD070" />
-                    <property name="disable"   type="int" address="0xD071" />
-                </counters>
-                <lastUsedMove>
-                    <property name="move"     type="int" address="0xCFCB" reference="moves" />
-                    <property name="effect"   type="int" address="0xCFCC" />
-                    <property name="power"    type="int" address="0xCFCD" />
-                    <property name="type"     type="int" address="0xCFCE" reference="pokemonTypes" />
-                    <property name="accuracy" type="int" address="0xCFCF" read-function="Math.round(((x / 255) * 100), 2)" />
-                    <property name="maxPP"    type="int" address="0xCFD0" />
-                </lastUsedMove>
-            </enemyPokemon>
+            </opponent>
             <other>
                 <property name="battleStart"      type="int" address="0xCCF5" description="When 0 battle is starting, when >=1 battle has begun" />
                 <property name="nextAttackDamage" type="int" address="0xD0D7" />

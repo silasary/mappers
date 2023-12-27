@@ -706,12 +706,21 @@
                 <property name="legenadry_frlg"   type="bit" address="0x020239f8" length="4" position="18" />
                 <property name="trainer_tower"    type="bit" address="0x020239f8" length="4" position="19" />
             </type>
-            <trainer>
+            <player>
+                <class name="activePokemon"  type="battleStructure" var:address="0x2024A80" var:partyPosition="0x02024A6A" length="2" />
+                <class name="activePokemon2" type="battleStructure" var:address="0x2024B30" var:partyPosition="0x2024A6E" length="2" />
+            </player>
+            <ally>
+                <class name="activePokemon" type="battleStructure" var:address="0x2024B30" var:partyPosition="0x2024A6E" length="2" />
+            </ally>
+            <opponent>
                 <!-- These two are meant to work, but are out of bounds? -->
                 <!-- <property name="opponentA"    type="int" length="2" address="0x202ff5e" reference="trainerClasses" /> -->
                 <!-- <property name="opponentAId"  type="int" length="2" address="0x202ff5e" /> -->
                 <!-- NB: OpponentB and Partner don't exist, as the Steven Multibattle segment was introduced in emerald -->
                 <property name="totalPokemon" type="int" address="0x30045b8" />
+                <class name="activePokemon"  type="battleStructure" var:address="0x2024AD8" var:partyPosition="0x02024A6C" length="2" />
+                <class name="activePokemon2" type="battleStructure" var:address="0x2024B88" var:partyPosition="0x02024A70" length="2" />
                 <team>
                     <class name="0" type="pokemonInParty" var:address="0x30045C0" />
                     <class name="1" type="pokemonInParty" var:address="0x3004624" />
@@ -720,11 +729,10 @@
                     <class name="4" type="pokemonInParty" var:address="0x3004750" />
                     <class name="5" type="pokemonInParty" var:address="0x30047B4" />
                 </team>
-            </trainer>
-            <class name="playerPokemon"       type="battleStructure" var:address="0x2024A80" var:partyPosition="0x02024A6A" length="2" />
-            <class name="playerSecondPokemon" type="battleStructure" var:address="0x2024B30" var:partyPosition="0x2024A6E" length="2" />
-            <class name="enemyPokemon"        type="battleStructure" var:address="0x2024AD8" var:partyPosition="0x02024A6C" length="2" />
-            <class name="enemySecondPokemon"  type="battleStructure" var:address="0x2024B88" var:partyPosition="0x02024A70" length="2" />
+            </opponent>
+            <opponent2>
+                <class name="activePokemon2" type="battleStructure" var:address="0x2024B88" var:partyPosition="0x02024A70" length="2" />
+            </opponent2>
             <field>
                 <player>
                     <property name="statusSafeguard"   type="bit" address="0x02024C7A" length="2" position="5" />
