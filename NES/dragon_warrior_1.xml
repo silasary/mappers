@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mapper id="13e970bd-263f-4a0d-886f-190222dc2040" name="Dragon Warrior 1" platform="NES"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://schemas.gamehook.io/mapper https://schemas.gamehook.io/mapper.xsd"
+    xmlns:var="https://schemas.gamehook.io/attributes/var">
+    <properties>
+        <map>
+            <property name="name" type="string" address="0x45" reference="maps" />
+            <property name="horizontalOffset" type="int" address="0x11" />
+            <property name="tileset" type="string" address="0x12" reference="tileset" />
+            <property name="exteriorTile" type="string" address="0x45" reference="tiles" />
+        </map>
+
+        <player>
+            <position>
+                <property name="x" type="int" address="0x3A" />
+                <property name="y" type="int" address="0x3B" />
+            </position>
+
+            <property name="health" type="int" address="0xC5" />
+            <property name="maximumHealthPoints" type="int" address="0xCA" />
+            <property name="magicPoints" type="int" address="0xC6" />
+            <property name="maximumMagicPoints" type="int" address="0xCB" />
+            <property name="attack" type="int" address="0xCC" />
+            <property name="defense" type="int" address="0xCD" />
+            <property name="level" type="int" address="0xC7" />
+            <property name="gold" type="int" address="0xBC" length="2" />
+            <property name="magicKeys" type="int" address="0xBF" />
+            <property name="herbs" type="int" address="0xC0" />
+
+            <property name="standingOn" type="string" address="0xE0" reference="tiles" />
+            <property name="inactivityTimer" type="int" address="0x4F" />
+            <property name="lightRadius" type="string" address="0xD0" reference="lightRadius" />
+        </player>
+
+        <battle>
+            <enemy>
+                <property name="name" type="string" address="0xE0" reference="tileset" />
+            </enemy>
+        </battle>
+    </properties>
+
+    <references>
+        <maps>
+            <entry key="0x00" />
+            <entry key="0x01" value="WORLD MAP" />
+            <entry key="0x02" value="CHARLOCK CASTLE" />
+            <entry key="0x03" value="RUINS OF HAUKSNESS" />
+            <entry key="0x04" value="TANTEGEL CASTLE" />
+            <entry key="0x05" value="THRONE ROOM" />
+            <entry key="0x06" value="DRAGONLORD'S LAIR" />
+            <entry key="0x07" value="KOL" />
+            <entry key="0x08" value="BRECONARY" />
+            <entry key="0x09" value="GARINHAM" />
+            <entry key="0x0A" value="CANTLIN" />
+            <entry key="0x0B" value="RIMULDAR" />
+            <entry key="0x0C" value="SUN SHRINE" />
+            <entry key="0x0D" value="RAIN SHRINE" />
+            <entry key="0x0E" value="MAGIC TEMPLE" />
+            <entry key="0x0F" value="DRAGONLORD B1" />
+            <entry key="0x10" value="DRAGONLORD B2" />
+            <entry key="0x11" value="DRAGONLORD B3" />
+            <entry key="0x12" value="DRAGONLORD B4" />
+            <entry key="0x13" value="DRAGONLORD B5" />
+            <entry key="0x14" value="DRAGONLORD B6" />
+            <entry key="0x15" value="SWAMP CAVE" />
+            <entry key="0x16" value="MOUNTAIN CAVE B1" />
+            <entry key="0x17" value="MOUNTAIN CAVE B2" />
+            <entry key="0x18" value="GARIN'S GRAVE B1" />
+            <entry key="0x19" value="GARIN'S GRAVE B2" />
+            <entry key="0x1A" value="GARIN'S GRAVE B3" />
+            <entry key="0x1B" value="GARIN'S GRAVE B4" />
+            <entry key="0x1C" value="EDRICK'S CAVE B1" />
+            <entry key="0x1D" value="EDRICK'S CAVE B2" />
+        </maps>
+        <tileset>
+            <entry key="0x00" />
+        </tileset>
+        <tiles>
+            <entry key="0x00" value="GRASS" />
+            <entry key="0x01" value="DIRT" />
+            <entry key="0x03" value="STAIRS" />
+            <entry key="0x04" value="COBBLESTONE" />
+            <entry key="0x05" value="STAIRS" />
+            <entry key="0x06" value="MARSH" />
+            <entry key="0x09" value="TOWN" />
+            <entry key="0x10" value="STONE" />
+            <entry key="0x15" value="WATER" />
+            <entry key="0x16" value="CAVES" />
+            <entry key="0x21" value="THRONE" />
+            <entry key="0x26" value="REDCOBBLESTONE" />
+            <entry key="0x0A" value="BRIDGE" />
+            <entry key="0x0B" value="TREES" />
+            <entry key="0x0C" value="CHEST" />
+        </tiles>
+        <enemies>
+            <entry key="0x00" value="SLIME" />
+            <entry key="0x01" value="RED SLIME" />
+            <entry key="0x02" value="DRAKEE" />
+            <entry key="0x03" value="GHOST" />
+            <entry key="0x04" value="MAGICIAN" />
+            <entry key="0x05" value="MAGIDRAKEE" />
+            <entry key="0x06" value="SCORPION" />
+            <entry key="0x07" value="DRUIN" />
+            <entry key="0x08" value="POLTERGEIST" />
+            <entry key="0x09" value="DROLL" />
+            <entry key="0x0A" value="DRAMEEMA" />
+            <entry key="0x0B" value="SKELETON" />
+            <entry key="0x0C" value="WARLOCK" />
+            <entry key="0x0D" value="METAL SCORPION" />
+            <entry key="0x0E" value="WOLF" />
+            <entry key="0x0F" value="WRAITH" />
+            <entry key="0x10" value="METAL SLIME" />
+            <entry key="0x11" value="SPECTER" />
+            <entry key="0x12" value="WOLFLORD" />
+            <entry key="0x13" value="DRUINLORD" />
+            <entry key="0x14" value="DROLLMAGI" />
+            <entry key="0x15" value="WYVERN" />
+            <entry key="0x16" value="ROGUE SCORPION" />
+            <entry key="0x17" value="WRAITH KNIGHT" />
+            <entry key="0x18" value="GOLEM" />
+            <entry key="0x19" value="GOLDMAN" />
+            <entry key="0x1A" value="KNIGHT" />
+            <entry key="0x1B" value="MAGIWYVERN" />
+            <entry key="0x1C" value="DEMON KNIGHT" />
+            <entry key="0x1D" value="WEREWOLF" />
+            <entry key="0x1E" value="GREEN DRAGON" />
+            <entry key="0x1F" value="STARWYVERN" />
+            <entry key="0x20" value="WIZARD" />
+            <entry key="0x21" value="AXE KNIGHT" />
+            <entry key="0x22" value="BLUE DRAGON" />
+            <entry key="0x23" value="STONEMAN" />
+            <entry key="0x24" value="ARMORED KNIGHT" />
+            <entry key="0x25" value="RED DRAGON" />
+            <entry key="0x26" value="DRAGONLORD 1" />
+            <entry key="0x27" value="DRAGONLORD 2" />
+        </enemies>
+        <items>
+            <entry key="0x00" />
+            <entry key="0x01" value="TORCH" />
+            <entry key="0x02" value="FAIRY WATER" />
+            <entry key="0x03" value="WINGS" />
+            <entry key="0x04" value="DRAGON'S SCALE" />
+            <entry key="0x05" value="FAIRY FLUTE" />
+            <entry key="0x06" value="FIGHTER'S RING" />
+            <entry key="0x07" value="ERDRICK'S TOKEN" />
+            <entry key="0x08" value="GWAELIN'S LOVE" />
+            <entry key="0x09" value="CURSED BELT" />
+            <entry key="0x0A" value="SILVER HARP" />
+            <entry key="0x0B" value="DEATH'S NECKLACE" />
+            <entry key="0x0C" value="STONES OF SUNLIGHT" />
+            <entry key="0x0D" value="STAFF OF RAIN" />
+            <entry key="0x0E" value="RAINBOW DROP" />
+            <entry key="0x0F" value="HERB" />
+        </items>
+        <weapons>
+            <entry key="0x20" value="BAMBOO POLE" />
+            <entry key="0x40" value="CLUB" />
+            <entry key="0x60" value="COPPER SWORD" />
+            <entry key="0x80" value="HAND AXE" />
+            <entry key="0xA0" value="BROAD SWORD" />
+            <entry key="0xC0" value="FLAME SWORD" />
+            <entry key="0xE0" value="EDRICK'S SWORD" />
+        </weapons>
+        <armor>
+            <entry key="0x04" value="CLOTHES" />
+            <entry key="0x08" value="LEATHER ARMOR" />
+            <entry key="0x0C" value="CHAIN MAIL" />
+            <entry key="0x10" value="HALF-PLATE ARMOR" />
+            <entry key="0x14" value="FULL-PLATE ARMOR" />
+            <entry key="0x18" value="MAGIC ARMOR" />
+            <entry key="0x1C" value="EDRICK'S ARMOR" />
+        </armor>
+        <shields>
+            <entry key="0x01" value="SMALL SHIELD" />
+            <entry key="0x02" value="LARGE SHIELD" />
+            <entry key="0x03" value="SILVER SHIELD" />
+        </shields>
+        <lightRadius>
+            <entry key="0x01" value="1 TILE" />
+            <entry key="0x03" value="SEMI-LOW-LIGHT" />
+            <entry key="0x05" value="?" />
+            <entry key="0x07" value="?" />
+            <entry key="0x16" value="?" />
+        </lightRadius>
+    </references>
+</mapper>
