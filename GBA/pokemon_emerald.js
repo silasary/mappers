@@ -99,8 +99,9 @@ function preprocessor() {
     variables.dma_b = memory.defaultNamespace.get_uint32_le(0x3005D90);
     variables.dma_c = memory.defaultNamespace.get_uint32_le(0x3005D94);
     variables.quantity_decryption_key = memory.defaultNamespace.get_uint16_le(variables.dma_b + 172);
-    variables.callback1 = memory.defaultNamespace.get_uint32_le(0x30022C0);
-    variables.callback2 = memory.defaultNamespace.get_uint32_le(0x30022C4);
+    variables.player_id = memory.defaultNamespace.get_uint16_le(variables.dma_b + 10);
+    variables.first_item_type = memory.defaultNamespace.get_uint16_le(variables.dma_a + 1376);
+    variables.second_item_type = memory.defaultNamespace.get_uint16_le(variables.dma_a + 1380);
 
     if (state.cached_dma_a === undefined) {
         state.dma_update_delay = 0;
@@ -121,33 +122,38 @@ function preprocessor() {
         // forcibly disable dma updates, to be sure
         state.dma_update_delay = 0;
     } else if (
+        // Don't refresh the block if it's already active
+        state.dma_update_delay == 0 &&
         // Once we know we aren't resetting, check to see if the dma values are shifting. If so, block updates
-        state.cached_dma_a != variables.dma_a ||
-        state.cached_dma_b != variables.dma_b ||
-        state.cached_dma_c != variables.dma_c ||
-        state.cached_quantity_decryption_key != variables.quantity_decryption_key
+        (
+            state.cached_dma_a != variables.dma_a ||
+            state.cached_dma_b != variables.dma_b ||
+            state.cached_dma_c != variables.dma_c ||
+            state.cached_quantity_decryption_key != variables.quantity_decryption_key
+        )
     ) {
         // DMA is actually changing, and not due to a reset. Begin blocking
         state.dma_delay_init = getTotalGameTime();
         state.dma_update_delay = getTotalGameTime() + 60;
         state.dma_safety_delay = getTotalGameTime() + 300;
+        state.cached_quantity_decryption_key = variables.quantity_decryption_key;
         console.log("DMA change detected, enabling block until changes are complete");
+        console.log("DMA init time: " + state.dma_delay_init + ", dma_update_delay: " + state.dma_update_delay + ", dma_safet_delay: " + state.dma_safety_delay);
     }
 
 
     state.cached_dma_a = variables.dma_a;
     state.cached_dma_b = variables.dma_b;
     state.cached_dma_c = variables.dma_c;
-    state.cached_quantity_decryption_key = variables.quantity_decryption_key;
 
     if (state.dma_update_delay != 0){
         let game_time = getTotalGameTime();
-        if (state.dma_update_delay > game_time){
-            state.blocked_last_frame = true;
-            return false;
-        } else if (state.dma_delay_init > game_time) {
+        if (state.dma_delay_init > game_time) {
             console.log("Impossible game_time detected. Assuming player reset or loaded a save state. Lifting block");
             state.dma_update_delay = 0;
+        } else if (state.dma_update_delay > game_time){
+            state.blocked_last_frame = true;
+            return false;
         } else {
             // grab the raw value of the new items. If either is correct, then we can safely assume that the DMA block has been moved successfully
             // using 2 values safeguards against weird cases where the player is somehow able to make a change to the actual data before gamehook detects the new changes
@@ -155,26 +161,26 @@ function preprocessor() {
             if (
                 state.cached_first_item_sanity_check !== undefined &&
                 state.cached_second_item_sanity_check !== undefined &&
-                state.cached_first_item_sanity_check != memory.defaultNamespace.get_uint16_le(variables.dma_a + 1376) &&
-                state.cached_second_item_sanity_check != memory.defaultNamespace.get_uint16_le(variables.dma_a + 1380)
+                state.cached_first_item_sanity_check != variables.first_item_type &&
+                state.cached_second_item_sanity_check != variables.second_item_type
             ){
                 if (state.dma_safety_delay > game_time) {
                     state.blocked_last_frame = true;
                     return false;
                 } else {
-                    console.log("New item values disagree with cache for first item: " + state.cached_first_item_sanity_check + " vs. " + memory.defaultNamespace.get_uint16_le(variables.dma_a + 1376));
-                    console.log("New item values disagree with cache for second item: " + state.cached_second_item_sanity_check + " vs. " + memory.defaultNamespace.get_uint16_le(variables.dma_a + 1380));
+                    console.log("New item values disagree with cache for first item: " + state.cached_first_item_sanity_check + " vs. " + variables.first_item_type);
+                    console.log("New item values disagree with cache for second item: " + state.cached_second_item_sanity_check + " vs. " + variables.second_item_type);
                     console.log("DMA safety delay timed out. Allowing updates despite mismatching data logged above");
                 }
             } else if (
                 state.cached_player_id !== undefined &&
-                state.cached_player_id != memory.defaultNamespace.get_uint16_le(variables.dma_b + 10)
+                state.cached_player_id != variables.player_id
             ) {
                 if (state.dma_safety_delay > game_time) {
                     state.blocked_last_frame = true;
                     return false;
                 } else {
-                    console.log("Cached player id disagrees with new player ID: " + state.cached_first_item_sanity_check + " vs. " + memory.defaultNamespace.get_uint16_le(variables.dma_a + 1376));
+                    console.log("Cached player id disagrees with new player ID: " + state.cached_player_id + " vs. " + variables.player_id);
                     console.log("DMA safety delay timed out. Allowing updates despite mismatching data logged above");
                 }
             }
@@ -186,9 +192,9 @@ function preprocessor() {
     // when we know we have good data
     // cache 3 pieces of data to guarantee integrity. Player ID, plus 
     // cache 2 separate items to sanity check for cases where DMA update takes longer than expected
-    state.cached_player_id = memory.defaultNamespace.get_uint16_le(variables.dma_b + 10)
-    state.cached_first_item_sanity_check = memory.defaultNamespace.get_uint16_le(variables.dma_a + 1376);
-    state.cached_second_item_sanity_check = memory.defaultNamespace.get_uint16_le(variables.dma_a + 1380);
+    state.cached_player_id = variables.player_id
+    state.cached_first_item_sanity_check = variables.first_item_type;
+    state.cached_second_item_sanity_check = variables.second_item_type;
 
     //DECRYPTION OF THE PARTY POKEMON
     //This process applies to all the the Player's Pokemon as well as to Pokemon loaded NPCs parties
