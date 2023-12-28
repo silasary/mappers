@@ -548,12 +548,12 @@
 				<property name="teamCount"  type="int" address="global_pointer + 0x54598 + 0x4E50" />
 				<class name="activePokemon" type="battleStructure" var:address="global_pointer + 0x54598 + 576" />
 				<team>
-					<class name="0" type="pokemonInParty" var:memoryContainer="opponentB_party_structure_0" />
-					<class name="1" type="pokemonInParty" var:memoryContainer="opponentB_party_structure_1" />
-					<class name="2" type="pokemonInParty" var:memoryContainer="opponentB_party_structure_2" />
-					<class name="3" type="pokemonInParty" var:memoryContainer="opponentB_party_structure_3" />
-					<class name="4" type="pokemonInParty" var:memoryContainer="opponentB_party_structure_4" />
-					<class name="5" type="pokemonInParty" var:memoryContainer="opponentB_party_structure_5" />
+					<class name="0" type="pokemonInParty" var:memoryContainer="opponent2_party_structure_0" />
+					<class name="1" type="pokemonInParty" var:memoryContainer="opponent2_party_structure_1" />
+					<class name="2" type="pokemonInParty" var:memoryContainer="opponent2_party_structure_2" />
+					<class name="3" type="pokemonInParty" var:memoryContainer="opponent2_party_structure_3" />
+					<class name="4" type="pokemonInParty" var:memoryContainer="opponent2_party_structure_4" />
+					<class name="5" type="pokemonInParty" var:memoryContainer="opponent2_party_structure_5" />
 				</team>
 			</opponent2>
             <weather>
