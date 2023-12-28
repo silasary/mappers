@@ -76,7 +76,7 @@ function isShiny(ivs) {
 }
 
 function updatePropertiesForPartyPokemon(path) {
-    const generation = Number(getPropertyValue("game.generation"))
+    const generation = Number(getPropertyValue("meta.generation"))
     
     const attack = Number(getPropertyValue(`${path}.ivs.attack`))
     const defense = Number(getPropertyValue(`${path}.ivs.defense`))
@@ -98,5 +98,31 @@ function updatePropertiesForPartyPokemon(path) {
 function preprocessor() {
     for (let i = 0; i < PARTY_SIZE; i++) {
         updatePropertiesForPartyPokemon(`player.team.${i}`)
+    }
+
+    // FSM FOR GAMESTATE TRACKING
+    // MAIN GAMESTATE: This tracks the three basic states the game can be in.
+    // 1. "No Pokemon": cartridge reset; player has not received a Pokemon
+    // 2. "Overworld": Pokemon in party, but not in battle
+    // 3. "Battle": In battle
+    // 4. "To Battle": Entering a battle, stats are not yet correctly displayed within the battle RAM
+    // 5. "From Battle": The player is victorious and the battle is ended, can be used to trigger graphical effects
+    if (getPropertyValue('player.team.0.level') == 0) {
+        setPropertyValue('meta.state', 'No Pokemon')
+    }
+    else if (getPropertyValue("battle.mode") == null) {
+        setPropertyValue('meta.state', 'Overworld')
+    }
+    else if (getPropertyValue("battle.other.lowHealthAlarm") == "Disabled") {
+        setPropertyValue('meta.state', 'From Battle')
+    }
+    else if (getPropertyValue('player.team.0.species') == getPropertyValue('battle.player.activePokemon.species')) {
+        setPropertyValue('meta.state', 'Battle')
+    }
+    else if ((getPropertyValue('meta.state') == 'Overworld' || getPropertyValue('meta.state') == 'To Battle') && getPropertyValue("battle.mode") != null) {
+        setPropertyValue('meta.state', 'To Battle')
+    }
+    else {
+        setPropertyValue('meta.state', 'Battle')
     }
 }

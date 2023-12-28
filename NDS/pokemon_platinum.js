@@ -25,16 +25,16 @@ function getBits(a, b, d) {
 // Once a Pokemon's data has been generated it is assigned a PID which determines the order of the blocks
 // The Pokemon's PID never changes, therefore the order of the blocks remains fixed for that Pokemon
 const shuffleOrders = {
-    0: [0, 1, 2, 3],
-    1: [0, 1, 3, 2],
-    2: [0, 2, 1, 3],
-    3: [0, 3, 1, 2],
-    4: [0, 2, 3, 1],
-    5: [0, 3, 2, 1],
-    6: [1, 0, 2, 3],
-    7: [1, 0, 3, 2],
-    8: [2, 0, 1, 3],
-    9: [3, 0, 1, 2],
+    0:  [0, 1, 2, 3],
+    1:  [0, 1, 3, 2],
+    2:  [0, 2, 1, 3],
+    3:  [0, 3, 1, 2],
+    4:  [0, 2, 3, 1],
+    5:  [0, 3, 2, 1],
+    6:  [1, 0, 2, 3],
+    7:  [1, 0, 3, 2],
+    8:  [2, 0, 1, 3],
+    9:  [3, 0, 1, 2],
     10: [2, 0, 3, 1],
     11: [3, 0, 2, 1],
     12: [1, 2, 0, 3],
@@ -88,15 +88,15 @@ function preprocessor() {
         setPropertyValue('meta.stateEnemy', "N/A")
     } else if (getPropertyValue('meta.state') == "Battle" && getPropertyValue("battle.outcome") == 1) {
         setPropertyValue('meta.stateEnemy', "Battle Finished")
-    } else if (getPropertyValue('meta.state') == "Battle" && getPropertyValue("battle.opponentA.enemy_bar_synced_hp") > 0) {
+    } else if (getPropertyValue('meta.state') == "Battle" && getPropertyValue("battle.opponent.enemy_bar_synced_hp") > 0) {
         setPropertyValue('meta.stateEnemy', "Pokemon in Battle")
-    } else if (getPropertyValue('meta.state') == "Battle" && getPropertyValue("battle.opponentA.enemy_bar_synced_hp") == 0) {
+    } else if (getPropertyValue('meta.state') == "Battle" && getPropertyValue("battle.opponent.enemy_bar_synced_hp") == 0) {
         setPropertyValue('meta.stateEnemy', "Pokemon Fainted")
     }
 
     // BATTLE TYPE PROPERTY
     if (getPropertyValue('meta.state') == 'Battle') {
-        if (getPropertyValue('battle.opponentA.trainer') == undefined) {
+        if (getPropertyValue('battle.opponent.trainer') == undefined) {
             setPropertyValue('battle.type', 'Wild')
         } else {
             setPropertyValue('battle.type', 'Trainer')
@@ -106,7 +106,7 @@ function preprocessor() {
     }
 
     // Loop through various party-structures to decrypt the Pokemon data
-    const partyStructures = ["player", "playerAlt", "wild", "opponentA", "ally", "opponentB", "updPlr", "updOpA",];
+    const partyStructures = ["player", "playerAlt", "wild", "opponent", "ally", "opponent2", "updPlr", "updOpA",];
     for (let i = 0; i < partyStructures.length; i++) {
         let user = partyStructures[i];
         // Determine the offset from the base_ptr (global_pointer) - only run once per party-structure loop
@@ -114,14 +114,14 @@ function preprocessor() {
             player: 0xD094,
             playerAlt: 0x35514,
             wild: 0x35AC4,
-            opponentA: 0x7A0,
+            opponent: 0x7A0,
             ally: 0x7A0 + 0x5B0,
-            opponentB: 0x7A0 + 0xB60,
+            opponent2: 0x7A0 + 0xB60,
             updPlr: 0x5888C, //requires testing
             updOpA: 0x58E3C, //requires testing
         };
 
-        let baseAddress = (user === "opponentA" || user === "ally" || user === "opponentB") ? enemy_ptr : base_ptr;
+        let baseAddress = (user === "opponent" || user === "ally" || user === "opponent2") ? enemy_ptr : base_ptr;
 
         // Loop through each party-slot within the given party-structure
         for (let slotIndex = 0; slotIndex < 6; slotIndex++) {

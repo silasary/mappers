@@ -79,6 +79,7 @@
             <property name="partyPos" type="int" address="partyPosition" length="2" />
             <!-- <macro type="pokemon" /> -->
             <property name="species"          type="int"    address="address" length="2" reference="pokemonSpecies" />
+			<property name="pokedexNumber"   type="int"    address="address" length="2" reference="pokemonPokedexNumbers" />
             <property name="nickname"         type="string" address="address + 48" length="11" characterMap="defaultCharacterMap" />
             <property name="level"            type="int"    address="address + 42" />
             <property name="expPoints"        type="uint"   address="address + 68" length="4"/>
@@ -131,7 +132,7 @@
 			<property name="pp"   type="int" address="offset_powerPoints" memoryContainer="memoryContainer" after-read-value-expression="value % 64" />
 			<property name="ppUp" type="int" address="offset_ppUp"        memoryContainer="memoryContainer" after-read-value-expression="Floor(value / 64)" />
 		</pokemonMoves>
-                <pokemonBattleMoves>
+        <pokemonBattleMoves>
 			<property name="move" type="int" address="address + offset_moveNumber"  reference="moves" length="2" />
 			<property name="pp"   type="int" address="address + offset_powerPoints" after-read-value-expression="value % 64" />
 			<property name="ppUp" type="int" value="null" />
@@ -143,13 +144,6 @@
     </classes>
 
     <properties>
-        <meta>
-			<property name="generation" type="int" value="3" />
-			<property name="gameName"   type="int" value="FireRed and LeafGreen" />
-			<property name="gameType"   type="int" value="Remake" />
-			<!-- <property name="state"          type="string" />
-			<property name="stateEnemy"     type="string" /> -->
-		</meta>
         <player>
             <!-- <property name="playerId"  type="string" address="0x20228CC" length="2" reference="defaultCharacterMap" description="The active player user Id, better tracking for if the game has loaded a new or saved game" /> -->
             <property name="name"      type="string" address="dma_b"     length="8" characterMap="defaultCharacterMap" />
@@ -209,10 +203,24 @@
                 <property name="legenadry_frlg"   type="bit" address="0x2022B4C" length="4" position="18" />
                 <property name="trainer_tower"    type="bit" address="0x2022B4C" length="4" position="19" />
             </type>
-            <opponentA>
-                <property name="opponentA"    type="int" address="0x20386AE" length="2" reference="trainerClasses" />
+            <player>
+                <property name="partyPos" type="int" length="2" address="0x02023BCE" />
+                <property name="partyPos2" type="int" length="2" address="0x02023BD2" />
+                <class name="activePokemon" type="battleStructure" address="0x2023BE4" />
+                <class name="activePokemon2" type="battleStructure" address="0x2023C94" />
+            </player>
+            <ally>
+                <property name="partyPos" type="int" length="2" address="0x02023BD2" />
+                <class name="activePokemon" type="battleStructure" address="0x2023C94" />
+            </ally>
+            <opponent>
+                <property name="opponent"    type="int" address="0x20386AE" length="2" reference="trainerClasses" />
                 <property name="opponentId"   type="int" address="0x20386AE" length="2" />
                 <property name="totalPokemon" type="int" address="0x202402A" />
+                <property name="partyPos" type="int" length="2" address="0x02023BD0" />
+                <property name="partyPos2" type="int" length="2" address="0x02023BD4" />
+                <class name="activePokemon"  type="battleStructure" var:address="0x2023C3C" var:partyPosition="0x2024070" length="2" />
+                <class name="activePokemon2" type="battleStructure" address="0x2023CEC" />
                 <team>
                     <class name="0" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_0" />
                     <class name="1" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_1" />
@@ -221,23 +229,12 @@
                     <class name="4" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_4" />
                     <class name="5" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_5" />
                 </team>
-            </opponentA>
-            <!-- <yourPokemon>
-                <property name="partyPos" type="int" length="2" address="0x02023BCE" />
-                <property name="_" type="int" address="0x2023BE4" macro="battleStructure" />
-            </yourPokemon>
-            <yourSecondPokemon>
-                <property name="partyPos" type="int" length="2" address="0x02023BD2" />
-                <property name="_" type="macro" address="0x2023C94" macro="battleStructure" />
-            </yourSecondPokemon>
-            <enemyPokemon>
-                <property name="partyPos" type="int" length="2" address="0x02023BD0" />
-                <property name="_" type="macro" address="0x2023C3C" macro="battleStructure" />
-            </enemyPokemon>
-            <enemySecondPokemon>
+            </opponent>
+            <opponent2>
                 <property name="partyPos" type="int" length="2" address="0x02023BD4" />
-                <property name="_" type="macro" address="0x2023CEC" macro="battleStructure" />
-            </enemySecondPokemon> -->
+                <class name="activePokemon" type="battleStructure" address="0x2023CEC" />
+            </opponent2>
+
             <field>
                 <player>
                     <property name="statusSafeguard"   type="bit" address="0x2023DDE" length="2" position="5" />
@@ -295,6 +292,13 @@
             <property name="callback1" type="int"  length="4" address="0x30030F0" reference="mainState" />
             <property name="callback2" type="int"  length="4" address="0x30030F4" reference="subState" />
         </pointers>
+        <meta>
+            <property name="generation" type="int" value="3" />
+			<property name="gameName"   type="int" value="FireRed and LeafGreen" />
+			<property name="gameType"   type="int" value="Remake" />
+			<!-- <property name="state"          type="string" /> -->
+			<!-- <property name="stateEnemy"     type="string" /> -->
+		</meta>
     </properties>
 
     <references>
