@@ -79,6 +79,7 @@
             <property name="partyPos" type="int" address="partyPosition" length="2" />
             <!-- <macro type="pokemon" /> -->
             <property name="species"          type="int"    address="address" length="2" reference="pokemonSpecies" />
+			<property name="pokedexNumber"   type="int"    address="address" length="2" reference="pokemonPokedexNumbers" />
             <property name="nickname"         type="string" address="address + 48" length="11" characterMap="defaultCharacterMap" />
             <property name="level"            type="int"    address="address + 42" />
             <property name="expPoints"        type="uint"   address="address + 68" length="4"/>
@@ -131,7 +132,7 @@
 			<property name="pp"   type="int" address="offset_powerPoints" memoryContainer="memoryContainer" after-read-value-expression="value % 64" />
 			<property name="ppUp" type="int" address="offset_ppUp"        memoryContainer="memoryContainer" after-read-value-expression="Floor(value / 64)" />
 		</pokemonMoves>
-                <pokemonBattleMoves>
+        <pokemonBattleMoves>
 			<property name="move" type="int" address="address + offset_moveNumber"  reference="moves" length="2" />
 			<property name="pp"   type="int" address="address + offset_powerPoints" after-read-value-expression="value % 64" />
 			<property name="ppUp" type="int" value="null" />
@@ -218,7 +219,7 @@
                 <property name="totalPokemon" type="int" address="0x202402A" />
                 <property name="partyPos" type="int" length="2" address="0x02023BD0" />
                 <property name="partyPos2" type="int" length="2" address="0x02023BD4" />
-                <class name="activePokemon" type="battleStructure" address="0x2023C3C" />
+                <class name="activePokemon"  type="battleStructure" var:address="0x2023C3C" var:partyPosition="0x2024070" length="2" />
                 <class name="activePokemon2" type="battleStructure" address="0x2023CEC" />
                 <team>
                     <class name="0" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_0" />
