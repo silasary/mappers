@@ -135,13 +135,13 @@
     </classes>
 
     <properties>
-        <apointers>
+        <pointers>
             <property name="dma1"      type="uint" length="4" address="0x3005D8C" />
             <property name="dma2"      type="uint" length="4" address="0x3005D90" />
             <property name="dma3"      type="uint" length="4" address="0x3005D94" />
             <property name="callback1" type="int"  length="4" address="0x30022c0" reference="mainState" />
             <property name="callback2" type="int"  length="4" address="0x30022c4" reference="subState" />
-        </apointers>
+        </pointers>
         <player>
             <property name="name"      type="string" address="dma_b"     length="8" characterMap="defaultCharacterMap" />
             <property name="gender"    type="int"    address="dma_b + 8" reference="gender" />
