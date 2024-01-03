@@ -571,13 +571,123 @@ For all new software, please use the paths within 'pokemon_red_and_blue.xml'
       <property name="seconds" type="int" address="0xDA44" />
       <property name="frames"  type="int" address="0xDA45" />
     </gameTime>
+	<patch>
+		<time>
+			<property name="frameCount"       type="int" length="4" address="0xdbef + 1" />
+			<property name="oWFrameCount"     type="int" length="4" address="0xdbe3 + 1" />
+			<property name="battleFrameCount" type="int" length="4" address="0xdbe7 + 1" />
+			<property name="menuFrameCount"   type="int" length="4" address="0xdbeb + 1" />
+			<property name="introsFrameCount" type="int" length="4" address="0xdbef + 1" />
+		</time>
+		<saves>
+			<property name="saveCount"        type="int" length="2" address="0xdc05 + 1" />
+			<property name="reloadCount"      type="int" length="2" address="0xdc07 + 1" />
+		</saves>
+		<steps>
+			<property name="stepsCount"       type="int" length="4" address="0xdbf3 + 1" />
+			<property name="stepsCountWalk"   type="int" length="4" address="0xdbf7 + 1" />
+			<property name="stepsCountBike"   type="int" length="4" address="0xdbfb + 1" />
+			<property name="stepsCountSurf"   type="int" length="4" address="0xdbff + 1" />
+			<property name="bonks"            type="int" length="2" address="0xdc03 + 1" />
+		</steps>
+		<battles>
+			<property name="trainerBattles"   type="int" length="2" address="0xdc1d + 1" />
+			<property name="wildBattles"      type="int" length="2" address="0xdc1f + 1" />
+			<property name="battlesFled"      type="int" length="2" address="0xdc2d + 1" />
+			<property name="failedRuns"       type="int" length="2" address="0xdc2f + 1" />
+		</battles>
+		<battle_info>
+			<turns>
+				<property name="battleTurns" type="int" length="2" address="0xdc21 + 1" />
+				<property name="playerTurns" type="int" length="2" address="0xdc23 + 1" />
+				<property name="enemyTurns"  type="int" length="2" address="0xdc25 + 1" />
+			</turns>
+			<damage>
+				<property name="totalDamageDealt"  type="int" length="4" address="0xdc35 + 1" />
+				<property name="actualDamageDealt" type="int" length="4" address="0xdc3d + 1" />
+				<property name="totalDamageTaken"  type="int" length="4" address="0xdc39 + 1" />
+				<property name="actualDamageTaken" type="int" length="4" address="0xdc41 + 1" />
+			</damage>
+			<hits>
+				<property name="ownMovesHit"        type="int" length="2" address="0xdc45 + 1" />
+				<property name="enemyMovesHit"      type="int" length="2" address="0xdc47 + 1" />
+				<property name="ownMovesMissed"     type="int" length="2" address="0xdc49 + 1" />
+				<property name="enemyMovesMissed"   type="int" length="2" address="0xdc4b + 1" />
+				<property name="PlayerMovesStatus"  type="int" length="2" address="0xdc4d + 1" />
+				<property name="EnemyMovesStatus"   type="int" length="2" address="0xdc4f + 1" />
+				<property name="PlayerMovesSpecial" type="int" length="2" address="0xdc51 + 1" />
+				<property name="EnemyMovesSpecial"  type="int" length="2" address="0xdc53 + 1" />
+				<property name="PlayerMoves0xE"     type="int" length="2" address="0xdc55 + 1" />
+				<property name="PlayerMoves4xR"     type="int" length="2" address="0xdc57 + 1" />
+				<property name="PlayerMoves2xR"     type="int" length="2" address="0xdc59 + 1" />
+				<property name="PlayerMoves1xE"     type="int" length="2" address="0xdc5b + 1" />
+				<property name="PlayerMoves2xE"     type="int" length="2" address="0xdc5d + 1" />
+				<property name="PlayerMoves4xE"     type="int" length="2" address="0xdc5f + 1" />
+				<property name="EnemyMoves0xE"      type="int" length="2" address="0xdc61 + 1" />
+				<property name="EnemyMoves4xR"      type="int" length="2" address="0xdc63 + 1" />
+				<property name="EnemyMoves2xR"      type="int" length="2" address="0xdc65 + 1" />
+				<property name="EnemyMoves1xE"      type="int" length="2" address="0xdc67 + 1" />
+				<property name="EnemyMoves2xE"      type="int" length="2" address="0xdc69 + 1" />
+				<property name="EnemyMoves4xE"      type="int" length="2" address="0xdc6b + 1" />
+				<property name="criticalsDealt"     type="int" length="2" address="0xdc6d + 1" />
+				<property name="criticalsTaken"     type="int" length="2" address="0xdc6f + 1" />
+				<property name="oHKOsDealt"         type="int" length="2" address="0xdc71 + 1" />
+				<property name="oHKOsTaken"         type="int" length="2" address="0xdc73 + 1" />
+			</hits>
+			<status>
+				<property name="wasConfused"                type="int" length="2" address="0xdc75 + 1" />
+				<property name="enemyBecameConfused"        type="int" length="2" address="0xdc77 + 1" />
+				<property name="wasParalyzed"               type="int" length="2" address="0xdc79 + 1" />
+				<property name="enemyWasParalyzed"          type="int" length="2" address="0xdc7b + 1" />
+				<property name="wasBurned"                  type="int" length="2" address="0xdc7d + 1" />
+				<property name="enemyWasBurned"             type="int" length="2" address="0xdc7f + 1" />
+				<property name="wasFrozen"                  type="int" length="2" address="0xdc81 + 1" />
+				<property name="enemyWasFrozen"             type="int" length="2" address="0xdc83 + 1" />
+				<property name="wasPoisoned"                type="int" length="2" address="0xdc85 + 1" />
+				<property name="enemyWasPoisoned"           type="int" length="2" address="0xdc87 + 1" />
+				<property name="wasPoisonedBadly"           type="int" length="2" address="0xdc89 + 1" />
+				<property name="enemyWasPoisonedBadly"      type="int" length="2" address="0xdc8b + 1" />
+				<property name="fellAsleep"                 type="int" length="2" address="0xdc8d + 1" />
+				<property name="enemyFellAsleep"            type="int" length="2" address="0xdc8f + 1" />
+				<property name="playerTurnsConfused"        type="int" length="2" address="0xdc91 + 1" />
+				<property name="enemyTurnsConfused"         type="int" length="2" address="0xdc93 + 1" />
+				<property name="playerTurnsConfusedHitSelf" type="int" length="2" address="0xdc95 + 1" />
+				<property name="enemyTurnsConfusedHitSelf"  type="int" length="2" address="0xdc97 + 1" />
+				<property name="playerTurnsParalyzed"       type="int" length="2" address="0xdc99 + 1" />
+				<property name="enemyTurnsParalyzed"        type="int" length="2" address="0xdc9b + 1" />
+				<property name="playerTurnsParalyzedFully"  type="int" length="2" address="0xdc9d + 1" />
+				<property name="enemyTurnsParalyzedFully"   type="int" length="2" address="0xdc9f + 1" />
+				<property name="PlayerTurnsAsleep"          type="int" length="2" address="0xdca1 + 1" />
+				<property name="EnemyTurnsAsleep"           type="int" length="2" address="0xdca3 + 1" />
+			</status>
+			<property name="switchout"            type="int" length="2" address="0xdc2b + 1" />
+			<property name="experienceGained"     type="int" length="4" address="0xdc31 + 1" />
+			<property name="playerPokemonFainted" type="int" length="2" address="0xdca5 + 1" />
+			<property name="enemyPokemonFainted"  type="int" length="2" address="0xdca7 + 1" />
+		</battle_info>
+		<money>
+			<property name="moneyMade"  type="binaryCodedDecimal" length="4" address="0xdc09 + 1" />
+			<property name="moneySpent" type="binaryCodedDecimal" length="4" address="0xdc0d + 1" />
+			<property name="moneyLost"  type="binaryCodedDecimal" length="4" address="0xdc11 + 1" />
+		</money>
+		<items>
+			<property name="itemsPickedUp" type="int" length="2" address="0xdc15 + 1" />
+			<property name="itemsBought"   type="int" length="2" address="0xdc17 + 1" />
+			<property name="itemsSold"     type="int" length="2" address="0xdc19 + 1" />
+		</items>
+		<catching>
+			<property name="ballsThrown"          type="int" length="2" address="0xdc27 + 1" />
+			<property name="pokemonCaughtInBalls" type="int" length="2" address="0xdc29 + 1" />
+		</catching>
+		<property name="movesLearnt" type="int" length="2" address="0xdc1b + 1" />
+	</patch>
     <meta>
 		<property name="generation" type="int" value="1" />
 		<property name="gameName"   type="int" value="Red and Blue" />
 		<property name="gameType"   type="int" value="Originals" />
 		<property name="mapperType" type="int" value="Deprecated" />
-		<!-- <property name="state" type="string" />
-		<property name="stateEnemy" type="string" /> -->
+		<property name="state" type="string" />
+		<!-- <property name="stateEnemy" type="string" /> -->
 	</meta>
   </properties>
   
