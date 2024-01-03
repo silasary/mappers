@@ -764,7 +764,7 @@ For all new software, please use the paths within 'pokemon_yellow.xml'
 		</patch>
 		<meta>
 			<property name="generation" type="int" value="1" />
-			<property name="gameName"   type="int" value="Pokemon Yellow" />
+			<property name="gameName"   type="int" value="Yellow" />
 			<property name="gameType"   type="int" value="Third Version" />
 			<property name="mapperType" type="int" value="Deprecated" />
 			<property name="state"       type="string" />
