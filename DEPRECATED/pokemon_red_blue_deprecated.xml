@@ -635,20 +635,20 @@ For all new software, please use the paths within 'pokemon_red_and_blue.xml'
 				<property name="oHKOsTaken"         type="int" length="2" address="0xdc73 + 1" />
 			</hits>
 			<status>
-				<property name="wasConfused"                type="int" length="2" address="0xdc75 + 1" />
-				<property name="enemyBecameConfused"        type="int" length="2" address="0xdc77 + 1" />
-				<property name="wasParalyzed"               type="int" length="2" address="0xdc79 + 1" />
-				<property name="enemyWasParalyzed"          type="int" length="2" address="0xdc7b + 1" />
-				<property name="wasBurned"                  type="int" length="2" address="0xdc7d + 1" />
-				<property name="enemyWasBurned"             type="int" length="2" address="0xdc7f + 1" />
-				<property name="wasFrozen"                  type="int" length="2" address="0xdc81 + 1" />
-				<property name="enemyWasFrozen"             type="int" length="2" address="0xdc83 + 1" />
-				<property name="wasPoisoned"                type="int" length="2" address="0xdc85 + 1" />
-				<property name="enemyWasPoisoned"           type="int" length="2" address="0xdc87 + 1" />
-				<property name="wasPoisonedBadly"           type="int" length="2" address="0xdc89 + 1" />
-				<property name="enemyWasPoisonedBadly"      type="int" length="2" address="0xdc8b + 1" />
-				<property name="fellAsleep"                 type="int" length="2" address="0xdc8d + 1" />
-				<property name="enemyFellAsleep"            type="int" length="2" address="0xdc8f + 1" />
+				<property name="enemyBecameConfused"        type="int" length="2" address="0xdc75 + 1" />
+				<property name="wasConfused"                type="int" length="2" address="0xdc77 + 1" />
+				<property name="enemyWasParalyzed"          type="int" length="2" address="0xdc79 + 1" />
+				<property name="wasParalyzed"               type="int" length="2" address="0xdc7b + 1" />
+				<property name="enemyWasBurned"             type="int" length="2" address="0xdc7d + 1" />
+				<property name="wasBurned"                  type="int" length="2" address="0xdc7f + 1" />
+				<property name="enemyWasFrozen"             type="int" length="2" address="0xdc81 + 1" />
+				<property name="wasFrozen"                  type="int" length="2" address="0xdc83 + 1" />
+				<property name="enemyWasPoisoned"           type="int" length="2" address="0xdc85 + 1" />
+				<property name="wasPoisoned"                type="int" length="2" address="0xdc87 + 1" />
+				<property name="enemyWasPoisonedBadly"      type="int" length="2" address="0xdc89 + 1" />
+				<property name="wasPoisonedBadly"           type="int" length="2" address="0xdc8b + 1" />
+				<property name="enemyFellAsleep"            type="int" length="2" address="0xdc8d + 1" />
+				<property name="fellAsleep"                 type="int" length="2" address="0xdc8f + 1" />
 				<property name="playerTurnsConfused"        type="int" length="2" address="0xdc91 + 1" />
 				<property name="enemyTurnsConfused"         type="int" length="2" address="0xdc93 + 1" />
 				<property name="playerTurnsConfusedHitSelf" type="int" length="2" address="0xdc95 + 1" />
