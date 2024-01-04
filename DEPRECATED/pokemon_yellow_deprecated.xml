@@ -27,22 +27,22 @@ For all new software, please use the paths within 'pokemon_yellow.xml'
 			<property name="defense" address="address + 38" type="int" length="2" description="The Attack stat as it appears in the Pokemon's summary page in game" />
 			<property name="speed"   address="address + 40" type="int" length="2" description="The Attack stat as it appears in the Pokemon's summary page in game" />
 			<property name="special" address="address + 42" type="int" length="2" description="The Attack stat as it appears in the Pokemon's summary page in game" />
-			<property name="dvAttack"  address="address + 27" type="int" read-function="(x - (x % 16))/16" />
-			<property name="dvDefense" address="address + 27" type="int" read-function="x % 16" />
-			<property name="dvSpeed"   address="address + 28" type="int" read-function="(x - (x % 16))/16" />
-			<property name="dvSpecial" address="address + 28" type="int" read-function="x % 16" />
+			<property name="dvAttack"  address="address + 27" type="int" after-read-value-expression="(x - (x % 16))/16" />
+			<property name="dvDefense" address="address + 27" type="int" after-read-value-expression="x % 16" />
+			<property name="dvSpeed"   address="address + 28" type="int" after-read-value-expression="(x - (x % 16))/16" />
+			<property name="dvSpecial" address="address + 28" type="int" after-read-value-expression="x % 16" />
 			<property name="move1" address="address + 8" type="int" reference="moves" description="Top moveslot" />
 			<property name="move2" address="address + 9" type="int" reference="moves" />
 			<property name="move3" address="address + 10" type="int" reference="moves" />
 			<property name="move4" address="address + 11" type="int" reference="moves" description="Bottom moveslot" />
-			<property name="move1pp" address="address + 29" type="int" read-function="x % 64" />
-			<property name="move2pp" address="address + 30" type="int" read-function="x % 64" />
-			<property name="move3pp" address="address + 31" type="int" read-function="x % 64" />
-			<property name="move4pp" address="address + 32" type="int" read-function="x % 64" />
-			<property name="move1ppUp" address="address + 29" type="int" read-function="Math.floor(x / 64)" />
-			<property name="move2ppUp" address="address + 30" type="int" read-function="Math.floor(x / 64)" />
-			<property name="move3ppUp" address="address + 31" type="int" read-function="Math.floor(x / 64)" />
-			<property name="move4ppUp" address="address + 32" type="int" read-function="Math.floor(x / 64)" />
+			<property name="move1pp" address="address + 29" type="int" after-read-value-expression="x % 64" />
+			<property name="move2pp" address="address + 30" type="int" after-read-value-expression="x % 64" />
+			<property name="move3pp" address="address + 31" type="int" after-read-value-expression="x % 64" />
+			<property name="move4pp" address="address + 32" type="int" after-read-value-expression="x % 64" />
+			<property name="move1ppUp" address="address + 29" type="int" after-read-value-expression="Math.floor(x / 64)" />
+			<property name="move2ppUp" address="address + 30" type="int" after-read-value-expression="Math.floor(x / 64)" />
+			<property name="move3ppUp" address="address + 31" type="int" after-read-value-expression="Math.floor(x / 64)" />
+			<property name="move4ppUp" address="address + 32" type="int" after-read-value-expression="Math.floor(x / 64)" />
 			<property name="statExpHp" address="address + 17" type="int" length="2" description="HP EV (stat experience)" />
 			<property name="statExpAttack"  address="address + 19" type="int" length="2" description="Attack EV (stat experience)" />
 			<property name="statExpDefense" address="address + 21" type="int" length="2" description="Defense EV (stat experience)" />
@@ -69,10 +69,10 @@ For all new software, please use the paths within 'pokemon_yellow.xml'
 			<property name="expPoints"       type="int" address="address + 14" length="3" />
 			<property name="statusCondition" type="int" address="address + 4"  reference="statusConditions" />
 			<property name="hp"              type="int" address="address + 1"  length="2" />
-			<property name="dvAttack"        type="int" address="address + 27" read-function="(x - (x % 16))/16" />
-			<property name="dvDefense"       type="int" address="address + 27" read-function="x % 16" />
-			<property name="dvSpeed"         type="int" address="address + 28" read-function="(x - (x % 16))/16" />
-			<property name="dvSpecial"       type="int" address="address + 28" read-function="x % 16" />
+			<property name="dvAttack"        type="int" address="address + 27" after-read-value-expression="(x - (x % 16))/16" />
+			<property name="dvDefense"       type="int" address="address + 27" after-read-value-expression="x % 16" />
+			<property name="dvSpeed"         type="int" address="address + 28" after-read-value-expression="(x - (x % 16))/16" />
+			<property name="dvSpecial"       type="int" address="address + 28" after-read-value-expression="x % 16" />
 			<property name="statExpHp"       type="int" address="address + 17" length="2" description="HP EV (stat experience)" />
 			<property name="statExpAttack"   type="int" address="address + 19" length="2" description="Attack EV (stat experience)" />
 			<property name="statExpDefense"  type="int" address="address + 21" length="2" description="Defense EV (stat experience)" />
@@ -82,10 +82,10 @@ For all new software, please use the paths within 'pokemon_yellow.xml'
 			<property name="move2"     type="int" address="address + 9"  reference="moves" />
 			<property name="move3"     type="int" address="address + 10" reference="moves" />
 			<property name="move4"     type="int" address="address + 11" reference="moves" description="Bottom moveslot" />
-			<property name="move1pp"   type="int" address="address + 29" read-function="x % 64" />
-			<property name="move2pp"   type="int" address="address + 30" read-function="x % 64" />
-			<property name="move3pp"   type="int" address="address + 31" read-function="x % 64" />
-			<property name="move4pp"   type="int" address="address + 32" read-function="x % 64" />
+			<property name="move1pp"   type="int" address="address + 29" after-read-value-expression="x % 64" />
+			<property name="move2pp"   type="int" address="address + 30" after-read-value-expression="x % 64" />
+			<property name="move3pp"   type="int" address="address + 31" after-read-value-expression="x % 64" />
+			<property name="move4pp"   type="int" address="address + 32" after-read-value-expression="x % 64" />
 			<property name="type1"     type="int" address="address + 5"  reference="pokemonTypes" />
 			<property name="type2"     type="int" address="address + 6"  reference="pokemonTypes" />
 			<property name="trainerId" type="int" address="address + 12" length="2" />
@@ -335,10 +335,10 @@ For all new software, please use the paths within 'pokemon_yellow.xml'
 			<property name="move2" type="int" address="0xD01C" reference="moves" />
 			<property name="move3" type="int" address="0xD01D" reference="moves" />
 			<property name="move4" type="int" address="0xD01E" reference="moves" />
-			<property name="move1pp" type="int" address="0xD02C" read-function="x % 64" />
-			<property name="move2pp" type="int" address="0xD02D" read-function="x % 64" />
-			<property name="move3pp" type="int" address="0xD02E" read-function="x % 64" />
-			<property name="move4pp" type="int" address="0xD02F" read-function="x % 64" />
+			<property name="move1pp" type="int" address="0xD02C" after-read-value-expression="x % 64" />
+			<property name="move2pp" type="int" address="0xD02D" after-read-value-expression="x % 64" />
+			<property name="move3pp" type="int" address="0xD02E" after-read-value-expression="x % 64" />
+			<property name="move4pp" type="int" address="0xD02F" after-read-value-expression="x % 64" />
 			<effects>
 				<property name="bide"         type="bit" address="0xD061" position="0" />
 				<property name="thrash"       type="bit" address="0xD061" position="1" />
@@ -391,16 +391,16 @@ For all new software, please use the paths within 'pokemon_yellow.xml'
 				<property name="move2" type="int" address="0xCFED" reference="moves" />
 				<property name="move3" type="int" address="0xCFEE" reference="moves" />
 				<property name="move4" type="int" address="0xCFEF" reference="moves" />
-				<property name="dvAttack"  type="int" address="0xCFF0" read-function="(x - (x % 16))/16" />
-				<property name="dvDefense" type="int" address="0xCFF0" read-function="x % 16" />
-				<property name="dvSpeed"   type="int" address="0xCFF1" read-function="(x - (x % 16))/16" />
-				<property name="dvSpecial" type="int" address="0xCFF1" read-function="x % 16" />
-				<property name="baseHp"      type="int" address="0xD001" read-function="x % 16" />
-				<property name="baseAttack"  type="int" address="0xD002" read-function="x % 16" />
-				<property name="baseDefense" type="int" address="0xD003" read-function="x % 16" />
-				<property name="baseSpeed"   type="int" address="0xD004" read-function="x % 16" />
-				<property name="baseSpecial" type="int" address="0xD005" read-function="x % 16" />
-				<property name="baseExp"     type="int" address="0xD007" read-function="x % 16" />
+				<property name="dvAttack"  type="int" address="0xCFF0" after-read-value-expression="(x - (x % 16))/16" />
+				<property name="dvDefense" type="int" address="0xCFF0" after-read-value-expression="x % 16" />
+				<property name="dvSpeed"   type="int" address="0xCFF1" after-read-value-expression="(x - (x % 16))/16" />
+				<property name="dvSpecial" type="int" address="0xCFF1" after-read-value-expression="x % 16" />
+				<property name="baseHp"      type="int" address="0xD001" after-read-value-expression="x % 16" />
+				<property name="baseAttack"  type="int" address="0xD002" after-read-value-expression="x % 16" />
+				<property name="baseDefense" type="int" address="0xD003" after-read-value-expression="x % 16" />
+				<property name="baseSpeed"   type="int" address="0xD004" after-read-value-expression="x % 16" />
+				<property name="baseSpecial" type="int" address="0xD005" after-read-value-expression="x % 16" />
+				<property name="baseExp"     type="int" address="0xD007" after-read-value-expression="x % 16" />
 				<effects>
 					<property name="bide"         type="bit" address="0xD066" position="0" />
 					<property name="thrash"       type="bit" address="0xD066" position="1" />
@@ -434,7 +434,7 @@ For all new software, please use the paths within 'pokemon_yellow.xml'
 				<property name="effect"   type="int" address="0xCFD2" />
 				<property name="power"    type="int" address="0xCFD3" />
 				<property name="type"     type="int" address="0xCFD4" reference="pokemonTypes" />
-				<property name="accuracy" type="int" address="0xCFD5" read-function="Math.round(((x / 255) * 100), 2)" />
+				<property name="accuracy" type="int" address="0xCFD5" after-read-value-expression="Math.round(((x / 255) * 100), 2)" />
 				<property name="maxPP"    type="int" address="0xCFD6" />
 			</playerMove>
 			<enemyMove>
@@ -442,7 +442,7 @@ For all new software, please use the paths within 'pokemon_yellow.xml'
 				<property name="effect"   type="int" address="0xCFCC" />
 				<property name="power"    type="int" address="0xCFCD" />
 				<property name="type"     type="int" address="0xCFCE" reference="pokemonTypes" />
-				<property name="accuracy" type="int" address="0xCFCF" read-function="Math.round(((x / 255) * 100), 2)" />
+				<property name="accuracy" type="int" address="0xCFCF" after-read-value-expression="Math.round(((x / 255) * 100), 2)" />
 				<property name="maxPP"    type="int" address="0xCFD0" />
 			</enemyMove>
 			<turnInfo>

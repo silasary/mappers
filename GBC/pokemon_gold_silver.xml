@@ -56,26 +56,18 @@
                 <property name="type" type="int" reference="types" description="Calculated from the IVs; not actually stored in memory" />
                 <property name="power" type="int" description="Calculated from the IVs; not actually stored in memory" />
             </hiddenPower>
-
-            <script type="text/typescript">
-                <![CDATA[
-                    get hpPercentage() {
-                        return this.hp.value / this.maxHp.value * 100
-                    }
-                ]]>
-            </script>
         </pokemonInParty>
 
         <pokemonInPartyMoveset>
             <property name="type" type="int" address="moveAddress" reference="moves" />
-            <property name="pp"   type="int" address="moveAddress + 21" after-read-value-expression="value % 64" />
-            <property name="ppUp" type="int" address="moveAddress + 21" after-read-value-expression="Floor(value / 64)" />
+            <property name="pp"   type="int" address="moveAddress + 21" after-read-value-expression="x % 64" />
+            <property name="ppUp" type="int" address="moveAddress + 21" after-read-value-expression="Math.floor(x / 64)" />
         </pokemonInPartyMoveset>
 
         <pokemonBattleMoves>
             <property name="type" type="int" address="moveAddress" reference="moves" />
-            <property name="pp"   type="int" address="moveAddress + 6" after-read-value-expression="value % 64" />
-            <property name="ppUp" type="int" address="moveAddress + 6" after-read-value-expression="Floor(value / 64)" />
+            <property name="pp"   type="int" address="moveAddress + 6" after-read-value-expression="x % 64" />
+            <property name="ppUp" type="int" address="moveAddress + 6" after-read-value-expression="Math.floor(x / 64)" />
         </pokemonBattleMoves>
 
         <playerItem>
@@ -591,7 +583,7 @@
 
         <time>
             <current>
-                <property name="day"       type="int" address="0xD1F2" reference="dayNames" after-read-value-expression="value % 7" />
+                <property name="day"       type="int" address="0xD1F2" reference="dayNames" after-read-value-expression="x % 7" />
                 <property name="hour"      type="int" address="0xFF96" />
                 <property name="minute"    type="int" address="0xFF98" />
                 <property name="second"    type="int" address="0xFF9a" />
@@ -605,7 +597,7 @@
                 <property name="second"    type="int" address="0xD1DF" />
             </start>
             <rtc>
-                <property name="day"       type="int" address="0xff8f" length="2" after-read-value-expression="(value % 512) % 7" />
+                <property name="day"       type="int" address="0xff8f" length="2" after-read-value-expression="(x % 512) % 7" />
                 <property name="hour"      type="int" address="0xFF91" />
                 <property name="minute"    type="int" address="0xFF92" />
                 <property name="second"    type="int" address="0xFF93" />

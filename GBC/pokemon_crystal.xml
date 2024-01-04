@@ -68,14 +68,14 @@
 
         <pokemonInPartyMoveset>
             <property name="type" type="int" address="moveAddress" reference="moves" />
-            <property name="pp"   type="int" address="moveAddress + 21" read-function="x % 64" />
-            <property name="ppUp" type="int" address="moveAddress + 21" read-function="Math.floor(x / 64)" />
+            <property name="pp"   type="int" address="moveAddress + 21" after-read-value-expression="x % 64" />
+            <property name="ppUp" type="int" address="moveAddress + 21" after-read-value-expression="Math.floor(x / 64)" />
         </pokemonInPartyMoveset>
 
         <pokemonBattleMoves>
             <property name="type" type="int" address="moveAddress" reference="moves" />
-            <property name="pp"   type="int" address="moveAddress + 6" read-function="x % 64" />
-            <property name="ppUp" type="int" address="moveAddress + 6" read-function="Math.floor(x / 64)" />
+            <property name="pp"   type="int" address="moveAddress + 6" after-read-value-expression="x % 64" />
+            <property name="ppUp" type="int" address="moveAddress + 6" after-read-value-expression="Math.floor(x / 64)" />
         </pokemonBattleMoves>
 
         <playerItem>
@@ -601,7 +601,7 @@
 
         <time>
             <current>
-                <property name="day"       type="int" address="0xd4cb" reference="dayNames" read-function="x % 7" />
+                <property name="day"       type="int" address="0xd4cb" reference="dayNames" after-read-value-expression="x % 7" />
                 <property name="hour"      type="int" address="0xff94" />
                 <property name="minute"    type="int" address="0xff96" />
                 <property name="second"    type="int" address="0xff98" />
@@ -615,7 +615,7 @@
                 <property name="second"    type="int" address="0xd4b9" />
             </start>
             <rtc>
-                <property name="day"       type="int" address="0xff8d" length="2" read-function="(x % 512) % 7" />
+                <property name="day"       type="int" address="0xff8d" length="2" after-read-value-expression="(x % 512) % 7" />
                 <property name="hour"      type="int" address="0xff8f" />
                 <property name="minute"    type="int" address="0xff90" />
                 <property name="second"    type="int" address="0xff91" />

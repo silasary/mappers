@@ -19,7 +19,7 @@
 			<property name="otID"            type="int"    address="12"  memoryContainer="memoryContainer" length="2" />
 			<property name="level"           type="int"    address="140" memoryContainer="memoryContainer"  />
 			<property name="ability"         type="int"    address="21"  memoryContainer="memoryContainer" reference="abilities" />
-			<property name="nature"          type="uint"   address="0"   memoryContainer="memoryContainer" length="4" reference="natures" read-function="x % 25" />
+			<property name="nature"          type="uint"   address="0"   memoryContainer="memoryContainer" length="4" reference="natures" after-read-value-expression="x % 25" />
 			<property name="heldItem"        type="int"    address="10"  memoryContainer="memoryContainer" length="2" reference="items" />
 			<property name="friendship"      type="int"    address="20"  memoryContainer="memoryContainer"  />
 			<property name="expPoints"       type="int"    address="16"  memoryContainer="memoryContainer" length="4" />
@@ -41,12 +41,12 @@
 				<property name="specialDefense" type="int" address="154" length="2" memoryContainer="memoryContainer" />
 			</stats>
 			<ivs>
-				<property name="hp"                type="int" address="56" length="4" memoryContainer="memoryContainer" read-function="getBits(x, 0, 5)" />
-				<property name="attack"            type="int" address="56" length="4" memoryContainer="memoryContainer" read-function="getBits(x, 5, 5)" />
-				<property name="defense"           type="int" address="56" length="4" memoryContainer="memoryContainer" read-function="getBits(x, 10, 5)" />
-				<property name="speed"             type="int" address="56" length="4" memoryContainer="memoryContainer" read-function="getBits(x, 15, 5)" />
-				<property name="specialAttack"     type="int" address="56" length="4" memoryContainer="memoryContainer" read-function="getBits(x, 20, 5)" />
-				<property name="specialDefense"    type="int" address="56" length="4" memoryContainer="memoryContainer" read-function="getBits(x, 25, 5)" />
+				<property name="hp"                type="int" address="56" length="4" memoryContainer="memoryContainer" after-read-value-expression="getBits(x, 0, 5)" />
+				<property name="attack"            type="int" address="56" length="4" memoryContainer="memoryContainer" after-read-value-expression="getBits(x, 5, 5)" />
+				<property name="defense"           type="int" address="56" length="4" memoryContainer="memoryContainer" after-read-value-expression="getBits(x, 10, 5)" />
+				<property name="speed"             type="int" address="56" length="4" memoryContainer="memoryContainer" after-read-value-expression="getBits(x, 15, 5)" />
+				<property name="specialAttack"     type="int" address="56" length="4" memoryContainer="memoryContainer" after-read-value-expression="getBits(x, 20, 5)" />
+				<property name="specialDefense"    type="int" address="56" length="4" memoryContainer="memoryContainer" after-read-value-expression="getBits(x, 25, 5)" />
 				<property name="ivEggAbilityBlock" type="int" address="56" length="4" memoryContainer="memoryContainer" />
 			</ivs>
 			<evs>
@@ -81,7 +81,7 @@
 					<property name="DPEggLocation"   type="int" address="126" memoryContainer="memoryContainer" length="2" />
 					<property name="DPMetLocation"   type="int" address="128" memoryContainer="memoryContainer" length="2" />
 					<property name="pokeball"        type="int" address="131" memoryContainer="memoryContainer" />
-					<property name="metLevel"        type="int" address="132" memoryContainer="memoryContainer" read-function="getBits(x, 6, 0)" />
+					<property name="metLevel"        type="int" address="132" memoryContainer="memoryContainer" after-read-value-expression="getBits(x, 6, 0)" />
 					<property name="femaleOTGender"  type="bit" address="132" memoryContainer="memoryContainer" position="7" />
 					<property name="encounterType"   type="int" address="133" memoryContainer="memoryContainer" />
 				</metInfo>
@@ -99,12 +99,12 @@
 		</pokemonInParty>
 		<pokemonMoves>
 			<property name="move" type="int" address="offset_moveNumber"  memoryContainer="memoryContainer" reference="moves" length="2" />
-			<property name="pp"   type="int" address="offset_powerPoints" memoryContainer="memoryContainer" read-function="x % 64" />
-			<property name="ppUp" type="int" address="offset_ppUp"        memoryContainer="memoryContainer" read-function="Math.floor(x / 64)" />
+			<property name="pp"   type="int" address="offset_powerPoints" memoryContainer="memoryContainer" after-read-value-expression="x % 64" />
+			<property name="ppUp" type="int" address="offset_ppUp"        memoryContainer="memoryContainer" after-read-value-expression="Math.floor(x / 64)" />
 		</pokemonMoves>
 		<pokemonBattleMoves>
 			<property name="move" type="int" address="address + offset_moveNumber"  reference="moves" length="2" />
-			<property name="pp"   type="int" address="address + offset_powerPoints" read-function="x % 64" />
+			<property name="pp"   type="int" address="address + offset_powerPoints" after-read-value-expression="x % 64" />
 			<property name="ppUp" type="int" value="null" />
 		</pokemonBattleMoves>
 		<battleStructure>
@@ -113,7 +113,7 @@
 			<property name="nickname"         address="address + 54"   type="string" length="22" size="2" characterMap="defaultCharacterMap" />
 			<property name="level"            address="address + 52"   type="int" />
 			<property name="expPoints"        address="address + 100"  type="uint"   length="4"/>
-			<property name="nature"           address="address + 104"  type="uint"   length="4" read-function="x % 25" reference="natures" />
+			<property name="nature"           address="address + 104"  type="uint"   length="4" after-read-value-expression="x % 25" reference="natures" />
 			<property name="friendship"       address="address + 53"   type="int" />
 			<property name="ability"          address="address + 39"   type="int" reference="abilities" />
 			<property name="type1"            address="address + 36"   type="int" reference="pokemonTypes" />
@@ -132,12 +132,12 @@
 			</stats>
 			<ivs>
 				<property name="ivEggAbilityBlock" address="address + 20" type="uint" length="4" />
-				<property name="hp"                address="address + 20" type="int"  length="4" read-function="getBits(x, 0, 5)" />
-				<property name="attack"            address="address + 20" type="int"  length="4" read-function="getBits(x, 5, 5)" />
-				<property name="defense"           address="address + 20" type="int"  length="4" read-function="getBits(x, 10, 5)" />
-				<property name="speed"             address="address + 20" type="int"  length="4" read-function="getBits(x, 15, 5)" />
-				<property name="specialAttack"     address="address + 20" type="int"  length="4" read-function="getBits(x, 20, 5)" />
-				<property name="specialDefense"    address="address + 20" type="int"  length="4" read-function="getBits(x, 25, 5)" />
+				<property name="hp"                address="address + 20" type="int"  length="4" after-read-value-expression="getBits(x, 0, 5)" />
+				<property name="attack"            address="address + 20" type="int"  length="4" after-read-value-expression="getBits(x, 5, 5)" />
+				<property name="defense"           address="address + 20" type="int"  length="4" after-read-value-expression="getBits(x, 10, 5)" />
+				<property name="speed"             address="address + 20" type="int"  length="4" after-read-value-expression="getBits(x, 15, 5)" />
+				<property name="specialAttack"     address="address + 20" type="int"  length="4" after-read-value-expression="getBits(x, 20, 5)" />
+				<property name="specialDefense"    address="address + 20" type="int"  length="4" after-read-value-expression="getBits(x, 25, 5)" />
 			</ivs>
 			<moves>
 				<class name="0" address="address" type="pokemonBattleMoves" var:offset_moveNumber="12" var:offset_powerPoints="44" />
@@ -526,12 +526,12 @@
 				</team>
 				<!-- These are the former team structures. <team> does not update during battle while <updatingTeam> does. -->
 				<!-- <team>
-					<class name="0" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_0" />
-					<class name="1" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_1" />
-					<class name="2" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_2" />
-					<class name="3" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_3" />
-					<class name="4" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_4" />
-					<class name="5" type="pokemonInParty" var:memoryContainer="opponentA_party_structure_5" />
+					<class name="0" type="pokemonInParty" var:memoryContainer="opponent_party_structure_0" />
+					<class name="1" type="pokemonInParty" var:memoryContainer="opponent_party_structure_1" />
+					<class name="2" type="pokemonInParty" var:memoryContainer="opponent_party_structure_2" />
+					<class name="3" type="pokemonInParty" var:memoryContainer="opponent_party_structure_3" />
+					<class name="4" type="pokemonInParty" var:memoryContainer="opponent_party_structure_4" />
+					<class name="5" type="pokemonInParty" var:memoryContainer="opponent_party_structure_5" />
 				</team>
 				<updatingTeam>
 					<class name="0" type="pokemonInParty" var:memoryContainer="updOpA_party_structure_0" />
@@ -7135,8 +7135,8 @@
 			<entry key="132" value="Constrict" />
 			<entry key="133" value="Amnesia" />
 			<entry key="134" value="Kinesis" />
-			<entry key="135" value="SoftBoiled" />
-			<entry key="136" value="High Jump Kick" />
+			<entry key="135" value="Softboiled" />
+			<entry key="136" value="Hi Jump Kick" />
 			<entry key="137" value="Glare" />
 			<entry key="138" value="Dream Eater" />
 			<entry key="139" value="Poison Gas" />
@@ -7245,7 +7245,7 @@
 			<entry key="242" value="Crunch" />
 			<entry key="243" value="Mirror Coat" />
 			<entry key="244" value="Psych Up" />
-			<entry key="245" value="Extreme Speed" />
+			<entry key="245" value="ExtremeSpeed" />
 			<entry key="246" value="AncientPower" />
 			<entry key="247" value="Shadow Ball" />
 			<entry key="248" value="Future Sight" />
@@ -7265,7 +7265,7 @@
 			<entry key="262" value="Memento" />
 			<entry key="263" value="Facade" />
 			<entry key="264" value="Focus Punch" />
-			<entry key="265" value="Smelling Salts" />
+			<entry key="265" value="SmellingSalt" />
 			<entry key="266" value="Follow Me" />
 			<entry key="267" value="Nature Power" />
 			<entry key="268" value="Charge" />
@@ -7358,7 +7358,7 @@
 			<entry key="355" value="Roost" />
 			<entry key="356" value="Gravity" />
 			<entry key="357" value="Miracle Eye" />
-			<entry key="358" value="Wake Up Slap" />
+			<entry key="358" value="Wake-Up Slap" />
 			<entry key="359" value="Hammer Arm" />
 			<entry key="360" value="Gyro Ball" />
 			<entry key="361" value="Healing Wish" />

@@ -95,13 +95,13 @@
 
         <pokemonPartyMoves>
             <property name="move" type="int" address="moveAddress" reference="moves" />
-            <property name="pp"   type="int" address="moveAddress + 21" read-function="x % 64" />
-            <property name="ppUp" type="int" address="moveAddress + 21" read-function="Math.floor(x / 64)" />
+            <property name="pp"   type="int" address="moveAddress + 21" after-read-value-expression="x % 64" />
+            <property name="ppUp" type="int" address="moveAddress + 21" after-read-value-expression="Math.floor(x / 64)" />
         </pokemonPartyMoves>
 
         <pokemonBattleMoves>
             <property name="move" type="int" address="moveAddress" reference="moves" />
-            <property name="pp"   type="int" address="moveAddress + 17" read-function="x % 64" />
+            <property name="pp"   type="int" address="moveAddress + 17" after-read-value-expression="x % 64" />
         </pokemonBattleMoves>
 
         <pokemonEnemyBattleMoves>
@@ -325,7 +325,7 @@
                         <property name="effect"   type="int" address="0xCFD3" />
                         <property name="power"    type="int" address="0xCFD4" />
                         <property name="type"     type="int" address="0xCFD5" reference="pokemonTypes" />
-                        <property name="accuracy" type="int" address="0xCFD6" read-function="Math.round(((x / 255) * 100), 2)" />
+                        <property name="accuracy" type="int" address="0xCFD6" after-read-value-expression="Math.round(((x / 255) * 100), 2)" />
                         <property name="maxPP"    type="int" address="0xCFD7" />
                     </lastUsedMove>
                 </activePokemon>
@@ -373,12 +373,12 @@
                         <property name="special" type="nibble" address="0xCFF2" position="1" />
                     </ivs>
                     <baseStats>
-                        <property name="hp"      type="int" address="0xD002" read-function="x % 16" />
-                        <property name="attack"  type="int" address="0xD003" read-function="x % 16" />
-                        <property name="defense" type="int" address="0xD004" read-function="x % 16" />
-                        <property name="speed"   type="int" address="0xD005" read-function="x % 16" />
-                        <property name="special" type="int" address="0xD006" read-function="x % 16" />
-                        <property name="exp"     type="int" address="0xD008" read-function="x % 16" />
+                        <property name="hp"      type="int" address="0xD002" after-read-value-expression="x % 16" />
+                        <property name="attack"  type="int" address="0xD003" after-read-value-expression="x % 16" />
+                        <property name="defense" type="int" address="0xD004" after-read-value-expression="x % 16" />
+                        <property name="speed"   type="int" address="0xD005" after-read-value-expression="x % 16" />
+                        <property name="special" type="int" address="0xD006" after-read-value-expression="x % 16" />
+                        <property name="exp"     type="int" address="0xD008" after-read-value-expression="x % 16" />
                     </baseStats>
                     <effects>
                         <property name="bide"          type="bit" address="0xD067" position="0" />
@@ -412,7 +412,7 @@
                         <property name="effect"   type="int" address="0xCFCD" />
                         <property name="power"    type="int" address="0xCFCE" />
                         <property name="type"     type="int" address="0xCFCF" reference="pokemonTypes" />
-                        <property name="accuracy" type="int" address="0xCFD0" read-function="Math.round(((x / 255) * 100), 2)" />
+                        <property name="accuracy" type="int" address="0xCFD0" after-read-value-expression="Math.round(((x / 255) * 100), 2)" />
                         <property name="maxPP"    type="int" address="0xCFD1" />
                     </lastUsedMove>
                 </activePokemon>

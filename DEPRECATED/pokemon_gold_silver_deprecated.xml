@@ -36,22 +36,22 @@ For all new software, please use the paths within 'pokemon_gold_silver.xml'
       <property name="specialAttack"  address="address + 44" type="int" length="2" />
       <property name="specialDefense" address="address + 46" type="int" length="2" />
       <property name="speed"          address="address + 42" type="int" length="2" />
-      <property name="dvAttack"  address="address + 21" type="int" read-function="(x - (x % 16))/16" />
-      <property name="dvDefense" address="address + 21" type="int" read-function="x % 16" />
-      <property name="dvSpeed"   address="address + 22" type="int" read-function="(x - (x % 16))/16" />
-      <property name="dvSpecial" address="address + 22" type="int" read-function="x % 16" />
+      <property name="dvAttack"  address="address + 21" type="int" after-read-value-expression="(x - (x % 16))/16" />
+      <property name="dvDefense" address="address + 21" type="int" after-read-value-expression="x % 16" />
+      <property name="dvSpeed"   address="address + 22" type="int" after-read-value-expression="(x - (x % 16))/16" />
+      <property name="dvSpecial" address="address + 22" type="int" after-read-value-expression="x % 16" />
       <property name="move1" address="address + 2" type="int" reference="moves" />
       <property name="move2" address="address + 3" type="int" reference="moves" />
       <property name="move3" address="address + 4" type="int" reference="moves" />
       <property name="move4" address="address + 5" type="int" reference="moves" />
-      <property name="move1pp" address="address + 23" type="int" read-function="x % 64" />
-      <property name="move2pp" address="address + 24" type="int" read-function="x % 64" />
-      <property name="move3pp" address="address + 25" type="int" read-function="x % 64" />
-      <property name="move4pp" address="address + 26" type="int" read-function="x % 64" />
-      <property name="move1ppUp" address="address + 23" type="int" read-function="Math.floor(x / 64)" />
-      <property name="move2ppUp" address="address + 24" type="int" read-function="Math.floor(x / 64)" />
-      <property name="move3ppUp" address="address + 25" type="int" read-function="Math.floor(x / 64)" />
-      <property name="move4ppUp" address="address + 26" type="int" read-function="Math.floor(x / 64)" />
+      <property name="move1pp" address="address + 23" type="int" after-read-value-expression="x % 64" />
+      <property name="move2pp" address="address + 24" type="int" after-read-value-expression="x % 64" />
+      <property name="move3pp" address="address + 25" type="int" after-read-value-expression="x % 64" />
+      <property name="move4pp" address="address + 26" type="int" after-read-value-expression="x % 64" />
+      <property name="move1ppUp" address="address + 23" type="int" after-read-value-expression="Math.floor(x / 64)" />
+      <property name="move2ppUp" address="address + 24" type="int" after-read-value-expression="Math.floor(x / 64)" />
+      <property name="move3ppUp" address="address + 25" type="int" after-read-value-expression="Math.floor(x / 64)" />
+      <property name="move4ppUp" address="address + 26" type="int" after-read-value-expression="Math.floor(x / 64)" />
       <property name="statExpHp"      address="address + 11" type="int" length="2" />
       <property name="statExpAttack"  address="address + 13" type="int" length="2" />
       <property name="statExpDefense" address="address + 15" type="int" length="2" />
@@ -247,14 +247,14 @@ For all new software, please use the paths within 'pokemon_gold_silver.xml'
         <property name="move2" type="int" address="0xCB0F" reference="moves" />
         <property name="move3" type="int" address="0xCB10" reference="moves" />
         <property name="move4" type="int" address="0xCB11" reference="moves" />
-        <property name="move1pp" type="int" address="0xCB14" read-function="x % 64" />
-        <property name="move2pp" type="int" address="0xCB15" read-function="x % 64" />
-        <property name="move3pp" type="int" address="0xCB16" read-function="x % 64" />
-        <property name="move4pp" type="int" address="0xCB17" read-function="x % 64" />
-        <property name="move1ppUp" type="int" address="0xCB14" read-function="Math.floor(x / 64)" />
-        <property name="move2ppUp" type="int" address="0xCB15" read-function="Math.floor(x / 64)" />
-        <property name="move3ppUp" type="int" address="0xCB16" read-function="Math.floor(x / 64)" />
-        <property name="move4ppUp" type="int" address="0xCB17" read-function="Math.floor(x / 64)" />
+        <property name="move1pp" type="int" address="0xCB14" after-read-value-expression="x % 64" />
+        <property name="move2pp" type="int" address="0xCB15" after-read-value-expression="x % 64" />
+        <property name="move3pp" type="int" address="0xCB16" after-read-value-expression="x % 64" />
+        <property name="move4pp" type="int" address="0xCB17" after-read-value-expression="x % 64" />
+        <property name="move1ppUp" type="int" address="0xCB14" after-read-value-expression="Math.floor(x / 64)" />
+        <property name="move2ppUp" type="int" address="0xCB15" after-read-value-expression="Math.floor(x / 64)" />
+        <property name="move3ppUp" type="int" address="0xCB16" after-read-value-expression="Math.floor(x / 64)" />
+        <property name="move4ppUp" type="int" address="0xCB17" after-read-value-expression="Math.floor(x / 64)" />
       </yourPokemon>
       <enemyPokemon>
         <property name="partyPos" type="int" address="0xCB41" />
@@ -265,14 +265,14 @@ For all new software, please use the paths within 'pokemon_gold_silver.xml'
         <property name="move2" type="int" address="0xD0F2" reference="moves" />
         <property name="move3" type="int" address="0xD0F3" reference="moves" />
         <property name="move4" type="int" address="0xD0F4" reference="moves" />
-        <property name="move1pp" type="int" address="0xD0F7" read-function="x % 64" />
-        <property name="move2pp" type="int" address="0xD0F8" read-function="x % 64" />
-        <property name="move3pp" type="int" address="0xD0F9" read-function="x % 64" />
-        <property name="move4pp" type="int" address="0xD0FA" read-function="x % 64" />
-        <property name="move1ppUp" type="int" address="0xD0F7" read-function="Math.floor(x / 64)" />
-        <property name="move2ppUp" type="int" address="0xD0F8" read-function="Math.floor(x / 64)" />
-        <property name="move3ppUp" type="int" address="0xD0F9" read-function="Math.floor(x / 64)" />
-        <property name="move4ppUp" type="int" address="0xD0FA" read-function="Math.floor(x / 64)" />
+        <property name="move1pp" type="int" address="0xD0F7" after-read-value-expression="x % 64" />
+        <property name="move2pp" type="int" address="0xD0F8" after-read-value-expression="x % 64" />
+        <property name="move3pp" type="int" address="0xD0F9" after-read-value-expression="x % 64" />
+        <property name="move4pp" type="int" address="0xD0FA" after-read-value-expression="x % 64" />
+        <property name="move1ppUp" type="int" address="0xD0F7" after-read-value-expression="Math.floor(x / 64)" />
+        <property name="move2ppUp" type="int" address="0xD0F8" after-read-value-expression="Math.floor(x / 64)" />
+        <property name="move3ppUp" type="int" address="0xD0F9" after-read-value-expression="Math.floor(x / 64)" />
+        <property name="move4ppUp" type="int" address="0xD0FA" after-read-value-expression="Math.floor(x / 64)" />
         <property name="maxHp"          type="int" address="0xD101" length="2" />
         <property name="hp"             type="int" address="0xD0FF" length="2" />
         <property name="attack"         type="int" address="0xD103" length="2" />
@@ -280,10 +280,10 @@ For all new software, please use the paths within 'pokemon_gold_silver.xml'
         <property name="speed"          type="int" address="0xD107" length="2" />
         <property name="specialAttack"  type="int" address="0xD109" length="2" />
         <property name="specialDefense" type="int" address="0xD10B" length="2" />
-        <property name="dvAttack"  type="int" address="0xD0F5" read-function="(x - (x % 16))/16" />
-        <property name="dvDefense" type="int" address="0xD0F5" read-function="x % 16" />
-        <property name="dvSpeed"   type="int" address="0xD0F6" read-function="(x - (x % 16))/16" />
-        <property name="dvSpecial" type="int" address="0xD0F6" read-function="x % 16" />
+        <property name="dvAttack"  type="int" address="0xD0F5" after-read-value-expression="(x - (x % 16))/16" />
+        <property name="dvDefense" type="int" address="0xD0F5" after-read-value-expression="x % 16" />
+        <property name="dvSpeed"   type="int" address="0xD0F6" after-read-value-expression="(x - (x % 16))/16" />
+        <property name="dvSpecial" type="int" address="0xD0F6" after-read-value-expression="x % 16" />
       </enemyPokemon>
       <info>
         <property name="miss" type="int" address="0xcb45" length="1" />
@@ -328,7 +328,7 @@ For all new software, please use the paths within 'pokemon_gold_silver.xml'
     </gameTime>
     <time>
       <current>
-        <property name="day"       type="int" address="0xd1f2" reference="dayNames" read-function="x % 7" />
+        <property name="day"       type="int" address="0xd1f2" reference="dayNames" after-read-value-expression="x % 7" />
         <property name="hour"      type="int" address="0xff96" />
         <property name="minute"    type="int" address="0xff98" />
         <property name="second"    type="int" address="0xff9a" />
@@ -342,7 +342,7 @@ For all new software, please use the paths within 'pokemon_gold_silver.xml'
         <property name="second" type="int" address="0xd1df" />
       </start>
       <rtc>
-        <property name="day"    type="int" address="0xff8f" length="2" read-function="(x % 512) % 7" />
+        <property name="day"    type="int" address="0xff8f" length="2" after-read-value-expression="(x % 512) % 7" />
         <property name="hour"   type="int" address="0xff91" />
         <property name="minute" type="int" address="0xff92" />
         <property name="second" type="int" address="0xff93" />

@@ -30,22 +30,22 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
             <property name="specialAttack"  address="address + 44" type="int" length="2" />
             <property name="specialDefense" address="address + 46" type="int" length="2" />
             <property name="speed"          address="address + 42" type="int" length="2" />
-            <property name="dvAttack"  address="address + 21" type="int" read-function="(x - (x % 16))/16" />
-            <property name="dvDefense" address="address + 21" type="int" read-function="x % 16" />
-            <property name="dvSpeed"   address="address + 22" type="int" read-function="(x - (x % 16))/16" />
-            <property name="dvSpecial" address="address + 22" type="int" read-function="x % 16" />
+            <property name="dvAttack"  address="address + 21" type="int" after-read-value-expression="(x - (x % 16))/16" />
+            <property name="dvDefense" address="address + 21" type="int" after-read-value-expression="x % 16" />
+            <property name="dvSpeed"   address="address + 22" type="int" after-read-value-expression="(x - (x % 16))/16" />
+            <property name="dvSpecial" address="address + 22" type="int" after-read-value-expression="x % 16" />
             <property name="move1" address="address + 2" type="int" reference="moves" />
             <property name="move2" address="address + 3" type="int" reference="moves" />
             <property name="move3" address="address + 4" type="int" reference="moves" />
             <property name="move4" address="address + 5" type="int" reference="moves" />
-            <property name="move1pp" address="address + 23" type="int" read-function="x % 64" />
-            <property name="move2pp" address="address + 24" type="int" read-function="x % 64" />
-            <property name="move3pp" address="address + 25" type="int" read-function="x % 64" />
-            <property name="move4pp" address="address + 26" type="int" read-function="x % 64" />
-            <property name="move1ppUp" address="address + 23" type="int" read-function="Math.floor(x / 64)" />
-            <property name="move2ppUp" address="address + 24" type="int" read-function="Math.floor(x / 64)" />
-            <property name="move3ppUp" address="address + 25" type="int" read-function="Math.floor(x / 64)" />
-            <property name="move4ppUp" address="address + 26" type="int" read-function="Math.floor(x / 64)" />
+            <property name="move1pp" address="address + 23" type="int" after-read-value-expression="x % 64" />
+            <property name="move2pp" address="address + 24" type="int" after-read-value-expression="x % 64" />
+            <property name="move3pp" address="address + 25" type="int" after-read-value-expression="x % 64" />
+            <property name="move4pp" address="address + 26" type="int" after-read-value-expression="x % 64" />
+            <property name="move1ppUp" address="address + 23" type="int" after-read-value-expression="Math.floor(x / 64)" />
+            <property name="move2ppUp" address="address + 24" type="int" after-read-value-expression="Math.floor(x / 64)" />
+            <property name="move3ppUp" address="address + 25" type="int" after-read-value-expression="Math.floor(x / 64)" />
+            <property name="move4ppUp" address="address + 26" type="int" after-read-value-expression="Math.floor(x / 64)" />
             <property name="statExpHp"      address="address + 11" type="int" length="2" />
             <property name="statExpAttack"  address="address + 13" type="int" length="2" />
             <property name="statExpDefense" address="address + 15" type="int" length="2" />
@@ -95,10 +95,10 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
             <property name="mapGroup"  address="address + 2" type="int" length="1" reference="mapGroups" />
             <property name="mapNumber" address="address + 3" type="int" length="1" />
             <property name="hp"        address="address + 4" type="int" length="1" />
-            <!-- <property name="dvAttack"  address="address + 5" type="int" read-function="(x - (x % 16))/16" /> -->
-            <!-- <property name="dvDefense" address="address + 5" type="int" read-function="x % 16" /> -->
-            <!-- <property name="dvSpeed"   address="address + 6" type="int" read-function="(x - (x % 16))/16" /> -->
-            <!-- <property name="dvSpecial" address="address + 6" type="int" read-function="x % 16" /> -->
+            <!-- <property name="dvAttack"  address="address + 5" type="int" after-read-value-expression="(x - (x % 16))/16" /> -->
+            <!-- <property name="dvDefense" address="address + 5" type="int" after-read-value-expression="x % 16" /> -->
+            <!-- <property name="dvSpeed"   address="address + 6" type="int" after-read-value-expression="(x - (x % 16))/16" /> -->
+            <!-- <property name="dvSpecial" address="address + 6" type="int" after-read-value-expression="x % 16" /> -->
         </roamer>
     </classes>
 
@@ -319,7 +319,7 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
         <property name="class" type="int" address="0xD22F" reference="trainerClasses" />
         <property name="id"    type="int" address="0xD231" />
         <property name="totalPokemon" type="int" address="0xD280" />
-        <team> 
+        <team>
           <class name="0" type="pokemonInParty" var:address="0xD288" var:nicknameAddress="0xD3EA" />
           <class name="1" type="pokemonInParty" var:address="0xD2B8" var:nicknameAddress="0xD3F5" />
           <class name="2" type="pokemonInParty" var:address="0xD2E8" var:nicknameAddress="0xD400" />
@@ -354,14 +354,14 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
         <property name="move2" type="int" address="0xC62F" reference="moves" />
         <property name="move3" type="int" address="0xC630" reference="moves" />
         <property name="move4" type="int" address="0xC631" reference="moves" />
-        <property name="move1pp" type="int" address="0xC634" read-function="x % 64" />
-        <property name="move2pp" type="int" address="0xC635" read-function="x % 64" />
-        <property name="move3pp" type="int" address="0xC636" read-function="x % 64" />
-        <property name="move4pp" type="int" address="0xC637" read-function="x % 64" />
-        <property name="move1ppUp" type="int" address="0xC634" read-function="Math.floor(x / 64)" />
-        <property name="move2ppUp" type="int" address="0xC635" read-function="Math.floor(x / 64)" />
-        <property name="move3ppUp" type="int" address="0xC636" read-function="Math.floor(x / 64)" />
-        <property name="move4ppUp" type="int" address="0xC637" read-function="Math.floor(x / 64)" />
+        <property name="move1pp" type="int" address="0xC634" after-read-value-expression="x % 64" />
+        <property name="move2pp" type="int" address="0xC635" after-read-value-expression="x % 64" />
+        <property name="move3pp" type="int" address="0xC636" after-read-value-expression="x % 64" />
+        <property name="move4pp" type="int" address="0xC637" after-read-value-expression="x % 64" />
+        <property name="move1ppUp" type="int" address="0xC634" after-read-value-expression="Math.floor(x / 64)" />
+        <property name="move2ppUp" type="int" address="0xC635" after-read-value-expression="Math.floor(x / 64)" />
+        <property name="move3ppUp" type="int" address="0xC636" after-read-value-expression="Math.floor(x / 64)" />
+        <property name="move4ppUp" type="int" address="0xC637" after-read-value-expression="Math.floor(x / 64)" />
         <counters>
           <property name="rollout"    type="int" address="0xC672" />
           <property name="confuse"    type="int" address="0xC673" />
@@ -419,14 +419,14 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
         <property name="move2" type="int" address="0xD209" reference="moves" />
         <property name="move3" type="int" address="0xD20A" reference="moves" />
         <property name="move4" type="int" address="0xD20B" reference="moves" />
-        <property name="move1pp" type="int" address="0xd20e" read-function="x % 64" />
-        <property name="move2pp" type="int" address="0xd20f" read-function="x % 64" />
-        <property name="move3pp" type="int" address="0xd210" read-function="x % 64" />
-        <property name="move4pp" type="int" address="0xd211" read-function="x % 64" />
-        <property name="move1ppUp" type="int" address="0xd20e" read-function="Math.floor(x / 64)" />
-        <property name="move2ppUp" type="int" address="0xd20f" read-function="Math.floor(x / 64)" />
-        <property name="move3ppUp" type="int" address="0xd210" read-function="Math.floor(x / 64)" />
-        <property name="move4ppUp" type="int" address="0xd211" read-function="Math.floor(x / 64)" />
+        <property name="move1pp" type="int" address="0xd20e" after-read-value-expression="x % 64" />
+        <property name="move2pp" type="int" address="0xd20f" after-read-value-expression="x % 64" />
+        <property name="move3pp" type="int" address="0xd210" after-read-value-expression="x % 64" />
+        <property name="move4pp" type="int" address="0xd211" after-read-value-expression="x % 64" />
+        <property name="move1ppUp" type="int" address="0xd20e" after-read-value-expression="Math.floor(x / 64)" />
+        <property name="move2ppUp" type="int" address="0xd20f" after-read-value-expression="Math.floor(x / 64)" />
+        <property name="move3ppUp" type="int" address="0xd210" after-read-value-expression="Math.floor(x / 64)" />
+        <property name="move4ppUp" type="int" address="0xd211" after-read-value-expression="Math.floor(x / 64)" />
         <property name="maxHp"          type="int" address="0xd218" length="2" />
         <property name="hp"             type="int" address="0xd216" length="2" />
         <property name="attack"         type="int" address="0xd21a" length="2" />
@@ -442,10 +442,10 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
         <property name="modStageAccuracy"       type="int" address="0xc6d9" reference="stageModifiers" />
         <property name="modStageEvasion"        type="int" address="0xc6da" reference="stageModifiers" />
         <property name="enemyMonEnd" type="int" address="0xd22d" />
-        <!-- <property name="dvAttack"  type="int" address="0xD0F5", read-function="(x - (x % 16))/16" /> -->
-        <!-- <property name="dvDefense" type="int" address="0xD0F5", read-function="x % 16" /> -->
-        <!-- <property name="dvSpeed"   type="int" address="0xD0F6", read-function="(x - (x % 16))/16" /> -->
-        <!-- <property name="dvSpecial" type="int" address="0xD0F6", read-function="x % 16" /> -->
+        <!-- <property name="dvAttack"  type="int" address="0xD0F5", after-read-value-expression="(x - (x % 16))/16" /> -->
+        <!-- <property name="dvDefense" type="int" address="0xD0F5", after-read-value-expression="x % 16" /> -->
+        <!-- <property name="dvSpeed"   type="int" address="0xD0F6", after-read-value-expression="(x - (x % 16))/16" /> -->
+        <!-- <property name="dvSpecial" type="int" address="0xD0F6", after-read-value-expression="x % 16" /> -->
         <counters>
           <property name="rollout"    type="int" address="0xc67a" />
           <property name="confuse"    type="int" address="0xc67b" />
@@ -543,7 +543,7 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
 
     <time>
       <current>
-        <property name="day"       type="int" address="0xd4cb" reference="dayNames" read-function="x % 7" />
+        <property name="day"       type="int" address="0xd4cb" reference="dayNames" after-read-value-expression="x % 7" />
         <property name="hour"      type="int" address="0xff94" />
         <property name="minute"    type="int" address="0xff96" />
         <property name="second"    type="int" address="0xff98" />
@@ -557,7 +557,7 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
         <property name="second"    type="int" address="0xd4b9" />
       </start>
       <rtc>
-        <property name="day"       type="int" address="0xff8d" length="2" read-function="(x % 512) % 7" />
+        <property name="day"       type="int" address="0xff8d" length="2" after-read-value-expression="(x % 512) % 7" />
         <property name="hour"      type="int" address="0xff8f" />
         <property name="minute"    type="int" address="0xff90" />
         <property name="second"    type="int" address="0xff91" />
@@ -634,16 +634,16 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
       <property name="poisonSteps"  type="int" address="0xDC74" length="1" />  
       <property name="battleFriendship"    type="int" address="0xc638" />
       <battleDVs>
-          <property name="battleDVAttack"  type="int" address="0xC632" read-function="(x - (x % 16))/16" />
-          <property name="battleDVDefense" type="int" address="0xC632" read-function="x % 16" />
-          <property name="battleDVSpeed"   type="int" address="0xC633" read-function="(x - (x % 16))/16" />
-          <property name="battleDVSpecial" type="int" address="0xC633" read-function="x % 16" />    
+          <property name="battleDVAttack"  type="int" address="0xC632" after-read-value-expression="(x - (x % 16))/16" />
+          <property name="battleDVDefense" type="int" address="0xC632" after-read-value-expression="x % 16" />
+          <property name="battleDVSpeed"   type="int" address="0xC633" after-read-value-expression="(x - (x % 16))/16" />
+          <property name="battleDVSpecial" type="int" address="0xC633" after-read-value-expression="x % 16" />    
       </battleDVs>
       <enemyDVs>
-          <property name="enemyDVAttack"  type="int" address="0xD20C" read-function="(x - (x % 16))/16" />
-          <property name="enemyDVDefense" type="int" address="0xD20C" read-function="x % 16" />
-          <property name="enemyDVSpeed"   type="int" address="0xD20D" read-function="(x - (x % 16))/16" />
-          <property name="enemyDVSpecial" type="int" address="0xD20D" read-function="x % 16" />
+          <property name="enemyDVAttack"  type="int" address="0xD20C" after-read-value-expression="(x - (x % 16))/16" />
+          <property name="enemyDVDefense" type="int" address="0xD20C" after-read-value-expression="x % 16" />
+          <property name="enemyDVSpeed"   type="int" address="0xD20D" after-read-value-expression="(x - (x % 16))/16" />
+          <property name="enemyDVSpecial" type="int" address="0xD20D" after-read-value-expression="x % 16" />
       </enemyDVs>
       <property name="inBattleHeldItem"    type="int" address="0xC62D" reference="items" />
       <property name="playerMinimized" type="int" address="0xC6FE"/>
@@ -676,7 +676,7 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
     <!-- Scott's Thoughts Custom Properties -->
     <!-- These will not work without a ROM patch -->
     <patch>
-      <!-- <property name="patchPresent" type="int" length="1" address="0x3fb5" read-function="x != 0" />  -->
+      <!-- <property name="patchPresent" type="int" length="1" address="0x3fb5" after-read-value-expression="x != 0" />  -->
       <property name="turnCounter"  type="int" length="2" address="0xcfd8" />
       <time>
         <property name="frameCount"       type="int" length="4" address="0x10191" />
@@ -913,12 +913,8 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
       <entry key="0x01" value="Biking" />
     </bikeStatus>
     <gender>
-      <!-- <entry key="0x00" />
-      <entry key="0x01" value="Male" />
-      <entry key="0x02" value="Female" /> -->
       <entry key="0x00" value="Male" />
       <entry key="0x01" value="Female" />
-      <!-- <entry key="0x02" value="Female" /> -->
     </gender>
     <walkingTypes>
       <entry key="0x0" value="Walking" />

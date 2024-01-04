@@ -35,7 +35,7 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
       <property name="pokedexNumber"    memoryContainer="memoryContainer" address="32" type="int" length="2" reference="pokemonPokedexNumbers" />
       <property name="level"            memoryContainer="memoryContainer" address="84" type="int" />
       <property name="expPoints"        memoryContainer="memoryContainer" address="36" type="uint" length="4" />
-      <property name="nature"           memoryContainer="memoryContainer" address="0" type="uint" length="4" read-function="x % 25" />
+      <property name="nature"           memoryContainer="memoryContainer" address="0" type="uint" length="4" after-read-value-expression="x % 25" />
       <property name="friendship"       memoryContainer="memoryContainer" address="32 + 9" type="int" />
       <property name="pokerus"          memoryContainer="memoryContainer" address="85" type="int" />
       <property name="itemHeld"         memoryContainer="memoryContainer" address="32 + 2" type="int" length="2" reference="items" />
@@ -49,12 +49,12 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
       <property name="specialAttack"     memoryContainer="memoryContainer" address="96" type="int" length="2" />
       <property name="specialDefense"    memoryContainer="memoryContainer" address="98" type="int" length="2" />
       <property name="ivEggAbilityBlock" memoryContainer="memoryContainer" address="32 + 40" type="uint" length="4" />
-      <property name="ivHp"              memoryContainer="memoryContainer" address="32 + 40" type="uint" length="4" read-function="BitRange(x, 4, 0)"/>
-      <property name="ivAttack"          memoryContainer="memoryContainer" address="32 + 40" type="uint" length="4" read-function="BitRange(x, 9, 5)"/>
-      <property name="ivDefense"         memoryContainer="memoryContainer" address="32 + 40" type="uint" length="4" read-function="BitRange(x, 14, 10)"/>
-      <property name="ivSpeed"           memoryContainer="memoryContainer" address="32 + 40" type="uint" length="4" read-function="BitRange(x, 19, 15)"/>
-      <property name="ivSpecialAttack"   memoryContainer="memoryContainer" address="32 + 40" type="uint" length="4" read-function="BitRange(x, 24, 20)"/>
-      <property name="ivSpecialDefense"  memoryContainer="memoryContainer" address="32 + 40" type="uint" length="4" read-function="BitRange(x, 29, 25)"/>
+      <property name="ivHp"              memoryContainer="memoryContainer" address="32 + 40" type="uint" length="4" after-read-value-expression="BitRange(x, 4, 0)"/>
+      <property name="ivAttack"          memoryContainer="memoryContainer" address="32 + 40" type="uint" length="4" after-read-value-expression="BitRange(x, 9, 5)"/>
+      <property name="ivDefense"         memoryContainer="memoryContainer" address="32 + 40" type="uint" length="4" after-read-value-expression="BitRange(x, 14, 10)"/>
+      <property name="ivSpeed"           memoryContainer="memoryContainer" address="32 + 40" type="uint" length="4" after-read-value-expression="BitRange(x, 19, 15)"/>
+      <property name="ivSpecialAttack"   memoryContainer="memoryContainer" address="32 + 40" type="uint" length="4" after-read-value-expression="BitRange(x, 24, 20)"/>
+      <property name="ivSpecialDefense"  memoryContainer="memoryContainer" address="32 + 40" type="uint" length="4" after-read-value-expression="BitRange(x, 29, 25)"/>
       <property name="isEgg"             memoryContainer="memoryContainer" address="32 + 40" type="bit" length="4" position="30" />
       <property name="ability"           memoryContainer="memoryContainer" address="32 + 40" type="bit" length="4" position="31" />
       <property name="evHp"              memoryContainer="memoryContainer" address="32 + 24" type="int" />
@@ -71,10 +71,10 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
       <property name="move2pp" memoryContainer="memoryContainer" address="32 + 21" type="int" />
       <property name="move3pp" memoryContainer="memoryContainer" address="32 + 22" type="int" />
       <property name="move4pp" memoryContainer="memoryContainer" address="32 + 23" type="int" />
-      <property name="move1ppUp" memoryContainer="memoryContainer" address="32 + 59" type="int" read-function="BitRange(x, 1, 0)" />
-      <property name="move2ppUp" memoryContainer="memoryContainer" address="32 + 59" type="int" read-function="BitRange(x, 3, 2)" />
-      <property name="move3ppUp" memoryContainer="memoryContainer" address="32 + 59" type="int" read-function="BitRange(x, 5, 4)" />
-      <property name="move4ppUp" memoryContainer="memoryContainer" address="32 + 59" type="int" read-function="BitRange(x, 7, 6)" />
+      <property name="move1ppUp" memoryContainer="memoryContainer" address="32 + 59" type="int" after-read-value-expression="BitRange(x, 1, 0)" />
+      <property name="move2ppUp" memoryContainer="memoryContainer" address="32 + 59" type="int" after-read-value-expression="BitRange(x, 3, 2)" />
+      <property name="move3ppUp" memoryContainer="memoryContainer" address="32 + 59" type="int" after-read-value-expression="BitRange(x, 5, 4)" />
+      <property name="move4ppUp" memoryContainer="memoryContainer" address="32 + 59" type="int" after-read-value-expression="BitRange(x, 7, 6)" />
       <!-- #MISC  -->
       <property name="language"   memoryContainer="memoryContainer" address="18" type="int" reference="language" />
       <property name="isBadEgg"   memoryContainer="memoryContainer" address="19" type="bit" position="0" />
@@ -111,12 +111,12 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
       <property name="specialAttack"   address="address + 8" type="int" length="2" />
       <property name="specialDefense"  address="address + 10" type="int" length="2" />
       <property name="ivEggAbilityBlock" address="address + 20" type="uint" length="4"/>
-      <property name="ivHp"             address="address + 20" type="int" length="4" read-function="BitRange(x, 4, 0)"/>
-      <property name="ivAttack"         address="address + 20" type="int" length="4" read-function="BitRange(x, 9, 5)"/>
-      <property name="ivDefense"        address="address + 20" type="int" length="4" read-function="BitRange(x, 14, 10)"/>
-      <property name="ivSpeed"          address="address + 20" type="int" length="4" read-function="BitRange(x, 19, 15)"/>
-      <property name="ivSpecialAttack"  address="address + 20" type="int" length="4" read-function="BitRange(x, 24, 20)"/>
-      <property name="ivSpecialDefense" address="address + 20" type="int" length="4" read-function="BitRange(x, 29, 25)"/>
+      <property name="ivHp"             address="address + 20" type="int" length="4" after-read-value-expression="BitRange(x, 4, 0)"/>
+      <property name="ivAttack"         address="address + 20" type="int" length="4" after-read-value-expression="BitRange(x, 9, 5)"/>
+      <property name="ivDefense"        address="address + 20" type="int" length="4" after-read-value-expression="BitRange(x, 14, 10)"/>
+      <property name="ivSpeed"          address="address + 20" type="int" length="4" after-read-value-expression="BitRange(x, 19, 15)"/>
+      <property name="ivSpecialAttack"  address="address + 20" type="int" length="4" after-read-value-expression="BitRange(x, 24, 20)"/>
+      <property name="ivSpecialDefense" address="address + 20" type="int" length="4" after-read-value-expression="BitRange(x, 29, 25)"/>
       <!-- #MOVES -->
       <property name="move1" address="address + 12" type="int" length="2" reference="moves" />
       <property name="move2" address="address + 14" type="int" length="2" reference="moves" />
@@ -126,10 +126,10 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
       <property name="move2pp" address="address + 37" type="int" />
       <property name="move3pp" address="address + 38" type="int" />
       <property name="move4pp" address="address + 39" type="int" />
-      <property name="move1ppUp" address="address + 59" type="int" read-function="BitRange(x, 1, 0)" />
-      <property name="move2ppUp" address="address + 59" type="int" read-function="BitRange(x, 3, 2)" />
-      <property name="move3ppUp" address="address + 59" type="int" read-function="BitRange(x, 5, 4)" />
-      <property name="move4ppUp" address="address + 59" type="int" read-function="BitRange(x, 7, 6)" />
+      <property name="move1ppUp" address="address + 59" type="int" after-read-value-expression="BitRange(x, 1, 0)" />
+      <property name="move2ppUp" address="address + 59" type="int" after-read-value-expression="BitRange(x, 3, 2)" />
+      <property name="move3ppUp" address="address + 59" type="int" after-read-value-expression="BitRange(x, 5, 4)" />
+      <property name="move4ppUp" address="address + 59" type="int" after-read-value-expression="BitRange(x, 7, 6)" />
       <!-- # modUnknown: address="address + 24" type="int", reference: "stageModifiers" /> #probably critical hit mod -->
       <property name="modStageAttack"         address="address + 25" type="int" reference="stageModifiers" />
       <property name="modStageDefense"        address="address + 26" type="int" reference="stageModifiers" />

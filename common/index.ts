@@ -1,0 +1,120 @@
+interface IConsole {
+    log(message: string): void
+    trace(message: string): void
+    debug(message: string): void
+    info(message: string): void
+    warn(message: string): void
+    error(message: string): void
+}
+
+interface IMemory {
+    defaultNamespace: {
+        get_uint16_le(memoryAddress: number): number
+        get_uint16_be(memoryAddress: number): number
+        get_uint32_le(memoryAddress: number): number
+        get_uint32_be(memoryAddress: number): number
+        get_uint64_le(memoryAddress: number): number
+        get_uint64_be(memoryAddress: number): number
+
+        get_byte(memoryAddress: number): number
+        get_bytes(memoryAddress: number, length: number): IByteArray
+    }
+
+    fill(namespace: string, offset: number, data: number[]): void
+}
+
+interface IByteArray {
+    [index: number]: number;
+
+    data: number[]
+
+    get_uint16_le(): number
+    get_uint16_be(): number
+    get_uint32_le(): number
+    get_uint32_be(): number
+    get_uint64_le(): number
+    get_uint64_be(): number
+
+    get_uint16_le(offset: number): number
+    get_uint16_be(offset: number): number
+    get_uint32_le(offset: number): number
+    get_uint32_be(offset: number): number
+    get_uint64_le(offset: number): number
+    get_uint64_be(offset: number): number
+
+    get_byte(memoryAddress: number): number
+}
+
+interface IMapperProperty {
+    path: string
+    address?: number
+    value: any
+}
+
+interface IMapper {
+    properties: IMapperProperty[]
+}
+
+// @ts-ignore
+export const variables = __variables as any
+
+// @ts-ignore
+export const state = __state as any
+
+// @ts-ignore
+export const memory = __memory as IMemory
+
+// @ts-ignore
+export const mapper = __mapper as IMapper
+
+// @ts-ignore
+export const console = __console as IConsole
+
+export function getValue<T>(path: string): T {
+    // @ts-ignore
+    const property = mapper.properties[path]
+
+    if (!property) {
+        throw new Error(`${path} is not defined in properties.`)
+    }
+
+    return property.value as T;
+}
+
+export function setValue(path: string, value: any) {
+    // @ts-ignore
+    const property = mapper.properties[path]
+
+    if (!property) {
+        throw new Error(`${path} is not defined in properties.`)
+    }
+
+    property.value = value
+}
+
+export function getProperty(path: string) {
+    // @ts-ignore
+    const property = mapper.properties[path]
+
+    if (!property) {
+        throw new Error(`${path} is not defined in properties.`)
+    }
+
+    return property;
+}
+
+export function BitRange(value: number, upperBounds: number, lowerBounds: number): number {
+    // Validate the input bounds
+    if (lowerBounds < 0 || upperBounds >= 32 || lowerBounds > upperBounds) {
+        throw new Error('Invalid bounds');
+    }
+
+    // Shift the value to the right by lowerBounds
+    let shiftedValue = value >>> lowerBounds;
+
+    // Create a mask for the upper bounds
+    let mask = (1 << (upperBounds - lowerBounds + 1)) - 1;
+
+    // Apply the mask to get the bit range
+    return shiftedValue & mask;
+}

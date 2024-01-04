@@ -1,24 +1,16 @@
-function getPropertyValue(path) {
-    if (mapper.properties[path] === undefined) { throw new Error(`${path} is not defined in properties.`) }
-    return mapper.properties[path].value
-}
+import { variables, memory, setValue, getValue } from "../common";
 
-function setPropertyValue(path, value) {
-    if (mapper.properties[path] === undefined) { throw new Error(`${path} is not defined in properties.`) }
-    mapper.properties[path].value = value
+export function getBits(a, b, d) {
+    return (a >> b) & ((1 << d) - 1);
 }
 
 // prng function; used for decryption.
-function prngNext(prngSeed) {
+function prngNext(prngSeed: number) {
     // Ensure 32-bit unsigned result
     const newSeed = (0x41C64E6D * prngSeed + 0x6073) >>> 0;
     const value = (newSeed >>> 16) & 0xFFFF;
 
     return { newSeed, value }
-}
-
-function getBits(a, b, d) {
-    return (a >> b) & ((1 << d) - 1);
 }
 
 // Block shuffling orders - used for Party structure encryption and decryption
@@ -52,9 +44,10 @@ const shuffleOrders = {
 };
 
 // Preprocessor runs every loop (everytime gamehook updates)
-function preprocessor() {
+export function preprocessor() {
     // This is the same as the global_pointer, it is named "base_ptr" for consistency with the old C# code    
     const base_ptr = memory.defaultNamespace.get_uint32_le(0x2101D2C)
+
     if (base_ptr === 0) {
         // Ends logic is the base_ptr is 0, this is to prevent errors during reset and getting on a bike.
 
@@ -62,53 +55,54 @@ function preprocessor() {
         return
     }
 
-    variables.global_pointer = base_ptr // variable used for mapper addresses, it is the same as "base_ptr"
+    // Variable used for mapper addresses, it is the same as "base_ptr"
+    variables.global_pointer = base_ptr
 
-    const enemy_ptr = memory.defaultNamespace.get_uint32_le(base_ptr + 0x352F4) // Only needs to be calculated once per loop
+    // Only needs to be calculated once per loop
+    const enemy_ptr = memory.defaultNamespace.get_uint32_le(base_ptr + 0x352F4)
     
     // FSM FOR GAMESTATE TRACKING
+
     // MAIN GAMESTATE: This tracks the three basic states the game can be in.
     // 1. "No Pokemon": cartridge reset; player has not received a Pokemon
     // 2. "Overworld": Pokemon in party, but not in battle
     // 3. "Battle": In battle
-    setPropertyValue('meta.state', "No Pokemon")
-    // State1: No Pokemon
-    if (getPropertyValue("battle.player.teamCount") == 0) {
-        setPropertyValue('meta.state', "No Pokemon")
-        // State2: Battle
-    } else if (getPropertyValue("battle.player.activePokemon.internals.personalityValue") == getPropertyValue("player.team.0.internals.personalityValue")) {
-        setPropertyValue('meta.state', "Battle")
-        // State3: Overworld
-    } else if (getPropertyValue("battle.player.activePokemon.internals.personalityValue") != getPropertyValue("player.team.0.internals.personalityValue")) {
-        setPropertyValue('meta.state', "Overworld")
-    }
+
+    const teamCount = getValue<number>('battle.player.teamCount')
+    const activePokemonPv = getValue<number>('battle.player.activePokemon.internals.personalityValue')
+    const teamPokemonPv = getValue<number>('player.team.0.internals.personalityValue')
+    const battleOutcome = getValue<number>('battle.outcome')
+    const enemyBarSyncedHp = getValue<number>('battle.opponent.enemy_bar_synced_hp')
+    const opponentTrainer = getValue<string | null>('battle.opponent.trainer')
+
+    // Meta State
+    let metaState = 'No Pokemon'
+    if (teamCount === 0) metaState = 'No Pokemon'
+    else if (activePokemonPv === teamPokemonPv) metaState = 'Battle'
+    else if (activePokemonPv !== teamPokemonPv) metaState = 'Overworld'
+    setValue('meta.state', metaState)
 
     // ENEMY POKEMON MID-BATTLE STATE: Allows for precise timing during battles
-    if (!mapper.properties['meta.state'].value || getPropertyValue('meta.state') == "No Pokemon" || getPropertyValue('meta.state') == "Overworld") {
-        setPropertyValue('meta.stateEnemy', "N/A")
-    } else if (getPropertyValue('meta.state') == "Battle" && getPropertyValue("battle.outcome") == 1) {
-        setPropertyValue('meta.stateEnemy', "Battle Finished")
-    } else if (getPropertyValue('meta.state') == "Battle" && getPropertyValue("battle.opponent.enemy_bar_synced_hp") > 0) {
-        setPropertyValue('meta.stateEnemy', "Pokemon in Battle")
-    } else if (getPropertyValue('meta.state') == "Battle" && getPropertyValue("battle.opponent.enemy_bar_synced_hp") == 0) {
-        setPropertyValue('meta.stateEnemy', "Pokemon Fainted")
-    }
+    let metaStateEnemy = 'N/A'
+    if (metaState === "No Pokemon" || metaState === "Overworld") metaStateEnemy = 'N/A'
+    else if (metaState === "Battle" && battleOutcome === 1) metaStateEnemy = 'Battle Finished'
+    else if (metaState === "Battle" && enemyBarSyncedHp > 0) metaStateEnemy = 'Pokemon in Battle'
+    else if (metaState === "Battle" && enemyBarSyncedHp === 0) metaStateEnemy = 'Pokemon Fainted'
+    setValue('meta.stateEnemy', metaStateEnemy)
 
     // BATTLE TYPE PROPERTY
-    if (getPropertyValue('meta.state') == 'Battle') {
-        if (getPropertyValue('battle.opponent.trainer') == undefined) {
-            setPropertyValue('battle.type', 'Wild')
-        } else {
-            setPropertyValue('battle.type', 'Trainer')
-        }
+    if (metaState === 'Battle') {
+        if (opponentTrainer === null) setValue('battle.type', 'Wild')
+        else setValue('battle.type', 'Trainer')
     } else {
-        setPropertyValue('battle.type', 'None')
+        setValue('battle.type', 'None')
     }
 
     // Loop through various party-structures to decrypt the Pokemon data
     const partyStructures = ["player", "playerAlt", "wild", "opponent", "ally", "opponent2", "updPlr", "updOpA",];
     for (let i = 0; i < partyStructures.length; i++) {
         let user = partyStructures[i];
+
         // Determine the offset from the base_ptr (global_pointer) - only run once per party-structure loop
         const offsets = {
             player: 0xD094,
@@ -117,8 +111,8 @@ function preprocessor() {
             opponent: 0x7A0,
             ally: 0x7A0 + 0x5B0,
             opponent2: 0x7A0 + 0xB60,
-            updPlr: 0x5888C, //requires testing
-            updOpA: 0x58E3C, //requires testing
+            updPlr: 0x5888C, // TODO: Requires testing
+            updOpA: 0x58E3C, // TODO: Requires testing
         };
 
         let baseAddress = (user === "opponent" || user === "ally" || user === "opponent2") ? enemy_ptr : base_ptr;
@@ -138,16 +132,19 @@ function preprocessor() {
             } else {
                 let startingAddress = baseAddress + offsets[user] + (236 * slotIndex);
 
-                let encryptedData = memory.defaultNamespace.getBytes(startingAddress, 236); // Read the Pokemon's data (236-bytes)
+                let encryptedData = memory.defaultNamespace.get_bytes(startingAddress, 236); // Read the Pokemon's data (236-bytes)
                 let pid = encryptedData.get_uint32_le(); // PID = Personality Value
                 let checksum = encryptedData.get_uint16_le(6); // Used to initialize the prngSeed
 
-                for (let i = 0; i < 8; i++) { // Transfer the unencrypted data to the decrypted data array
+                // Transfer the unencrypted data to the decrypted data array
+                for (let i = 0; i < 8; i++) {
                     decryptedData[i] = encryptedData.get_byte(i);
                 }
 
                 // Begin the decryption process for the block data
-                let prngSeed = checksum; // Initialized the prngSeed as the checksum
+
+                // Initialized the prngSeed as the checksum
+                let prngSeed = checksum;
                 for (let i = 0x08; i < 0x88; i += 2) {
                     let prngFunction = prngNext(prngSeed); // Seed prng calculation
                     let key = prngFunction.value; // retrieve the upper 16-bits as the key for decryption

@@ -1,14 +1,6 @@
-"use strict";
+import { variables, memory, state, console } from "../common";
 
-function getPropertyValue(path) {
-    if (mapper.properties[path] === undefined) { throw new Error(`${path} is not defined in properties.`) }
-    return mapper.properties[path].value
-}
-
-function setPropertyValue(path, value) {
-    if (mapper.properties[path] === undefined) { throw new Error(`${path} is not defined in properties.`) }
-    mapper.properties[path].value = value
-}
+export { BitRange } from '../common';
 
 //Decryption Functions
 //16-bit and 32-bit data access functions
@@ -24,21 +16,6 @@ function DATA32_LE(data, offset) {
         | (data[offset + 3] << 24);
     return val >>> 0;
 }
-function DATA16_BE(data, offset) {
-    let val = (data[offset] << 8) | (data[offset + 1] << 0);
-    return val & 0xFFFF;
-}
-function DATA32_BE(data, offset) {
-    let val = (data[offset] << 24)
-        | (data[offset + 1] << 16)
-        | (data[offset + 2] << 8)
-        | (data[offset + 3] << 0);
-    return val >>> 0;
-}
-function BitRange(data, end_pos, start_pos) {
-    let mask = ((1 << (end_pos - start_pos + 1)) - 1) << start_pos;
-    return (data & mask) >> start_pos;
-}
 
 function getTotalGameTime(){
     return (
@@ -49,7 +26,7 @@ function getTotalGameTime(){
     );
 }
 
-function decryptItemQuantity(x) {
+export function decryptItemQuantity(x) {
     let quantity_key = memory.defaultNamespace.get_uint16_le(variables.dma_b + 0xAC);
     return x ^ quantity_key;
 }
@@ -94,7 +71,7 @@ const shuffleOrders = {
     23: [3, 2, 1, 0]
 };
 
-function preprocessor() {
+export function preprocessor() {
     variables.dma_a = memory.defaultNamespace.get_uint32_le(0x3005D8C);
     variables.dma_b = memory.defaultNamespace.get_uint32_le(0x3005D90);
     variables.dma_c = memory.defaultNamespace.get_uint32_le(0x3005D94);
@@ -226,9 +203,9 @@ function preprocessor() {
                 startingAddress = 0x2024744 + (100 * slotIndex);
             }
 
-            let pokemonData = memory.defaultNamespace.getBytes(startingAddress, 100);
+            let pokemonData = memory.defaultNamespace.get_bytes(startingAddress, 100);
             // Compare the raw data against the cached raw data. Skip decryption and rely on cache if identical
-            if (equalArrays(state.cached_pokemon[user][slotIndex]["raw_data"], pokemonData.Data)) {
+            if (equalArrays(state.cached_pokemon[user][slotIndex]["raw_data"], pokemonData.data)) {
                 memory.fill(`${user}_party_structure_${slotIndex}`, 0x00, state.cached_pokemon[user][slotIndex]["decrypted_data"]);
                 continue;
             }
@@ -236,15 +213,15 @@ function preprocessor() {
             let pid = pokemonData.get_uint32_le();
             let otid = pokemonData.get_uint32_le(4);
 
-            let decrypted_data = []
+            let decrypted_data = [] as number[]
             for (let i = 0; i < 100; i++) { //Transfer the first 32-bytes of unencrypted data to the decrypted data array
-                decrypted_data[i] = pokemonData.Data[i];
+                decrypted_data[i] = pokemonData.data[i];
             }
 
             //Begin the decryption process for the block data
             let key = otid ^ pid; //Calculate the encryption key using the Oritinal Trainer ID XODed with the PID
             for (let i = 32; i < 80; i += 4) {
-                let data = DATA32_LE(pokemonData.Data, i) ^ key; //XOR the data with the key
+                let data = DATA32_LE(pokemonData.data, i) ^ key; //XOR the data with the key
                 decrypted_data[i + 0] = data & 0xFF;         // Isolates the least significant byte
                 decrypted_data[i + 1] = (data >> 8) & 0xFF;  // Isolates the 2nd least significant byte
                 decrypted_data[i + 2] = (data >> 16) & 0xFF; // Isolates the 3rd least significant byte
@@ -268,7 +245,7 @@ function preprocessor() {
 
             //Transfer the remaining 20-bytes of unencrypted data to the decrypted data array
             for (let i = 80; i < 100; i++) {
-                decrypted_data[i] = pokemonData.Data[i];
+                decrypted_data[i] = pokemonData.data[i];
             }
 
             // special case: if the solo mon species gets set to an invalid id, we probably don't want this update
@@ -280,7 +257,7 @@ function preprocessor() {
                 return false;
             }
 
-            state.cached_pokemon[user][slotIndex]["raw_data"] = pokemonData.Data;
+            state.cached_pokemon[user][slotIndex]["raw_data"] = pokemonData.data;
             state.cached_pokemon[user][slotIndex]["decrypted_data"] = decrypted_data;
             memory.fill(`${user}_party_structure_${slotIndex}`, 0x00, decrypted_data);
         }
@@ -293,12 +270,12 @@ function preprocessor() {
                 memory.fill(`${user}_party_structure_active_pokemon`, 0x00, state.cached_pokemon[user][activeIndex]["decrypted_data"]);
             }
         }
-
     }
 
     if (state.blocked_last_frame){
         console.log("Block fully lifted until further notice");
         state.blocked_last_frame = false;
     }
+    
     return true;
 }
