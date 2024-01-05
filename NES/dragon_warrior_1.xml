@@ -17,60 +17,60 @@
                 <property name="y" type="int" address="0x3B" />
                 <property name="standingOn" type="string" address="0xE0" reference="tiles" />
                 <property name="inactivityTimer" type="int" address="0x4F" />
-                <property name="LightRadius" type="string" address="0xD0" reference="lightradius" />
+                <property name="lightRadius" type="string" address="0xD0" reference="lightradius" />
             </position>
             <stats>
-                <property name="Level" type="int" address="0xC7" />
-                <property name="CurrentHP" type="int" address="0xC5" />
-                <property name="MaximumHP" type="int" address="0xCA" />
-                <property name="CurrentMP" type="int" address="0xC6" />
-                <property name="MaximumMP" type="int" address="0xCB" />
-                <property name="AttackPower" type="int" address="0xCC" />
-                <property name="DefensePower" type="int" address="0xCD" />
-                <property name="Gold" type="int" address="0xBC" length="2" />
-                <property name="Experience" type="int" address="0xBA" length="2" />
+                <property name="level" type="int" address="0xC7" />
+                <property name="currentHp" type="int" address="0xC5" />
+                <property name="maximumHp" type="int" address="0xCA" />
+                <property name="currentMp" type="int" address="0xC6" />
+                <property name="maximumMp" type="int" address="0xCB" />
+                <property name="attackPower" type="int" address="0xCC" />
+                <property name="defensePower" type="int" address="0xCD" />
+                <property name="gold" type="int" address="0xBC" length="2" />
+                <property name="experience" type="int" address="0xBA" length="2" />
             </stats>
             <inventory>
-                <property name="MagicKeys" type="int" address="0xBF" />
-                <property name="Herbs" type="int" address="0xC0" />
+                <property name="magicKeysQuantity" type="int" address="0xBF" />
+                <property name="herbsQuantity" type="int" address="0xC0" />
                 <items>
-                    <property name="0" type="int" address="0xC1" nibble="high" reference="items" />
-                    <property name="1" type="int" address="0xC1" nibble="low" reference="items" />
-                    <property name="2" type="int" address="0xC2" nibble="high" reference="items" />
-                    <property name="3" type="int" address="0xC2" nibble="low" reference="items" />
-                    <property name="4" type="int" address="0xC3" nibble="high" reference="items" />
-                    <property name="5" type="int" address="0xC3" nibble="low" reference="items" />
-                    <property name="6" type="int" address="0xC4" nibble="high" reference="items" />
-                    <property name="7" type="int" address="0xC4" nibble="low" reference="items" />
+                    <property name="0" type="int" address="0xC1" nibble="low" reference="items" />
+                    <property name="1" type="int" address="0xC1" nibble="high" reference="items" />
+                    <property name="2" type="int" address="0xC2" nibble="low" reference="items" />
+                    <property name="3" type="int" address="0xC2" nibble="high" reference="items" />
+                    <property name="4" type="int" address="0xC3" nibble="low" reference="items" />
+                    <property name="5" type="int" address="0xC3" nibble="high" reference="items" />
+                    <property name="6" type="int" address="0xC4" nibble="low" reference="items" />
+                    <property name="7" type="int" address="0xC4" nibble="high" reference="items" />
                 </items>
             </inventory>
             <spells>
-                <property name="Heal" type="bit" address="0xCE" position="0" />
-                <property name="Hurt" type="bit" address="0xCE" position="1" />
-                <property name="Sleep" type="bit" address="0xCE" position="2" />
-                <property name="Radiant" type="bit" address="0xCE" position="3" />
-                <property name="Stopspell" type="bit" address="0xCE" position="4" />
-                <property name="Outside" type="bit" address="0xCE" position="5" />
-                <property name="Return" type="bit" address="0xCE" position="6" />
-                <property name="Repel" type="bit" address="0xCE" position="7" />
-                <property name="Healmore" type="bit" address="0xCF" position="0" />
-                <property name="Hurtmore" type="bit" address="0xCF" position="1" />
+                <property name="heal" type="bit" address="0xCE" position="0" />
+                <property name="hurt" type="bit" address="0xCE" position="1" />
+                <property name="sleep" type="bit" address="0xCE" position="2" />
+                <property name="radiant" type="bit" address="0xCE" position="3" />
+                <property name="stopspell" type="bit" address="0xCE" position="4" />
+                <property name="outside" type="bit" address="0xCE" position="5" />
+                <property name="return" type="bit" address="0xCE" position="6" />
+                <property name="repel" type="bit" address="0xCE" position="7" />
+                <property name="healmore" type="bit" address="0xCF" position="0" />
+                <property name="hurtmore" type="bit" address="0xCF" position="1" />
             </spells>
         </player>
         <battle>
             <enemy>
-                <property name="EnemyName" type="string" address="0xE0" reference="enemies" />
-                <property name="CurrentHP" type="int" address="0xE2" />
-                <property name="MaximumHP" type="int" address="0x102" />
-                <property name="Strength" type="int" address="0x100" />
-                <property name="Agility" type="int" address="0x101" />
-                <property name="Abilities" type="string" address="0x103" reference="abilities" />
-                <property name="SleepResist" type="nibble" address="0x104" position="0" />
-                <property name="StopspellResist" type="nibble" address="0x104" position="1" />
-                <property name="HurtResist" type="nibble" address="0x105" position="0" />
-                <property name="DodgeChance" type="nibble" address="0x105" position="1" />
-                <property name="XPReward" type="int" address="0x106" />
-                <property name="GoldReward" type="int" address="0x107" />
+                <property name="enemyName" type="string" address="0xE0" reference="enemies" />
+                <property name="currentHP" type="int" address="0xE2" />
+                <property name="maximumHP" type="int" address="0x102" />
+                <property name="strength" type="int" address="0x100" />
+                <property name="agility" type="int" address="0x101" />
+                <property name="abilities" type="string" address="0x103" reference="abilities" />
+                <property name="sleepResist" type="nibble" address="0x104" position="0" />
+                <property name="stopspellResist" type="nibble" address="0x104" position="1" />
+                <property name="hurtResist" type="nibble" address="0x105" position="0" />
+                <property name="dodgeChance" type="nibble" address="0x105" position="1" />
+                <property name="xpReward" type="int" address="0x106" />
+                <property name="goldReward" type="int" address="0x107" />
             </enemy>
         </battle>
     </properties>
