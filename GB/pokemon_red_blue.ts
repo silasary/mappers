@@ -11,12 +11,12 @@ export function postprocessor() {
   // 3. "Battle": In battle
 
   if (getValue<number>('player.team.0.level') === 0) {
-      setValue('meta.state', 'No Pokemon')
+    setValue('meta.state', 'No Pokemon')
   }
-  else if (getValue<string>("battle.type") === "None") {
+  else if (getValue<string>("battle.mode") === null) {
       setValue('meta.state', 'Overworld')
   }
-  else if (getValue<number>("battle.turnInfo.battleStart") == 0) {
+  else if (getValue<number>("battle.other.battleStart") == 0) {
       setValue('meta.state', 'To Battle')
   }
   else if (getValue<string>("battle.lowHealthAlarm") === "Disabled") {
