@@ -203,36 +203,13 @@
         </bag>
 
         <overworld>
-            <property name="mapName" type="int" length="2" address="0x02025738" reference="mapName" />
+            <property name="map_name" type="int" length="2" address="0x02025738" reference="mapName" />
             <!-- <property name="walkRunState" type="int" address="0x0202e85A" reference="walkRunState"/> -->
             <!-- <property name="safariSteps"  type="int" address="0x02039996" /> -->
         </overworld>
 
         <battle>
             <property name="outcome" type="int" address="0x02024d26" reference="battleOutcome" />
-            <type>
-                <property name="double"           type="bit" address="0x020239f8" length="4" position="0" />
-                <property name="link"             type="bit" address="0x020239f8" length="4" position="1" />
-                <property name="is_battle"        type="bit" address="0x020239f8" length="4" position="2" />
-                <property name="trainer"          type="bit" address="0x020239f8" length="4" position="3" />
-                <property name="first_battle"     type="bit" address="0x020239f8" length="4" position="4" />
-                <property name="link_in_battle"   type="bit" address="0x020239f8" length="4" position="5" />
-                <property name="multi"            type="bit" address="0x020239f8" length="4" position="6" />
-                <property name="safari"           type="bit" address="0x020239f8" length="4" position="7" />
-                <property name="battle_tower"     type="bit" address="0x020239f8" length="4" position="8" />
-                <property name="old_man_tutorial" type="bit" address="0x020239f8" length="4" position="9" />
-                <property name="roamer"           type="bit" address="0x020239f8" length="4" position="10" />
-                <property name="eReader_trainer"  type="bit" address="0x020239f8" length="4" position="11" />
-                <property name="kyogre_groudon"   type="bit" address="0x020239f8" length="4" position="12" />
-                <!-- TODO: Verify values below are accurate -->
-                <property name="ghost_unveiled"   type="bit" address="0x020239f8" length="4" position="13" />
-                <property name="regi"             type="bit" address="0x020239f8" length="4" position="14" />
-                <property name="ghost"            type="bit" address="0x020239f8" length="4" position="15" />
-                <property name="pokedude"         type="bit" address="0x020239f8" length="4" position="16" />
-                <property name="wild_scripted"    type="bit" address="0x020239f8" length="4" position="17" />
-                <property name="legenadry_frlg"   type="bit" address="0x020239f8" length="4" position="18" />
-                <property name="trainer_tower"    type="bit" address="0x020239f8" length="4" position="19" />
-            </type>
             <player>
                 <class name="activePokemon"  type="battleStructure" var:address="0x2024A80" var:partyPosition="0x02024A6A" length="2" />
                 <class name="activePokemon2" type="battleStructure" var:address="0x2024B30" var:partyPosition="0x2024A6E" length="2" />
@@ -280,12 +257,35 @@
                 <property name="weather" type="int" address="0x02024db8" reference="battleWeather" />
                 <property name="weatherCount" type="int" address="0x2024DE4" />
             </field>
-            <turnInfo>
+            <other>
                 <property name="battleOutcome"               type="int" address="0x2024d26" reference="battleOutcome" />
                 <!-- <property name="battleBackgroundTiles"       type="int" address="0x202305c" length="4" /> -->
                 <!-- <property name="battleBackgroundTilesBuffer" type="int" address="0x2023060" length="4" /> -->
                 <property name="battleDialogue"              type="int" address="0x2023a60" reference="battleDialogue" />
-            </turnInfo>
+                <type>
+                    <property name="double"           type="bit" address="0x020239f8" length="4" position="0" />
+                    <property name="link"             type="bit" address="0x020239f8" length="4" position="1" />
+                    <property name="is_battle"        type="bit" address="0x020239f8" length="4" position="2" />
+                    <property name="trainer"          type="bit" address="0x020239f8" length="4" position="3" />
+                    <property name="first_battle"     type="bit" address="0x020239f8" length="4" position="4" />
+                    <property name="link_in_battle"   type="bit" address="0x020239f8" length="4" position="5" />
+                    <property name="multi"            type="bit" address="0x020239f8" length="4" position="6" />
+                    <property name="safari"           type="bit" address="0x020239f8" length="4" position="7" />
+                    <property name="battle_tower"     type="bit" address="0x020239f8" length="4" position="8" />
+                    <property name="old_man_tutorial" type="bit" address="0x020239f8" length="4" position="9" />
+                    <property name="roamer"           type="bit" address="0x020239f8" length="4" position="10" />
+                    <property name="eReader_trainer"  type="bit" address="0x020239f8" length="4" position="11" />
+                    <property name="kyogre_groudon"   type="bit" address="0x020239f8" length="4" position="12" />
+                    <!-- TODO: Verify values below are accurate -->
+                    <property name="ghost_unveiled"   type="bit" address="0x020239f8" length="4" position="13" />
+                    <property name="regi"             type="bit" address="0x020239f8" length="4" position="14" />
+                    <property name="ghost"            type="bit" address="0x020239f8" length="4" position="15" />
+                    <property name="pokedude"         type="bit" address="0x020239f8" length="4" position="16" />
+                    <property name="wild_scripted"    type="bit" address="0x020239f8" length="4" position="17" />
+                    <property name="legenadry_frlg"   type="bit" address="0x020239f8" length="4" position="18" />
+                    <property name="trainer_tower"    type="bit" address="0x020239f8" length="4" position="19" />
+                </type>
+            </other>
         </battle>
 
         <!-- <event> -->
@@ -388,8 +388,8 @@
             <property name="dma2"      type="uint" length="4" address="0x3005D90" />
             <property name="dma3"      type="uint" length="4" address="0x3005D94" /> 
             -->
-            <property name="callback1" type="int" length="4" address="0x03001770" reference="mainState" />
-            <property name="callback2" type="int" length="4" address="0x03001774" reference="subState" />
+            <property name="callback_1" type="int" length="4" address="0x03001770" reference="mainState" />
+            <property name="callback_2" type="int" length="4" address="0x03001774" reference="subState" />
         </pointers>
         <meta>
             <property name="generation" type="int" value="3" />

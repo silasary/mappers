@@ -116,8 +116,8 @@
 			<property name="nature"           address="address + 104"  type="uint"   length="4" after-read-value-expression="x % 25" reference="natures" />
 			<property name="friendship"       address="address + 53"   type="int" />
 			<property name="ability"          address="address + 39"   type="int" reference="abilities" />
-			<property name="type1"            address="address + 36"   type="int" reference="pokemonTypes" />
-			<property name="type2"            address="address + 37"   type="int" reference="pokemonTypes" />
+			<property name="type_1"            address="address + 36"   type="int" reference="pokemonTypes" />
+			<property name="type_2"            address="address + 37"   type="int" reference="pokemonTypes" />
             <property name="heldItem"         address="address + 120"  type="int" length="2" reference="items" />
 			<property name="statusCondition"  address="address + 108"  type="int" reference="statusConditions" />
 			<!-- <property name="focusEnergy"      address="address + 82" type="bit" position="4" /> -->
@@ -446,8 +446,8 @@
 			</berries>
 		</bag>
 		<overworld>
-            <property name="mapIndex"      type="int" length="2" address="global_pointer + 0xE274" />
-            <property name="mapName"       type="int" length="2" address="global_pointer + 0xE274" reference="mapName" />
+            <property name="map_index" type="int" length="2" address="global_pointer + 0xE274" />
+            <property name="map_name"  type="int" length="2" address="global_pointer + 0xE274" reference="mapName" />
             <encounterRate>
 				<property name="walking"  type="int" length="2" address="global_pointer + 0x303C4" />
 				<property name="surfing"  type="int" length="2" address="global_pointer + 0x30490" />
@@ -458,7 +458,7 @@
         </overworld>
 		<battle>
             <property name="outcome" type="int" address="global_pointer + 0x54977" />
-            <property name="type"    type="string" />
+            <property name="mode"    type="string" />
 			<player>
 				<property name="partyPos"    type="int" address="global_pointer + 0x54598 + 0x3EC"/>
 				<property name="partyPos2"   type="int" address="global_pointer + 0x54598 + 0x3F8"/>
@@ -556,10 +556,10 @@
 					<class name="5" type="pokemonInParty" var:memoryContainer="opponent2_party_structure_5" />
 				</team>
 			</opponent2>
-            <weather>
+            <field>
                 <property name="weather" type="int" address="global_pointer + 0x519DC - 3" length="2" reference="battleWeather" />
-                <property name="counter" type="int" address="global_pointer + 0x519DC" />
-            </weather>
+                <property name="weatherCounter" type="int" address="global_pointer + 0x519DC" />
+            </field>
 		</battle>
 		<rival>
 			<property name="name" type="string" address="global_pointer + 0xF7DC" length="14" size="2" />

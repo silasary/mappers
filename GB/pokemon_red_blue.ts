@@ -14,16 +14,16 @@ export function postprocessor() {
     setValue('meta.state', 'No Pokemon')
   }
   else if (getValue<string>("battle.mode") === null) {
-      setValue('meta.state', 'Overworld')
+    setValue('meta.state', 'Overworld')
   }
   else if (getValue<number>("battle.other.battleStart") == 0) {
-      setValue('meta.state', 'To Battle')
+    setValue('meta.state', 'To Battle')
   }
   else if (getValue<string>("battle.lowHealthAlarm") === "Disabled") {
-      setValue('meta.state', 'From Battle')
+    setValue('meta.state', 'From Battle')
   }
   else {
-      setValue('meta.state', 'Battle')
+    setValue('meta.state', 'Battle')
   }
 
   for (let index = 0; index < PARTY_SIZE; index++) {

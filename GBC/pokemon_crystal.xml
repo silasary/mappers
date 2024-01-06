@@ -67,13 +67,13 @@
         </pokemonInParty>
 
         <pokemonInPartyMoveset>
-            <property name="type" type="int" address="moveAddress" reference="moves" />
+            <property name="move" type="int" address="moveAddress" reference="moves" />
             <property name="pp"   type="int" address="moveAddress + 21" after-read-value-expression="x % 64" />
             <property name="ppUp" type="int" address="moveAddress + 21" after-read-value-expression="Math.floor(x / 64)" />
         </pokemonInPartyMoveset>
 
         <pokemonBattleMoves>
-            <property name="type" type="int" address="moveAddress" reference="moves" />
+            <property name="move" type="int" address="moveAddress" reference="moves" />
             <property name="pp"   type="int" address="moveAddress + 6" after-read-value-expression="x % 64" />
             <property name="ppUp" type="int" address="moveAddress + 6" after-read-value-expression="Math.floor(x / 64)" />
         </pokemonBattleMoves>
@@ -287,9 +287,9 @@
         </bag>
 
         <overworld>
-            <property name="map"       type="int" address="0xDCB5" length="2" reference="maps" />
-            <property name="mapGroup"  type="int" address="0xDCB5" reference="mapGroups" />
-            <property name="mapNumber" type="int" address="0xDCB6" />
+            <property name="map_name"   type="int" address="0xDCB5" length="2" reference="maps" />
+            <property name="map_group"  type="int" address="0xDCB5" reference="mapGroups" />
+            <property name="map_number" type="int" address="0xDCB6" />
             <property name="y"         type="int" address="0xDCB7" />
             <property name="x"         type="int" address="0xDCB8" />
             <encounterRate>
@@ -315,15 +315,14 @@
             <property name="type"        type="int"    address="0xD230" reference="battleTypes" />
             <property name="result"      type="int"    address="0xD0EE" reference="battleResults" />
             <property name="textBuffer"  type="string" address="0xD073" length="11" />
-            <property name="battleStart" type="int"    address="0xD264" />
             <player>
                 <activePokemon>
                     <property name="partyPos"      type="int" address="0xD0D4" />
                     <!-- <property name="heldItem"      type="int" address="0xXXXX" reference="items"  /> #memoryLocation -->
                     <property name="species"       type="int" address="0xC62C" reference="pokemonSpecies"  />
                     <property name="pokedexNumber" type="int" address="0xC62C" reference="pokemonPokedexNumbers"  />
-                    <property name="type1"         type="int" address="0xC64A" reference="types"  />
-                    <property name="type2"         type="int" address="0xC64B" reference="types"  />
+                    <property name="type_1"         type="int" address="0xC64A" reference="types"  />
+                    <property name="type_2"         type="int" address="0xC64B" reference="types"  />
                     <property name="level"         type="int" address="0xC639" />
                     <stats>
                         <property name="hp"             type="int" address="0xC63C" length="2" />
@@ -402,8 +401,8 @@
                     <property name="partyPos"       type="int" address="0xC663" />
                     <property name="species"        type="int" address="0xd206" reference="pokemonSpecies" />
                     <property name="pokedexNumber"  type="int" address="0xd206" reference="pokemonPokedexNumbers" />
-                    <property name="type1"          type="int" address="0xD224" reference="types" />
-                    <property name="type2"          type="int" address="0xD225" reference="types" />
+                    <property name="type_1"          type="int" address="0xD224" reference="types" />
+                    <property name="type_2"          type="int" address="0xD225" reference="types" />
                     <property name="heldItem"       type="int" address="0xd207" reference="items" />
                     <property name="level"          type="int" address="0xD12D" />
                     <!-- <property name="statsCondition" type="int" address="0xD9FD" reference="statusConditions" /> #need crystal memory address -->
@@ -518,6 +517,7 @@
                 <property name="turnEnded"       type="int" address="0xc6b4" length="1" />
                 <property name="playerTurnTaken" type="int" address="0xc6dd" length="1" />
                 <property name="enemyTurnTaken"  type="int" address="0xc6dc" length="1" />
+                <property name="battleStart" type="int"    address="0xD264" />
             </other>
         </battle>
 

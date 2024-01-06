@@ -59,13 +59,13 @@
         </pokemonInParty>
 
         <pokemonInPartyMoveset>
-            <property name="type" type="int" address="moveAddress" reference="moves" />
+            <property name="move" type="int" address="moveAddress" reference="moves" />
             <property name="pp"   type="int" address="moveAddress + 21" after-read-value-expression="x % 64" />
             <property name="ppUp" type="int" address="moveAddress + 21" after-read-value-expression="Math.floor(x / 64)" />
         </pokemonInPartyMoveset>
 
         <pokemonBattleMoves>
-            <property name="type" type="int" address="moveAddress" reference="moves" />
+            <property name="move" type="int" address="moveAddress" reference="moves" />
             <property name="pp"   type="int" address="moveAddress + 6" after-read-value-expression="x % 64" />
             <property name="ppUp" type="int" address="moveAddress + 6" after-read-value-expression="Math.floor(x / 64)" />
         </pokemonBattleMoves>
@@ -279,9 +279,9 @@
         </bag>
 
         <overworld>
-            <property name="map"       type="int" address="0xDA00" length="2" reference="maps" />
-            <property name="mapGroup"  type="int" address="0xDA00" reference="mapGroups" />
-            <property name="mapNumber" type="int" address="0xDA01" />
+            <property name="map_name"   type="int" address="0xDA00" length="2" reference="maps" />
+            <property name="map_group"  type="int" address="0xDA00" reference="mapGroups" />
+            <property name="map_number" type="int" address="0xDA01" />
             <property name="y"         type="int" address="0xDA02" />
             <property name="x"         type="int" address="0xDA03" />
             <encounterRate>
@@ -300,18 +300,18 @@
             <property name="mode"        type="int"    address="0xD116" reference="battleModes" />
             <property name="type"        type="int"    address="0xD119" reference="battleTypes" />
             <property name="result"      type="int"    address="0xCFE9" reference="battleResults" />
-            <property name="textBuffer"  type="string" address="0xD064" length="11" />
-            <property name="battleStart" type="int"    address="0xC664" />
+            <!-- <property name="textBuffer"  type="string" address="0xD064" length="11" /> -->
+            <!-- <property name="battleStart" type="int"    address="0xC664" /> -->
             <player>
                 <activePokemon>
                     <property name="partyPos"      type="int" address="0xCFC6" />
                     <property name="heldItem"      type="int" address="0xCB2D" reference="items" />
                     <property name="species"       type="int" address="0xCB0C" reference="pokemonSpecies"  />
                     <property name="pokedexNumber" type="int" address="0xCB0C" reference="pokemonPokedexNumbers"  />
-                    <property name="type1"         type="int" address="0xCB2A" reference="types"  />
-                    <property name="type2"         type="int" address="0xCB2B" reference="types"  />
+                    <property name="type_1"         type="int" address="0xCB2A" reference="types"  />
+                    <property name="type_2"         type="int" address="0xCB2B" reference="types"  />
                     <property name="level"         type="int" address="0xCB19" />
-                    <stats>
+                    <!-- <stats>
                         <property name="hp"             type="int" address="0xCB1C" length="2" />
                         <property name="maxHp"          type="int" address="0xCBBF" length="2" />
                         <property name="attack"         type="int" address="0xCBC1" length="2" description="The Player's active Pokemon's Attack stat as calculated in battle (badge boosts and stat modifications included" />
@@ -319,7 +319,7 @@
                         <property name="specialAttack"  type="int" address="0xCBC7" length="2" description="The Player's active Pokemon's Special Attack stat as calculated in battle (badge boosts and stat modifications included" />
                         <property name="specialDefense" type="int" address="0xCBC9" length="2" description="The Player's active Pokemon's Special Defense stat as calculated in battle (badge boosts and stat modifications included" />
                         <property name="speed"          type="int" address="0xCBC5" length="2" description="The Player's active Pokemon's Speed stat as calculated in battle (badge boosts and stat modifications included" />
-                    </stats>
+                    </stats> -->
                     <modifiers>
                         <property name="attack"         type="int" address="0xCBAA" reference="stageModifiers" />
                         <property name="defense"        type="int" address="0xCBAB" reference="stageModifiers" />
@@ -388,8 +388,8 @@
                     <property name="partyPos"       type="int" address="0xCB41" />
                     <property name="species"        type="int" address="0xD0EF" reference="pokemonSpecies" />
                     <property name="pokedexNumber"  type="int" address="0xD0EF" reference="pokemonPokedexNumbers" />
-                    <property name="type1"          type="int" address="0xD127" reference="types" />
-                    <property name="type2"          type="int" address="0xD128" reference="types" />
+                    <property name="type_1"          type="int" address="0xD127" reference="types" />
+                    <property name="type_2"          type="int" address="0xD128" reference="types" />
                     <property name="heldItem"       type="int" address="0xD0F0" reference="items" />
                     <property name="level"          type="int" address="0xD0FC" />
                     <property name="statsCondition" type="int" address="0xD0FD" reference="statusConditions" />

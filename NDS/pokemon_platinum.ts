@@ -86,16 +86,16 @@ export function preprocessor() {
     let metaStateEnemy = 'N/A'
     if (metaState === "No Pokemon" || metaState === "Overworld") metaStateEnemy = 'N/A'
     else if (metaState === "Battle" && battleOutcome === 1) metaStateEnemy = 'Battle Finished'
-    else if (metaState === "Battle" && enemyBarSyncedHp > 0) metaStateEnemy = 'Pokemon in Battle'
+    else if (metaState === "Battle" && enemyBarSyncedHp > 0) metaStateEnemy = 'Pokemon In Battle'
     else if (metaState === "Battle" && enemyBarSyncedHp === 0) metaStateEnemy = 'Pokemon Fainted'
     setValue('meta.stateEnemy', metaStateEnemy)
 
     // BATTLE TYPE PROPERTY
     if (metaState === 'Battle') {
-        if (opponentTrainer === null) setValue('battle.type', 'Wild')
-        else setValue('battle.type', 'Trainer')
+        if (opponentTrainer === null) setValue('battle.mode', 'Wild')
+        else setValue('battle.mode', 'Trainer')
     } else {
-        setValue('battle.type', 'None')
+        setValue('battle.mode', 'None')
     }
 
     // Loop through various party-structures to decrypt the Pokemon data

@@ -80,8 +80,8 @@
             <property name="ability"          type="int"    address="address + 32" reference="abilities" />
             <property name="heldItem"         type="int"    address="address + 46" length="2" reference="items" />
             <property name="focusEnergy"      type="bit"    address="address + 82" position="4" />
-            <property name="type1"            type="int"    address="address + 33" reference="pokemonTypes" />
-            <property name="type2"            type="int"    address="address + 34" reference="pokemonTypes" />
+            <property name="type_1"            type="int"    address="address + 33" reference="pokemonTypes" />
+            <property name="type_2"            type="int"    address="address + 34" reference="pokemonTypes" />
             <property name="status1"          type="int"    address="address + 76" reference="statusConditions" />
             <property name="status2"          type="int"    address="address + 76" reference="statusConditions" />
             <property name="otName"           type="string" address="address + 60" length="8" characterMap="defaultCharacterMap" />
@@ -136,11 +136,11 @@
 
     <properties>
         <pointers>
-            <property name="dma1"      type="uint" length="4" address="0x3005D8C" />
-            <property name="dma2"      type="uint" length="4" address="0x3005D90" />
-            <property name="dma3"      type="uint" length="4" address="0x3005D94" />
-            <property name="callback1" type="int"  length="4" address="0x30022c0" reference="mainState" />
-            <property name="callback2" type="int"  length="4" address="0x30022c4" reference="subState" />
+            <property name="dma_1"      type="uint" length="4" address="0x3005D8C" />
+            <property name="dma_2"      type="uint" length="4" address="0x3005D90" />
+            <property name="dma_3"      type="uint" length="4" address="0x3005D94" />
+            <property name="callback_1" type="int"  length="4" address="0x30022c0" reference="mainState" />
+            <property name="callback_2" type="int"  length="4" address="0x30022c4" reference="subState" />
         </pointers>
         <player>
             <property name="name"      type="string" address="dma_b"     length="8" characterMap="defaultCharacterMap" />
@@ -384,7 +384,7 @@
         </bag>
 
         <overworld>
-            <property name="mapName"      type="int" address="0x20322E4" length="2" reference="mapName" />
+            <property name="map_name"      type="int" address="0x20322E4" length="2" reference="mapName" />
             <property name="walkRunState" type="int" address="0x2037078"  reference="walkRunState"/>
             <property name="safariSteps"  type="int" address="0x2039996" />
         </overworld>

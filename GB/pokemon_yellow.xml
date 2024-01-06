@@ -18,8 +18,8 @@
             <property name="level"           type="int"    address="address + 33"    />
             <property name="expPoints"       type="int"    address="address + 14" length="3" />
             <property name="statusCondition" type="int"    address="address + 4"  reference="statusConditions" />
-            <property name="type1"           type="int"    address="address + 5"  reference="pokemonTypes" />
-            <property name="type2"           type="int"    address="address + 6"  reference="pokemonTypes" />
+            <property name="type_1"           type="int"    address="address + 5"  reference="pokemonTypes" />
+            <property name="type_2"           type="int"    address="address + 6"  reference="pokemonTypes" />
             <property name="trainerId"       type="int"    address="address + 12" length="2" />
             <property name="catchRate"       type="int"    address="address + 7"  description="Held item when traded to gen2" />
             <stats>
@@ -66,8 +66,8 @@
             <property name="level"           type="int"    address="address + 3"   />
             <property name="expPoints"       type="int"    address="address + 14" length="3" />
             <property name="statusCondition" type="int"    address="address + 4"  reference="statusConditions" />
-            <property name="type1"           type="int"    address="address + 5"  reference="pokemonTypes" />
-            <property name="type2"           type="int"    address="address + 6"  reference="pokemonTypes" />
+            <property name="type_1"           type="int"    address="address + 5"  reference="pokemonTypes" />
+            <property name="type_2"           type="int"    address="address + 6"  reference="pokemonTypes" />
             <property name="trainerId"       type="int"    address="address + 12" length="2" />
             <stats>
                 <property name="hp" type="int" address="address + 1" length="2" />
@@ -161,9 +161,9 @@
             </script>
         </player>
         <bag>
-            <property name="money"           type="binaryCodedDecimal" address="0xD346" length="3" />
-            <property name="gameCornerCoins" type="binaryCodedDecimal" address="0xD5A3" length="2" />
-            <property name="itemCount"       type="int" address="0xD31C" />
+            <property name="money"     type="binaryCodedDecimal" address="0xD346" length="3" />
+            <property name="coins"     type="binaryCodedDecimal" address="0xD5A3" length="2" />
+            <property name="itemCount" type="int" address="0xD31C" />
             <items>
                 <class name="0"  type="playerItem" var:address="0xD31D" />
                 <class name="1"  type="playerItem" var:address="0xD31F" />
@@ -188,7 +188,7 @@
             </items>
         </bag>
         <overworld>
-            <property name="map" type="int" address="0xD35D" reference="maps" />
+            <property name="map_name" type="int" address="0xD35D" reference="maps" />
             <property name="y"   type="int" address="0xD360" />
             <property name="x"   type="int" address="0xD361" />
             <property name="encounterRate" type="int" address="0xD886" />
@@ -260,8 +260,8 @@
                     <property name="nickname"      type="string" address="0xD008" length="11" />
                     <property name="species"       type="int" address="0xD013" reference="pokemonSpecies" />
                     <property name="pokedexNumber" type="int" address="0xD013" reference="pokemonPokedexNumbers" />
-                    <property name="type1"         type="int" address="0xD018" reference="pokemonTypes" />
-                    <property name="type2"         type="int" address="0xD019" reference="pokemonTypes" />
+                    <property name="type_1"         type="int" address="0xD018" reference="pokemonTypes" />
+                    <property name="type_2"         type="int" address="0xD019" reference="pokemonTypes" />
                     <property name="level"         type="int" address="0xD021" />
                     <property name="catchRate"     type="int" address="0xD032" />
                     <status>
@@ -332,15 +332,15 @@
             <opponent>
                 <property name="name"         type="string" address="0xD049" length="11" />
                 <property name="class"        type="int"    address="0xD030" reference="trainerClasses" />
-                <property name="number"       type="int"    address="0xD05C" />
+                <property name="id"           type="int"    address="0xD05C" />
                 <property name="gymLeader"    type="int"    address="0xD05B" />
                 <property name="totalPokemon" type="int"    address="0xD89B" />
                 <activePokemon>
                     <property name="partyPos"        type="int" address="0xCFE7" />
                     <property name="species"         type="int" address="0xCFD7" reference="pokemonSpecies" />
                     <property name="pokedexNumber"   type="int" address="0xCFD7" reference="pokemonPokedexNumbers" />
-                    <property name="type1"           type="int" address="0xCFE9" reference="pokemonTypes" />
-                    <property name="type2"           type="int" address="0xCFEA" reference="pokemonTypes" />
+                    <property name="type_1"           type="int" address="0xCFE9" reference="pokemonTypes" />
+                    <property name="type_2"           type="int" address="0xCFEA" reference="pokemonTypes" />
                     <property name="level"           type="int" address="0xCFF2" />
                     <property name="statusCondition" type="int" address="0xCFE8" reference="statusConditions" />
                     <stats>
@@ -735,7 +735,7 @@
             <entry key="0x03" value="Vaporeon" />
         </finalTeam>
         <trainerClasses>
-            <entry key="0x00" value="NOBODY"/>
+            <entry key="0x00" />
             <entry key="0x01" value="YOUNGSTER"/>
             <entry key="0x02" value="BUG CATCHER"/>
             <entry key="0x03" value="LASS"/>
@@ -1771,7 +1771,7 @@
             <entry key="0x75" value="UNUSED_MAP_75" />
             <entry key="0x76" value="Hall of Fame" />
             <entry key="0x77" value="Underground Path" />
-            <entry key="0x78" value="Champions Room" />
+            <entry key="0x78" value="Champion's Room" />
             <entry key="0x79" value="Underground Path" />
             <entry key="0x7A" value="Celadon City - Department Store - 1F" />
             <entry key="0x7B" value="Celadon City - Department Store - 2F" />

@@ -162,9 +162,9 @@
             </script>
         </player>
         <bag>
-            <property name="money"           type="int" address="0xD347" length="3" />
-            <property name="gameCornerCoins" type="int" address="0xD5A4" length="2" />
-            <property name="itemCount"       type="int" address="0xD31D" />
+            <property name="money"     type="binaryCodedDecimal" address="0xD347" length="3" />
+            <property name="coins"     type="binaryCodedDecimal" address="0xD5A4" length="2" />
+            <property name="itemCount" type="int" address="0xD31D" />
             <items>
                 <class name="0"  type="playerItem" var:address="0xD31E" />
                 <class name="1"  type="playerItem" var:address="0xD320" />
@@ -189,7 +189,7 @@
             </items>
         </bag>
         <overworld>
-            <property name="map"           type="int" address="0xD35E" reference="maps" />
+            <property name="map_name"       type="int" address="0xD35E" reference="maps" />
             <property name="y"             type="int" address="0xD361" />
             <property name="x"             type="int" address="0xD362" />
             <property name="encounterRate" type="int" address="0xD887" />
@@ -261,8 +261,8 @@
                     <property name="nickname"      type="string" address="0xD009" length="11" />
                     <property name="species"       type="int" address="0xD014" reference="pokemonSpecies" />
                     <property name="pokedexNumber" type="int" address="0xD014" reference="pokemonPokedexNumbers" />
-                    <property name="type1"         type="int" address="0xD019" reference="pokemonTypes" />
-                    <property name="type2"         type="int" address="0xD01A" reference="pokemonTypes" />
+                    <property name="type_1"         type="int" address="0xD019" reference="pokemonTypes" />
+                    <property name="type_2"         type="int" address="0xD01A" reference="pokemonTypes" />
                     <property name="level"         type="int" address="0xD022" />
                     <property name="catchRate"     type="int" address="0xD172" /> <!-- this gives a bad value. For Squirtle, it says 8, but the offical number is 45 -->
                     <status>
@@ -333,7 +333,7 @@
             <opponent>
                 <property name="name"         type="string" address="0xD04A" length="11" />
                 <property name="class"        type="int" address="0xD031" reference="trainerClasses" />
-                <property name="number"       type="int" address="0xD05D" />
+                <property name="id"           type="int" address="0xD05D" />
                 <property name="gymLeader"    type="int" address="0xD05C" />
                 <property name="totalPokemon" type="int" address="0xD89C" />
                 <activePokemon>
@@ -633,7 +633,7 @@
         <meta>
 			<property name="generation" type="int" value="1" />
 			<property name="gameName"   type="int" value="Red and Blue" />
-			<property name="gameType"   type="int" value="Third Version" />
+			<property name="gameType"   type="int" value="Originals" />
 			<property name="state"      type="string" />
 			<!-- <property name="stateEnemy" type="string" /> -->
 		</meta>
@@ -737,7 +737,7 @@
             <entry key="0x99" value="Venusaur" />
         </finalTeam>
         <trainerClasses>
-            <entry key="0x00" value="NOBODY"/>
+            <entry key="0x00" />
             <entry key="0x01" value="YOUNGSTER"/>
             <entry key="0x02" value="BUG CATCHER"/>
             <entry key="0x03" value="LASS"/>
@@ -1773,7 +1773,7 @@
             <entry key="0x75" value="UNUSED_MAP_75" />
             <entry key="0x76" value="Hall of Fame" />
             <entry key="0x77" value="Underground Path" />
-            <entry key="0x78" value="Champions Room" />
+            <entry key="0x78" value="Champion's Room" />
             <entry key="0x79" value="Underground Path" />
             <entry key="0x7A" value="Celadon City - Department Store - 1F" />
             <entry key="0x7B" value="Celadon City - Department Store - 2F" />
