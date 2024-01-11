@@ -4,8 +4,8 @@
   "type": "module",
   "description": "For more information, please see https://gamehook.io/docs/mappers",
   "scripts": {
-    "build": "node build.js",
-    "watch": "node build.js -- watch"
+    "build": "tsx build.ts",
+    "watch": "tsx build.ts -- watch"
   },
   "author": "gamehook-io",
   "license": "AGPL-3.0",
@@ -15,6 +15,10 @@
     "glob": "^10.3.10",
     "glob-watcher": "^6.0.0",
     "rollup": "^4.6.0",
+    "tsx": "^4.7.0",
     "typescript": "^5.3.2"
+  },
+  "dependencies": {
+    "@types/node": "^20.10.8"
   }
 }

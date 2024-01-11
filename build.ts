@@ -1,3 +1,4 @@
+import fs from 'fs'
 import fsExtra from 'fs-extra'
 import path from 'path'
 
@@ -6,8 +7,10 @@ import globWatcher from 'glob-watcher'
 
 import { rollup } from 'rollup'
 import typescript from '@rollup/plugin-typescript'
+import { translateXml } from './build.xml'
 
-const { exists, remove, ensureDir, copyFile } = fsExtra
+const { exists, remove, ensureDir } = fsExtra
+const { readFileSync, writeFileSync, existsSync, mkdirSync } = fs
 const { join } = path
 
 const xmlGlob = '{DEPRECATED,GB,GBA,GBC,N64,NDS,NES,PSX,SNES}/*.xml'
@@ -15,13 +18,21 @@ const tsGlob = '{DEPRECATED,GB,GBA,GBC,N64,NDS,NES,PSX,SNES}/*.ts'
 
 async function parallelForEach(array, callback) { await Promise.all(array.map(callback)) }
 
-async function processXml(file) {
-    const destPath = path.join('dist', file)
+async function processXml(filePath) {
+    const destPath = path.join('dist', filePath)
+    const destDirectory = path.dirname(destPath)
 
-    await ensureDir(path.dirname(destPath))
-    await copyFile(file, destPath)
+    let fileContents = readFileSync(filePath)
+    fileContents = translateXml(fileContents)
 
-    console.info(`Processed ${file}`)
+    if (existsSync(destDirectory) == false) {
+        mkdirSync(destDirectory)
+    }
+
+    ensureDir(path.dirname(destPath))
+    writeFileSync(destPath, fileContents)    
+
+    console.info(`Processed ${filePath}`)
 }
 
 async function processTs(file) {
