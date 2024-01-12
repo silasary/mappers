@@ -16,13 +16,15 @@ const { join } = path
 const xmlGlob = '{DEPRECATED,GB,GBA,GBC,N64,NDS,NES,PSX,SNES}/*.xml'
 const tsGlob = '{DEPRECATED,GB,GBA,GBC,N64,NDS,NES,PSX,SNES}/*.ts'
 
-async function parallelForEach(array, callback) { await Promise.all(array.map(callback)) }
+async function parallelForEach(array: any, callback: any) {
+    await Promise.all(array.map(callback))
+}
 
-async function processXml(filePath) {
+async function processXml(filePath: string) {
     const destPath = path.join('dist', filePath)
     const destDirectory = path.dirname(destPath)
 
-    let fileContents = readFileSync(filePath)
+    let fileContents = readFileSync(filePath, 'utf8')
     fileContents = translateXml(fileContents)
 
     if (existsSync(destDirectory) == false) {
@@ -30,7 +32,7 @@ async function processXml(filePath) {
     }
 
     ensureDir(path.dirname(destPath))
-    writeFileSync(destPath, fileContents)    
+    writeFileSync(destPath, fileContents)
 
     console.info(`Processed ${filePath}`)
 }
@@ -78,6 +80,6 @@ if (process.argv.includes('--watch')) {
         const tsFile = file.replace('.xml', '.ts')
         if (await exists(tsFile)) { await processTs(tsFile) }
     })
-    
+
     console.info('Build complete.')
 }
