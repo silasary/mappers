@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mapper id="3A08300E-9706-4608-94E2-3B0D0C92B247" name="Super Mario RPG" platform="SNES"
+	xmlns:xsi="http://www.w3.org/2001/xMLSchema-instance" xsi:schemaLocation="https://schemas.gamehook.io/mapper https://schemas.gamehook.io/mapper.xsd"
+	xmlns:var="https://schemas.gamehook.io/attributes/var">
+
+	<classes>
+		<stats>
+			<property name="mortal_status" type="int" address="address + 0" />
+			<property name="character_byte" type="int" address="address + 1" />
+			<property name="level" type="int" address="address + 16" />
+			<property name="current_hp" type="int" address="address + 17" />
+			<property name="max_hp" type="int" address="address + 19" />
+			<property name="speed" type="int" address="address + 21" />
+			<property name="attack" type="int" address="address + 22" />
+			<property name="defense" type="int" address="address + 23" />
+			<property name="magic_attack" type="int" address="address + 24" />
+			<property name="magic_defense" type="int" address="address + 25" />
+			<property name="current_xp" type="int" address="address + 26" />
+		</stats>
+	</classes>
+
+	<properties>
+		<money>
+			<property name="coins" type="int" address="0x7FF8AF" />
+			<property name="frog_coins" type="int" address="0x7FF8B3" />
+		</money>
+		<flowers>
+			<property name="current_fp" type="int" address="0x7FF8B1" />
+			<property name="max_fp" type="int" address="0x7FF8B2" />
+		</flowers>
+		<jump>
+			<property name="jump_increment_power" type="int" address="0x7FF8BD" />
+			<property name="super_jump_record" type="int" address="0x7FF8C0" />
+		</jump>
+		<battle>
+			<party>
+				<class name="mario" type="stats" var:address="0x7FF800" />
+				<class name="toadstool" type="stats" var:address="0x7FF814" />
+				<class name="bowser" type="stats" var:address="0x7FF828" />
+				<class name="geno" type="stats" var:address="0x7FF83C" />
+				<class name="mallow" type="stats" var:address="0x7FF850" />
+			</party>
+			<enemy>
+				<class name="0" type="stats" var:address="0x7EFC00" />
+				<class name="1" type="stats" var:address="0x7EFC80" />
+				<class name="2" type="stats" var:address="0x7EFD00" />
+				<class name="3" type="stats" var:address="0x7EFD80" />
+				<class name="4" type="stats" var:address="0x7EFE00" />
+				<class name="5" type="stats" var:address="0x7EFE80" />
+				<class name="6" type="stats" var:address="0x7EFF00" />
+				<class name="7" type="stats" var:address="0x7EFF80" />
+			</enemy>
+		</battle>
+		<party>
+			<class name="0" type="stats" var:address="0x7EFA80" />
+			<class name="1" type="stats" var:address="0x7EFB00" />
+			<class name="2" type="stats" var:address="0x7EFB80" />
+		</party>
+	</properties>
+
+	<references>
+		<items>
+		</items>
+	</references>
+</mapper>
