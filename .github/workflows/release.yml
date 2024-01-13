@@ -18,7 +18,7 @@ jobs:
         run: npm install
 
       - name: Run Build Script
-        run: node ./build.js
+        run: npm run build
 
       - name: Zip Distribution Folder
         run: |
