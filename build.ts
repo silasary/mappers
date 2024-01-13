@@ -21,6 +21,8 @@ async function parallelForEach(array: any, callback: any) {
 }
 
 async function processXml(filePath: string) {
+    console.info(`Processing ${filePath}`)
+
     const destPath = path.join('dist', filePath)
     const destDirectory = path.dirname(destPath)
 
