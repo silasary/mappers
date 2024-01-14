@@ -60,6 +60,8 @@ export function getMetaState(): string {
     const team_count: number = getValue<number>('player.team_count')
     const active_pokemonPv: number = getValue<number>('battle.player.active_pokemon.internals.personality_value')
     const teamPokemonPv: number = getValue<number>('player.team.0.internals.personality_value')
+    const teamNickname: number = getValue<number>('player.team.0.nickname') //TODO: remove these once all properties are mapped - HGSS and Plat should have the same state functions
+    const battleNickname: number = getValue<number>('battle.player.active_pokemon.nickname') //TODO: remove these once all properties are mapped - HGSS and Plat should have the same state functions
     const outcome_flags: number = getValue<number>('battle.other.outcome_flags')
     if (team_count === 0) {
         return 'No Pokemon'
@@ -70,7 +72,7 @@ export function getMetaState(): string {
     else if (active_pokemonPv === teamPokemonPv) {
         return 'Battle'
     }
-    else if (active_pokemonPv !== teamPokemonPv) {
+    else if (teamNickname !== battleNickname) {
         return 'Overworld'
     }
     return 'No Pokemon'
@@ -123,7 +125,7 @@ export function getEncounterRate(): number {
 // Preprocessor runs every loop (everytime gamehook updates)
 export function preprocessor() {
     // This is the same as the global_pointer, it is named "base_ptr" for consistency with the old C# code    
-    const base_ptr: number = memory.defaultNamespace.get_uint32_le(0x2101D2C) // Platinum pointer
+    const base_ptr: number = memory.defaultNamespace.get_uint32_le(0x211186C) //HGSS pointer
 
     if (base_ptr === 0) {
         // Ends logic is the base_ptr is 0, this is to prevent errors during reset and getting on a bike.
@@ -132,7 +134,7 @@ export function preprocessor() {
     }
     
     variables.global_pointer = base_ptr // Variable used for mapper addresses, it is the same as "base_ptr"
-    const enemy_ptr = memory.defaultNamespace.get_uint32_le(base_ptr + 0x352F4) // Only needs to be calculated once per loop
+    const enemy_ptr = memory.defaultNamespace.get_uint32_le(base_ptr + 0x37970) // Only needs to be calculated once per loop
 
     // Set property values
     const metaState: string = getMetaState()
@@ -153,22 +155,23 @@ export function preprocessor() {
     for (let i = 0; i < partyStructures.length; i++) {
         let user = partyStructures[i];
 
+        //Pointer: 0x226F2A8 (testing global_pointer value)
         // Determine the offset from the base_ptr (global_pointer) - only run once per party-structure loop
-        // Updating structures start offset from the global_pointer by 0x5888C; they are 0x5B0 bytes long
+        // Updating structures start offset from the global_pointer by 0x5BA78; they are 0x5B0 bytes long
         // team_count is always offset from the start of the team structure by -0x04 and it's a 1-byte value
         const offsets = {
-            player: 0xD094,
+            player: 0xD088,
             //static team structures
-            static_player: 0x35514,
-            static_wild: 0x35AC4,
-            static_opponent: 0x7A0,
-            static_ally: 0x7A0 + 0x5B0,
-            static_opponent_2: 0x7A0 + 0xB60,
+            static_player: 0x37B24, //located at 0x22A6DCC 
+            static_wild: 0x38540,
+            static_opponent: 0x1C70, //TODO: needs testing
+            static_ally: 0x1C70 + 0x1438, //TODO: needs testing
+            static_opponent_2: 0x1C70 + 0xA1C, //TODO: needs testing
             //dynamic team structures
-            dynamic_player: 0x5888C,
-            dynamic_opponent: 0x58E3C, 
-            dynamic_ally: 0x593EC, // TODO: Requires testing
-            dynamic_opponent_2: 0x5999C, // TODO: Requires testing
+            dynamic_player: 0x5BA78,
+            dynamic_opponent: 0x5C028,
+            dynamic_ally: 0x5BA78 + (0x5D0 * 2),
+            dynamic_opponent_2: 0x5BA78 + (0x5D0 * 3),
         };
 
         let baseAddress = (user === "static_opponent" || user === "static_ally" || user === "static_opponent_2") ? enemy_ptr : base_ptr;

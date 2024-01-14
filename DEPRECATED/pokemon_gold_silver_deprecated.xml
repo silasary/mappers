@@ -13,12 +13,6 @@ For all new software, please use the paths within 'pokemon_gold_silver.xml'
     xsi:schemaLocation="https://schemas.gamehook.io/mapper https://schemas.gamehook.io/mapper.xsd"
     xmlns:var="https://schemas.gamehook.io/attributes/var">
 
-<macros>
-  <pokemonMacro>
-    <property name="species"       offset="0" type="int" reference="pokemonSpecies" />
-    <property name="pokedexNumber" offset="0" type="int" reference="pokemonPokedexNumbers" />
-  </pokemonMacro>
-</macros>
 <classes>
     <pokemonInParty>
       <property name="nickname"      address="nicknameAddress" type="string" reference="defaultCharacterMap" length="11" />
@@ -65,35 +59,35 @@ For all new software, please use the paths within 'pokemon_gold_silver.xml'
       <property name="quantity" address="address + 1" type="int" />
     </playerItem>
     <audioChannel>
-      <property name="musicId"   offset="address + 0" type="int" length="2" />
-      <property name="musicBank" offset="address + 2" type="int" />
-      <property name="flags1" offset="address + 3" type="int" />
-      <property name="flags2" offset="address + 4" type="int" />
-      <property name="flags3" offset="address + 5" type="int" />
-      <property name="musicAddress" offset="address + 6" type="int" length="2" />
-      <property name="lastMusicAddress" offset="address + 8" type="int" length="4" />
-      <property name="noteFlags" offset="address + 12" type="int" />
-      <property name="condition" offset="address + 13" type="int" />
-      <property name="dutyCycle" offset="address + 14" type="int" />
-      <property name="volumeEnvelope" offset="address + 15" type="int" />
-      <property name="frequency" offset="address + 16" type="int" length="2" />
-      <property name="pitch"     offset="address + 18" type="int" />
-      <property name="octave"    offset="address + 19" type="int" />
-      <property name="transposition" offset="address + 20" type="int" />
-      <property name="noteDuration"  offset="address + 21" type="int" />
-      <property name="loopCount" offset="address + 24" type="int" />
-      <property name="tempo"     offset="address + 25" type="int" length="2" />
-      <property name="tracks"    offset="address + 27" type="int" />
-      <property name="dutyCyclePattern"  offset="address + 28" type="int" />
-      <property name="vibratoDelayCount" offset="address + 29" type="int" />
-      <property name="vibratoDelay"  offset="address + 30" type="int" />
-      <property name="vibratoExtent" offset="address + 31" type="int" />
-      <property name="vibratoRate"   offset="address + 32" type="int" />
-      <property name="pitchSlideTarget" offset="address + 33" type="int" length="2" />
-      <property name="pitchSlideAmount" offset="address + 35" type="int" />
-      <property name="pitchSlideAmountFraction" offset="address + 36" type="int" />
-      <property name="pitchOffset" offset="address + 38" type="int" length="2" />
-      <property name="noteLength" offset="address + 44" type="int" />
+      <property name="musicId"   address="address + 0" type="int" length="2" />
+      <property name="musicBank" address="address + 2" type="int" />
+      <property name="flags1" address="address + 3" type="int" />
+      <property name="flags2" address="address + 4" type="int" />
+      <property name="flags3" address="address + 5" type="int" />
+      <property name="musicAddress" address="address + 6" type="int" length="2" />
+      <property name="lastMusicAddress" address="address + 8" type="int" length="4" />
+      <property name="noteFlags" address="address + 12" type="int" />
+      <property name="condition" address="address + 13" type="int" />
+      <property name="dutyCycle" address="address + 14" type="int" />
+      <property name="volumeEnvelope" address="address + 15" type="int" />
+      <property name="frequency" address="address + 16" type="int" length="2" />
+      <property name="pitch"     address="address + 18" type="int" />
+      <property name="octave"    address="address + 19" type="int" />
+      <property name="transposition" address="address + 20" type="int" />
+      <property name="noteDuration"  address="address + 21" type="int" />
+      <property name="loopCount" address="address + 24" type="int" />
+      <property name="tempo"     address="address + 25" type="int" length="2" />
+      <property name="tracks"    address="address + 27" type="int" />
+      <property name="dutyCyclePattern"  address="address + 28" type="int" />
+      <property name="vibratoDelayCount" address="address + 29" type="int" />
+      <property name="vibratoDelay"  address="address + 30" type="int" />
+      <property name="vibratoExtent" address="address + 31" type="int" />
+      <property name="vibratoRate"   address="address + 32" type="int" />
+      <property name="pitchSlideTarget" address="address + 33" type="int" length="2" />
+      <property name="pitchSlideAmount" address="address + 35" type="int" />
+      <property name="pitchSlideAmountFraction" address="address + 36" type="int" />
+      <property name="pitchOffset" address="address + 38" type="int" length="2" />
+      <property name="noteLength" address="address + 44" type="int" />
     </audioChannel>
     <roamer>
       <property name="species"       offset="0" type="int" reference="pokemonSpecies" />
@@ -118,75 +112,75 @@ For all new software, please use the paths within 'pokemon_gold_silver.xml'
       </team>
       <property name="totalKeyItems" type="int" address="0xD5E1" />
       <tms>
-        <property name="tm01-dynamicpunch" type="int" address="0xD57E" />
-        <property name="tm02-headbutt"     type="int" address="0xD57F" />
-        <property name="tm03-curse"        type="int" address="0xD580" />
-        <property name="tm04-rollout"      type="int" address="0xD581" />
-        <property name="tm05-roar"         type="int" address="0xD582" />
-        <property name="tm06-toxic"        type="int" address="0xD583" />
-        <property name="tm07-zapcannon"    type="int" address="0xD584" />
-        <property name="tm08-rocksmash"    type="int" address="0xD585" />
-        <property name="tm09-psychup"      type="int" address="0xD586" />
-        <property name="tm10-hiddenpower"  type="int" address="0xD587" />
-        <property name="tm11-sunnyday"     type="int" address="0xD588" />
-        <property name="tm12-sweetscent"   type="int" address="0xD589" />
-        <property name="tm13-snore"        type="int" address="0xD58A" />
-        <property name="tm14-blizzard"     type="int" address="0xD58B" />
-        <property name="tm15-hyperbeam"    type="int" address="0xD58C" />
-        <property name="tm16-icywind"      type="int" address="0xD58D" />
-        <property name="tm17-protect"      type="int" address="0xD58E" />
-        <property name="tm18-raindance"    type="int" address="0xD58F" />
-        <property name="tm19-gigadrain"    type="int" address="0xD590" />
-        <property name="tm20-endure"       type="int" address="0xD591" />
-        <property name="tm21-frustration"  type="int" address="0xD592" />
-        <property name="tm22-solarbeam"    type="int" address="0xD593" />
-        <property name="tm23-irontail"     type="int" address="0xD594" />
-        <property name="tm24-dragonbreath" type="int" address="0xD595" />
-        <property name="tm25-thunder"      type="int" address="0xD596" />
-        <property name="tm26-earthquake"   type="int" address="0xD597" />
-        <property name="tm27-return"       type="int" address="0xD598" />
-        <property name="tm28-dig"          type="int" address="0xD599" />
-        <property name="tm29-psychic"      type="int" address="0xD59A" />
-        <property name="tm30-shadowball"   type="int" address="0xD59B" />
-        <property name="tm31-mudslap"      type="int" address="0xD59C" />
-        <property name="tm32-doubleteam"   type="int" address="0xD59D" />
-        <property name="tm33-icepunch"     type="int" address="0xD59E" />
-        <property name="tm34-swagger"      type="int" address="0xD59F" />
-        <property name="tm35-sleeptalk"    type="int" address="0xD5A0" />
-        <property name="tm36-sludgebomb"   type="int" address="0xD5A1" />
-        <property name="tm37-sandstorm"    type="int" address="0xD5A2" />
-        <property name="tm38-fireblast"    type="int" address="0xD5A3" />
-        <property name="tm39-swift"        type="int" address="0xD5A4" />
-        <property name="tm40-defensecurl"  type="int" address="0xD5A5" />
-        <property name="tm41-ThunderPunch" type="int" address="0xD5A6" />
-        <property name="tm42-dreameater"   type="int" address="0xD5A7" />
-        <property name="tm43-detect"       type="int" address="0xD5A8" />
-        <property name="tm44-rest"         type="int" address="0xD5A9" />
-        <property name="tm45-attract"      type="int" address="0xD5AA" />
-        <property name="tm46-thief"        type="int" address="0xD5AB" />
-        <property name="tm47-steelwing"    type="int" address="0xD5AC" />
-        <property name="tm48-firepunch"    type="int" address="0xD5AD" />
-        <property name="tm49-furycutter"   type="int" address="0xD5AE" />
-        <property name="tm50-nightmare"    type="int" address="0xD5AF" />
+        <property name="TM01-DynamicPunch" type="int" address="0xD859" />
+        <property name="TM02-Headbutt"     type="int" address="0xD85A" />
+        <property name="TM03-Curse"        type="int" address="0xD85B" />
+        <property name="TM04-Rollout"      type="int" address="0xD85C" />
+        <property name="TM05-Roar"         type="int" address="0xD85D" />
+        <property name="TM06-Toxic"        type="int" address="0xD85E" />
+        <property name="TM07-Zap Cannon"   type="int" address="0xD85F" />
+        <property name="TM08-Rock Smash"   type="int" address="0xD860" />
+        <property name="TM09-Psych Up"     type="int" address="0xD861" />
+        <property name="TM10-Hidden Power" type="int" address="0xD862" />
+        <property name="TM11-Sunny Day"    type="int" address="0xD863" />
+        <property name="TM12-Sweet Scent"  type="int" address="0xD864" />
+        <property name="TM13-Snore"        type="int" address="0xD865" />
+        <property name="TM14-Blizzard"     type="int" address="0xD866" />
+        <property name="TM15-Hyper Beam"   type="int" address="0xD867" />
+        <property name="TM16-Icy Wind"     type="int" address="0xD868" />
+        <property name="TM17-Protect"      type="int" address="0xD869" />
+        <property name="TM18-Rain Dance"   type="int" address="0xD86A" />
+        <property name="TM19-Giga Drain"   type="int" address="0xD86B" />
+        <property name="TM20-Endure"       type="int" address="0xD86C" />
+        <property name="TM21-Frustration"  type="int" address="0xD86D" />
+        <property name="TM22-SolarBeam"    type="int" address="0xD86E" />
+        <property name="TM23-Iron Tail"    type="int" address="0xD86F" />
+        <property name="TM24-DragonBreath" type="int" address="0xD870" />
+        <property name="TM25-Thunder"      type="int" address="0xD871" />
+        <property name="TM26-Earthquake"   type="int" address="0xD872" />
+        <property name="TM27-Return"       type="int" address="0xD873" />
+        <property name="TM28-Dig"          type="int" address="0xD874" />
+        <property name="TM29-Psychic"      type="int" address="0xD875" />
+        <property name="TM30-Shadow Ball"  type="int" address="0xD876" />
+        <property name="TM31-Mud-Slap"     type="int" address="0xD877" />
+        <property name="TM32-Double Team"  type="int" address="0xD878" />
+        <property name="TM33-Ice Punch"    type="int" address="0xD879" />
+        <property name="TM34-Swagger"      type="int" address="0xD87A" />
+        <property name="TM35-Sleep Talk"   type="int" address="0xD87B" />
+        <property name="TM36-Sludge Bomb"  type="int" address="0xD87C" />
+        <property name="TM37-Sandstorm"    type="int" address="0xD87D" />
+        <property name="TM38-Fire Blast"   type="int" address="0xD87E" />
+        <property name="TM39-Swift"        type="int" address="0xD87F" />
+        <property name="TM40-Defense Curl" type="int" address="0xD880" />
+        <property name="TM41-ThunderPunch" type="int" address="0xD881" />
+        <property name="TM42-Dream Eater"  type="int" address="0xD882" />
+        <property name="TM43-Detect"       type="int" address="0xD883" />
+        <property name="TM44-Rest"         type="int" address="0xD884" />
+        <property name="TM45-Attract"      type="int" address="0xD885" />
+        <property name="TM46-Thief"        type="int" address="0xD886" />
+        <property name="TM47-Steel Wing"   type="int" address="0xD887" />
+        <property name="TM48-Fire Punch"   type="int" address="0xD888" />
+        <property name="TM49-Fury Cutter"  type="int" address="0xD889" />
+        <property name="TM50-Nightmare"    type="int" address="0xD88A" />
       </tms>
       <hms>
-        <property name="hm01" type="bit" address="0xD5B0" position="1" />
-        <property name="hm02" type="bit" address="0xD5B1" position="1" />
-        <property name="hm03" type="bit" address="0xD5B2" position="1" />
-        <property name="hm04" type="bit" address="0xD5B3" position="1" />
-        <property name="hm05" type="bit" address="0xD5B4" position="1" />
-        <property name="hm06" type="bit" address="0xD5B5" position="1" />
-        <property name="hm07" type="bit" address="0xD5B6" position="1" />
+        <property name="HM01-Cut" type="bit" address="0xD88B" position="1" />
+        <property name="HM02-Fly" type="bit" address="0xD88C" position="1" />
+        <property name="HM03-Surf" type="bit" address="0xD88D" position="1" />
+        <property name="HM04-Strength" type="bit" address="0xD88E" position="1" />
+        <property name="HM05-Flash" type="bit" address="0xD88F" position="1" />
+        <property name="HM06-Whirlpool" type="bit" address="0xD890" position="1" />
+        <property name="HM07-Waterfall" type="bit" address="0xD891" position="1" />
       </hms>
       <badges>
-        <property name="badge1" type="bit" address="0xD57C" position="0" description="zephyrBadge" />
-        <property name="badge2" type="bit" address="0xD57C" position="1" description="hiveBadge" />
-        <property name="badge3" type="bit" address="0xD57C" position="3" description="plainBadge" />
-        <property name="badge4" type="bit" address="0xD57C" position="4" description="fogBadge" />
-        <property name="badge5" type="bit" address="0xD57C" position="2" description="stormBadge" />
-        <property name="badge6" type="bit" address="0xD57C" position="5" description="mineralBadge" />
-        <property name="badge7" type="bit" address="0xD57C" position="6" description="glacierBadge" />
-        <property name="badge8" type="bit" address="0xD57C" position="7" description="risingBadge" />
+        <property name="badge1" type="bit"  address="0xD57C" position="0" description="zephyrBadge" />
+        <property name="badge2" type="bit"  address="0xD57C" position="1" description="hiveBadge" />
+        <property name="badge3" type="bit"  address="0xD57C" position="3" description="plainBadge" />
+        <property name="badge4" type="bit"  address="0xD57C" position="4" description="fogBadge" />
+        <property name="badge5" type="bit"  address="0xD57C" position="2" description="stormBadge" />
+        <property name="badge6" type="bit"  address="0xD57C" position="5" description="mineralBadge" />
+        <property name="badge7" type="bit"  address="0xD57C" position="6" description="glacierBadge" />
+        <property name="badge8" type="bit"  address="0xD57C" position="7" description="risingBadge" />
         <property name="badge9"  type="bit" address="0xD57C" position="0" description="boulderBadge" />
         <property name="badge10" type="bit" address="0xD57C" position="1" description="cascadeBadge" />
         <property name="badge11" type="bit" address="0xD57C" position="2" description="thunderBadge" />

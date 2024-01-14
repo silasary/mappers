@@ -519,7 +519,7 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
 			<property name="gameType"   type="int" value="Remakes" />
 			<property name="mapperType" type="int" value="Deprecated" />
 			<!-- <property name="state" type="string" />
-			<property name="stateEnemy" type="string" /> -->
+			<property name="state_enemy" type="string" /> -->
 		</meta>
   </properties>
   <references>

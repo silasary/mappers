@@ -4,6 +4,7 @@
     xmlns:xsi="http://www.w3.org/2001/xMLSchema-instance"
     xsi:schemaLocation="https://schemas.gamehook.io/mapper https://schemas.gamehook.io/mapper.xsd"
     xmlns:var="https://schemas.gamehook.io/attributes/var">
+    
     <properties>
         <player>
             <items>

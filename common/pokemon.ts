@@ -1,4 +1,4 @@
-export const HIDDEN_POWER_TYPES = [
+export const HIDDEN_POWER_TYPES: string[] = [
   "Fighting",
   "Flying",
   "Poison",
@@ -40,13 +40,13 @@ export function hpIv(ivs: PokemonIvs) {
 }
 
 /** Calculate hidden power's type from IVs */
-export function hiddenPowerType(ivs: PokemonIvs) {
+export function hidden_powerType(ivs: PokemonIvs) {
   const lookupIndex = ((ivs.attack & 0x3) << 2) | (ivs.defense & 0x3); // 0-15
   return HIDDEN_POWER_TYPES[lookupIndex];
 }
 
 /** Calculate hidden power's base power from IVs */
-export function hiddenPowerPower(ivs: PokemonIvs) {
+export function hidden_powerPower(ivs: PokemonIvs) {
   const sum = generateNibbleFromIVs(ivs, 3);
   const specialRemainder = ivs.special & 0x3;
 

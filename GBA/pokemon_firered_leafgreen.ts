@@ -1,6 +1,20 @@
-import { variables, memory } from "../common";
+import { 
+    variables, 
+    memory,
+    // state, 
+    // console,
+    getValue,
+    setValue
+ } from "../common";
 
 export { BitRange } from '../common';
+
+// //Decryption Functions
+// //16-bit and 32-bit data access functions
+// function DATA16_LE(data: number[], offset: number) { 
+//     let val = (data[offset] << 0) | (data[offset + 1] << 8);
+//     return val & 0xFFFF;
+// }
 
 function DATA32_LE(data: number[], offset: number) {
     let val = (data[offset] << 0)
@@ -9,6 +23,29 @@ function DATA32_LE(data: number[], offset: number) {
         | (data[offset + 3] << 24);
     return val >>> 0;
 }
+
+// function getTotalgame_time(): number {
+//     return (
+//         (216000 * memory.defaultNamespace.get_byte(variables.dma_b + 14)) +
+//         (  3600 * memory.defaultNamespace.get_byte(variables.dma_b + 16)) +
+//         (    60 * memory.defaultNamespace.get_byte(variables.dma_b + 17)) +
+//                   memory.defaultNamespace.get_byte(variables.dma_b + 18)
+//     );
+// }
+
+export function decryptItemQuantity(x: number) {
+    let quantity_key: number = memory.defaultNamespace.get_uint16_le(variables.dma_b + 0xAC);
+    return x ^ quantity_key;
+}
+
+// function equalArrays(a1: number[], a2: number[]) {
+//     if (a1 === undefined || a2 === undefined) return a1 == a2;
+//     if (a1.length != a2.length) return false;
+//     for (let i = 0; i < a1.length; i++){
+//         if (a1[i] != a2[i]) return false;
+//     }
+//     return true;
+// }
 
 // Block shuffling orders - used for Party structure encryption and decryption
 // Once a Pokemon's data has been generated it is assigned a PID which determines the order of the blocks
@@ -41,12 +78,74 @@ const shuffleOrders = {
     23: [3, 2, 1, 0]
 };
 
+export function getMetaState(): string {
+    // FSM FOR GAMESTATE TRACKING
+    // MAIN GAMESTATE: This tracks the three basic states the game can be in.
+    // 1. "No Pokemon": cartridge reset; player has not received a Pokemon
+    // 2. "Overworld": Pokemon in party, but not in battle
+    // 3. "To Battle": Battle has started but player hasn't sent their Pokemon in yet
+    // 4. "From Battle": Battle result has been decided but the battle has not transition to the overworld yet
+    // 5. "Battle": In battle
+    const team_0_level: number = getValue('player.team.0.level')
+    const callback_1: string = getValue('pointers.callback_1')
+    const callback_2: string = getValue('pointers.callback_2')
+    const battle_outcomes: string = getValue('battle.other.battle_outcomes')
+    // const battle_dialogue: string = getValue('battle.other.battle_dialogue')
+    // const state: string = getValue('meta.state') ?? "No Pokemon"
+    if (team_0_level == 0) 
+        return "No Pokemon"
+    else if (callback_2 == "Battle Animation")
+        return "To Battle"
+    else if (callback_1 == "Overworld")
+        return "Overworld"
+    else if (callback_1 == "Battle") {
+        if (battle_outcomes != null) {
+            return "From Battle"
+        }
+        return "Battle"
+    }
+    return "Error"
+}
+
+export function getBattleOutcome(): string | null {
+    const outcome_flags: string | null = getValue('battle.other.battle_outcomes')
+    const state: string = getMetaState()
+    switch (state) {
+        case 'From Battle':
+            switch (outcome_flags) {
+                case "WON":
+                    return 'Win'
+                case "LOST":
+                    return 'Lose'
+                case "DRAW":
+                    return 'Flee'
+                case "RAN":
+                    return 'Flee'
+                case "PLAYER_TELEPORTED":
+                    return 'Flee'
+                case "POKEMON_FLED":
+                    return 'Flee'
+                case "CAUGHT":
+                    return 'Caught'
+                case "NO_SAFARI_BALLS":
+                    return 'Flee'
+                case "FORFEITED":
+                    return 'Flee'
+                case "POKEMON_TELEPORTED":
+                    return 'Flee'
+                default:
+                    return null
+            }
+        }
+    return null
+}
+
 export function preprocessor() {
     variables.dma_a = memory.defaultNamespace.get_uint32_le(0x3005008)
     variables.dma_b = memory.defaultNamespace.get_uint32_le(0x300500C)
     variables.dma_c = memory.defaultNamespace.get_uint32_le(0x3005010)
-    variables.callback1 = memory.defaultNamespace.get_uint32_le(0x30030F0)
-    variables.callback2 = memory.defaultNamespace.get_uint32_le(0x30030F4)
+    setValue('meta.state', getMetaState())
+    setValue('battle.outcome', getBattleOutcome())
     
     //DECRYPTION OF THE PARTY POKEMON
     //This process applies to all the the Player's Pokemon as well as to Pokemon loaded NPCs parties
@@ -68,7 +167,7 @@ export function preprocessor() {
 
             let pokemonData = memory.defaultNamespace.get_bytes(startingAddress, 100)
             let pid = pokemonData.get_uint32_le();
-            let otid = pokemonData.get_uint32_le(4);
+            let ot_id = pokemonData.get_uint32_le(4);
 
             let decryptedData = [] as number[]
             for (let i = 0; i < 100; i++) { //Transfer the first 32-bytes of unencrypted data to the decrypted data array
@@ -76,7 +175,7 @@ export function preprocessor() {
             }
 
             //Begin the decryption process for the block data
-            let key = otid ^ pid; //Calculate the encryption key using the Oritinal Trainer ID XODed with the PID
+            let key = ot_id ^ pid; //Calculate the encryption key using the Oritinal Trainer ID XODed with the PID
             for (let i = 32; i < 80; i += 4) {
                 let data = DATA32_LE(pokemonData.data, i) ^ key; //XOR the data with the key
                 decryptedData[i + 0] = data & 0xFF;         // Isolates the least significant byte

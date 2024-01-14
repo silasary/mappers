@@ -7,32 +7,32 @@
     <properties>
         <map>
             <property name="name" type="string" address="0x45" reference="maps" />
-            <property name="horizontalOffset" type="int" address="0x11" />
+            <property name="horizontal_offset" type="int" address="0x11" />
             <property name="tileset" type="string" address="0x12" reference="tileset" />
-            <property name="exteriorTile" type="string" address="0x45" reference="tiles" />
+            <property name="exterior_tile" type="string" address="0x45" reference="tiles" />
         </map>
         <player>
             <position>
                 <property name="x" type="int" address="0x3A" />
                 <property name="y" type="int" address="0x3B" />
-                <property name="standingOn" type="string" address="0xE0" reference="tiles" />
-                <property name="inactivityTimer" type="int" address="0x4F" />
-                <property name="lightRadius" type="string" address="0xD0" reference="lightradius" />
+                <property name="standing_on" type="string" address="0xE0" reference="tiles" />
+                <property name="inactivity_timer" type="int" address="0x4F" />
+                <property name="light_radius" type="string" address="0xD0" reference="light_radius" />
             </position>
             <stats>
                 <property name="level" type="int" address="0xC7" />
-                <property name="currentHp" type="int" address="0xC5" />
-                <property name="maximumHp" type="int" address="0xCA" />
-                <property name="currentMp" type="int" address="0xC6" />
-                <property name="maximumMp" type="int" address="0xCB" />
-                <property name="attackPower" type="int" address="0xCC" />
-                <property name="defensePower" type="int" address="0xCD" />
+                <property name="current_hp" type="int" address="0xC5" />
+                <property name="maximum_hp" type="int" address="0xCA" />
+                <property name="current_mp" type="int" address="0xC6" />
+                <property name="maximum_mp" type="int" address="0xCB" />
+                <property name="attack_power" type="int" address="0xCC" />
+                <property name="defense_power" type="int" address="0xCD" />
                 <property name="gold" type="int" address="0xBC" length="2" />
                 <property name="experience" type="int" address="0xBA" length="2" />
             </stats>
             <inventory>
-                <property name="magicKeysQuantity" type="int" address="0xBF" />
-                <property name="herbsQuantity" type="int" address="0xC0" />
+                <property name="magic_keys_quantity" type="int" address="0xBF" />
+                <property name="herbs_quantity" type="int" address="0xC0" />
                 <items>
                     <property name="0" type="int" address="0xC1" nibble="low" reference="items" />
                     <property name="1" type="int" address="0xC1" nibble="high" reference="items" />
@@ -59,18 +59,18 @@
         </player>
         <battle>
             <enemy>
-                <property name="enemyName" type="string" address="0xE0" reference="enemies" />
-                <property name="currentHP" type="int" address="0xE2" />
-                <property name="maximumHP" type="int" address="0x102" />
+                <property name="enemy_name" type="string" address="0xE0" reference="enemies" />
+                <property name="current_hp" type="int" address="0xE2" />
+                <property name="maximum_hp" type="int" address="0x102" />
                 <property name="strength" type="int" address="0x100" />
                 <property name="agility" type="int" address="0x101" />
                 <property name="abilities" type="string" address="0x103" reference="abilities" />
-                <property name="sleepResist" type="nibble" address="0x104" position="0" />
-                <property name="stopspellResist" type="nibble" address="0x104" position="1" />
-                <property name="hurtResist" type="nibble" address="0x105" position="0" />
-                <property name="dodgeChance" type="nibble" address="0x105" position="1" />
-                <property name="xpReward" type="int" address="0x106" />
-                <property name="goldReward" type="int" address="0x107" />
+                <property name="sleep_resist" type="nibble" address="0x104" position="0" />
+                <property name="stopspell_resist" type="nibble" address="0x104" position="1" />
+                <property name="hurt_resist" type="nibble" address="0x105" position="0" />
+                <property name="dodge_chance" type="nibble" address="0x105" position="1" />
+                <property name="xp_reward" type="int" address="0x106" />
+                <property name="gold_reward" type="int" address="0x107" />
             </enemy>
         </battle>
     </properties>
@@ -467,12 +467,12 @@
             <entry key="0x02" value="Large Shield" />
             <entry key="0x03" value="Silver Shield" />
         </shields>
-        <lightradius>
+        <light_radius>
             <entry key="0x01" value="Radius = 1" />
             <entry key="0x03" value="Radius = 3" />
             <entry key="0x05" value="Radius = 5" />
             <entry key="0x07" value="Radius = 7" />
             <entry key="0x16" value="Fully Lit" />
-        </lightradius>
+        </light_radius>
     </references>
 </mapper>

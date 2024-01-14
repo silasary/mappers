@@ -1,15 +1,22 @@
-import { variables, memory, state, console } from "../common";
+import { 
+    variables, 
+    memory, 
+    state, 
+    console,
+    getValue,
+    setValue
+} from "../common";
 
 export { BitRange } from '../common';
 
 //Decryption Functions
 //16-bit and 32-bit data access functions
-function DATA16_LE(data, offset) {
+function DATA16_LE(data: number[], offset: number) {
     let val = (data[offset] << 0) | (data[offset + 1] << 8);
     return val & 0xFFFF;
 }
 
-function DATA32_LE(data, offset) {
+function DATA32_LE(data: number[], offset: number) {
     let val = (data[offset] << 0)
         | (data[offset + 1] << 8)
         | (data[offset + 2] << 16)
@@ -17,7 +24,7 @@ function DATA32_LE(data, offset) {
     return val >>> 0;
 }
 
-function getTotalGameTime(){
+function getTotalgame_time(): number {
     return (
         (216000 * memory.defaultNamespace.get_byte(variables.dma_b + 14)) +
         (  3600 * memory.defaultNamespace.get_byte(variables.dma_b + 16)) +
@@ -26,12 +33,12 @@ function getTotalGameTime(){
     );
 }
 
-export function decryptItemQuantity(x) {
-    let quantity_key = memory.defaultNamespace.get_uint16_le(variables.dma_b + 0xAC);
+export function decryptItemQuantity(x: number) {
+    let quantity_key: number = memory.defaultNamespace.get_uint16_le(variables.dma_b + 0xAC);
     return x ^ quantity_key;
 }
 
-function equalArrays(a1, a2){
+function equalArrays(a1: number[], a2: number[]) { 
     if (a1 === undefined || a2 === undefined) return a1 == a2;
     if (a1.length != a2.length) return false;
     for (let i = 0; i < a1.length; i++){
@@ -40,10 +47,10 @@ function equalArrays(a1, a2){
     return true;
 }
 
-//Block shuffling orders - used for Party structure encryption and decryption
-//Once a Pokemon's data has been generated it is assigned a PID which determines the order of the blocks
-//As the Pokemon's PID never changes, the order of the blocks always remains the same for that Pokemon
-//Each individial Pokemon receives its own unique shuffle order
+// Block shuffling orders - used for Party structure encryption and decryption
+// Once a Pokemon's data has been generated it is assigned a PID which determines the order of the blocks
+// As the Pokemon's PID never changes, the order of the blocks always remains the same for that Pokemon
+// Each individial Pokemon receives its own unique shuffle order
 const shuffleOrders = {
     0:  [0, 1, 2, 3],
     1:  [0, 1, 3, 2],
@@ -71,6 +78,70 @@ const shuffleOrders = {
     23: [3, 2, 1, 0]
 };
 
+export function getMetaState(): string {
+    // FSM FOR GAMESTATE TRACKING
+    // MAIN GAMESTATE: This tracks the three basic states the game can be in.
+    // 1. "No Pokemon": cartridge reset; player has not received a Pokemon
+    // 2. "Overworld": Pokemon in party, but not in battle
+    // 3. "To Battle": Battle has started but player hasn't sent their Pokemon in yet
+    // 4. "From Battle": Battle result has been decided but the battle has not transition to the overworld yet
+    // 5. "Battle": In battle
+    const team_0_level: number = getValue('player.team.0.level')
+    const callback_1: string = getValue('pointers.callback_1')
+    const callback_2: string = getValue('pointers.callback_2')
+    const battle_outcomes: string = getValue('battle.other.battle_outcomes')
+    // const battle_dialogue: string = getValue('battle.other.battle_dialogue')
+    // const state: string = getValue('meta.state') ?? "No Pokemon"
+    if (team_0_level == 0) 
+        return "No Pokemon"
+    else if (callback_1 == null)
+        return "No Pokemon"
+    else if (callback_2 == "Battle Animation")
+        return "To Battle"
+    else if (callback_1 == "Overworld")
+        return "Overworld"
+    else if (callback_1 == "Battle") {
+        if (battle_outcomes != null) {
+            return "From Battle"
+        }
+        return "Battle"
+    }
+    return "Error"
+}
+
+export function getBattleOutcome(): string | null {
+    const outcome_flags: string | null = getValue('battle.other.battle_outcomes')
+    const state: string = getMetaState()
+    switch (state) {
+        case 'From Battle':
+            switch (outcome_flags) {
+                case "WON":
+                    return 'Win'
+                case "LOST":
+                    return 'Lose'
+                case "DRAW":
+                    return 'Flee'
+                case "RAN":
+                    return 'Flee'
+                case "PLAYER_TELEPORTED":
+                    return 'Flee'
+                case "POKEMON_FLED":
+                    return 'Flee'
+                case "CAUGHT":
+                    return 'Caught'
+                case "NO_SAFARI_BALLS":
+                    return 'Flee'
+                case "FORFEITED":
+                    return 'Flee'
+                case "POKEMON_TELEPORTED":
+                    return 'Flee'
+                default:
+                    return null
+            }
+    }
+    return null
+}
+
 export function preprocessor() {
     variables.dma_a = memory.defaultNamespace.get_uint32_le(0x3005D8C);
     variables.dma_b = memory.defaultNamespace.get_uint32_le(0x3005D90);
@@ -79,6 +150,8 @@ export function preprocessor() {
     variables.player_id = memory.defaultNamespace.get_uint16_le(variables.dma_b + 10);
     variables.first_item_type = memory.defaultNamespace.get_uint16_le(variables.dma_a + 1376);
     variables.second_item_type = memory.defaultNamespace.get_uint16_le(variables.dma_a + 1380);
+    setValue('meta.state', getMetaState())
+    setValue('battle.outcome', getBattleOutcome())
 
     if (state.cached_dma_a === undefined) {
         state.dma_update_delay = 0;
@@ -110,21 +183,20 @@ export function preprocessor() {
         )
     ) {
         // DMA is actually changing, and not due to a reset. Begin blocking
-        state.dma_delay_init = getTotalGameTime();
-        state.dma_update_delay = getTotalGameTime() + 60;
-        state.dma_safety_delay = getTotalGameTime() + 300;
+        state.dma_delay_init = getTotalgame_time();
+        state.dma_update_delay = getTotalgame_time() + 60;
+        state.dma_safety_delay = getTotalgame_time() + 300;
         state.cached_quantity_decryption_key = variables.quantity_decryption_key;
         console.log("DMA change detected, enabling block until changes are complete");
         console.log("DMA init time: " + state.dma_delay_init + ", dma_update_delay: " + state.dma_update_delay + ", dma_safet_delay: " + state.dma_safety_delay);
     }
-
 
     state.cached_dma_a = variables.dma_a;
     state.cached_dma_b = variables.dma_b;
     state.cached_dma_c = variables.dma_c;
 
     if (state.dma_update_delay != 0){
-        let game_time = getTotalGameTime();
+        let game_time = getTotalgame_time();
         if (state.dma_delay_init > game_time) {
             console.log("Impossible game_time detected. Assuming player reset or loaded a save state. Lifting block");
             state.dma_update_delay = 0;
@@ -211,7 +283,7 @@ export function preprocessor() {
             }
 
             let pid = pokemonData.get_uint32_le();
-            let otid = pokemonData.get_uint32_le(4);
+            let ot_id = pokemonData.get_uint32_le(4);
 
             let decrypted_data = [] as number[]
             for (let i = 0; i < 100; i++) { //Transfer the first 32-bytes of unencrypted data to the decrypted data array
@@ -219,7 +291,7 @@ export function preprocessor() {
             }
 
             //Begin the decryption process for the block data
-            let key = otid ^ pid; //Calculate the encryption key using the Oritinal Trainer ID XODed with the PID
+            let key = ot_id ^ pid; //Calculate the encryption key using the Oritinal Trainer ID XODed with the PID
             for (let i = 32; i < 80; i += 4) {
                 let data = DATA32_LE(pokemonData.data, i) ^ key; //XOR the data with the key
                 decrypted_data[i + 0] = data & 0xFF;         // Isolates the least significant byte
