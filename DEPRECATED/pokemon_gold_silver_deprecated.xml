@@ -694,7 +694,7 @@ For all new software, please use the paths within 'pokemon_gold_silver.xml'
       <entry key="0x27" value="Tail Whip" />
       <entry key="0x28" value="Poison Sting" />
       <entry key="0x29" value="Twineedle" />
-      <entry key="0x2A" value="Pin Missle" />
+      <entry key="0x2A" value="Pin Missile" />
       <entry key="0x2B" value="Leer" />
       <entry key="0x2C" value="Bite" />
       <entry key="0x2D" value="Growl" />
