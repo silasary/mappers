@@ -980,11 +980,11 @@ For all new software, please use the paths within 'pokemon_gold_silver.xml'
       <entry key="0x47" value="Silver Wing" />
       <entry key="0x48" value="Moomoo Milk" />
       <entry key="0x49" value="Quick Claw" />
-      <entry key="0x4A" value="PsnCureBerry" />
+      <entry key="0x4A" value="PsnCurBerry" />
       <entry key="0x4B" value="Gold Leaf" />
       <entry key="0x4C" value="Soft Sand" />
       <entry key="0x4D" value="Sharp Beak" />
-      <entry key="0x4E" value="PrzCureBerry" />
+      <entry key="0x4E" value="PrzCurBerry" />
       <entry key="0x4F" value="BurntBerry" />
       <entry key="0x50" value="Ice Berry" />
       <entry key="0x51" value="Poison Barb" />
@@ -1056,7 +1056,7 @@ For all new software, please use the paths within 'pokemon_gold_silver.xml'
       <entry key="0x93" value="Teru-Sama" />
       <entry key="0x94" value="Teru-Sama" />
       <entry key="0x95" value="Teru-Sama" />
-      <entry key="0x96" value="MYsteryBerry" />
+      <entry key="0x96" value="MysteryBerry" />
       <entry key="0x97" value="Dragon Scale" />
       <entry key="0x98" value="Berserk Gene" />
       <entry key="0x99" value="Teru-Sama" />
