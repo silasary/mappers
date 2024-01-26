@@ -777,9 +777,9 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
     </patch>
     <meta>
       <property name="generation" type="int" value="2" />
-      <property name="gameName"   type="int" value="Crystal" />
-      <property name="gameType"   type="int" value="Third Version" />
-      <property name="mapperType" type="int" value="Deprecated" />
+      <property name="gameName"   type="string" value="Crystal" />
+      <property name="gameType"   type="string" value="Third Version" />
+      <property name="mapperType" type="string" value="Deprecated" />
       <!-- <property name="state" type="string" />
       <property name="state_enemy" type="string" /> -->
     </meta>

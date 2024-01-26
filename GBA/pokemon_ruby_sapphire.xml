@@ -77,8 +77,86 @@
                 <property name="robbins_obedience" type="int"    address="44" memoryContainer="memoryContainer" length="4" />
             </misc> 
         </party_pokemon>
+        <player_active_pokemon>
+            <property name="species"    type="int" />
+            <property name="dex_number" type="int" />
+            <property name="nickname"   type="string" />
+            <property name="level"      type="int" />
+            <property name="exp"        type="uint" />
+            <property name="ot_id"      type="uint" />
+            <property name="ability"    type="int" />
+            <property name="nature"     type="uint" />
+            <property name="held_item"  type="int" />
+            <property name="friendship" type="int" />
+            <property name="pokerus"    type="int" />
+            <property name="type_1"     type="int" />
+            <property name="type_2"     type="int" />
+            <property name="ot_name"    type="string" />
+            <property name="status_1"   type="int" />
+            <property name="status_2"   type="int" />
+            <property name="status_condition" type="int" />
+            <moves>
+				<class name="0" type="active_pokemon_move" />
+				<class name="1" type="active_pokemon_move" />
+				<class name="2" type="active_pokemon_move" />
+				<class name="3" type="active_pokemon_move" />
+			</moves>
+            <stats>
+                <property name="hp"              type="int" />
+                <property name="hp_max"          type="int" />
+                <property name="attack"          type="int" />
+                <property name="defense"         type="int" />
+                <property name="speed"           type="int" />
+                <property name="special_attack"  type="int" />
+                <property name="special_defense" type="int" />
+            </stats>
+            <modifiers>
+                <property name="attack"          type="int" />
+                <property name="defense"         type="int" />
+                <property name="speed"           type="int" />
+                <property name="special_attack"  type="int" />
+                <property name="special_defense" type="int" />
+                <property name="accuracy"        type="int" />
+                <property name="evasion"         type="int" />
+            </modifiers>
+            <ivs>
+                <property name="hp"              type="int" />
+                <property name="attack"          type="int" />
+                <property name="defense"         type="int" />
+                <property name="speed"           type="int" />
+                <property name="special_attack"  type="int" />
+                <property name="special_defense" type="int" />
+            </ivs>
+            <evs>
+                <property name="hp"              type="int" />
+                <property name="attack"          type="int" />
+                <property name="defense"         type="int" />
+                <property name="speed"           type="int" />
+                <property name="special_attack"  type="int" />
+                <property name="special_defense" type="int" />
+            </evs>
+			<internals>
+                <property name="personality_value" type="int"/>
+                <property name="checksum" type="int" />
+            </internals>
+            <misc> 
+                <property name="is_egg"            type="int" />
+                <property name="language"          type="int" />
+                <property name="is_bad_egg"        type="int" />
+                <property name="has_species"       type="int" />
+                <property name="use_egg_name"      type="int" />
+                <property name="ot_name"           type="string" />
+                <property name="marking_circle"    type="int" />
+                <property name="marking_square"    type="int" />
+                <property name="marking_triangle"  type="int" />
+                <property name="marking_heart"     type="int" />
+                <property name="pokerus_status"    type="int" />
+                <property name="met_location"      type="int" />
+                <property name="origins_info"      type="int" />
+                <property name="robbins_obedience" type="int" />
+            </misc> 
+        </player_active_pokemon>
         <battle_structure>
-            <property name="party_position"    type="int"    address="party_position" length="2" />
             <property name="species"           type="int"    address="address" length="2" reference="species" />
 			<property name="dex_number"        type="int"    address="address" length="2" reference="dex_numbers" />
             <property name="nickname"          type="string" address="address + 48" length="11" characterMap="defaultCharacterMap" />
@@ -127,16 +205,25 @@
                 <property name="evasion"         type="int" address="address + 31" reference="stage_modifiers" />
             </modifiers>
         </battle_structure>
+        
+        <active_pokemon_move>
+            <property name="move"  type="int" />
+            <property name="pp"    type="int" />
+            <property name="pp_up" type="int" />
+        </active_pokemon_move>
+
 		<pokemon_moves>
 			<property name="move"  type="int" address="moveNumberOffset" memoryContainer="memoryContainer" reference="moves" length="2" />
 			<property name="pp"    type="int" address="ppOffset" memoryContainer="memoryContainer" after-read-value-expression="x % 64" />
 			<property name="pp_up" type="int" address="ppUpOffset" memoryContainer="memoryContainer" after-read-value-expression="Math.floor(x / 64)" />
 		</pokemon_moves>
+
         <battle_moves>
 			<property name="move"  type="int" address="address + moveNumberOffset"  reference="moves" length="2" />
 			<property name="pp"    type="int" address="address + ppOffset" after-read-value-expression="x % 64" />
 			<property name="pp_up" type="int" value="null" />
 		</battle_moves>
+
         <player_item>
             <property name="item"     type="int" length="2" address="address + offset" reference="items" />
             <property name="quantity" type="int" length="2" address="address + offset + 2" />
@@ -153,9 +240,8 @@
             <property name="gender"     type="int"    address="0x2024EAC" reference="gender" />
             <property name="player_id"  type="int"    address="0x20228D6" length="2" description="The active player user Id, better tracking for if the game has loaded a new or saved game" />
             <property name="team_count" type="int"    address="0x03004350" />
-             <!-- TODO: dynamically assign these properies based on the game stats -->
-            <!-- <active_pokemon>
-			</active_pokemon> -->
+            <property name="party_position" type="int" />
+            <class name="active_pokemon" type="player_active_pokemon" />
             <team>
                 <class name="0" type="party_pokemon" var:memoryContainer="player_party_structure_0" />
                 <class name="1" type="party_pokemon" var:memoryContainer="player_party_structure_1" />
@@ -205,7 +291,7 @@
         <battle>
             <property name="outcome" type="int" />
             <player>
-                <!-- <property name="party_position" type="int" length="2" address="0x02023BCE" /> -->
+                <property name="party_position" type="int" length="2" address="0x2024A6A" />
                 <!-- <property name="party_position_2" type="int" length="2" address="0x02023BD2" /> -->
                 <class name="active_pokemon" type="battle_structure" var:address="0x2024A80" var:party_position="0x02024A6A" length="2" />
                 <class name="active_pokemon_2" type="battle_structure" var:address="0x2024B30" var:party_position="0x2024A6E" length="2" />
@@ -353,8 +439,8 @@
         </pointers>
         <meta>
             <property name="generation" type="int" value="3" />
-			<property name="game_name"  type="int" value="Ruby and Sapphire" />
-            <property name="game_type"  type="int" value="Originals" />
+			<property name="game_name"  type="string" value="Ruby and Sapphire" />
+            <property name="game_type"  type="string" value="Originals" />
 			<property name="state"      type="string" />
 			<!-- <property name="state_enemy" type="string" /> -->
         </meta>

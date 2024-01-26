@@ -47,12 +47,20 @@ interface IByteArray {
 
 interface IMapperProperty {
     path: string
-    address?: number
+    address?: number | null
     value: any
 }
 
+interface IMapperSetCommand {
+    address?: number | null
+    value?: any | null
+}
+
+interface PropertiesDictionary {
+    [key: string]: IMapperProperty;
+}
 interface IMapper {
-    properties: IMapperProperty[]
+    properties: PropertiesDictionary
 }
 
 // @ts-ignore
@@ -101,6 +109,27 @@ export function getProperty(path: string) {
     }
 
     return property;
+}
+
+export function setProperty(path: string, values: IMapperSetCommand) {
+    const property = getProperty(path)
+
+    if (values.address !== undefined)   property.address = values.address
+    if (values.value !== undefined)     property.value = values.value
+}
+
+export function copyProperties(sourcePath: string, destinationPath: string) {
+    const sourceProps = Object.values(mapper.properties).filter(x => x.path.startsWith(sourcePath))
+    const destinationProps = Object.values(mapper.properties).filter(x => x.path.startsWith(destinationPath))
+
+    destinationProps.forEach(property => {
+        const restOfThePath = property.path.replace(destinationPath, '')
+
+        const source = sourceProps.find(x => x.path === `${sourcePath}${restOfThePath}`)
+        if (source) {
+            setProperty(property.path, { address: source.address, value: source.value })
+        }
+    })
 }
 
 export function BitRange(value: number, upperBounds: number, lowerBounds: number): number {

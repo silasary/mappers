@@ -22,7 +22,7 @@ For all new software, please use the paths within 'pokemon_yellow.xml'
 			<property name="expPoints"       address="address + 14" type="int" length="3" />
 			<property name="statusCondition" address="address + 4" type="int" reference="statusConditions" />
 			<property name="maxHp"   address="address + 34" type="int" length="2" />
-			<property name="hp"      address="address + 1" type="int" length="2" />
+			<property name="hp"      address="address + 1"  type="int" length="2" />
 			<property name="attack"  address="address + 36" type="int" length="2" description="The Attack stat as it appears in the Pokemon's summary page in game" />
 			<property name="defense" address="address + 38" type="int" length="2" description="The Defense stat as it appears in the Pokemon's summary page in game" />
 			<property name="speed"   address="address + 40" type="int" length="2" description="The Speed stat as it appears in the Pokemon's summary page in game" />
@@ -31,8 +31,8 @@ For all new software, please use the paths within 'pokemon_yellow.xml'
 			<property name="dvDefense" address="address + 27" type="int" after-read-value-expression="x % 16" />
 			<property name="dvSpeed"   address="address + 28" type="int" after-read-value-expression="(x - (x % 16))/16" />
 			<property name="dvSpecial" address="address + 28" type="int" after-read-value-expression="x % 16" />
-			<property name="move1" address="address + 8" type="int" reference="moves" description="Top moveslot" />
-			<property name="move2" address="address + 9" type="int" reference="moves" />
+			<property name="move1" address="address + 8"  type="int" reference="moves" description="Top moveslot" />
+			<property name="move2" address="address + 9"  type="int" reference="moves" />
 			<property name="move3" address="address + 10" type="int" reference="moves" />
 			<property name="move4" address="address + 11" type="int" reference="moves" description="Bottom moveslot" />
 			<property name="move1pp" address="address + 29" type="int" after-read-value-expression="x % 64" />
@@ -764,10 +764,10 @@ For all new software, please use the paths within 'pokemon_yellow.xml'
 		</patch>
 		<meta>
 			<property name="generation" type="int" value="1" />
-			<property name="gameName"   type="int" value="Yellow" />
-			<property name="gameType"   type="int" value="Third Version" />
-			<property name="mapperType" type="int" value="Deprecated" />
-			<property name="state"       type="string" />
+			<property name="gameName"   type="string" value="Yellow" />
+			<property name="gameType"   type="string" value="Third Version" />
+			<property name="mapperType" type="string" value="Deprecated" />
+			<property name="state"      type="string" />
 		</meta>
 	</properties>
   

@@ -61,7 +61,7 @@
 			<internals>
 				<property name="personality_value" address="0"  type="uint" memoryContainer="memoryContainer" length="4" />
 				<property name="checksum"          address="6"  type="uint" memoryContainer="memoryContainer" length="2" />
-				<property name="secret_id"         address="0"  type="int"  memoryContainer="memoryContainer" length="2" />
+				<property name="secret_id"         address="14" type="int"  memoryContainer="memoryContainer" length="2" />
 				<property name="language"          address="23" type="int"  memoryContainer="memoryContainer" reference="language" />
 			</internals>
 			<misc>
@@ -72,8 +72,8 @@
 				<met_info>
 					<property name="date_egg_received" type="int" address="120" memoryContainer="memoryContainer" length="3" />
 					<property name="date_met"          type="int" address="123" memoryContainer="memoryContainer" length="3" />
-					<property name="dp_egg_location"   type="int" address="126" memoryContainer="memoryContainer" length="2" />
-					<property name="dp_met_location"   type="int" address="128" memoryContainer="memoryContainer" length="2" />
+					<property name="egg_location"      type="int" address="126" memoryContainer="memoryContainer" length="2" />
+					<property name="met_location"      type="int" address="128" memoryContainer="memoryContainer" length="2" />
 					<property name="pokeball"          type="int" address="131" memoryContainer="memoryContainer" />
 					<property name="met_level"         type="int" address="132" memoryContainer="memoryContainer" after-read-value-expression="getBits(x, 6, 0)" />
 					<property name="female_ot_gender"  type="bit" address="132" memoryContainer="memoryContainer" position="7" />
@@ -91,16 +91,121 @@
 				</ribbons>
 			</misc>
 		</party_pokemon>
+		<player_active_pokemon>
+			<property name="species"    type="int" />
+			<property name="dex_number" type="int" />
+			<property name="nickname"   type="string" />
+			<property name="level"      type="int" />
+			<property name="type_1"     type="string" />
+			<property name="type_2"     type="string" />
+			<property name="exp"        type="int" />
+			<property name="ot_name"    type="string" />
+			<property name="ot_id"      type="int" />
+			<property name="ability"    type="int" />
+			<property name="nature"     type="uint" />
+			<property name="held_item"  type="int" />
+			<property name="friendship" type="int" />
+			<property name="pokerus"    type="int" />
+			<property name="status_condition" type="int" />
+			<moves>
+				<class name="0" type="pokemon_moves" />
+				<class name="1" type="pokemon_moves" />
+				<class name="2" type="pokemon_moves" />
+				<class name="3" type="pokemon_moves" />
+			</moves>
+			<stats>
+				<property name="hp"              type="int" />
+				<property name="hp_max"          type="int" />
+				<property name="attack"          type="int" />
+				<property name="defense"         type="int" />
+				<property name="speed"           type="int" />
+				<property name="special_attack"  type="int" />
+				<property name="special_defense" type="int" />
+			</stats>
+			<modifiers>
+				<property name="attack"          type="int" />
+				<property name="defense"         type="int" />
+				<property name="speed"           type="int" />
+				<property name="special_attack"  type="int" />
+				<property name="special_defense" type="int" />
+				<property name="accuracy"        type="int" />
+				<property name="evasion"         type="int" />
+			</modifiers>
+			<ivs>
+				<property name="hp"              type="int" />
+				<property name="attack"          type="int" />
+				<property name="defense"         type="int" />
+				<property name="speed"           type="int" />
+				<property name="special_attack"  type="int" />
+				<property name="special_defense" type="int" />
+			</ivs>
+			<evs>
+				<property name="hp"              type="int" />
+				<property name="attack"          type="int" />
+				<property name="defense"         type="int" />
+				<property name="speed"           type="int" />
+				<property name="special_attack"  type="int" />
+				<property name="special_defense" type="int" />
+			</evs>
+			<flags>
+				<property name="is_egg"          type="int" />
+				<property name="is_nicknamed"    type="int" />
+				<property name="skip_checksum_1" type="int" />
+				<property name="skip_checksum_2" type="int" />
+				<property name="is_bad_egg"      type="int" />
+			</flags>
+			<internals>
+				<property name="personality_value" type="uint" />
+				<property name="checksum"          type="uint" />
+				<property name="secret_id"         type="int"  />
+				<property name="language"          type="int"  />
+			</internals>
+			<misc>
+				<property name="markings"    type="int" />
+				<property name="sheen"       type="int" />
+				<property name="hgss_ball"   type="int" />
+				<property name="performance" type="int" />
+				<met_info>
+					<property name="date_egg_received" type="int" />
+					<property name="date_met"          type="int" />
+					<property name="egg_location"      type="int" />
+					<property name="met_location"      type="int" />
+					<property name="pokeball"          type="int" />
+					<property name="met_level"         type="int" />
+					<property name="female_ot_gender"  type="int" />
+					<property name="encounter_type"    type="int" />
+				</met_info>
+				<contest>
+					<property name="contest_cool"   type="int" />
+					<property name="contest_beauty" type="int" />
+					<property name="contest_cute"   type="int" />
+					<property name="contest_smart"  type="int" />
+					<property name="contest_tough"  type="int" />
+				</contest>
+				<ribbons>
+					<property name="ribbons_sinnoh_set_1" type="int" />
+				</ribbons>
+			</misc>
+		</player_active_pokemon>
+
+		<active_pokemon_move>
+            <property name="move"  type="int" />
+            <property name="pp"    type="int" />
+            <property name="pp_up" type="int" />
+        </active_pokemon_move>
+
 		<pokemon_moves>
 			<property name="move"  type="int" address="moveNumberOffset"  memoryContainer="memoryContainer" reference="moves" length="2" />
 			<property name="pp"    type="int" address="ppOffset" memoryContainer="memoryContainer" after-read-value-expression="x % 64" />
 			<property name="pp_up" type="int" address="ppUpOffset" memoryContainer="memoryContainer" after-read-value-expression="Math.floor(x / 64)" />
 		</pokemon_moves>
+
 		<battle_move>
 			<property name="move"  type="int" address="address + moveNumberOffset"  reference="moves" length="2" />
 			<property name="pp"    type="int" address="address + ppOffset" after-read-value-expression="x % 64" />
 			<property name="pp_up" type="int" value="null" />
 		</battle_move>
+
 		<battle_structure>
 			<property name="species"          address="address + 0"    type="int"    length="2"  reference="species" />
 			<property name="nickname"         address="address + 54"   type="string" length="22" size="2" characterMap="defaultCharacterMap" />
@@ -150,19 +255,29 @@
 				<property name="personality_value" address="address + 104" type="uint" length="4"/>
 			</internals>
 		</battle_structure>
+
 		<player_item>
             <property name="item"     address="address" type="int" length="2" reference="items" />
             <property name="quantity" address="address + 2" type="int" length="2" />
         </player_item>
+
+		<wild_encounter>
+		    <property name="level"   type="int" address="address" />
+            <property name="species" type="int" address="address + 4" reference="species" />
+            <property name="dex_number" type="int" address="address + 4" reference="dex_numbers" />
+		</wild_encounter>
 	</classes>
 
 	<properties>
 		<player>
-			<property name="name" type="string" address="global_pointer + 0xD054" length="14" size="2" /> <!-- TODO: check this address -->
-			<!-- <property name="gender" type="int" address="global_pointer + 0xXXXX" /> --> <!-- TODO: obtain address -->
+			<property name="name" type="string" address="global_pointer + 0xD054" length="14" size="2" />
+			<property name="gender" type="int" address="global_pointer + 0xD06C" />
 			<property name="player_id" type="int" address="global_pointer + 0xD064" length="2" />
 			<property name="secret_id" type="int" address="global_pointer + 0xD066" length="2" />
 			<property name="team_count" type="int" address="global_pointer + 0xD084" />
+			<property name="starter" type="int" address="global_pointer + 0xDE34" length="2" reference="species" /> 
+			<property name="party_position" type="int" />
+            <class name="active_pokemon" type="player_active_pokemon" />
 			<team>
 				<class name="0" type="party_pokemon" var:memoryContainer="player_party_structure_0" />
 				<class name="1" type="party_pokemon" var:memoryContainer="player_party_structure_1" />
@@ -172,20 +287,27 @@
 				<class name="5" type="party_pokemon" var:memoryContainer="player_party_structure_5" />
 			</team>
 			<badges>
-				<property name="0" type="bit" address="global_pointer + 0xD06E" position="0" description="zephyrbadge" />
-                <property name="1" type="bit" address="global_pointer + 0xD06E" position="1" description="hivebadge" />
-                <property name="2" type="bit" address="global_pointer + 0xD06E" position="2" description="plainbadge" />
-                <property name="3" type="bit" address="global_pointer + 0xD06E" position="3" description="fogbadge" />
-                <property name="4" type="bit" address="global_pointer + 0xD06E" position="4" description="stormbadge" />
-                <property name="5" type="bit" address="global_pointer + 0xD06E" position="5" description="mineralbadge" />
-                <property name="6" type="bit" address="global_pointer + 0xD06E" position="6" description="glacierbadge" />
-                <property name="7" type="bit" address="global_pointer + 0xD06E" position="7" description="risingbadge" />
+				<property name="0"  type="bit" address="global_pointer + 0xD06E" position="0" description="zephyrbadge" />
+                <property name="1"  type="bit" address="global_pointer + 0xD06E" position="1" description="hivebadge" />
+                <property name="2"  type="bit" address="global_pointer + 0xD06E" position="2" description="plainbadge" />
+                <property name="3"  type="bit" address="global_pointer + 0xD06E" position="3" description="fogbadge" />
+                <property name="4"  type="bit" address="global_pointer + 0xD06E" position="4" description="stormbadge" />
+                <property name="5"  type="bit" address="global_pointer + 0xD06E" position="5" description="mineralbadge" />
+                <property name="6"  type="bit" address="global_pointer + 0xD06E" position="6" description="glacierbadge" />
+                <property name="7"  type="bit" address="global_pointer + 0xD06E" position="7" description="risingbadge" />
+				<property name="8"  type="bit" address="global_pointer + 0xD06E + 5" position="0" description="boulderbadge" />
+                <property name="9"  type="bit" address="global_pointer + 0xD06E + 5" position="1" description="cascadebadge" />
+                <property name="10" type="bit" address="global_pointer + 0xD06E + 5" position="2" description="thunderbadge" />
+                <property name="11" type="bit" address="global_pointer + 0xD06E + 5" position="3" description="rainbowbadge" />
+                <property name="12" type="bit" address="global_pointer + 0xD06E + 5" position="4" description="soulbadge" />
+                <property name="13" type="bit" address="global_pointer + 0xD06E + 5" position="5" description="marshbadge" />
+                <property name="14" type="bit" address="global_pointer + 0xD06E + 5" position="6" description="volcanobadge" />
+                <property name="15" type="bit" address="global_pointer + 0xD06E + 5" position="7" description="earthbadge" />
 			</badges>
 		</player>
 		<bag>
             <property name="money" type="int" address="global_pointer + 0xD068" length="4" />
-            <!-- <property name="coins" type="int" address="0xXXXX" /> --> <!-- TODO: obtain address -->
-			<!-- 0x294 bytes between start of items and end of items. -->
+            <property name="coins" type="int" address="global_pointer + 0xD074" length="4" />
 			<items>
 				<class name="0"  type="player_item" var:address="global_pointer + 0xD634" />
 				<class name="1"  type="player_item" var:address="global_pointer + 0xD634 + 4" />
@@ -230,7 +352,6 @@
 				<class name="40" type="player_item" var:address="global_pointer + 0xD634 + 160" />
 				<!-- There are more item slots - I have left them out for runtime speed -->
 			</items>
-			<!-- 104 medicine slots -->
 			<medicine>
 				<class name="0"  type="player_item" var:address="global_pointer + 0xDB54" />
 				<class name="1"  type="player_item" var:address="global_pointer + 0xDB54 + 4" />
@@ -253,7 +374,7 @@
 				<class name="18" type="player_item" var:address="global_pointer + 0xDB54 + 72" />
 				<class name="19" type="player_item" var:address="global_pointer + 0xDB54 + 76" />
 				<class name="20" type="player_item" var:address="global_pointer + 0xDB54 + 80" />
-				<!-- There are more item slots - I have left them out for runtime speed -->
+				<!-- There are more item slots -->
 			</medicine>
 			<balls>
 				<class name="0"  type="player_item" var:address="global_pointer + 0xDCF4" />
@@ -376,74 +497,74 @@
 				<class name="98" type="player_item" var:address="global_pointer + 0xD990 + 392" />
 				<class name="99" type="player_item" var:address="global_pointer + 0xD990 + 396" />
 			</tmhm>
-			<!-- TODO: offset required for berries; these are not common in HGSS -->
+			<!-- TODO: confirm this offset is correct (0xDBF0) -->
 			<!-- <berries> 
-				<class name="0"  type="player_item" var:address="global_pointer + 0xDBE0 + 0" />
-				<class name="1"  type="player_item" var:address="global_pointer + 0xDBE0 + 4" />
-				<class name="2"  type="player_item" var:address="global_pointer + 0xDBE0 + 8" />
-				<class name="3"  type="player_item" var:address="global_pointer + 0xDBE0 + 12" />
-				<class name="4"  type="player_item" var:address="global_pointer + 0xDBE0 + 16" />
-				<class name="5"  type="player_item" var:address="global_pointer + 0xDBE0 + 20" />
-				<class name="6"  type="player_item" var:address="global_pointer + 0xDBE0 + 24" />
-				<class name="7"  type="player_item" var:address="global_pointer + 0xDBE0 + 28" />
-				<class name="8"  type="player_item" var:address="global_pointer + 0xDBE0 + 32" />
-				<class name="9"  type="player_item" var:address="global_pointer + 0xDBE0 + 36" />
-				<class name="10" type="player_item" var:address="global_pointer + 0xDBE0 + 40" />
-				<class name="11" type="player_item" var:address="global_pointer + 0xDBE0 + 44" />
-				<class name="12" type="player_item" var:address="global_pointer + 0xDBE0 + 48" />
-				<class name="13" type="player_item" var:address="global_pointer + 0xDBE0 + 52" />
-				<class name="14" type="player_item" var:address="global_pointer + 0xDBE0 + 56" />
-				<class name="15" type="player_item" var:address="global_pointer + 0xDBE0 + 60" />
-				<class name="16" type="player_item" var:address="global_pointer + 0xDBE0 + 64" />
-				<class name="17" type="player_item" var:address="global_pointer + 0xDBE0 + 68" />
-				<class name="18" type="player_item" var:address="global_pointer + 0xDBE0 + 72" />
-				<class name="19" type="player_item" var:address="global_pointer + 0xDBE0 + 76" />
-				<class name="20" type="player_item" var:address="global_pointer + 0xDBE0 + 80" />
-				<class name="21" type="player_item" var:address="global_pointer + 0xDBE0 + 84" />
-				<class name="22" type="player_item" var:address="global_pointer + 0xDBE0 + 88" />
-				<class name="23" type="player_item" var:address="global_pointer + 0xDBE0 + 92" />
-				<class name="24" type="player_item" var:address="global_pointer + 0xDBE0 + 96" />
-				<class name="25" type="player_item" var:address="global_pointer + 0xDBE0 + 100" />
-				<class name="26" type="player_item" var:address="global_pointer + 0xDBE0 + 104" />
-				<class name="27" type="player_item" var:address="global_pointer + 0xDBE0 + 108" />
-				<class name="28" type="player_item" var:address="global_pointer + 0xDBE0 + 112" />
-				<class name="29" type="player_item" var:address="global_pointer + 0xDBE0 + 116" />
-				<class name="30" type="player_item" var:address="global_pointer + 0xDBE0 + 120" />
-				<class name="31" type="player_item" var:address="global_pointer + 0xDBE0 + 124" />
-				<class name="32" type="player_item" var:address="global_pointer + 0xDBE0 + 128" />
-				<class name="33" type="player_item" var:address="global_pointer + 0xDBE0 + 132" />
-				<class name="34" type="player_item" var:address="global_pointer + 0xDBE0 + 136" />
-				<class name="35" type="player_item" var:address="global_pointer + 0xDBE0 + 140" />
-				<class name="36" type="player_item" var:address="global_pointer + 0xDBE0 + 144" />
-				<class name="37" type="player_item" var:address="global_pointer + 0xDBE0 + 148" />
-				<class name="38" type="player_item" var:address="global_pointer + 0xDBE0 + 152" />
-				<class name="39" type="player_item" var:address="global_pointer + 0xDBE0 + 156" />
-				<class name="40" type="player_item" var:address="global_pointer + 0xDBE0 + 160" />
-				<class name="41" type="player_item" var:address="global_pointer + 0xDBE0 + 164" />
-				<class name="42" type="player_item" var:address="global_pointer + 0xDBE0 + 168" />
-				<class name="43" type="player_item" var:address="global_pointer + 0xDBE0 + 172" />
-				<class name="44" type="player_item" var:address="global_pointer + 0xDBE0 + 176" />
-				<class name="45" type="player_item" var:address="global_pointer + 0xDBE0 + 180" />
-				<class name="46" type="player_item" var:address="global_pointer + 0xDBE0 + 184" />
-				<class name="47" type="player_item" var:address="global_pointer + 0xDBE0 + 188" />
-				<class name="48" type="player_item" var:address="global_pointer + 0xDBE0 + 192" />
-				<class name="49" type="player_item" var:address="global_pointer + 0xDBE0 + 196" />
-				<class name="50" type="player_item" var:address="global_pointer + 0xDBE0 + 200" />
-				<class name="51" type="player_item" var:address="global_pointer + 0xDBE0 + 204" />
-				<class name="52" type="player_item" var:address="global_pointer + 0xDBE0 + 208" />
-				<class name="53" type="player_item" var:address="global_pointer + 0xDBE0 + 212" />
-				<class name="54" type="player_item" var:address="global_pointer + 0xDBE0 + 216" />
-				<class name="55" type="player_item" var:address="global_pointer + 0xDBE0 + 220" />
-				<class name="56" type="player_item" var:address="global_pointer + 0xDBE0 + 224" />
-				<class name="57" type="player_item" var:address="global_pointer + 0xDBE0 + 228" />
-				<class name="58" type="player_item" var:address="global_pointer + 0xDBE0 + 232" />
-				<class name="59" type="player_item" var:address="global_pointer + 0xDBE0 + 236" />
-				<class name="60" type="player_item" var:address="global_pointer + 0xDBE0 + 240" />
-				<class name="61" type="player_item" var:address="global_pointer + 0xDBE0 + 244" />
-				<class name="62" type="player_item" var:address="global_pointer + 0xDBE0 + 248" />
-				<class name="63" type="player_item" var:address="global_pointer + 0xDBE0 + 252" />
+				<class name="0"  type="player_item" var:address="global_pointer + 0xDBF0 + 0" />
+				<class name="1"  type="player_item" var:address="global_pointer + 0xDBF0 + 4" />
+				<class name="2"  type="player_item" var:address="global_pointer + 0xDBF0 + 8" />
+				<class name="3"  type="player_item" var:address="global_pointer + 0xDBF0 + 12" />
+				<class name="4"  type="player_item" var:address="global_pointer + 0xDBF0 + 16" />
+				<class name="5"  type="player_item" var:address="global_pointer + 0xDBF0 + 20" />
+				<class name="6"  type="player_item" var:address="global_pointer + 0xDBF0 + 24" />
+				<class name="7"  type="player_item" var:address="global_pointer + 0xDBF0 + 28" />
+				<class name="8"  type="player_item" var:address="global_pointer + 0xDBF0 + 32" />
+				<class name="9"  type="player_item" var:address="global_pointer + 0xDBF0 + 36" />
+				<class name="10" type="player_item" var:address="global_pointer + 0xDBF0 + 40" />
+				<class name="11" type="player_item" var:address="global_pointer + 0xDBF0 + 44" />
+				<class name="12" type="player_item" var:address="global_pointer + 0xDBF0 + 48" />
+				<class name="13" type="player_item" var:address="global_pointer + 0xDBF0 + 52" />
+				<class name="14" type="player_item" var:address="global_pointer + 0xDBF0 + 56" />
+				<class name="15" type="player_item" var:address="global_pointer + 0xDBF0 + 60" />
+				<class name="16" type="player_item" var:address="global_pointer + 0xDBF0 + 64" />
+				<class name="17" type="player_item" var:address="global_pointer + 0xDBF0 + 68" />
+				<class name="18" type="player_item" var:address="global_pointer + 0xDBF0 + 72" />
+				<class name="19" type="player_item" var:address="global_pointer + 0xDBF0 + 76" />
+				<class name="20" type="player_item" var:address="global_pointer + 0xDBF0 + 80" />
+				<class name="21" type="player_item" var:address="global_pointer + 0xDBF0 + 84" />
+				<class name="22" type="player_item" var:address="global_pointer + 0xDBF0 + 88" />
+				<class name="23" type="player_item" var:address="global_pointer + 0xDBF0 + 92" />
+				<class name="24" type="player_item" var:address="global_pointer + 0xDBF0 + 96" />
+				<class name="25" type="player_item" var:address="global_pointer + 0xDBF0 + 100" />
+				<class name="26" type="player_item" var:address="global_pointer + 0xDBF0 + 104" />
+				<class name="27" type="player_item" var:address="global_pointer + 0xDBF0 + 108" />
+				<class name="28" type="player_item" var:address="global_pointer + 0xDBF0 + 112" />
+				<class name="29" type="player_item" var:address="global_pointer + 0xDBF0 + 116" />
+				<class name="30" type="player_item" var:address="global_pointer + 0xDBF0 + 120" />
+				<class name="31" type="player_item" var:address="global_pointer + 0xDBF0 + 124" />
+				<class name="32" type="player_item" var:address="global_pointer + 0xDBF0 + 128" />
+				<class name="33" type="player_item" var:address="global_pointer + 0xDBF0 + 132" />
+				<class name="34" type="player_item" var:address="global_pointer + 0xDBF0 + 136" />
+				<class name="35" type="player_item" var:address="global_pointer + 0xDBF0 + 140" />
+				<class name="36" type="player_item" var:address="global_pointer + 0xDBF0 + 144" />
+				<class name="37" type="player_item" var:address="global_pointer + 0xDBF0 + 148" />
+				<class name="38" type="player_item" var:address="global_pointer + 0xDBF0 + 152" />
+				<class name="39" type="player_item" var:address="global_pointer + 0xDBF0 + 156" />
+				<class name="40" type="player_item" var:address="global_pointer + 0xDBF0 + 160" />
+				<class name="41" type="player_item" var:address="global_pointer + 0xDBF0 + 164" />
+				<class name="42" type="player_item" var:address="global_pointer + 0xDBF0 + 168" />
+				<class name="43" type="player_item" var:address="global_pointer + 0xDBF0 + 172" />
+				<class name="44" type="player_item" var:address="global_pointer + 0xDBF0 + 176" />
+				<class name="45" type="player_item" var:address="global_pointer + 0xDBF0 + 180" />
+				<class name="46" type="player_item" var:address="global_pointer + 0xDBF0 + 184" />
+				<class name="47" type="player_item" var:address="global_pointer + 0xDBF0 + 188" />
+				<class name="48" type="player_item" var:address="global_pointer + 0xDBF0 + 192" />
+				<class name="49" type="player_item" var:address="global_pointer + 0xDBF0 + 196" />
+				<class name="50" type="player_item" var:address="global_pointer + 0xDBF0 + 200" />
+				<class name="51" type="player_item" var:address="global_pointer + 0xDBF0 + 204" />
+				<class name="52" type="player_item" var:address="global_pointer + 0xDBF0 + 208" />
+				<class name="53" type="player_item" var:address="global_pointer + 0xDBF0 + 212" />
+				<class name="54" type="player_item" var:address="global_pointer + 0xDBF0 + 216" />
+				<class name="55" type="player_item" var:address="global_pointer + 0xDBF0 + 220" />
+				<class name="56" type="player_item" var:address="global_pointer + 0xDBF0 + 224" />
+				<class name="57" type="player_item" var:address="global_pointer + 0xDBF0 + 228" />
+				<class name="58" type="player_item" var:address="global_pointer + 0xDBF0 + 232" />
+				<class name="59" type="player_item" var:address="global_pointer + 0xDBF0 + 236" />
+				<class name="60" type="player_item" var:address="global_pointer + 0xDBF0 + 240" />
+				<class name="61" type="player_item" var:address="global_pointer + 0xDBF0 + 244" />
+				<class name="62" type="player_item" var:address="global_pointer + 0xDBF0 + 248" />
+				<class name="63" type="player_item" var:address="global_pointer + 0xDBF0 + 252" />
 			</berries> -->
-			<battle_items> <!-- TODO: I'm not sure how many item slots are available for these-->
+			<battle_items> <!-- I'm not sure how many item slots are available for these-->
 				<class name="0" type="player_item" var:address="global_pointer + 0xDD54 + 0" />
 				<class name="1" type="player_item" var:address="global_pointer + 0xDD54 + 4" />
 				<class name="2" type="player_item" var:address="global_pointer + 0xDD54 + 8" />
@@ -470,12 +591,12 @@
 				<class name="11" type="player_item" var:address="global_pointer + 0xDB24 + 44" />
 			</mail>
 		</bag>
-		<overworld> <!-- TODO: map data is around the offset 0xE274 -->
-            <property name="map_name"  type="int" length="2" address="global_pointer + 0xE224" reference="maps" /> <!-- TODO: reference needed, verify address -->
-            <property name="map_index" type="int" length="2" address="global_pointer + 0xE224" /> <!-- TODO: verify address -->
+		<overworld>
+            <property name="map_name"  type="int" length="2" address="global_pointer + 0xE22C - 8" reference="maps" /> <!-- TODO: references -->
+            <property name="map_index" type="int" length="2" address="global_pointer + 0xE22C - 8" /> <!-- TODO: references -->
             <property name="x" type="int" length="4" address="global_pointer + 0xE22C" />
             <property name="y" type="int" length="4" address="global_pointer + 0xE230" />
-            <!-- REQUIRE ADDITIONAL PROPERTIES AND A FUNCTION TO CALCULATE THE CURRENT RATE 
+			<!-- REQUIRE ADDITIONAL PROPERTIES AND A FUNCTION TO CALCULATE THE CURRENT RATE 
 				Need to know the state of the player (Walking, surfing, fishing, etc.) and then
 				dynamically assign the encounter rate based on this
 			-->
@@ -483,7 +604,7 @@
             <encounter_rates>
 				<property name="walking"   type="int" address="global_pointer + 0x32A34 + 0" />
 				<property name="surfing"   type="int" address="global_pointer + 0x32A34 + 1" />
-				<property name="headbutt"  type="int" address="global_pointer + 0x32A34 + 2" /> <!-- TODO: is the 3rd encounter rate variable for headbutt? -->
+				<!-- <property name="headbutt"  type="int" address="global_pointer + 0x32A34 + 2" /> -->
 				<property name="old_rod"   type="int" address="global_pointer + 0x32A34 + 3" />
 				<property name="good_rod"  type="int" address="global_pointer + 0x32A34 + 4" />
 				<property name="super_rod" type="int" address="global_pointer + 0x32A34 + 5" />
@@ -514,14 +635,48 @@
 				<property name="22" type="int" address="global_pointer + 0x32A48 + 44" reference="species" />
 				<property name="23" type="int" address="global_pointer + 0x32A48 + 46" reference="species" />
 			</encounters>
+			<!-- <encounter_table>
+				<surfing>
+					<class name="0"  type="wild_encounter" address="global_pointer + 0x30490 + 4"  reference="species" />
+					<class name="1"  type="wild_encounter" address="global_pointer + 0x30490 + 12"  reference="species" />
+					<class name="2"  type="wild_encounter" address="global_pointer + 0x30490 + 20"  reference="species" />
+					<class name="3"  type="wild_encounter" address="global_pointer + 0x30490 + 28"  reference="species" />
+					<class name="4"  type="wild_encounter" address="global_pointer + 0x30490 + 36"  reference="species" />
+				</surfing>
+				<old_rod>
+					<class name="0"  type="wild_encounter" address="global_pointer + 0x304E8 + 4"  reference="species" />
+					<class name="1"  type="wild_encounter" address="global_pointer + 0x304E8 + 12"  reference="species" />
+					<class name="2"  type="wild_encounter" address="global_pointer + 0x304E8 + 20"  reference="species" />
+					<class name="3"  type="wild_encounter" address="global_pointer + 0x304E8 + 28"  reference="species" />
+					<class name="4"  type="wild_encounter" address="global_pointer + 0x304E8 + 36"  reference="species" />
+				</old_rod>
+				<good_rod>
+					<class name="0"  type="wild_encounter" address="global_pointer + 0x30514 + 4"  reference="species" />
+					<class name="1"  type="wild_encounter" address="global_pointer + 0x30514 + 12"  reference="species" />
+					<class name="2"  type="wild_encounter" address="global_pointer + 0x30514 + 20"  reference="species" />
+					<class name="3"  type="wild_encounter" address="global_pointer + 0x30514 + 28"  reference="species" />
+					<class name="4"  type="wild_encounter" address="global_pointer + 0x30514 + 36"  reference="species" />
+				</good_rod>
+				<super_rod>
+					<class name="0"  type="wild_encounter" address="global_pointer + 0x30540 + 4"  reference="species" />
+					<class name="1"  type="wild_encounter" address="global_pointer + 0x30540 + 12"  reference="species" />
+					<class name="2"  type="wild_encounter" address="global_pointer + 0x30540 + 20"  reference="species" />
+					<class name="3"  type="wild_encounter" address="global_pointer + 0x30540 + 28"  reference="species" />
+					<class name="4"  type="wild_encounter" address="global_pointer + 0x30540 + 36"  reference="species" />
+				</super_rod>
+			</encounter_table> -->
         </overworld>
+		<flag>
+			<property name="farfetchd_guy" type="bool" address="global_pointer + 0xDFB8" />
+			<property name="fartfetchd_noticed_you" type="int" address="global_pointer + 0xDF06" /> <!-- 1 = not noticed, 0 = noticed -->
+		</flag>
 		<battle>
             <property name="mode"    type="string" />
             <property name="outcome" type="string" />
 			<player>
-				<property name="party_position"   type="int" address="global_pointer + 0x571E0"/><!-- TODO: test -->
-				<property name="party_position_2" type="int" address="global_pointer + 0x54598 + 0x3F8"/> <!-- TODO: address -->
-				<property name="team_count"       type="int" address="global_pointer + 0x5BA78 - 0x04" />
+				<property name="party_position"   type="int" address="current_party_indexes + 0"/>
+				<property name="party_position_2" type="int" address="current_party_indexes + 12"/> <!-- TODO: test address -->
+				<property name="team_count"       type="int" address="dynamic_player - 4" />
 				<class name="active_pokemon"      type="battle_structure" var:address="global_pointer + 0x56DF4" />
 				<class name="active_pokemon_2"    type="battle_structure" var:address="global_pointer + 0x56DF4 + 384" /> <!-- TODO: test -->
 				<team>
@@ -535,13 +690,15 @@
 			</player>
 			<wild>
 				<class name="0" type="party_pokemon" var:memoryContainer="static_wild_party_structure_0" />
-				<class name="1" type="party_pokemon" var:memoryContainer="static_wild_party_structure_0" />
+				<class name="1" type="party_pokemon" var:memoryContainer="static_wild_party_structure_1" />
 			</wild>
 			<ally> 
-				<property name="name"    type="int" address="global_pointer + 0x4E880" length="2" reference="trainers" /> <!-- TODO: check address; needs refernces -->
-				<property name="trainer" type="int" address="global_pointer + 0x4E880" length="2" reference="trainers" /> <!-- TODO: check address; needs refernces -->
-				<property name="id"      type="int" address="global_pointer + 0x4E880" length="2" /> <!-- TODO: check address -->
-				<property name="party_position" type="int" address="global_pointer + 0x571EC"/> <!-- TODO: check address -->
+				<property name="name"    type="int" address="global_pointer + 0x5108A + 2" length="2" /> <!-- TODO: needs refernces -->
+				<property name="trainer" type="int" address="global_pointer + 0x5108A + 2" length="2" /> <!-- TODO: needs refernces -->
+				<property name="id"      type="int" address="global_pointer + 0x5108A + 2" length="2" />
+				<property name="enemy_bar_synced_hp" type="int" address="global_pointer + 0x56FC0" length="2" />
+				<property name="team_count"          type="int" address="dynamic_ally - 4" />
+				<property name="party_position" type="int" address="current_party_indexes + 12"/>
 				<class name="active_pokemon" type="battle_structure" var:address="global_pointer + 0x56DF4 + 384" /> <!-- TODO: verify contents -->
 				<!-- TODO: test that this is in fact the ally's team structure -->
 				<team> 
@@ -554,12 +711,12 @@
 				</team>
 			</ally>
 			<opponent>
-				<property name="name"    type="int" address="global_pointer + 0x51A6A" length="2" reference="trainers" /> <!-- TODO: check address; needs refernces -->
-				<property name="trainer" type="int" address="global_pointer + 0x51A6A" length="2" reference="trainers" /> <!-- TODO: check address; needs refernces -->
-				<property name="id"      type="int" address="global_pointer + 0x51A6A" length="2" /> <!-- TODO: check address -->
-				<property name="enemy_bar_synced_hp" type="int" address="global_pointer + 0x546A4" length="2" /> <!-- TODO: obtain address -->
-				<property name="team_count"          type="int" address="global_pointer + 0x5BA78 + 0x5D0 - 0x04" /> <!-- TODO: check address -->
-				<property name="party_position"      type="int" address="global_pointer + 0x571E6"/> <!-- TODO: check address -->
+				<property name="name"    type="int" address="global_pointer + 0x5108A" length="2" /> <!-- TODO: needs refernces -->
+				<property name="trainer" type="int" address="global_pointer + 0x5108A" length="2" /> <!-- TODO: needs refernces -->
+				<property name="id"      type="int" address="global_pointer + 0x5108A" length="2" />
+				<property name="enemy_bar_synced_hp" type="int" address="global_pointer + 0x56F00" length="2" />
+				<property name="team_count"          type="int" address="dynamic_opponent - 4" />
+				<property name="party_position"      type="int" address="current_party_indexes + 6"/>
 				<class name="active_pokemon" type="battle_structure" var:address="global_pointer + 0x56DF4 + 192" />
 				<team>
 					<class name="0" type="party_pokemon" var:memoryContainer="dynamic_opponent_party_structure_0" />
@@ -571,9 +728,12 @@
 				</team>
 			</opponent>
 			<opponent_2>
-				<property name="trainer" type="int" address="global_pointer + 0x4E882" length="2" reference="trainers" /> <!-- TODO: obtain address -->
-				<property name="party_position" type="int" address="global_pointer + 0x571F2"/> <!-- TODO: obtain address -->
-				<property name="team_count" type="int" address="global_pointer + 0x5BA78 + (0x5D0 * 3) - 0x04" />
+				<property name="name"    type="int" address="global_pointer + 0x5108A + 4" length="2" /> <!-- TODO: needs refernces -->
+				<property name="trainer" type="int" address="global_pointer + 0x5108A + 4" length="2" /> <!-- TODO: needs refernces -->
+				<property name="id"      type="int" address="global_pointer + 0x5108A + 4" length="2" />
+				<property name="party_position" type="int" address="current_party_indexes + 18"/>
+				<property name="enemy_bar_synced_hp" type="int" address="global_pointer + 0x57080" length="2" />
+				<property name="team_count" type="int" address="dynamic_opponent_2 - 4" />
 				<class name="active_pokemon" type="battle_structure" var:address="global_pointer + 0x54598 + 576" /> <!-- TODO: verify contents -->
 				<!-- TODO: test that this is in fact the second opponent's team structure -->
 				<team> 
@@ -586,15 +746,16 @@
 				</team>
 			</opponent_2>
             <field>
-                <!-- <property name="weather" type="int" address="global_pointer + 0x519DC - 3" length="2" reference="weather" /> --> <!-- TODO: obtain address -->
-                <!-- <property name="weather_count" type="int" address="global_pointer + 0x519DC" /> --> <!-- TODO: obtain address -->
+                <property name="weather" type="int" address="global_pointer + 0x54238 - 4" length="2" reference="weather" />
+                <property name="weather_count" type="int" address="global_pointer + 0x54238" />
             </field>
 			<other>
             	<property name="outcome_flags" type="int" address="global_pointer + 0x571D3" />
+            	<!-- <property name="to_battle_flag" type="int" address="global_pointer + 0x50bda" /> --> <!-- TODO: Need HGSS address -->
 			</other>
 		</battle>
 		<rival>
-			<property name="name" type="string" address="global_pointer + 0xF2B2" length="14" size="2" /> <!-- TODO: This isn't working-->
+			<property name="name" type="string" address="global_pointer + 0xF2C4" length="14" size="2" />
 		</rival>
 		<screen>
 			<menu>
@@ -631,8 +792,8 @@
 		</game_time>
 		<meta>
 			<property name="generation"     type="int" value="4" />
-			<property name="game_name"      type="int" value="HeartGold and SoulSilver" />
-			<property name="game_type"      type="int" value="Remakes" />
+			<property name="game_name"      type="string" value="HeartGold and SoulSilver" />
+			<property name="game_type"      type="string" value="Remakes" />
 			<property name="state"          type="string" />
 			<property name="state_enemy"    type="string" />
 			<property name="global_pointer" type="int" address="0x211186C" length="4"/>

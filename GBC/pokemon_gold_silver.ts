@@ -1,14 +1,23 @@
-import { getValue, setValue } from "../common";
+import { 
+  copyProperties, 
+  getValue, 
+  setProperty, 
+  setValue 
+} from "../common";
 import {
   hidden_powerPower,
   hidden_powerType,
   hpIv,
-  shiny
+  shiny,
 } from "../common/pokemon";
 
 const PARTY_SIZE: number = 6;
 
-export function getMetaState(): string {
+export function getBits(a: number, b: number, d: number): number {
+  return (a >> b) & ((1 << d) - 1);
+}
+
+export function getGamestate(): string {
   const team_0_level: number = getValue('player.team.0.level')
   const outcome_flags: number = getValue('battle.other.outcome_flags')
   const battle_mode: string = getValue('battle.mode')
@@ -41,6 +50,11 @@ export function getEncounterRate(): number {
   const morning: number = getValue("overworld.encounter_rates.morning");
   const day: number = getValue("overworld.encounter_rates.day");
   const night: number = getValue("overworld.encounter_rates.night");
+  const water: number = getValue("overworld.encounter_rates.water");
+  const movement_state: string = getValue("overworld.movement_state");
+  if (movement_state == "Surfing") {
+    return water;
+  }
   switch (time_of_day) {
     case "Morning":
       return morning;
@@ -55,8 +69,8 @@ export function getEncounterRate(): number {
 
 export function getBattleOutcome(): string | null {
   const outcome_flags: number = getValue('battle.other.outcome_flags')
-  const state: string = getMetaState()
-  switch (state) {
+  const gamestate: string = getGamestate()
+  switch (gamestate) {
     case 'From Battle':
       switch (outcome_flags) {
         case 0:
@@ -81,10 +95,90 @@ export function getBattleOutcome(): string | null {
   return null
 }
 
+function getPlayerPartyPosition(): number {
+  const gamestate: string = getGamestate()
+  switch (gamestate) {
+    case 'Battle':
+      return getValue('battle.player.party_position')
+    case 'From Battle':
+      return getValue('battle.player.party_position')
+    default: {
+      const team: number[] = [0, 1, 2, 3, 4, 5]
+      for (let i = 0; i < team.length; i++) {
+        if (getValue<number>(`player.team.${i}.stats.hp`) > 0) {
+          return i
+        }
+      }
+      return 0
+    }
+  }
+}
+
 export function postprocessor() {
-  setValue("meta.state", getMetaState());
+  const gamestate = getGamestate()
+  setValue("meta.state", gamestate);
   setValue("overworld.encounter_rate", getEncounterRate());
   setValue("battle.outcome", getBattleOutcome());
+
+  //Set player.active_pokemon properties
+  const party_position_overworld = getPlayerPartyPosition()
+  const party_position_battle = getValue('battle.player.party_position')
+  setValue('player.party_position', getPlayerPartyPosition())
+  if (gamestate === 'Battle') {
+    copyProperties(`player.team.${party_position_battle}`, 'player.active_pokemon')
+    copyProperties('battle.player.active_pokemon', 'player.active_pokemon')
+  } else {
+    setProperty('player.active_pokemon.modifiers.attack', { address: null, value: 0 })
+    setProperty('player.active_pokemon.modifiers.defense', { address: null, value: 0 })
+    setProperty('player.active_pokemon.modifiers.speed', { address: null, value: 0 })
+    setProperty('player.active_pokemon.modifiers.special_attack', { address: null, value: 0 })
+    setProperty('player.active_pokemon.modifiers.special_defense', { address: null, value: 0 })
+    setProperty('player.active_pokemon.modifiers.accuracy', { address: null, value: 0 })
+    setProperty('player.active_pokemon.modifiers.evasion', { address: null, value: 0 })
+
+    setProperty('player.active_pokemon.volatile_status_conditions.confused', { address: null, value: false })
+    setProperty('player.active_pokemon.volatile_status_conditions.toxic', { address: null, value: false })
+    setProperty('player.active_pokemon.volatile_status_conditions.leech_seed', { address: null, value: false })
+    setProperty('player.active_pokemon.volatile_status_conditions.curse', { address: null, value: false })
+    setProperty('player.active_pokemon.volatile_status_conditions.in_love', { address: null, value: false })
+    setProperty('player.active_pokemon.volatile_status_conditions.nightmare', { address: null, value: false })
+
+    setProperty('player.active_pokemon.effects.protect', { address: null, value: false })
+    setProperty('player.active_pokemon.effects.identified', { address: null, value: false })
+    setProperty('player.active_pokemon.effects.perish', { address: null, value: false })
+    setProperty('player.active_pokemon.effects.endure', { address: null, value: false })
+    setProperty('player.active_pokemon.effects.rollout', { address: null, value: false })
+    setProperty('player.active_pokemon.effects.curled', { address: null, value: false })
+    setProperty('player.active_pokemon.effects.bide', { address: null, value: false })
+    setProperty('player.active_pokemon.effects.rampage', { address: null, value: false })
+    setProperty('player.active_pokemon.effects.in_loop', { address: null, value: false })
+    setProperty('player.active_pokemon.effects.flinched', { address: null, value: false })
+    setProperty('player.active_pokemon.effects.charged', { address: null, value: false })
+    setProperty('player.active_pokemon.effects.underground', { address: null, value: false })
+    setProperty('player.active_pokemon.effects.flying', { address: null, value: false })
+    setProperty('player.active_pokemon.effects.bypass_accuracy', { address: null, value: false })
+    setProperty('player.active_pokemon.effects.mist', { address: null, value: false })
+    setProperty('player.active_pokemon.effects.focus_energy', { address: null, value: false })
+    setProperty('player.active_pokemon.effects.substitute', { address: null, value: false })
+    setProperty('player.active_pokemon.effects.recharge', { address: null, value: false })
+    setProperty('player.active_pokemon.effects.rage', { address: null, value: false })
+    setProperty('player.active_pokemon.effects.transformed', { address: null, value: false })
+    setProperty('player.active_pokemon.effects.encored', { address: null, value: false })
+    setProperty('player.active_pokemon.effects.lock_on', { address: null, value: false })
+    setProperty('player.active_pokemon.effects.destiny_bond', { address: null, value: false })
+    setProperty('player.active_pokemon.effects.cant_run', { address: null, value: false })
+
+    setProperty('player.active_pokemon.counters.rollout', { address: null, value: 0 })
+    setProperty('player.active_pokemon.counters.confuse', { address: null, value: 0 })
+    setProperty('player.active_pokemon.counters.toxic', { address: null, value: 0 })
+    setProperty('player.active_pokemon.counters.disable', { address: null, value: 0 })
+    setProperty('player.active_pokemon.counters.encore', { address: null, value: 0 })
+    setProperty('player.active_pokemon.counters.perish', { address: null, value: 0 })
+    setProperty('player.active_pokemon.counters.fury_cutter', { address: null, value: 0 })
+    setProperty('player.active_pokemon.counters.protect', { address: null, value: 0 })
+
+    copyProperties(`player.team.${party_position_overworld}`, 'player.active_pokemon')
+  }
 
   for (let index = 0; index < PARTY_SIZE; index++) {
     const ivs = {

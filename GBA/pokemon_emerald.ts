@@ -4,7 +4,9 @@ import {
     state, 
     console,
     getValue,
-    setValue
+    setValue,
+    copyProperties, 
+    setProperty, 
 } from "../common";
 
 export { BitRange } from '../common';
@@ -78,7 +80,7 @@ const shuffleOrders = {
     23: [3, 2, 1, 0]
 };
 
-export function getMetaState(): string {
+function getGamestate(): string {
     // FSM FOR GAMESTATE TRACKING
     // MAIN GAMESTATE: This tracks the three basic states the game can be in.
     // 1. "No Pokemon": cartridge reset; player has not received a Pokemon
@@ -109,9 +111,9 @@ export function getMetaState(): string {
     return "Error"
 }
 
-export function getBattleOutcome(): string | null {
+function getBattleOutcome(): string | null {
     const outcome_flags: string | null = getValue('battle.other.battle_outcomes')
-    const state: string = getMetaState()
+    const state: string = getGamestate()
     switch (state) {
         case 'From Battle':
             switch (outcome_flags) {
@@ -142,7 +144,27 @@ export function getBattleOutcome(): string | null {
     return null
 }
 
+function getPlayerPartyPosition(): number {
+    const state: string = getGamestate()
+    switch (state) {
+        case 'Battle':
+            return getValue('battle.player.party_position')
+        case 'From Battle':
+            return getValue('battle.player.party_position')
+        default: {
+            const team: number[] = [0, 1, 2, 3, 4, 5]
+            for (let i = 0; i < team.length; i++) {
+                if (getValue<number>(`player.team.${i}.stats.hp`) > 0) {
+                    return i
+                }
+            }
+            return 0
+        }
+    }
+}
+
 export function preprocessor() {
+    const gamestate = getGamestate()
     variables.dma_a = memory.defaultNamespace.get_uint32_le(0x3005D8C);
     variables.dma_b = memory.defaultNamespace.get_uint32_le(0x3005D90);
     variables.dma_c = memory.defaultNamespace.get_uint32_le(0x3005D94);
@@ -150,8 +172,27 @@ export function preprocessor() {
     variables.player_id = memory.defaultNamespace.get_uint16_le(variables.dma_b + 10);
     variables.first_item_type = memory.defaultNamespace.get_uint16_le(variables.dma_a + 1376);
     variables.second_item_type = memory.defaultNamespace.get_uint16_le(variables.dma_a + 1380);
-    setValue('meta.state', getMetaState())
+    setValue('meta.state', gamestate)
     setValue('battle.outcome', getBattleOutcome())
+
+    //Set player.active_pokemon properties
+    const party_position_overworld = getPlayerPartyPosition()
+    const party_position_battle = getValue('battle.player.party_position')
+    setValue('player.party_position', getPlayerPartyPosition())
+    if (gamestate === 'Battle') {
+        copyProperties(`player.team.${party_position_battle}`, 'player.active_pokemon')
+        copyProperties('battle.player.active_pokemon', 'player.active_pokemon')
+    } else {
+        setProperty('player.active_pokemon.modifiers.attack', { address: null, value: 0 })
+        setProperty('player.active_pokemon.modifiers.defense', { address: null, value: 0 })
+        setProperty('player.active_pokemon.modifiers.speed', { address: null, value: 0 })
+        setProperty('player.active_pokemon.modifiers.special_attack', { address: null, value: 0 })
+        setProperty('player.active_pokemon.modifiers.special_defense', { address: null, value: 0 })
+        setProperty('player.active_pokemon.modifiers.accuracy', { address: null, value: 0 })
+        setProperty('player.active_pokemon.modifiers.evasion', { address: null, value: 0 })
+
+        copyProperties(`player.team.${party_position_overworld}`, 'player.active_pokemon')
+    }
 
     if (state.cached_dma_a === undefined) {
         state.dma_update_delay = 0;

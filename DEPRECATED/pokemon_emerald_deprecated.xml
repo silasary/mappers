@@ -432,7 +432,6 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
       <property name="walkRunState" type="int" address="0x2037078" reference="walkRunState"/>
       <property name="safariSteps"  type="int" address="0x2039996" />
       <property name="disabledEncounters"  type="int" address="0x02038c00" />
-
     </overworld>
     <battle>
       <property name="outcome" type="int" address="0x0202433a" reference="battleOutcome" />
@@ -586,8 +585,11 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
       <property name="battleStyle" type="bit" address="dma_b + 21" position="1" />
       <property name="sound"       type="bit" address="dma_b + 21" position="0" />
       <property name="buttonMode"  type="int" address="dma_b + 19" />
-      <!-- <property name="windowFrame" type="int" address="dma_b + 20, 7, 3)" after-read-value-expression="BitRange(x, 2, 0)" /> -->
     </options>
+    <misc>
+      <property name="rngValue1" type="int" address="0x3005D80" length="4" />
+      <property name="palette5" type="int" address="0x2037724" length="4" reference="palette" />
+    </misc>
     <audio>
       <property name="overworldmusicID"      type="int" address="0x2037328" length="2" />
       <property name="musicID"      type="int" address="0x3007420" length="4" />
@@ -615,11 +617,11 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
     </misc>
     <meta>
 			<property name="generation" type="int" value="3" />
-			<property name="gameName"   type="int" value="Emerald" />
-			<property name="gameType"   type="int" value="Third Version" />
-			<property name="mapperType" type="int" value="Deprecated" />
-			<!-- <property name="state" type="string" />
-			<property name="state_enemy" type="string" /> -->
+			<property name="gameName"   type="string" value="Emerald" />
+			<property name="gameType"   type="string" value="Third Version" />
+			<property name="mapperType" type="string" value="Deprecated" />
+			<property name="state" type="string" />
+			<!-- <property name="state_enemy" type="string" /> -->
 		</meta>
   </properties>
 

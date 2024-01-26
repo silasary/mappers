@@ -344,9 +344,9 @@ For all new software, please use the paths within 'pokemon_gold_silver.xml'
     </time>
     <meta>
         <property name="generation" type="int" value="2" />
-        <property name="gameName"   type="int" value="Gold and Silver" />
-        <property name="gameType"   type="int" value="Originals" />
-        <property name="mapperType" type="int" value="Deprecated" />
+        <property name="gameName"   type="string" value="Gold and Silver" />
+        <property name="gameType"   type="string" value="Originals" />
+        <property name="mapperType" type="string" value="Deprecated" />
         <!-- <property name="state"      type="string" /> -->
     </meta>
   </properties>

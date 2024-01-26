@@ -14,7 +14,7 @@
     <classes>
         <party_pokemon>
             <macro type="pokemon" />
-            <property name="nickname"   type="string" address="nickname_address" length="11" />
+            <property name="nickname"   type="string" address="nicknameAddress" length="11" />
             <property name="level"      type="int" address="address + 31" />
             <property name="exp"        type="int" address="address + 8" length="3" />
             <property name="ot_id"      type="int" address="address + 6" length="2" />
@@ -57,6 +57,106 @@
                 <property name="power" type="int" description="Calculated from the IVs; not actually stored in memory" />
             </hidden_power>
         </party_pokemon>
+        <player_active_pokemon>
+            <property name="species"    type="string" />
+            <property name="dex_number" type="int" />
+            <property name="nickname"   type="string" />
+            <property name="level"      type="int" />
+            <property name="exp"        type="int" />
+            <property name="type_1"     type="string"  />
+            <property name="type_2"     type="string"  />
+            <property name="ot_id"      type="int" />
+            <property name="catch_rate" type="int" />
+            <property name="status_condition" type="string" />
+            <moves>
+                <class name="0" type="active_pokemon_move" />
+                <class name="1" type="active_pokemon_move" />
+                <class name="2" type="active_pokemon_move" />
+                <class name="3" type="active_pokemon_move" />
+            </moves>
+            <stats>
+                <property name="hp"              type="int" />
+                <property name="hp_max"          type="int" />
+                <property name="attack"          type="int" />
+                <property name="defense"         type="int" />
+                <property name="speed"           type="int" />
+                <property name="special_attack"  type="int" />
+                <property name="special_defense" type="int" />
+            </stats>
+            <ivs>
+                <property name="hp"      type="int" />
+                <property name="attack"  type="int" />
+                <property name="defense" type="int" />
+                <property name="speed"   type="int" />
+                <property name="special" type="int" />
+            </ivs>
+            <evs>
+                <property name="hp"      type="int" />
+                <property name="attack"  type="int" />
+                <property name="defense" type="int" />
+                <property name="speed"   type="int" />
+                <property name="special" type="int" />
+            </evs>
+            <modifiers>
+                <property name="attack"          type="int" /> 
+                <property name="defense"         type="int" /> 
+                <property name="speed"           type="int" /> 
+                <property name="special_attack"  type="int" />
+                <property name="special_defense" type="int" />
+                <property name="accuracy"        type="int" /> 
+                <property name="evasion"         type="int" /> 
+            </modifiers>
+            <volatile_status_conditions>
+                <property name="confused"   type="int" />
+                <property name="toxic"      type="int" />
+                <property name="leech_seed" type="int" />
+                <property name="curse"      type="int" />
+                <property name="in_love"    type="int" />
+                <property name="nightmare"  type="int" />
+            </volatile_status_conditions>
+            <effects>
+                <property name="protect"         type="int" />
+                <property name="identified"      type="int" />
+                <property name="perish"          type="int" />
+                <property name="endure"          type="int" />
+                <property name="rollout"         type="int" />
+                <property name="curled"          type="int" />
+                <property name="bide"            type="int" />
+                <property name="rampage"         type="int" />
+                <property name="in_loop"         type="int" />
+                <property name="flinched"        type="int" />
+                <property name="charged"         type="int" />
+                <property name="underground"     type="int" />
+                <property name="flying"          type="int" />
+                <property name="bypass_accuracy" type="int" />
+                <property name="mist"            type="int" />
+                <property name="focus_energy"    type="int" />
+                <property name="substitute"      type="int" />
+                <property name="recharge"        type="int" />
+                <property name="rage"            type="int" />
+                <property name="transformed"     type="int" />
+                <property name="encored"         type="int" />
+                <property name="lock_on"         type="int" />
+                <property name="destiny_bond"    type="int" />
+                <property name="cant_run"        type="int" />
+            </effects>
+            <counters>
+                <property name="rollout"     type="int" />
+                <property name="confuse"     type="int" />
+                <property name="toxic"       type="int" />
+                <property name="disable"     type="int" />
+                <property name="encore"      type="int" />
+                <property name="perish"      type="int" />
+                <property name="fury_cutter" type="int" />
+                <property name="protect"     type="int" />
+            </counters>
+        </player_active_pokemon>
+
+        <active_pokemon_move>
+            <property name="move"  type="int" />
+            <property name="pp"    type="int" />
+            <property name="pp_up" type="int" />
+        </active_pokemon_move>
 
         <party_move>
             <property name="move"  type="int" address="moveAddress" reference="moves" />
@@ -96,17 +196,17 @@
             <property name="name"   type="string" address="0xD1A3" length="11" />
             <property name="gender" type="int" address="0xD198" reference="gender" />
             <property name="player_id"  type="int" address="0xD1A1" length="2" description="The active player ID" />
+            <property name="hall_of_fame_count" type="int" address="0xD683" />
             <property name="team_count" type="int" address="0xDA22" />
-            <!-- TODO: dynamically assign these properies based on the game stats -->
-            <!-- <active_pokemon> 
-            </active_pokemon> -->
+            <property name="party_position" type="int" />
+            <class name="active_pokemon" type="player_active_pokemon" />
             <team>
-                <class name="0" type="party_pokemon" var:address="0xDA2A" var:nickname_address="0xDB8C" />
-                <class name="1" type="party_pokemon" var:address="0xDA5A" var:nickname_address="0xDB97" />
-                <class name="2" type="party_pokemon" var:address="0xDA8A" var:nickname_address="0xDBA2" />
-                <class name="3" type="party_pokemon" var:address="0xDABA" var:nickname_address="0xDBAD" />
-                <class name="4" type="party_pokemon" var:address="0xDAEA" var:nickname_address="0xDBB8" />
-                <class name="5" type="party_pokemon" var:address="0xDB1A" var:nickname_address="0xDBC3" />
+                <class name="0" type="party_pokemon" var:address="0xDA2A" var:nicknameAddress="0xDB8C" />
+                <class name="1" type="party_pokemon" var:address="0xDA5A" var:nicknameAddress="0xDB97" />
+                <class name="2" type="party_pokemon" var:address="0xDA8A" var:nicknameAddress="0xDBA2" />
+                <class name="3" type="party_pokemon" var:address="0xDABA" var:nicknameAddress="0xDBAD" />
+                <class name="4" type="party_pokemon" var:address="0xDAEA" var:nicknameAddress="0xDBB8" />
+                <class name="5" type="party_pokemon" var:address="0xDB1A" var:nicknameAddress="0xDBC3" />
             </team>
             <badges>
                 <property name="0"  type="bit" address="0xD57C" position="0" description="zephyrBadge" />
@@ -127,11 +227,11 @@
                 <property name="15" type="bit" address="0xD57D" position="7" description="earthBadge" />
             </badges>
             <pokegear>
-                <property name="map_card"       type="bit" address="0xd67c" position="0" />
-                <property name="radio_card"     type="bit" address="0xd67c" position="1" />
-                <property name="phone_card"     type="bit" address="0xd67c" position="2" />
-                <property name="expansion_card" type="bit" address="0xd67c" position="3" />
-                <property name="obtained"       type="bit" address="0xd67c" position="7" />
+                <property name="map_card"       type="bit" address="0xD67C" position="0" />
+                <property name="radio_card"     type="bit" address="0xD67C" position="1" />
+                <property name="phone_card"     type="bit" address="0xD67C" position="2" />
+                <property name="expansion_card" type="bit" address="0xD67C" position="3" />
+                <property name="obtained"       type="bit" address="0xD67C" position="7" />
             </pokegear>   
         </player>
 
@@ -166,8 +266,8 @@
             </items>
             <property name="ball_count" type="int" address="0xD5FC" />
             <balls>
-                <class name="0"  type="player_item" var:address="0xd5fd" />
-                <class name="1"  type="player_item" var:address="0xd5ff" />
+                <class name="0"  type="player_item" var:address="0xD5FD" />
+                <class name="1"  type="player_item" var:address="0xD5FF" />
                 <class name="2"  type="player_item" var:address="0xD601" />
                 <class name="3"  type="player_item" var:address="0xD603" />
                 <class name="4"  type="player_item" var:address="0xD605" />
@@ -275,8 +375,9 @@
             <property name="map_name"  type="int" address="0xDA00" length="2" reference="maps" />
             <property name="map_group" type="int" address="0xDA00" reference="map_groups" />
             <property name="map_index" type="int" address="0xDA01" />
-            <property name="y"         type="int" address="0xDA02" />
-            <property name="x"         type="int" address="0xDA03" />
+            <property name="y" type="int" address="0xDA02" />
+            <property name="x" type="int" address="0xDA03" />
+            <property name="movement_state" type="int" address="0xD682" reference="movement_states" />
             <!-- REQUIRE ADDITIONAL PROPERTIES AND A FUNCTION TO CALCULATE THE CURRENT RATE 
 				Need to know the state of the player (Walking vs surfing) to make this fully dynamic
 			-->
@@ -290,9 +391,1282 @@
         </overworld>
 
         <flags> <!-- TODO: test to ensure this works -->
-            <property name="beat_champion" type="bit" position="1" address="0xd1db" />
+            <property name="beat_champion" type="bit" position="1" address="0xD1DB" />
+            <status_flags> <!-- TODO: test to ensure these work -->
+                <property name="pokedex" type="bit" address="0xD571" position="0" />
+                <property name="unown_dex" type="bit" address="0xD571" position="1" />
+                <property name="flash" type="bit" address="0xD571" position="2" />
+                <property name="caught_pokerus" type="bit" address="0xD571" position="3" />
+                <property name="rocket_signal" type="bit" address="0xD571" position="4" />
+                <property name="no_wild_encounters" type="bit" address="0xD571" position="5" />
+                <property name="hall_of_fame" type="bit" address="0xD571" position="6" />
+                <property name="main_menu_mobile_choices" type="bit" address="0xD571" position="7" />
+                <property name="rockets_in_radio_tower" type="bit" address="0xD572" position="0" />
+                <property name="safari_game" type="bit" address="0xD572" position="1" />
+                <property name="bug_contest_timer" type="bit" address="0xD572" position="2" />
+                <property name="unused_3" type="bit" address="0xD572" position="3" />
+                <property name="bike_shop_call" type="bit" address="0xD572" position="4" />
+                <property name="unused_5" type="bit" address="0xD572" position="5" />
+                <property name="reached_goldenrod" type="bit" address="0xD572" position="6" />
+                <property name="rockets_in_mahogany" type="bit" address="0xD572" position="7" />
+            </status_flags>
+            <daily_flags> <!-- TODO: test to ensure these work -->
+                <property name="kurt_making_balls" type="bit" address="0xD968" position="0" />
+                <property name="bug_contest" type="bit" address="0xD968" position="1" />
+                <property name="fish_swarm" type="bit" address="0xD968" position="2" />
+                <property name="time_capsule" type="bit" address="0xD968" position="3" />
+                <property name="all_fruit_trees" type="bit" address="0xD968" position="4" />
+                <property name="got_shuckie_today" type="bit" address="0xD968" position="5" />
+                <property name="goldenrod_underground_bargain" type="bit" address="0xD968" position="6" />
+                <property name="trainer_house" type="bit" address="0xD968" position="7" />
+                <property name="mt_moon_square_clefairy" type="bit" address="0xD969" position="0" />
+                <property name="union_cave_lapras" type="bit" address="0xD969" position="1" />
+                <property name="goldenrod_underground_got_haircut" type="bit" address="0xD969" position="2" />
+                <property name="goldenrod_dept_store_tm27_return" type="bit" address="0xD969" position="3" />
+                <property name="daisys_grooming" type="bit" address="0xD969" position="4" />
+                <property name="indigo_plateau_rival_fight" type="bit" address="0xD969" position="5" />
+                <property name="move_tutor" type="bit" address="0xD969" position="6" />
+                <property name="buenas_password" type="bit" address="0xD969" position="7" />
+            </daily_flags>
         </flags>
-        
+        <event_flags> <!-- TODO: test to ensure these work -->
+            <property name="temporary_until_map_reload_1" type="bit" address="0xD7B7" position="0" />
+            <property name="temporary_until_map_reload_2" type="bit" address="0xD7B7" position="1" />
+            <property name="temporary_until_map_reload_3" type="bit" address="0xD7B7" position="2" />
+            <property name="temporary_until_map_reload_4" type="bit" address="0xD7B7" position="3" />
+            <property name="temporary_until_map_reload_5" type="bit" address="0xD7B7" position="4" />
+            <property name="temporary_until_map_reload_6" type="bit" address="0xD7B7" position="5" />
+            <property name="temporary_until_map_reload_7" type="bit" address="0xD7B7" position="6" />
+            <property name="temporary_until_map_reload_8" type="bit" address="0xD7B7" position="7" />
+            <property name="got_tm31_mud_slap" type="bit" address="0xD7B8" position="0" />
+            <property name="got_tm49_fury_cutter" type="bit" address="0xD7B8" position="1" />
+            <property name="got_tm01_dynamicpunch" type="bit" address="0xD7B8" position="2" />
+            <property name="got_tm45_attract" type="bit" address="0xD7B8" position="3" />
+            <property name="got_tm30_shadow_ball" type="bit" address="0xD7B8" position="4" />
+            <property name="got_tm23_iron_tail" type="bit" address="0xD7B8" position="5" />
+            <property name="got_tm16_icy_wind" type="bit" address="0xD7B8" position="6" />
+            <property name="got_tm24_dragonbreath" type="bit" address="0xD7B8" position="7" />
+            <property name="got_hm01_cut" type="bit" address="0xD7B9" position="0" />
+            <property name="got_hm02_fly" type="bit" address="0xD7B9" position="1" />
+            <property name="got_hm03_surf" type="bit" address="0xD7B9" position="2" />
+            <property name="got_hm04_strength" type="bit" address="0xD7B9" position="3" />
+            <property name="got_hm05_flash" type="bit" address="0xD7B9" position="4" />
+            <property name="got_hm06_whirlpool" type="bit" address="0xD7B9" position="5" />
+            <property name="got_old_rod" type="bit" address="0xD7B9" position="7" />
+            <property name="got_good_rod" type="bit" address="0xD7BA" position="0" />
+            <property name="got_super_rod" type="bit" address="0xD7BA" position="1" />
+            <property name="got_a_pokemon_from_elm" type="bit" address="0xD7BA" position="2" />
+            <property name="got_cyndaquil_from_elm" type="bit" address="0xD7BA" position="3" />
+            <property name="got_totodile_from_elm" type="bit" address="0xD7BA" position="4" />
+            <property name="got_chikorita_from_elm" type="bit" address="0xD7BA" position="5" />
+            <property name="got_mystery_egg_from_mr_pokemon" type="bit" address="0xD7BA" position="6" />
+            <property name="gave_mystery_egg_to_elm" type="bit" address="0xD7BA" position="7" />
+            <property name="jasmine_returned_to_gym" type="bit" address="0xD7BB" position="0" />
+            <property name="cleared_radio_tower" type="bit" address="0xD7BB" position="1" />
+            <property name="cleared_rocket_hideout" type="bit" address="0xD7BB" position="2" />
+            <property name="got_secretpotion_from_pharmacy" type="bit" address="0xD7BB" position="3" />
+            <property name="got_ss_ticket_from_elm" type="bit" address="0xD7BB" position="4" />
+            <property name="used_the_card_key_in_the_radio_tower" type="bit" address="0xD7BB" position="5" />
+            <property name="refused_to_help_lance_at_lake_of_rage" type="bit" address="0xD7BB" position="6" />
+            <property name="got_berry_from_route_30_house" type="bit" address="0xD7BB" position="7" />
+            <property name="made_whitney_cry" type="bit" address="0xD7BC" position="0" />
+            <property name="herded_farfetchd" type="bit" address="0xD7BC" position="1" />
+            <property name="fought_sudowoodo" type="bit" address="0xD7BC" position="2" />
+            <property name="cleared_slowpoke_well" type="bit" address="0xD7BC" position="3" />
+            <property name="refused_to_take_egg_from_elms_aide" type="bit" address="0xD7BC" position="4" />
+            <property name="got_togepi_egg_from_elms_aide" type="bit" address="0xD7BC" position="5" />
+            <property name="made_unown_appear_in_ruins" type="bit" address="0xD7BC" position="6" />
+            <property name="fast_ship_destination_olivine" type="bit" address="0xD7BC" position="7" />
+            <property name="fast_ship_first_time" type="bit" address="0xD7BD" position="0" />
+            <property name="fast_ship_has_arrived" type="bit" address="0xD7BD" position="1" />
+            <property name="fast_ship_found_girl" type="bit" address="0xD7BD" position="2" />
+            <property name="fast_ship_lazy_sailor" type="bit" address="0xD7BD" position="3" />
+            <property name="fast_ship_informed_about_lazy_sailor" type="bit" address="0xD7BD" position="4" />
+            <property name="kurt_gave_you_lure_ball" type="bit" address="0xD7BD" position="5" />
+            <property name="initialized_events" type="bit" address="0xD7BD" position="6" />
+            <property name="jasmine_explained_amphys_sickness" type="bit" address="0xD7BD" position="7" />
+            <property name="lake_of_rage_explained_weird_magikarp" type="bit" address="0xD7BE" position="0" />
+            <property name="lake_of_rage_asked_for_magikarp" type="bit" address="0xD7BE" position="1" />
+            <property name="lake_of_rage_elixir_on_standby" type="bit" address="0xD7BE" position="2" />
+            <property name="healed_moomoo" type="bit" address="0xD7BE" position="5" />
+            <property name="got_tm13_snore_from_moomoo_farm" type="bit" address="0xD7BE" position="6" />
+            <property name="talked_to_farmer_about_moomoo" type="bit" address="0xD7BE" position="7" />
+            <property name="talked_to_mom_after_mystery_egg_quest" type="bit" address="0xD7BF" position="0" />
+            <property name="dude_talked_to_you" type="bit" address="0xD7BF" position="1" />
+            <property name="learned_to_catch_pokemon" type="bit" address="0xD7BF" position="2" />
+            <property name="elm_called_about_stolen_pokemon" type="bit" address="0xD7BF" position="3" />
+            <property name="beat_elite_four" type="bit" address="0xD7BF" position="4" />
+            <property name="got_shuckie" type="bit" address="0xD7BF" position="5" />
+            <property name="mania_took_shuckie_or_let_you_keep_him" type="bit" address="0xD7BF" position="6" />
+            <property name="got_sunny_day_from_radio_tower" type="bit" address="0xD7BF" position="7" />
+            <property name="got_pink_bow_from_mary" type="bit" address="0xD7C0" position="0" />
+            <property name="used_basement_key" type="bit" address="0xD7C0" position="1" />
+            <property name="received_card_key" type="bit" address="0xD7C0" position="2" />
+            <property name="got_tm08_rock_smash" type="bit" address="0xD7C0" position="3" />
+            <property name="lance_healed_you_in_team_rocket_base" type="bit" address="0xD7C0" position="4" />
+            <property name="got_mystic_water_in_cherrygrove" type="bit" address="0xD7C0" position="5" />
+            <property name="got_tm05_roar" type="bit" address="0xD7C0" position="6" />
+            <property name="got_eevee" type="bit" address="0xD7C0" position="7" />
+            <property name="got_kenya" type="bit" address="0xD7C1" position="0" />
+            <property name="gave_kenya" type="bit" address="0xD7C1" position="1" />
+            <property name="got_hp_up_from_randy" type="bit" address="0xD7C1" position="2" />
+            <property name="got_tm50_nightmare" type="bit" address="0xD7C1" position="3" />
+            <property name="togepi_hatched" type="bit" address="0xD7C1" position="4" />
+            <property name="showed_togepi_to_elm" type="bit" address="0xD7C1" position="5" />
+            <property name="got_everstone_from_elm" type="bit" address="0xD7C1" position="6" />
+            <property name="got_quick_claw" type="bit" address="0xD7C1" position="7" />
+            <property name="got_tm10_hidden_power" type="bit" address="0xD7C2" position="0" />
+            <property name="got_tm36_sludge_bomb" type="bit" address="0xD7C2" position="1" />
+            <property name="got_itemfinder" type="bit" address="0xD7C2" position="2" />
+            <property name="got_bicycle" type="bit" address="0xD7C2" position="3" />
+            <property name="got_squirtbottle" type="bit" address="0xD7C2" position="4" />
+            <property name="got_miracle_seed_in_route_32" type="bit" address="0xD7C2" position="5" />
+            <property name="got_charcoal_in_charcoal_kiln" type="bit" address="0xD7C2" position="6" />
+            <property name="got_tm02_headbutt" type="bit" address="0xD7C2" position="7" />
+            <property name="decided_to_help_lance" type="bit" address="0xD7C3" position="0" />
+            <property name="got_tyrogue_from_kiyo" type="bit" address="0xD7C3" position="1" />
+            <property name="met_frieda_of_friday" type="bit" address="0xD7C3" position="2" />
+            <property name="got_poison_barb_from_frieda" type="bit" address="0xD7C3" position="3" />
+            <property name="met_tuscany_of_tuesday" type="bit" address="0xD7C3" position="4" />
+            <property name="got_pink_bow_from_tuscany" type="bit" address="0xD7C3" position="5" />
+            <property name="met_arthur_of_thursday" type="bit" address="0xD7C3" position="6" />
+            <property name="got_hard_stone_from_arthur" type="bit" address="0xD7C3" position="7" />
+            <property name="met_sunny_of_sunday" type="bit" address="0xD7C4" position="0" />
+            <property name="got_magnet_from_sunny" type="bit" address="0xD7C4" position="1" />
+            <property name="met_wesley_of_wednesday" type="bit" address="0xD7C4" position="2" />
+            <property name="got_blackbelt_from_wesley" type="bit" address="0xD7C4" position="3" />
+            <property name="met_santos_of_saturday" type="bit" address="0xD7C4" position="4" />
+            <property name="got_spell_tag_from_santos" type="bit" address="0xD7C4" position="5" />
+            <property name="met_monica_of_monday" type="bit" address="0xD7C4" position="6" />
+            <property name="got_sharp_beak_from_monica" type="bit" address="0xD7C4" position="7" />
+            <property name="got_soft_sand_from_kate" type="bit" address="0xD7C5" position="0" />
+            <property name="got_metal_coat_from_grandpa_on_ss_aqua" type="bit" address="0xD7C5" position="1" />
+            <property name="got_blackglasses_in_dark_cave" type="bit" address="0xD7C5" position="2" />
+            <property name="got_kings_rock_in_slowpoke_well" type="bit" address="0xD7C5" position="3" />
+            <property name="got_tm47_steel_wing" type="bit" address="0xD7C5" position="4" />
+            <property name="got_tm37_sandstorm" type="bit" address="0xD7C5" position="5" />
+            <property name="first_time_banking_with_mom" type="bit" address="0xD7C5" position="6" />
+            <property name="told_elm_about_togepi_over_the_phone" type="bit" address="0xD7C5" position="7" />
+            <property name="got_rainbow_wing" type="bit" address="0xD7C6" position="0" />
+            <property name="got_silver_wing" type="bit" address="0xD7C6" position="1" />
+            <property name="got_tm12_sweet_scent" type="bit" address="0xD7C6" position="2" />
+            <property name="released_the_beasts" type="bit" address="0xD7C6" position="3" />
+            <property name="got_master_ball_from_elm" type="bit" address="0xD7C6" position="4" />
+            <property name="tin_tower_4f_hidden_max_potion" type="bit" address="0xD7C6" position="5" />
+            <property name="tin_tower_5f_hidden_full_restore" type="bit" address="0xD7C6" position="6" />
+            <property name="tin_tower_5f_hidden_carbos" type="bit" address="0xD7C6" position="7" />
+            <property name="burned_tower_1f_hidden_ether" type="bit" address="0xD7C7" position="0" />
+            <property name="burned_tower_b1f_hidden_ultra_ball" type="bit" address="0xD7C7" position="1" />
+            <property name="burned_tower_b1f_hidden_burn_heal" type="bit" address="0xD7C7" position="2" />
+            <property name="burned_tower_b1f_hidden_nugget" type="bit" address="0xD7C7" position="3" />
+            <property name="national_park_hidden_full_heal" type="bit" address="0xD7C7" position="4" />
+            <property name="olivine_lighthouse_5f_hidden_hyper_potion" type="bit" address="0xD7C7" position="5" />
+            <property name="team_rocket_base_b1f_hidden_revive" type="bit" address="0xD7C7" position="6" />
+            <property name="team_rocket_base_b2f_hidden_full_heal" type="bit" address="0xD7C7" position="7" />
+            <property name="ilex_forest_hidden_ether" type="bit" address="0xD7C8" position="0" />
+            <property name="ilex_forest_hidden_super_potion" type="bit" address="0xD7C8" position="1" />
+            <property name="ilex_forest_hidden_full_heal" type="bit" address="0xD7C8" position="2" />
+            <property name="goldenrod_underground_hidden_parlyz_heal" type="bit" address="0xD7C8" position="3" />
+            <property name="goldenrod_underground_hidden_super_potion" type="bit" address="0xD7C8" position="4" />
+            <property name="goldenrod_underground_hidden_antidote" type="bit" address="0xD7C8" position="5" />
+            <property name="goldenrod_underground_switch_room_entrances_hidden_max_potion" type="bit" address="0xD7C8" position="6" />
+            <property name="goldenrod_underground_switch_room_entrances_hidden_revive" type="bit" address="0xD7C8" position="7" />
+            <property name="mount_mortar_1f_outside_hidden_hyper_potion" type="bit" address="0xD7C9" position="0" />
+            <property name="mount_mortar_1f_inside_hidden_max_repel" type="bit" address="0xD7C9" position="1" />
+            <property name="mount_mortar_2f_inside_hidden_full_restore" type="bit" address="0xD7C9" position="2" />
+            <property name="mount_mortar_b1f_hidden_max_revive" type="bit" address="0xD7C9" position="3" />
+            <property name="ice_path_b1f_hidden_max_potion" type="bit" address="0xD7C9" position="4" />
+            <property name="ice_path_b2f_mahogany_side_hidden_carbos" type="bit" address="0xD7C9" position="5" />
+            <property name="ice_path_b2f_blackthorn_side_hidden_ice_heal" type="bit" address="0xD7C9" position="6" />
+            <property name="whirl_island_b1f_hidden_rare_candy" type="bit" address="0xD7C9" position="7" />
+            <property name="whirl_island_b1f_hidden_ultra_ball" type="bit" address="0xD7CA" position="0" />
+            <property name="whirl_island_b1f_hidden_full_restore" type="bit" address="0xD7CA" position="1" />
+            <property name="silver_cave_room_1_hidden_dire_hit" type="bit" address="0xD7CA" position="2" />
+            <property name="silver_cave_room_1_hidden_ultra_ball" type="bit" address="0xD7CA" position="3" />
+            <property name="silver_cave_room_2_hidden_max_potion" type="bit" address="0xD7CA" position="4" />
+            <property name="dark_cave_violet_entrance_hidden_elixer" type="bit" address="0xD7CA" position="5" />
+            <property name="victory_road_hidden_max_potion" type="bit" address="0xD7CA" position="6" />
+            <property name="victory_road_hidden_full_heal" type="bit" address="0xD7CA" position="7" />
+            <property name="dragons_den_b1f_hidden_revive" type="bit" address="0xD7CB" position="0" />
+            <property name="dragons_den_b1f_hidden_max_potion" type="bit" address="0xD7CB" position="1" />
+            <property name="dragons_den_b1f_hidden_max_elixer" type="bit" address="0xD7CB" position="2" />
+            <property name="route_28_hidden_rare_candy" type="bit" address="0xD7CB" position="3" />
+            <property name="route_30_hidden_potion" type="bit" address="0xD7CB" position="4" />
+            <property name="route_32_hidden_great_ball" type="bit" address="0xD7CB" position="5" />
+            <property name="route_32_hidden_super_potion" type="bit" address="0xD7CB" position="6" />
+            <property name="route_34_hidden_rare_candy" type="bit" address="0xD7CB" position="7" />
+            <property name="route_34_hidden_super_potion" type="bit" address="0xD7CC" position="0" />
+            <property name="route_37_hidden_ether" type="bit" address="0xD7CC" position="1" />
+            <property name="route_39_hidden_nugget" type="bit" address="0xD7CC" position="2" />
+            <property name="route_40_hidden_hyper_potion" type="bit" address="0xD7CC" position="3" />
+            <property name="route_41_hidden_max_ether" type="bit" address="0xD7CC" position="4" />
+            <property name="route_42_hidden_max_potion" type="bit" address="0xD7CC" position="5" />
+            <property name="route_44_hidden_elixer" type="bit" address="0xD7CC" position="6" />
+            <property name="route_45_hidden_pp_up" type="bit" address="0xD7CC" position="7" />
+            <property name="violet_city_hidden_hyper_potion" type="bit" address="0xD7CD" position="0" />
+            <property name="azalea_town_hidden_full_heal" type="bit" address="0xD7CD" position="1" />
+            <property name="cianwood_city_hidden_revive" type="bit" address="0xD7CD" position="2" />
+            <property name="cianwood_city_hidden_max_ether" type="bit" address="0xD7CD" position="3" />
+            <property name="ecruteak_city_hidden_hyper_potion" type="bit" address="0xD7CD" position="4" />
+            <property name="lake_of_rage_hidden_full_restore" type="bit" address="0xD7CD" position="5" />
+            <property name="lake_of_rage_hidden_rare_candy" type="bit" address="0xD7CD" position="6" />
+            <property name="lake_of_rage_hidden_max_potion" type="bit" address="0xD7CD" position="7" />
+            <property name="silver_cave_outside_hidden_full_restore" type="bit" address="0xD7CE" position="0" />
+            <property name="got_nugget_from_guy" type="bit" address="0xD7D0" position="0" />
+            <property name="returned_machine_part" type="bit" address="0xD7D0" position="1" />
+            <property name="met_manager_at_power_plant" type="bit" address="0xD7D0" position="2" />
+            <property name="met_rocket_grunt_at_cerulean_gym" type="bit" address="0xD7D0" position="3" />
+            <property name="met_reds_mom" type="bit" address="0xD7D0" position="4" />
+            <property name="restored_power_to_kanto" type="bit" address="0xD7D0" position="5" />
+            <property name="got_coins_from_gambler_at_celadon" type="bit" address="0xD7D0" position="6" />
+            <property name="met_copycat_found_out_about_lost_item" type="bit" address="0xD7D0" position="7" />
+            <property name="returned_lost_item_to_copycat" type="bit" address="0xD7D1" position="0" />
+            <property name="got_pass_from_copycat" type="bit" address="0xD7D1" position="1" />
+            <property name="got_lost_item_from_fan_club" type="bit" address="0xD7D1" position="2" />
+            <property name="listened_to_fan_club_president_but_bag_was_full" type="bit" address="0xD7D1" position="3" />
+            <property name="listened_to_fan_club_president" type="bit" address="0xD7D1" position="4" />
+            <property name="talked_to_seafoam_gym_guide_once" type="bit" address="0xD7D1" position="5" />
+            <property name="enable_diploma_printing" type="bit" address="0xD7D1" position="6" />
+            <property name="cinnabar_rocks_cleared" type="bit" address="0xD7D1" position="7" />
+            <property name="cleared_nugget_bridge" type="bit" address="0xD7D2" position="0" />
+            <property name="talked_to_wardens_granddaughter" type="bit" address="0xD7D2" position="1" />
+            <property name="got_tm03_curse" type="bit" address="0xD7D2" position="2" />
+            <property name="got_cleanse_tag" type="bit" address="0xD7D2" position="3" />
+            <property name="got_tm19_giga_drain" type="bit" address="0xD7D2" position="4" />
+            <property name="got_tm06_toxic" type="bit" address="0xD7D2" position="5" />
+            <property name="got_up_grade" type="bit" address="0xD7D2" position="6" />
+            <property name="got_tm07_zap_cannon" type="bit" address="0xD7D2" position="7" />
+            <property name="got_tm42_dream_eater" type="bit" address="0xD7D3" position="0" />
+            <property name="talked_to_oak_in_kanto" type="bit" address="0xD7D3" position="1" />
+            <property name="got_hp_up_from_vermilion_guy" type="bit" address="0xD7D3" position="2" />
+            <property name="got_tm29_psychic" type="bit" address="0xD7D3" position="3" />
+            <property name="digletts_cave_hidden_max_revive" type="bit" address="0xD7D3" position="4" />
+            <property name="underground_path_hidden_full_restore" type="bit" address="0xD7D3" position="5" />
+            <property name="underground_path_hidden_x_special" type="bit" address="0xD7D3" position="6" />
+            <property name="rock_tunnel_1f_hidden_x_accuracy" type="bit" address="0xD7D3" position="7" />
+            <property name="rock_tunnel_1f_hidden_x_defend" type="bit" address="0xD7D4" position="0" />
+            <property name="rock_tunnel_b1f_hidden_max_potion" type="bit" address="0xD7D4" position="1" />
+            <property name="olivine_port_hidden_protein" type="bit" address="0xD7D4" position="2" />
+            <property name="vermilion_port_hidden_iron" type="bit" address="0xD7D4" position="3" />
+            <property name="mount_moon_square_hidden_moon_stone" type="bit" address="0xD7D4" position="4" />
+            <property name="route_2_hidden_max_ether" type="bit" address="0xD7D4" position="5" />
+            <property name="route_2_hidden_full_heal" type="bit" address="0xD7D4" position="6" />
+            <property name="route_2_hidden_full_restore" type="bit" address="0xD7D4" position="7" />
+            <property name="route_2_hidden_revive" type="bit" address="0xD7D5" position="0" />
+            <property name="route_4_hidden_ultra_ball" type="bit" address="0xD7D5" position="1" />
+            <property name="route_9_hidden_ether" type="bit" address="0xD7D5" position="2" />
+            <property name="route_12_hidden_elixer" type="bit" address="0xD7D5" position="3" />
+            <property name="route_13_hidden_calcium" type="bit" address="0xD7D5" position="4" />
+            <property name="route_11_hidden_revive" type="bit" address="0xD7D5" position="5" />
+            <property name="route_17_hidden_max_ether" type="bit" address="0xD7D5" position="6" />
+            <property name="route_17_hidden_max_elixer" type="bit" address="0xD7D5" position="7" />
+            <property name="route_25_hidden_potion" type="bit" address="0xD7D6" position="0" />
+            <property name="found_leftovers_in_celadon_cafe" type="bit" address="0xD7D6" position="1" />
+            <property name="found_berserk_gene_in_cerulean_city" type="bit" address="0xD7D6" position="2" />
+            <property name="found_machine_part_in_cerulean_gym" type="bit" address="0xD7D6" position="3" />
+            <property name="vermilion_city_hidden_full_heal" type="bit" address="0xD7D6" position="4" />
+            <property name="celadon_city_hidden_pp_up" type="bit" address="0xD7D6" position="5" />
+            <property name="cinnabar_island_hidden_rare_candy" type="bit" address="0xD7D6" position="6" />
+            <property name="gave_kurt_red_apricorn" type="bit" address="0xD802" position="0" />
+            <property name="gave_kurt_blu_apricorn" type="bit" address="0xD802" position="1" />
+            <property name="gave_kurt_ylw_apricorn" type="bit" address="0xD802" position="2" />
+            <property name="gave_kurt_grn_apricorn" type="bit" address="0xD802" position="3" />
+            <property name="gave_kurt_wht_apricorn" type="bit" address="0xD802" position="4" />
+            <property name="gave_kurt_blk_apricorn" type="bit" address="0xD802" position="5" />
+            <property name="gave_kurt_pnk_apricorn" type="bit" address="0xD802" position="6" />
+            <property name="jack_asked_for_phone_number" type="bit" address="0xD802" position="7" />
+            <property name="jack_ready_for_rematch" type="bit" address="0xD803" position="0" />
+            <property name="beverly_asked_for_phone_number" type="bit" address="0xD803" position="1" />
+            <property name="beverly_ready_for_rematch" type="bit" address="0xD803" position="2" />
+            <property name="huey_asked_for_phone_number" type="bit" address="0xD803" position="3" />
+            <property name="huey_ready_for_rematch" type="bit" address="0xD803" position="4" />
+            <property name="got_protein_from_huey" type="bit" address="0xD803" position="5" />
+            <property name="got_hp_up_from_joey" type="bit" address="0xD803" position="6" />
+            <property name="got_carbos_from_vance" type="bit" address="0xD803" position="7" />
+            <property name="got_iron_from_parry" type="bit" address="0xD804" position="0" />
+            <property name="got_calcium_from_erin" type="bit" address="0xD804" position="1" />
+            <property name="kenji_on_break" type="bit" address="0xD804" position="2" />
+            <property name="gaven_asked_for_phone_number" type="bit" address="0xD804" position="3" />
+            <property name="gaven_ready_for_rematch" type="bit" address="0xD804" position="4" />
+            <property name="beth_asked_for_phone_number" type="bit" address="0xD804" position="5" />
+            <property name="beth_ready_for_rematch" type="bit" address="0xD804" position="6" />
+            <property name="jose_asked_for_phone_number" type="bit" address="0xD804" position="7" />
+            <property name="jose_ready_for_rematch" type="bit" address="0xD805" position="0" />
+            <property name="reena_asked_for_phone_number" type="bit" address="0xD805" position="1" />
+            <property name="reena_ready_for_rematch" type="bit" address="0xD805" position="2" />
+            <property name="joey_asked_for_phone_number" type="bit" address="0xD805" position="3" />
+            <property name="joey_ready_for_rematch" type="bit" address="0xD805" position="4" />
+            <property name="wade_asked_for_phone_number" type="bit" address="0xD805" position="5" />
+            <property name="wade_ready_for_rematch" type="bit" address="0xD805" position="6" />
+            <property name="ralph_asked_for_phone_number" type="bit" address="0xD805" position="7" />
+            <property name="ralph_ready_for_rematch" type="bit" address="0xD806" position="0" />
+            <property name="liz_asked_for_phone_number" type="bit" address="0xD806" position="1" />
+            <property name="liz_ready_for_rematch" type="bit" address="0xD806" position="2" />
+            <property name="anthony_asked_for_phone_number" type="bit" address="0xD806" position="3" />
+            <property name="anthony_ready_for_rematch" type="bit" address="0xD806" position="4" />
+            <property name="todd_asked_for_phone_number" type="bit" address="0xD806" position="5" />
+            <property name="todd_ready_for_rematch" type="bit" address="0xD806" position="6" />
+            <property name="gina_asked_for_phone_number" type="bit" address="0xD806" position="7" />
+            <property name="gina_ready_for_rematch" type="bit" address="0xD807" position="0" />
+            <property name="irwin_asked_for_phone_number" type="bit" address="0xD807" position="1" />
+            <property name="irwin_ready_for_rematch" type="bit" address="0xD807" position="2" />
+            <property name="arnie_asked_for_phone_number" type="bit" address="0xD807" position="3" />
+            <property name="arnie_ready_for_rematch" type="bit" address="0xD807" position="4" />
+            <property name="alan_asked_for_phone_number" type="bit" address="0xD807" position="5" />
+            <property name="alan_ready_for_rematch" type="bit" address="0xD807" position="6" />
+            <property name="dana_asked_for_phone_number" type="bit" address="0xD808" position="1" />
+            <property name="dana_ready_for_rematch" type="bit" address="0xD808" position="2" />
+            <property name="chad_asked_for_phone_number" type="bit" address="0xD808" position="3" />
+            <property name="chad_ready_for_rematch" type="bit" address="0xD808" position="4" />
+            <property name="derek_asked_for_phone_number" type="bit" address="0xD808" position="5" />
+            <property name="derek_ready_for_rematch" type="bit" address="0xD808" position="6" />
+            <property name="chris_asked_for_phone_number" type="bit" address="0xD808" position="7" />
+            <property name="chris_ready_for_rematch" type="bit" address="0xD809" position="0" />
+            <property name="brent_asked_for_phone_number" type="bit" address="0xD809" position="1" />
+            <property name="brent_ready_for_rematch" type="bit" address="0xD809" position="2" />
+            <property name="tiffany_asked_for_phone_number" type="bit" address="0xD809" position="3" />
+            <property name="tiffany_ready_for_rematch" type="bit" address="0xD809" position="4" />
+            <property name="vance_asked_for_phone_number" type="bit" address="0xD809" position="5" />
+            <property name="vance_ready_for_rematch" type="bit" address="0xD809" position="6" />
+            <property name="wilton_asked_for_phone_number" type="bit" address="0xD809" position="7" />
+            <property name="wilton_ready_for_rematch" type="bit" address="0xD80A" position="0" />
+            <property name="kenji_asked_for_phone_number" type="bit" address="0xD80A" position="1" />
+            <property name="kenji_ready_for_rematch" type="bit" address="0xD80A" position="2" />
+            <property name="parry_asked_for_phone_number" type="bit" address="0xD80A" position="3" />
+            <property name="parry_ready_for_rematch" type="bit" address="0xD80A" position="4" />
+            <property name="erin_asked_for_phone_number" type="bit" address="0xD80A" position="5" />
+            <property name="erin_ready_for_rematch" type="bit" address="0xD80A" position="6" />
+            <property name="solved_ho_oh_puzzle" type="bit" address="0xD80B" position="0" />
+            <property name="solved_kabuto_puzzle" type="bit" address="0xD80B" position="1" />
+            <property name="solved_omanyte_puzzle" type="bit" address="0xD80B" position="2" />
+            <property name="solved_aerodactyl_puzzle" type="bit" address="0xD80B" position="3" />
+            <property name="deco_bed_1" type="bit" address="0xD80B" position="4" />
+            <property name="deco_bed_2" type="bit" address="0xD80B" position="5" />
+            <property name="deco_bed_3" type="bit" address="0xD80B" position="6" />
+            <property name="deco_bed_4" type="bit" address="0xD80B" position="7" />
+            <property name="deco_carpet_1" type="bit" address="0xD80C" position="0" />
+            <property name="deco_carpet_2" type="bit" address="0xD80C" position="1" />
+            <property name="deco_carpet_3" type="bit" address="0xD80C" position="2" />
+            <property name="deco_carpet_4" type="bit" address="0xD80C" position="3" />
+            <property name="deco_plant_1" type="bit" address="0xD80C" position="4" />
+            <property name="deco_plant_2" type="bit" address="0xD80C" position="5" />
+            <property name="deco_plant_3" type="bit" address="0xD80C" position="6" />
+            <property name="deco_poster_1" type="bit" address="0xD80C" position="7" />
+            <property name="deco_poster_2" type="bit" address="0xD80D" position="0" />
+            <property name="deco_poster_3" type="bit" address="0xD80D" position="1" />
+            <property name="deco_poster_4" type="bit" address="0xD80D" position="2" />
+            <property name="deco_famicom" type="bit" address="0xD80D" position="3" />
+            <property name="deco_snes" type="bit" address="0xD80D" position="4" />
+            <property name="deco_n64" type="bit" address="0xD80D" position="5" />
+            <property name="deco_virtual_boy" type="bit" address="0xD80D" position="6" />
+            <property name="deco_pikachu_doll" type="bit" address="0xD80D" position="7" />
+            <property name="deco_surfing_pikachu_doll" type="bit" address="0xD80E" position="0" />
+            <property name="deco_clefairy_doll" type="bit" address="0xD80E" position="1" />
+            <property name="deco_jigglypuff_doll" type="bit" address="0xD80E" position="2" />
+            <property name="deco_bulbasaur_doll" type="bit" address="0xD80E" position="3" />
+            <property name="deco_charmander_doll" type="bit" address="0xD80E" position="4" />
+            <property name="deco_squirtle_doll" type="bit" address="0xD80E" position="5" />
+            <property name="deco_poliwag_doll" type="bit" address="0xD80E" position="6" />
+            <property name="deco_diglett_doll" type="bit" address="0xD80E" position="7" />
+            <property name="deco_staryu_doll" type="bit" address="0xD80F" position="0" />
+            <property name="deco_magikarp_doll" type="bit" address="0xD80F" position="1" />
+            <property name="deco_oddish_doll" type="bit" address="0xD80F" position="2" />
+            <property name="deco_gengar_doll" type="bit" address="0xD80F" position="3" />
+            <property name="deco_shellder_doll" type="bit" address="0xD80F" position="4" />
+            <property name="deco_grimer_doll" type="bit" address="0xD80F" position="5" />
+            <property name="deco_voltorb_doll" type="bit" address="0xD80F" position="6" />
+            <property name="deco_weedle_doll" type="bit" address="0xD80F" position="7" />
+            <property name="deco_unown_doll" type="bit" address="0xD810" position="0" />
+            <property name="deco_geodude_doll" type="bit" address="0xD810" position="1" />
+            <property name="deco_machop_doll" type="bit" address="0xD810" position="2" />
+            <property name="deco_tentacool_doll" type="bit" address="0xD810" position="3" />
+            <property name="players_room_poster" type="bit" address="0xD810" position="4" />
+            <property name="deco_gold_trophy" type="bit" address="0xD810" position="5" />
+            <property name="deco_silver_trophy" type="bit" address="0xD810" position="6" />
+            <property name="deco_big_snorlax_doll" type="bit" address="0xD810" position="7" />
+            <property name="deco_big_onix_doll" type="bit" address="0xD811" position="0" />
+            <property name="deco_big_lapras_doll" type="bit" address="0xD811" position="1" />
+            <property name="warped_from_route_35_national_park_gate" type="bit" address="0xD811" position="2" />
+            <property name="switch_1" type="bit" address="0xD811" position="3" />
+            <property name="switch_2" type="bit" address="0xD811" position="4" />
+            <property name="switch_3" type="bit" address="0xD811" position="5" />
+            <property name="emergency_switch" type="bit" address="0xD811" position="6" />
+            <property name="switch_4" type="bit" address="0xD811" position="7" />
+            <property name="switch_5" type="bit" address="0xD812" position="0" />
+            <property name="switch_6" type="bit" address="0xD812" position="1" />
+            <property name="switch_7" type="bit" address="0xD812" position="2" />
+            <property name="switch_8" type="bit" address="0xD812" position="3" />
+            <property name="switch_9" type="bit" address="0xD812" position="4" />
+            <property name="switch_10" type="bit" address="0xD812" position="5" />
+            <property name="switch_11" type="bit" address="0xD812" position="6" />
+            <property name="switch_12" type="bit" address="0xD812" position="7" />
+            <property name="switch_13" type="bit" address="0xD813" position="0" />
+            <property name="switch_14" type="bit" address="0xD813" position="1" />
+            <property name="uncovered_staircase_in_mahogany_mart" type="bit" address="0xD813" position="2" />
+            <property name="turned_off_security_cameras" type="bit" address="0xD813" position="3" />
+            <property name="security_camera_1" type="bit" address="0xD813" position="4" />
+            <property name="security_camera_2" type="bit" address="0xD813" position="5" />
+            <property name="security_camera_3" type="bit" address="0xD813" position="6" />
+            <property name="security_camera_4" type="bit" address="0xD813" position="7" />
+            <property name="security_camera_5" type="bit" address="0xD814" position="0" />
+            <property name="exploding_trap_1" type="bit" address="0xD814" position="1" />
+            <property name="exploding_trap_2" type="bit" address="0xD814" position="2" />
+            <property name="exploding_trap_3" type="bit" address="0xD814" position="3" />
+            <property name="exploding_trap_4" type="bit" address="0xD814" position="4" />
+            <property name="exploding_trap_5" type="bit" address="0xD814" position="5" />
+            <property name="exploding_trap_6" type="bit" address="0xD814" position="6" />
+            <property name="exploding_trap_7" type="bit" address="0xD814" position="7" />
+            <property name="exploding_trap_8" type="bit" address="0xD815" position="0" />
+            <property name="exploding_trap_9" type="bit" address="0xD815" position="1" />
+            <property name="exploding_trap_10" type="bit" address="0xD815" position="2" />
+            <property name="exploding_trap_11" type="bit" address="0xD815" position="3" />
+            <property name="exploding_trap_12" type="bit" address="0xD815" position="4" />
+            <property name="exploding_trap_13" type="bit" address="0xD815" position="5" />
+            <property name="exploding_trap_14" type="bit" address="0xD815" position="6" />
+            <property name="exploding_trap_15" type="bit" address="0xD815" position="7" />
+            <property name="exploding_trap_16" type="bit" address="0xD816" position="0" />
+            <property name="exploding_trap_17" type="bit" address="0xD816" position="1" />
+            <property name="exploding_trap_18" type="bit" address="0xD816" position="2" />
+            <property name="exploding_trap_19" type="bit" address="0xD816" position="3" />
+            <property name="exploding_trap_20" type="bit" address="0xD816" position="4" />
+            <property name="exploding_trap_21" type="bit" address="0xD816" position="5" />
+            <property name="exploding_trap_22" type="bit" address="0xD816" position="6" />
+            <property name="learned_hail_giovanni" type="bit" address="0xD816" position="7" />
+            <property name="opened_door_to_rocket_hideout_transmitter" type="bit" address="0xD817" position="0" />
+            <property name="learned_slowpoketail" type="bit" address="0xD817" position="1" />
+            <property name="learned_raticate_tail" type="bit" address="0xD817" position="2" />
+            <property name="opened_door_to_giovannis_office" type="bit" address="0xD817" position="3" />
+            <property name="goldenrod_dept_store_b1f_layout_1" type="bit" address="0xD817" position="4" />
+            <property name="goldenrod_dept_store_b1f_layout_2" type="bit" address="0xD817" position="5" />
+            <property name="goldenrod_dept_store_b1f_layout_3" type="bit" address="0xD817" position="6" />
+            <property name="goldenrod_underground_warehouse_blocked_off" type="bit" address="0xD817" position="7" />
+            <property name="left_mons_with_contest_officer" type="bit" address="0xD818" position="0" />
+            <property name="wills_room_entrance_closed" type="bit" address="0xD818" position="1" />
+            <property name="wills_room_exit_open" type="bit" address="0xD818" position="2" />
+            <property name="kogas_room_entrance_closed" type="bit" address="0xD818" position="3" />
+            <property name="kogas_room_exit_open" type="bit" address="0xD818" position="4" />
+            <property name="brunos_room_entrance_closed" type="bit" address="0xD818" position="5" />
+            <property name="brunos_room_exit_open" type="bit" address="0xD818" position="6" />
+            <property name="karens_room_entrance_closed" type="bit" address="0xD818" position="7" />
+            <property name="karens_room_exit_open" type="bit" address="0xD819" position="0" />
+            <property name="lances_room_entrance_closed" type="bit" address="0xD819" position="1" />
+            <property name="lances_room_exit_open" type="bit" address="0xD819" position="2" />
+            <property name="contest_officer_has_sun_stone" type="bit" address="0xD819" position="3" />
+            <property name="contest_officer_has_everstone" type="bit" address="0xD819" position="4" />
+            <property name="contest_officer_has_gold_berry" type="bit" address="0xD819" position="5" />
+            <property name="contest_officer_has_berry" type="bit" address="0xD819" position="6" />
+            <property name="fought_ho_oh" type="bit" address="0xD819" position="7" />
+            <property name="fought_lugia" type="bit" address="0xD81A" position="0" />
+            <property name="beat_rival_in_mt_moon" type="bit" address="0xD81A" position="1" />
+            <property name="met_bills_grandpa" type="bit" address="0xD81A" position="2" />
+            <property name="showed_lickitung_to_bills_grandpa" type="bit" address="0xD81A" position="3" />
+            <property name="showed_oddish_to_bills_grandpa" type="bit" address="0xD81A" position="4" />
+            <property name="showed_staryu_to_bills_grandpa" type="bit" address="0xD81A" position="5" />
+            <property name="showed_growlithe_vulpix_to_bills_grandpa" type="bit" address="0xD81A" position="6" />
+            <property name="showed_pichu_to_bills_grandpa" type="bit" address="0xD81A" position="7" />
+            <property name="got_everstone_from_bills_grandpa" type="bit" address="0xD81B" position="0" />
+            <property name="got_leaf_stone_from_bills_grandpa" type="bit" address="0xD81B" position="1" />
+            <property name="got_water_stone_from_bills_grandpa" type="bit" address="0xD81B" position="2" />
+            <property name="got_fire_stone_from_bills_grandpa" type="bit" address="0xD81B" position="3" />
+            <property name="got_thunderstone_from_bills_grandpa" type="bit" address="0xD81B" position="4" />
+            <property name="listened_to_initial_radio" type="bit" address="0xD81B" position="5" />
+            <property name="beat_swimmerf_elaine" type="bit" address="0xD834" position="0" />
+            <property name="beat_swimmerf_paula" type="bit" address="0xD834" position="1" />
+            <property name="beat_swimmerf_kaylee" type="bit" address="0xD834" position="2" />
+            <property name="beat_swimmerf_susie" type="bit" address="0xD834" position="3" />
+            <property name="beat_swimmerf_denise" type="bit" address="0xD834" position="4" />
+            <property name="beat_swimmerf_kara" type="bit" address="0xD834" position="5" />
+            <property name="beat_swimmerf_wendy" type="bit" address="0xD834" position="6" />
+            <property name="beat_swimmerf_lisa" type="bit" address="0xD834" position="7" />
+            <property name="beat_swimmerf_jill" type="bit" address="0xD835" position="0" />
+            <property name="beat_swimmerf_mary" type="bit" address="0xD835" position="1" />
+            <property name="beat_swimmerf_katie" type="bit" address="0xD835" position="2" />
+            <property name="beat_swimmerf_dawn" type="bit" address="0xD835" position="3" />
+            <property name="beat_swimmerf_tara" type="bit" address="0xD835" position="4" />
+            <property name="beat_swimmerf_nicole" type="bit" address="0xD835" position="5" />
+            <property name="beat_swimmerf_lori" type="bit" address="0xD835" position="6" />
+            <property name="beat_swimmerf_jody" type="bit" address="0xD835" position="7" />
+            <property name="beat_swimmerf_nikki" type="bit" address="0xD836" position="0" />
+            <property name="beat_swimmerf_diana" type="bit" address="0xD836" position="1" />
+            <property name="beat_swimmerf_briana" type="bit" address="0xD836" position="2" />
+            <property name="beat_bird_keeper_rod" type="bit" address="0xD836" position="3" />
+            <property name="beat_bird_keeper_abe" type="bit" address="0xD836" position="4" />
+            <property name="beat_bird_keeper_bryan" type="bit" address="0xD836" position="5" />
+            <property name="beat_bird_keeper_theo" type="bit" address="0xD836" position="6" />
+            <property name="beat_bird_keeper_toby" type="bit" address="0xD836" position="7" />
+            <property name="beat_bird_keeper_denis" type="bit" address="0xD837" position="0" />
+            <property name="beat_bird_keeper_vance" type="bit" address="0xD837" position="1" />
+            <property name="beat_bird_keeper_hank" type="bit" address="0xD837" position="2" />
+            <property name="beat_bird_keeper_roy" type="bit" address="0xD837" position="3" />
+            <property name="beat_bird_keeper_boris" type="bit" address="0xD837" position="4" />
+            <property name="beat_bird_keeper_bob" type="bit" address="0xD837" position="5" />
+            <property name="beat_bird_keeper_jose" type="bit" address="0xD837" position="6" />
+            <property name="beat_bird_keeper_peter" type="bit" address="0xD837" position="7" />
+            <property name="beat_bird_keeper_jose2" type="bit" address="0xD838" position="0" />
+            <property name="beat_bird_keeper_perry" type="bit" address="0xD838" position="1" />
+            <property name="beat_bird_keeper_bret" type="bit" address="0xD838" position="2" />
+            <property name="beat_bird_keeper_jose3" type="bit" address="0xD838" position="3" />
+            <property name="beat_bird_keeper_vance2" type="bit" address="0xD838" position="4" />
+            <property name="beat_bird_keeper_vance3" type="bit" address="0xD838" position="5" />
+            <property name="beat_boarder_ronald" type="bit" address="0xD838" position="6" />
+            <property name="beat_boarder_brad" type="bit" address="0xD838" position="7" />
+            <property name="beat_boarder_douglas" type="bit" address="0xD839" position="0" />
+            <property name="beat_sage_chow" type="bit" address="0xD839" position="1" />
+            <property name="beat_sage_nico" type="bit" address="0xD839" position="2" />
+            <property name="beat_sage_jin" type="bit" address="0xD839" position="3" />
+            <property name="beat_sage_troy" type="bit" address="0xD839" position="4" />
+            <property name="beat_sage_jeffrey" type="bit" address="0xD839" position="5" />
+            <property name="beat_sage_ping" type="bit" address="0xD839" position="6" />
+            <property name="beat_sage_edmond" type="bit" address="0xD839" position="7" />
+            <property name="beat_sage_neal" type="bit" address="0xD83A" position="0" />
+            <property name="beat_sage_li" type="bit" address="0xD83A" position="1" />
+            <property name="beat_camper_roland" type="bit" address="0xD83A" position="2" />
+            <property name="beat_camper_todd" type="bit" address="0xD83A" position="3" />
+            <property name="beat_camper_ivan" type="bit" address="0xD83A" position="4" />
+            <property name="beat_camper_elliot" type="bit" address="0xD83A" position="5" />
+            <property name="beat_camper_barry" type="bit" address="0xD83A" position="6" />
+            <property name="beat_camper_lloyd" type="bit" address="0xD83A" position="7" />
+            <property name="beat_camper_dean" type="bit" address="0xD83B" position="0" />
+            <property name="beat_camper_sid" type="bit" address="0xD83B" position="1" />
+            <property name="beat_camper_hervey" type="bit" address="0xD83B" position="2" />
+            <property name="beat_camper_dale" type="bit" address="0xD83B" position="3" />
+            <property name="beat_camper_ted" type="bit" address="0xD83B" position="4" />
+            <property name="beat_camper_todd2" type="bit" address="0xD83B" position="5" />
+            <property name="beat_camper_todd3" type="bit" address="0xD83B" position="6" />
+            <property name="beat_camper_thomas" type="bit" address="0xD83B" position="7" />
+            <property name="beat_camper_leroy" type="bit" address="0xD83C" position="0" />
+            <property name="beat_camper_david" type="bit" address="0xD83C" position="1" />
+            <property name="beat_camper_john" type="bit" address="0xD83C" position="2" />
+            <property name="beat_camper_jerry" type="bit" address="0xD83C" position="3" />
+            <property name="beat_camper_spencer" type="bit" address="0xD83C" position="4" />
+            <property name="beat_burglar_duncan" type="bit" address="0xD83C" position="5" />
+            <property name="beat_burglar_eddie" type="bit" address="0xD83C" position="6" />
+            <property name="beat_burglar_corey" type="bit" address="0xD83C" position="7" />
+            <property name="beat_biker_benny" type="bit" address="0xD83D" position="1" />
+            <property name="beat_biker_kazu" type="bit" address="0xD83D" position="2" />
+            <property name="beat_biker_dwayne" type="bit" address="0xD83D" position="3" />
+            <property name="beat_biker_harris" type="bit" address="0xD83D" position="4" />
+            <property name="beat_biker_zeke" type="bit" address="0xD83D" position="5" />
+            <property name="beat_biker_charles" type="bit" address="0xD83D" position="6" />
+            <property name="beat_biker_riley" type="bit" address="0xD83D" position="7" />
+            <property name="beat_biker_joel" type="bit" address="0xD83E" position="0" />
+            <property name="beat_biker_glenn" type="bit" address="0xD83E" position="1" />
+            <property name="beat_psychic_nathan" type="bit" address="0xD83E" position="2" />
+            <property name="beat_psychic_franklin" type="bit" address="0xD83E" position="3" />
+            <property name="beat_psychic_herman" type="bit" address="0xD83E" position="4" />
+            <property name="beat_psychic_fidel" type="bit" address="0xD83E" position="5" />
+            <property name="beat_psychic_greg" type="bit" address="0xD83E" position="6" />
+            <property name="beat_psychic_norman" type="bit" address="0xD83E" position="7" />
+            <property name="beat_psychic_mark" type="bit" address="0xD83F" position="0" />
+            <property name="beat_psychic_phil" type="bit" address="0xD83F" position="1" />
+            <property name="beat_psychic_richard" type="bit" address="0xD83F" position="2" />
+            <property name="beat_psychic_gilbert" type="bit" address="0xD83F" position="3" />
+            <property name="beat_psychic_jared" type="bit" address="0xD83F" position="4" />
+            <property name="beat_psychic_rodney" type="bit" address="0xD83F" position="5" />
+            <property name="beat_firebreather_otis" type="bit" address="0xD83F" position="6" />
+            <property name="beat_firebreather_dick" type="bit" address="0xD83F" position="7" />
+            <property name="beat_firebreather_ned" type="bit" address="0xD840" position="0" />
+            <property name="beat_firebreather_burt" type="bit" address="0xD840" position="1" />
+            <property name="beat_firebreather_bill" type="bit" address="0xD840" position="2" />
+            <property name="beat_firebreather_walt" type="bit" address="0xD840" position="3" />
+            <property name="beat_firebreather_ray" type="bit" address="0xD840" position="4" />
+            <property name="beat_firebreather_lyle" type="bit" address="0xD840" position="5" />
+            <property name="beat_fisher_justin" type="bit" address="0xD840" position="6" />
+            <property name="beat_fisher_ralph" type="bit" address="0xD840" position="7" />
+            <property name="beat_fisher_arnold" type="bit" address="0xD841" position="0" />
+            <property name="beat_fisher_kyle" type="bit" address="0xD841" position="1" />
+            <property name="beat_fisher_henry" type="bit" address="0xD841" position="2" />
+            <property name="beat_fisher_marvin" type="bit" address="0xD841" position="3" />
+            <property name="beat_fisher_chris" type="bit" address="0xD841" position="4" />
+            <property name="beat_fisher_andre" type="bit" address="0xD841" position="5" />
+            <property name="beat_fisher_raymond" type="bit" address="0xD841" position="6" />
+            <property name="beat_fisher_wilton" type="bit" address="0xD841" position="7" />
+            <property name="beat_fisher_edgar" type="bit" address="0xD842" position="0" />
+            <property name="beat_fisher_jonah" type="bit" address="0xD842" position="1" />
+            <property name="beat_fisher_martin" type="bit" address="0xD842" position="2" />
+            <property name="beat_fisher_stephen" type="bit" address="0xD842" position="3" />
+            <property name="beat_fisher_barney" type="bit" address="0xD842" position="4" />
+            <property name="beat_fisher_ralph2" type="bit" address="0xD842" position="5" />
+            <property name="beat_fisher_ralph3" type="bit" address="0xD842" position="6" />
+            <property name="beat_fisher_chris2" type="bit" address="0xD842" position="7" />
+            <property name="beat_fisher_chris3" type="bit" address="0xD843" position="0" />
+            <property name="beat_fisher_wilton2" type="bit" address="0xD843" position="1" />
+            <property name="beat_fisher_scott" type="bit" address="0xD843" position="2" />
+            <property name="beat_fisher_wilton3" type="bit" address="0xD843" position="3" />
+            <property name="beat_twins_amy_and_may" type="bit" address="0xD843" position="4" />
+            <property name="beat_twins_ann_and_anne" type="bit" address="0xD843" position="5" />
+            <property name="beat_twins_ann_and_anne2" type="bit" address="0xD843" position="6" />
+            <property name="beat_twins_amy_and_may2" type="bit" address="0xD843" position="7" />
+            <property name="beat_twins_jo_and_zoe" type="bit" address="0xD844" position="0" />
+            <property name="beat_twins_jo_and_zoe2" type="bit" address="0xD844" position="1" />
+            <property name="beat_twins_meg_and_peg" type="bit" address="0xD844" position="2" />
+            <property name="beat_twins_meg_and_peg2" type="bit" address="0xD844" position="3" />
+            <property name="beat_schoolboy_jack" type="bit" address="0xD844" position="4" />
+            <property name="beat_schoolboy_kip" type="bit" address="0xD844" position="5" />
+            <property name="beat_schoolboy_alan" type="bit" address="0xD844" position="6" />
+            <property name="beat_schoolboy_johnny" type="bit" address="0xD844" position="7" />
+            <property name="beat_schoolboy_danny" type="bit" address="0xD845" position="0" />
+            <property name="beat_schoolboy_tommy" type="bit" address="0xD845" position="1" />
+            <property name="beat_schoolboy_dudley" type="bit" address="0xD845" position="2" />
+            <property name="beat_schoolboy_joe" type="bit" address="0xD845" position="3" />
+            <property name="beat_schoolboy_billy" type="bit" address="0xD845" position="4" />
+            <property name="beat_schoolboy_chad" type="bit" address="0xD845" position="5" />
+            <property name="beat_schoolboy_nate" type="bit" address="0xD845" position="6" />
+            <property name="beat_schoolboy_ricky" type="bit" address="0xD845" position="7" />
+            <property name="beat_schoolboy_jack2" type="bit" address="0xD846" position="0" />
+            <property name="beat_schoolboy_jack3" type="bit" address="0xD846" position="1" />
+            <property name="beat_schoolboy_alan2" type="bit" address="0xD846" position="2" />
+            <property name="beat_schoolboy_alan3" type="bit" address="0xD846" position="3" />
+            <property name="beat_schoolboy_chad2" type="bit" address="0xD846" position="4" />
+            <property name="beat_schoolboy_chad3" type="bit" address="0xD846" position="5" />
+            <property name="beat_picnicker_liz" type="bit" address="0xD846" position="6" />
+            <property name="beat_picnicker_gina" type="bit" address="0xD846" position="7" />
+            <property name="beat_picnicker_brooke" type="bit" address="0xD847" position="0" />
+            <property name="beat_picnicker_kim" type="bit" address="0xD847" position="1" />
+            <property name="beat_picnicker_cindy" type="bit" address="0xD847" position="2" />
+            <property name="beat_picnicker_hope" type="bit" address="0xD847" position="3" />
+            <property name="beat_picnicker_sharon" type="bit" address="0xD847" position="4" />
+            <property name="beat_picnicker_debra" type="bit" address="0xD847" position="5" />
+            <property name="beat_picnicker_gina2" type="bit" address="0xD847" position="6" />
+            <property name="beat_picnicker_erin" type="bit" address="0xD847" position="7" />
+            <property name="beat_picnicker_liz2" type="bit" address="0xD848" position="0" />
+            <property name="beat_picnicker_liz3" type="bit" address="0xD848" position="1" />
+            <property name="beat_picnicker_heidi" type="bit" address="0xD848" position="2" />
+            <property name="beat_picnicker_edna" type="bit" address="0xD848" position="3" />
+            <property name="beat_picnicker_gina3" type="bit" address="0xD848" position="4" />
+            <property name="beat_picnicker_tiffany2" type="bit" address="0xD848" position="5" />
+            <property name="beat_picnicker_tiffany3" type="bit" address="0xD848" position="6" />
+            <property name="beat_picnicker_erin2" type="bit" address="0xD848" position="7" />
+            <property name="beat_picnicker_tanya" type="bit" address="0xD849" position="0" />
+            <property name="beat_picnicker_tiffany" type="bit" address="0xD849" position="1" />
+            <property name="beat_picnicker_erin3" type="bit" address="0xD849" position="2" />
+            <property name="beat_guitarist_clyde" type="bit" address="0xD849" position="3" />
+            <property name="beat_guitarist_vincent" type="bit" address="0xD849" position="4" />
+            <property name="beat_juggler_irwin" type="bit" address="0xD849" position="5" />
+            <property name="beat_juggler_fritz" type="bit" address="0xD849" position="6" />
+            <property name="beat_juggler_horton" type="bit" address="0xD849" position="7" />
+            <property name="beat_juggler_irwin2" type="bit" address="0xD84A" position="0" />
+            <property name="beat_juggler_irwin3" type="bit" address="0xD84A" position="1" />
+            <property name="beat_gentleman_preston" type="bit" address="0xD84A" position="2" />
+            <property name="beat_gentleman_edward" type="bit" address="0xD84A" position="3" />
+            <property name="beat_gentleman_gregory" type="bit" address="0xD84A" position="4" />
+            <property name="beat_gentleman_virgil" type="bit" address="0xD84A" position="5" />
+            <property name="beat_gentleman_alfred" type="bit" address="0xD84A" position="6" />
+            <property name="beat_scientist_ross" type="bit" address="0xD84A" position="7" />
+            <property name="beat_scientist_mitch" type="bit" address="0xD84B" position="0" />
+            <property name="beat_scientist_jed" type="bit" address="0xD84B" position="1" />
+            <property name="beat_scientist_marc" type="bit" address="0xD84B" position="2" />
+            <property name="beat_scientist_rich" type="bit" address="0xD84B" position="3" />
+            <property name="beat_blackbelt_kenji2" type="bit" address="0xD84B" position="4" />
+            <property name="beat_blackbelt_yoshi" type="bit" address="0xD84B" position="5" />
+            <property name="beat_blackbelt_kenji3" type="bit" address="0xD84B" position="6" />
+            <property name="beat_blackbelt_lao" type="bit" address="0xD84B" position="7" />
+            <property name="beat_blackbelt_nob" type="bit" address="0xD84C" position="0" />
+            <property name="beat_blackbelt_kiyo" type="bit" address="0xD84C" position="1" />
+            <property name="beat_blackbelt_lung" type="bit" address="0xD84C" position="2" />
+            <property name="beat_blackbelt_kenji" type="bit" address="0xD84C" position="3" />
+            <property name="beat_blackbelt_wai" type="bit" address="0xD84C" position="4" />
+            <property name="beat_beauty_victoria" type="bit" address="0xD84C" position="5" />
+            <property name="beat_beauty_samantha" type="bit" address="0xD84C" position="6" />
+            <property name="beat_beauty_julie" type="bit" address="0xD84C" position="7" />
+            <property name="beat_beauty_jaclyn" type="bit" address="0xD84D" position="0" />
+            <property name="beat_beauty_brenda" type="bit" address="0xD84D" position="1" />
+            <property name="beat_beauty_cassie" type="bit" address="0xD84D" position="2" />
+            <property name="beat_beauty_caroline" type="bit" address="0xD84D" position="3" />
+            <property name="beat_beauty_carlene" type="bit" address="0xD84D" position="4" />
+            <property name="beat_beauty_jessica" type="bit" address="0xD84D" position="5" />
+            <property name="beat_beauty_rachael" type="bit" address="0xD84D" position="6" />
+            <property name="beat_beauty_angelica" type="bit" address="0xD84D" position="7" />
+            <property name="beat_beauty_kendra" type="bit" address="0xD84E" position="0" />
+            <property name="beat_beauty_veronica" type="bit" address="0xD84E" position="1" />
+            <property name="beat_beauty_julia" type="bit" address="0xD84E" position="2" />
+            <property name="beat_beauty_theresa" type="bit" address="0xD84E" position="3" />
+            <property name="beat_beauty_valerie" type="bit" address="0xD84E" position="4" />
+            <property name="beat_falkner" type="bit" address="0xD84E" position="5" />
+            <property name="beat_bugsy" type="bit" address="0xD84E" position="6" />
+            <property name="beat_whitney" type="bit" address="0xD84E" position="7" />
+            <property name="beat_morty" type="bit" address="0xD84F" position="0" />
+            <property name="beat_jasmine" type="bit" address="0xD84F" position="1" />
+            <property name="beat_chuck" type="bit" address="0xD84F" position="2" />
+            <property name="beat_pryce" type="bit" address="0xD84F" position="3" />
+            <property name="beat_clair" type="bit" address="0xD84F" position="4" />
+            <property name="beat_brock" type="bit" address="0xD84F" position="5" />
+            <property name="beat_misty" type="bit" address="0xD84F" position="6" />
+            <property name="beat_ltsurge" type="bit" address="0xD84F" position="7" />
+            <property name="beat_erika" type="bit" address="0xD850" position="0" />
+            <property name="beat_janine" type="bit" address="0xD850" position="1" />
+            <property name="beat_sabrina" type="bit" address="0xD850" position="2" />
+            <property name="beat_blaine" type="bit" address="0xD850" position="3" />
+            <property name="beat_blue" type="bit" address="0xD850" position="4" />
+            <property name="beat_pokefanm_william" type="bit" address="0xD850" position="5" />
+            <property name="beat_pokefanm_derek" type="bit" address="0xD850" position="6" />
+            <property name="beat_pokefanm_robert" type="bit" address="0xD850" position="7" />
+            <property name="beat_pokefanm_joshua" type="bit" address="0xD851" position="0" />
+            <property name="beat_pokefanm_carter" type="bit" address="0xD851" position="1" />
+            <property name="beat_pokefanm_trevor" type="bit" address="0xD851" position="2" />
+            <property name="beat_pokefanm_brandon" type="bit" address="0xD851" position="3" />
+            <property name="beat_pokefanm_jeremy" type="bit" address="0xD851" position="4" />
+            <property name="beat_pokefanm_colin" type="bit" address="0xD851" position="5" />
+            <property name="beat_pokefanm_derek2" type="bit" address="0xD851" position="6" />
+            <property name="beat_pokefanm_derek3" type="bit" address="0xD851" position="7" />
+            <property name="beat_pokefanm_alex" type="bit" address="0xD852" position="0" />
+            <property name="beat_pokefanf_beverly" type="bit" address="0xD852" position="1" />
+            <property name="beat_pokefanf_ruth" type="bit" address="0xD852" position="2" />
+            <property name="beat_pokefanf_beverly2" type="bit" address="0xD852" position="3" />
+            <property name="beat_pokefanf_beverly3" type="bit" address="0xD852" position="4" />
+            <property name="beat_pokefanf_georgia" type="bit" address="0xD852" position="5" />
+            <property name="beat_kimono_girl_naoko" type="bit" address="0xD852" position="7" />
+            <property name="beat_kimono_girl_sayo" type="bit" address="0xD853" position="0" />
+            <property name="beat_kimono_girl_zuki" type="bit" address="0xD853" position="1" />
+            <property name="beat_kimono_girl_kuni" type="bit" address="0xD853" position="2" />
+            <property name="beat_kimono_girl_miki" type="bit" address="0xD853" position="3" />
+            <property name="beat_pokemaniac_larry" type="bit" address="0xD853" position="4" />
+            <property name="beat_pokemaniac_andrew" type="bit" address="0xD853" position="5" />
+            <property name="beat_pokemaniac_calvin" type="bit" address="0xD853" position="6" />
+            <property name="beat_pokemaniac_shane" type="bit" address="0xD853" position="7" />
+            <property name="beat_pokemaniac_ben" type="bit" address="0xD854" position="0" />
+            <property name="beat_pokemaniac_brent" type="bit" address="0xD854" position="1" />
+            <property name="beat_pokemaniac_ron" type="bit" address="0xD854" position="2" />
+            <property name="beat_pokemaniac_ethan" type="bit" address="0xD854" position="3" />
+            <property name="beat_pokemaniac_brent2" type="bit" address="0xD854" position="4" />
+            <property name="beat_pokemaniac_brent3" type="bit" address="0xD854" position="5" />
+            <property name="beat_pokemaniac_issac" type="bit" address="0xD854" position="6" />
+            <property name="beat_pokemaniac_donald" type="bit" address="0xD854" position="7" />
+            <property name="beat_pokemaniac_zach" type="bit" address="0xD855" position="0" />
+            <property name="beat_rocket_gruntm_1" type="bit" address="0xD855" position="1" />
+            <property name="beat_rocket_gruntm_2" type="bit" address="0xD855" position="2" />
+            <property name="beat_rocket_gruntm_3" type="bit" address="0xD855" position="3" />
+            <property name="beat_rocket_gruntm_4" type="bit" address="0xD855" position="4" />
+            <property name="beat_rocket_gruntm_5" type="bit" address="0xD855" position="5" />
+            <property name="beat_rocket_gruntm_6" type="bit" address="0xD855" position="6" />
+            <property name="beat_rocket_gruntm_7" type="bit" address="0xD855" position="7" />
+            <property name="beat_rocket_gruntm_8" type="bit" address="0xD856" position="0" />
+            <property name="beat_rocket_gruntm_9" type="bit" address="0xD856" position="1" />
+            <property name="beat_rocket_gruntm_10" type="bit" address="0xD856" position="2" />
+            <property name="beat_rocket_gruntm_11" type="bit" address="0xD856" position="3" />
+            <property name="beat_rocket_gruntm_12" type="bit" address="0xD856" position="4" />
+            <property name="beat_rocket_gruntm_13" type="bit" address="0xD856" position="5" />
+            <property name="beat_rocket_gruntm_14" type="bit" address="0xD856" position="6" />
+            <property name="beat_rocket_gruntm_15" type="bit" address="0xD856" position="7" />
+            <property name="beat_rocket_gruntm_16" type="bit" address="0xD857" position="0" />
+            <property name="beat_rocket_gruntm_17" type="bit" address="0xD857" position="1" />
+            <property name="beat_rocket_gruntm_18" type="bit" address="0xD857" position="2" />
+            <property name="beat_rocket_gruntm_19" type="bit" address="0xD857" position="3" />
+            <property name="beat_rocket_gruntm_20" type="bit" address="0xD857" position="4" />
+            <property name="beat_rocket_gruntm_21" type="bit" address="0xD857" position="5" />
+            <property name="beat_rocket_gruntm_22" type="bit" address="0xD857" position="6" />
+            <property name="beat_rocket_gruntm_23" type="bit" address="0xD857" position="7" />
+            <property name="beat_rocket_gruntm_24" type="bit" address="0xD858" position="0" />
+            <property name="beat_rocket_gruntm_25" type="bit" address="0xD858" position="1" />
+            <property name="beat_rocket_gruntm_26" type="bit" address="0xD858" position="2" />
+            <property name="beat_rocket_gruntm_27" type="bit" address="0xD858" position="3" />
+            <property name="beat_rocket_gruntm_28" type="bit" address="0xD858" position="4" />
+            <property name="beat_rocket_gruntm_29" type="bit" address="0xD858" position="5" />
+            <property name="beat_rocket_gruntm_30" type="bit" address="0xD858" position="6" />
+            <property name="beat_rocket_gruntm_31" type="bit" address="0xD858" position="7" />
+            <property name="beat_rocket_gruntf_1" type="bit" address="0xD859" position="0" />
+            <property name="beat_rocket_gruntf_2" type="bit" address="0xD859" position="1" />
+            <property name="beat_rocket_gruntf_3" type="bit" address="0xD859" position="2" />
+            <property name="beat_rocket_gruntf_4" type="bit" address="0xD859" position="3" />
+            <property name="beat_rocket_gruntf_5" type="bit" address="0xD859" position="4" />
+            <property name="beat_lass_carrie" type="bit" address="0xD859" position="5" />
+            <property name="beat_lass_bridget" type="bit" address="0xD859" position="6" />
+            <property name="beat_lass_alice" type="bit" address="0xD859" position="7" />
+            <property name="beat_lass_krise" type="bit" address="0xD85A" position="0" />
+            <property name="beat_lass_connie" type="bit" address="0xD85A" position="1" />
+            <property name="beat_lass_linda" type="bit" address="0xD85A" position="2" />
+            <property name="beat_lass_laura" type="bit" address="0xD85A" position="3" />
+            <property name="beat_lass_shannon" type="bit" address="0xD85A" position="4" />
+            <property name="beat_lass_michelle" type="bit" address="0xD85A" position="5" />
+            <property name="beat_lass_dana" type="bit" address="0xD85A" position="6" />
+            <property name="beat_lass_ellen" type="bit" address="0xD85A" position="7" />
+            <property name="beat_lass_connie2" type="bit" address="0xD85B" position="0" />
+            <property name="beat_lass_connie3" type="bit" address="0xD85B" position="1" />
+            <property name="beat_lass_dana2" type="bit" address="0xD85B" position="2" />
+            <property name="beat_lass_dana3" type="bit" address="0xD85B" position="3" />
+            <property name="beat_hiker_anthony2" type="bit" address="0xD85B" position="4" />
+            <property name="beat_hiker_russell" type="bit" address="0xD85B" position="5" />
+            <property name="beat_hiker_phillip" type="bit" address="0xD85B" position="6" />
+            <property name="beat_hiker_leonard" type="bit" address="0xD85B" position="7" />
+            <property name="beat_hiker_anthony" type="bit" address="0xD85C" position="0" />
+            <property name="beat_hiker_benjamin" type="bit" address="0xD85C" position="1" />
+            <property name="beat_hiker_erik" type="bit" address="0xD85C" position="2" />
+            <property name="beat_hiker_michael" type="bit" address="0xD85C" position="3" />
+            <property name="beat_hiker_parry" type="bit" address="0xD85C" position="4" />
+            <property name="beat_hiker_timothy" type="bit" address="0xD85C" position="5" />
+            <property name="beat_hiker_bailey" type="bit" address="0xD85C" position="6" />
+            <property name="beat_hiker_anthony3" type="bit" address="0xD85C" position="7" />
+            <property name="beat_hiker_tim" type="bit" address="0xD85D" position="0" />
+            <property name="beat_hiker_noland" type="bit" address="0xD85D" position="1" />
+            <property name="beat_hiker_sidney" type="bit" address="0xD85D" position="2" />
+            <property name="beat_hiker_kenny" type="bit" address="0xD85D" position="3" />
+            <property name="beat_hiker_jim" type="bit" address="0xD85D" position="4" />
+            <property name="beat_hiker_daniel" type="bit" address="0xD85D" position="5" />
+            <property name="beat_hiker_parry2" type="bit" address="0xD85D" position="6" />
+            <property name="beat_hiker_parry3" type="bit" address="0xD85D" position="7" />
+            <property name="beat_bug_catcher_don" type="bit" address="0xD85E" position="0" />
+            <property name="beat_bug_catcher_rob" type="bit" address="0xD85E" position="1" />
+            <property name="beat_bug_catcher_ed" type="bit" address="0xD85E" position="2" />
+            <property name="beat_bug_catcher_wade" type="bit" address="0xD85E" position="3" />
+            <property name="beat_bug_catcher_benny" type="bit" address="0xD85E" position="4" />
+            <property name="beat_bug_catcher_al" type="bit" address="0xD85E" position="5" />
+            <property name="beat_bug_catcher_josh" type="bit" address="0xD85E" position="6" />
+            <property name="beat_bug_catcher_arnie" type="bit" address="0xD85E" position="7" />
+            <property name="beat_bug_catcher_ken" type="bit" address="0xD85F" position="0" />
+            <property name="beat_bug_catcher_wade2" type="bit" address="0xD85F" position="1" />
+            <property name="beat_bug_catcher_wade3" type="bit" address="0xD85F" position="2" />
+            <property name="beat_bug_catcher_doug" type="bit" address="0xD85F" position="3" />
+            <property name="beat_bug_catcher_arnie2" type="bit" address="0xD85F" position="4" />
+            <property name="beat_bug_catcher_arnie3" type="bit" address="0xD85F" position="5" />
+            <property name="beat_officer_keith" type="bit" address="0xD85F" position="6" />
+            <property name="beat_officer_dirk" type="bit" address="0xD85F" position="7" />
+            <property name="beat_cooltrainerm_nick" type="bit" address="0xD860" position="0" />
+            <property name="beat_cooltrainerm_aaron" type="bit" address="0xD860" position="1" />
+            <property name="beat_cooltrainerm_paul" type="bit" address="0xD860" position="2" />
+            <property name="beat_cooltrainerm_cody" type="bit" address="0xD860" position="3" />
+            <property name="beat_cooltrainerm_mike" type="bit" address="0xD860" position="4" />
+            <property name="beat_cooltrainerm_gaven2" type="bit" address="0xD860" position="5" />
+            <property name="beat_cooltrainerm_gaven3" type="bit" address="0xD860" position="6" />
+            <property name="beat_cooltrainerm_ryan" type="bit" address="0xD860" position="7" />
+            <property name="beat_cooltrainerm_jake" type="bit" address="0xD861" position="0" />
+            <property name="beat_cooltrainerm_gaven" type="bit" address="0xD861" position="1" />
+            <property name="beat_cooltrainerm_blake" type="bit" address="0xD861" position="2" />
+            <property name="beat_cooltrainerm_brian" type="bit" address="0xD861" position="3" />
+            <property name="beat_cooltrainerm_erick" type="bit" address="0xD861" position="4" />
+            <property name="beat_cooltrainerm_andy" type="bit" address="0xD861" position="5" />
+            <property name="beat_cooltrainerm_tyler" type="bit" address="0xD861" position="6" />
+            <property name="beat_cooltrainerm_sean" type="bit" address="0xD861" position="7" />
+            <property name="beat_cooltrainerm_kevin" type="bit" address="0xD862" position="0" />
+            <property name="beat_cooltrainerm_steve" type="bit" address="0xD862" position="1" />
+            <property name="beat_cooltrainerm_allen" type="bit" address="0xD862" position="2" />
+            <property name="beat_cooltrainerf_gwen" type="bit" address="0xD862" position="3" />
+            <property name="beat_cooltrainerf_lois" type="bit" address="0xD862" position="4" />
+            <property name="beat_cooltrainerf_fran" type="bit" address="0xD862" position="5" />
+            <property name="beat_cooltrainerf_lola" type="bit" address="0xD862" position="6" />
+            <property name="beat_cooltrainerf_kate" type="bit" address="0xD862" position="7" />
+            <property name="beat_cooltrainerf_irene" type="bit" address="0xD863" position="0" />
+            <property name="beat_cooltrainerf_kelly" type="bit" address="0xD863" position="1" />
+            <property name="beat_cooltrainerf_joyce" type="bit" address="0xD863" position="2" />
+            <property name="beat_cooltrainerf_beth" type="bit" address="0xD863" position="3" />
+            <property name="beat_cooltrainerf_reena" type="bit" address="0xD863" position="4" />
+            <property name="beat_cooltrainerf_megan" type="bit" address="0xD863" position="5" />
+            <property name="beat_cooltrainerf_beth2" type="bit" address="0xD863" position="6" />
+            <property name="beat_cooltrainerf_carol" type="bit" address="0xD863" position="7" />
+            <property name="beat_cooltrainerf_quinn" type="bit" address="0xD864" position="0" />
+            <property name="beat_cooltrainerf_emma" type="bit" address="0xD864" position="1" />
+            <property name="beat_cooltrainerf_cybil" type="bit" address="0xD864" position="2" />
+            <property name="beat_cooltrainerf_jenn" type="bit" address="0xD864" position="3" />
+            <property name="beat_cooltrainerf_beth3" type="bit" address="0xD864" position="4" />
+            <property name="beat_cooltrainerf_reena2" type="bit" address="0xD864" position="5" />
+            <property name="beat_cooltrainerf_reena3" type="bit" address="0xD864" position="6" />
+            <property name="beat_rocket_executivef_1" type="bit" address="0xD864" position="7" />
+            <property name="beat_rocket_executivef_2" type="bit" address="0xD865" position="0" />
+            <property name="beat_rocket_executivem_1" type="bit" address="0xD865" position="1" />
+            <property name="beat_rocket_executivem_2" type="bit" address="0xD865" position="2" />
+            <property name="beat_rocket_executivem_3" type="bit" address="0xD865" position="3" />
+            <property name="beat_rocket_executivem_4" type="bit" address="0xD865" position="4" />
+            <property name="beat_sailor_eugene" type="bit" address="0xD865" position="5" />
+            <property name="beat_sailor_huey" type="bit" address="0xD865" position="6" />
+            <property name="beat_sailor_terrell" type="bit" address="0xD865" position="7" />
+            <property name="beat_sailor_kent" type="bit" address="0xD866" position="0" />
+            <property name="beat_sailor_ernest" type="bit" address="0xD866" position="1" />
+            <property name="beat_sailor_jeff" type="bit" address="0xD866" position="2" />
+            <property name="beat_sailor_garrett" type="bit" address="0xD866" position="3" />
+            <property name="beat_sailor_kenneth" type="bit" address="0xD866" position="4" />
+            <property name="beat_sailor_stanly" type="bit" address="0xD866" position="5" />
+            <property name="beat_sailor_harry" type="bit" address="0xD866" position="6" />
+            <property name="beat_sailor_huey2" type="bit" address="0xD866" position="7" />
+            <property name="beat_sailor_huey3" type="bit" address="0xD867" position="0" />
+            <property name="beat_super_nerd_eric_unused" type="bit" address="0xD867" position="1" />
+            <property name="beat_super_nerd_eric" type="bit" address="0xD867" position="2" />
+            <property name="beat_super_nerd_gregg" type="bit" address="0xD867" position="3" />
+            <property name="beat_super_nerd_jay" type="bit" address="0xD867" position="4" />
+            <property name="beay_super_nerd_dave" type="bit" address="0xD867" position="5" />
+            <property name="beat_super_nerd_sam" type="bit" address="0xD867" position="6" />
+            <property name="beat_super_nerd_tom" type="bit" address="0xD867" position="7" />
+            <property name="beat_super_nerd_pat" type="bit" address="0xD868" position="0" />
+            <property name="beat_super_nerd_shawn" type="bit" address="0xD868" position="1" />
+            <property name="beat_super_nerd_teru" type="bit" address="0xD868" position="2" />
+            <property name="beat_medium_martha" type="bit" address="0xD868" position="3" />
+            <property name="beat_medium_grace" type="bit" address="0xD868" position="4" />
+            <property name="beat_medium_bethany" type="bit" address="0xD868" position="5" />
+            <property name="beat_medium_margret" type="bit" address="0xD868" position="6" />
+            <property name="beat_medium_ethel" type="bit" address="0xD868" position="7" />
+            <property name="beat_medium_rebecca" type="bit" address="0xD869" position="0" />
+            <property name="beat_medium_doris" type="bit" address="0xD869" position="1" />
+            <property name="beat_skier_roxanne" type="bit" address="0xD869" position="2" />
+            <property name="beat_skier_clarissa" type="bit" address="0xD869" position="3" />
+            <property name="beat_swimmerm_harold" type="bit" address="0xD869" position="4" />
+            <property name="beat_swimmerm_simon" type="bit" address="0xD869" position="5" />
+            <property name="beat_swimmerm_randall" type="bit" address="0xD869" position="6" />
+            <property name="beat_swimmerm_charlie" type="bit" address="0xD869" position="7" />
+            <property name="beat_swimmerm_george" type="bit" address="0xD86A" position="0" />
+            <property name="beat_swimmerm_berke" type="bit" address="0xD86A" position="1" />
+            <property name="beat_swimmerm_kirk" type="bit" address="0xD86A" position="2" />
+            <property name="beat_swimmerm_mathew" type="bit" address="0xD86A" position="3" />
+            <property name="beat_swimmerm_hal" type="bit" address="0xD86A" position="4" />
+            <property name="beat_swimmerm_paton" type="bit" address="0xD86A" position="5" />
+            <property name="beat_swimmerm_daryl" type="bit" address="0xD86A" position="6" />
+            <property name="beat_swimmerm_walter" type="bit" address="0xD86A" position="7" />
+            <property name="beat_swimmerm_tony" type="bit" address="0xD86B" position="0" />
+            <property name="beat_swimmerm_jerome" type="bit" address="0xD86B" position="1" />
+            <property name="beat_swimmerm_tucker" type="bit" address="0xD86B" position="2" />
+            <property name="beat_swimmerm_rick" type="bit" address="0xD86B" position="3" />
+            <property name="beat_swimmerm_cameron" type="bit" address="0xD86B" position="4" />
+            <property name="beat_swimmerm_seth" type="bit" address="0xD86B" position="5" />
+            <property name="beat_swimmerm_james" type="bit" address="0xD86B" position="6" />
+            <property name="beat_swimmerm_lewis" type="bit" address="0xD86B" position="7" />
+            <property name="beat_swimmerm_parker" type="bit" address="0xD86C" position="0" />
+            <property name="beat_youngster_joey" type="bit" address="0xD86C" position="1" />
+            <property name="beat_youngster_mikey" type="bit" address="0xD86C" position="2" />
+            <property name="beat_youngster_albert" type="bit" address="0xD86C" position="3" />
+            <property name="beat_youngster_gordon" type="bit" address="0xD86C" position="4" />
+            <property name="beat_youngster_samuel" type="bit" address="0xD86C" position="5" />
+            <property name="beat_youngster_ian" type="bit" address="0xD86C" position="6" />
+            <property name="beat_youngster_joey2" type="bit" address="0xD86C" position="7" />
+            <property name="beat_youngster_joey3" type="bit" address="0xD86D" position="0" />
+            <property name="beat_youngster_warren" type="bit" address="0xD86D" position="1" />
+            <property name="beat_youngster_jimmy" type="bit" address="0xD86D" position="2" />
+            <property name="beat_youngster_owen" type="bit" address="0xD86D" position="3" />
+            <property name="beat_youngster_jason" type="bit" address="0xD86D" position="4" />
+            <property name="beat_teacher_colette" type="bit" address="0xD86D" position="5" />
+            <property name="beat_teacher_hillary" type="bit" address="0xD86D" position="6" />
+            <property name="beat_teacher_shirley" type="bit" address="0xD86D" position="7" />
+            <property name="beat_elite_4_will" type="bit" address="0xD86E" position="0" />
+            <property name="beat_elite_4_koga" type="bit" address="0xD86E" position="1" />
+            <property name="beat_elite_4_bruno" type="bit" address="0xD86E" position="2" />
+            <property name="beat_elite_4_karen" type="bit" address="0xD86E" position="3" />
+            <property name="beat_champion_lance" type="bit" address="0xD86E" position="4" />
+            <property name="cyndaquil_pokeball_in_elms_lab" type="bit" address="0xD87F" position="0" />
+            <property name="totodile_pokeball_in_elms_lab" type="bit" address="0xD87F" position="1" />
+            <property name="chikorita_pokeball_in_elms_lab" type="bit" address="0xD87F" position="2" />
+            <property name="violet_city_pp_up" type="bit" address="0xD87F" position="3" />
+            <property name="violet_city_rare_candy" type="bit" address="0xD87F" position="4" />
+            <property name="lake_of_rage_max_ether" type="bit" address="0xD87F" position="5" />
+            <property name="lake_of_rage_tm_detect" type="bit" address="0xD87F" position="6" />
+            <property name="sprout_tower_1f_parlyz_heal" type="bit" address="0xD87F" position="7" />
+            <property name="sprout_tower_2f_x_defend" type="bit" address="0xD880" position="0" />
+            <property name="sprout_tower_3f_potion" type="bit" address="0xD880" position="1" />
+            <property name="sprout_tower_3f_escape_rope" type="bit" address="0xD880" position="2" />
+            <property name="tin_tower_3f_full_heal" type="bit" address="0xD880" position="3" />
+            <property name="tin_tower_4f_ultra_ball" type="bit" address="0xD880" position="4" />
+            <property name="tin_tower_4f_super_potion" type="bit" address="0xD880" position="5" />
+            <property name="tin_tower_4f_escape_rope" type="bit" address="0xD880" position="6" />
+            <property name="tin_tower_5f_rare_candy" type="bit" address="0xD880" position="7" />
+            <property name="tin_tower_7f_max_revive" type="bit" address="0xD881" position="0" />
+            <property name="tin_tower_8f_nugget" type="bit" address="0xD881" position="1" />
+            <property name="tin_tower_8f_max_elixer" type="bit" address="0xD881" position="2" />
+            <property name="tin_tower_8f_full_restore" type="bit" address="0xD881" position="3" />
+            <property name="burned_tower_1f_x_speed" type="bit" address="0xD881" position="4" />
+            <property name="burned_tower_1f_burn_heal" type="bit" address="0xD881" position="5" />
+            <property name="burned_tower_b1f_hp_up" type="bit" address="0xD881" position="6" />
+            <property name="burned_tower_b1f_tm_endure" type="bit" address="0xD881" position="7" />
+            <property name="national_park_parlyz_heal" type="bit" address="0xD882" position="0" />
+            <property name="national_park_tm_dig" type="bit" address="0xD882" position="1" />
+            <property name="union_cave_1f_great_ball" type="bit" address="0xD882" position="2" />
+            <property name="union_cave_1f_potion" type="bit" address="0xD882" position="3" />
+            <property name="union_cave_1f_x_attack" type="bit" address="0xD882" position="4" />
+            <property name="union_cave_1f_awakening" type="bit" address="0xD882" position="5" />
+            <property name="union_cave_b1f_tm_swift" type="bit" address="0xD882" position="6" />
+            <property name="union_cave_b1f_x_defend" type="bit" address="0xD882" position="7" />
+            <property name="union_cave_b2f_elixer" type="bit" address="0xD883" position="0" />
+            <property name="union_cave_b2f_hyper_potion" type="bit" address="0xD883" position="1" />
+            <property name="slowpoke_well_b1f_super_potion" type="bit" address="0xD883" position="2" />
+            <property name="slowpoke_well_b2f_tm_rain_dance" type="bit" address="0xD883" position="3" />
+            <property name="olivine_lighthouse_3f_ether" type="bit" address="0xD883" position="4" />
+            <property name="olivine_lighthouse_5f_rare_candy" type="bit" address="0xD883" position="5" />
+            <property name="olivine_lighthouse_5f_great_ball" type="bit" address="0xD883" position="6" />
+            <property name="olivine_lighthouse_5f_tm_swagger" type="bit" address="0xD883" position="7" />
+            <property name="olivine_lighthouse_6f_super_potion" type="bit" address="0xD884" position="0" />
+            <property name="team_rocket_base_b1f_hyper_potion" type="bit" address="0xD884" position="1" />
+            <property name="team_rocket_base_b1f_nugget" type="bit" address="0xD884" position="2" />
+            <property name="team_rocket_base_b1f_x_accuracy" type="bit" address="0xD884" position="3" />
+            <property name="team_rocket_base_b2f_tm_thief" type="bit" address="0xD884" position="4" />
+            <property name="team_rocket_base_b3f_full_heal" type="bit" address="0xD884" position="5" />
+            <property name="team_rocket_base_b3f_dire_hit" type="bit" address="0xD884" position="6" />
+            <property name="team_rocket_base_b3f_protein" type="bit" address="0xD884" position="7" />
+            <property name="team_rocket_base_b3f_ice_heal" type="bit" address="0xD885" position="0" />
+            <property name="ilex_forest_revive" type="bit" address="0xD885" position="1" />
+            <property name="goldenrod_underground_coin_case" type="bit" address="0xD885" position="2" />
+            <property name="goldenrod_underground_switch_room_entrances_smoke_ball" type="bit" address="0xD885" position="3" />
+            <property name="goldenrod_underground_switch_room_entrances_full_heal" type="bit" address="0xD885" position="4" />
+            <property name="goldenrod_dept_store_b1f_ether" type="bit" address="0xD885" position="5" />
+            <property name="goldenrod_dept_store_b1f_amulet_coin" type="bit" address="0xD885" position="6" />
+            <property name="goldenrod_dept_store_b1f_burn_heal" type="bit" address="0xD885" position="7" />
+            <property name="goldenrod_dept_store_b1f_ultra_ball" type="bit" address="0xD886" position="0" />
+            <property name="goldenrod_underground_warehouse_max_ether" type="bit" address="0xD886" position="1" />
+            <property name="goldenrod_underground_warehouse_tm_sleep_talk" type="bit" address="0xD886" position="2" />
+            <property name="mount_mortar_1f_outside_ether" type="bit" address="0xD886" position="3" />
+            <property name="mount_mortar_1f_outside_revive" type="bit" address="0xD886" position="4" />
+            <property name="mount_mortar_1f_inside_escape_rope" type="bit" address="0xD886" position="5" />
+            <property name="mount_mortar_1f_inside_max_revive" type="bit" address="0xD886" position="6" />
+            <property name="mount_mortar_1f_inside_hyper_potion" type="bit" address="0xD886" position="7" />
+            <property name="mount_mortar_2f_inside_max_potion" type="bit" address="0xD887" position="0" />
+            <property name="mount_mortar_2f_inside_rare_candy" type="bit" address="0xD887" position="1" />
+            <property name="mount_mortar_2f_inside_tm_defense_curl" type="bit" address="0xD887" position="2" />
+            <property name="mount_mortar_2f_inside_dragon_scale" type="bit" address="0xD887" position="3" />
+            <property name="mount_mortar_2f_inside_elixer" type="bit" address="0xD887" position="4" />
+            <property name="mount_mortar_2f_inside_escape_rope" type="bit" address="0xD887" position="5" />
+            <property name="mount_mortar_b1f_hyper_potion" type="bit" address="0xD887" position="6" />
+            <property name="mount_mortar_b1f_full_heal" type="bit" address="0xD887" position="7" />
+            <property name="got_hm07_waterfall" type="bit" address="0xD888" position="0" />
+            <property name="ice_path_1f_pp_up" type="bit" address="0xD888" position="1" />
+            <property name="ice_path_b1f_iron" type="bit" address="0xD888" position="2" />
+            <property name="ice_path_b2f_mahogany_side_full_heal" type="bit" address="0xD888" position="3" />
+            <property name="ice_path_b2f_mahogany_side_max_potion" type="bit" address="0xD888" position="4" />
+            <property name="ice_path_b2f_blackthorn_side_tm_rest" type="bit" address="0xD888" position="5" />
+            <property name="ice_path_b3f_nevermeltice" type="bit" address="0xD888" position="6" />
+            <property name="whirl_island_ne_ultra_ball" type="bit" address="0xD888" position="7" />
+            <property name="whirl_island_sw_guard_spec" type="bit" address="0xD889" position="0" />
+            <property name="whirl_island_b1f_full_restore" type="bit" address="0xD889" position="1" />
+            <property name="whirl_island_b1f_carbos" type="bit" address="0xD889" position="2" />
+            <property name="whirl_island_b1f_calcium" type="bit" address="0xD889" position="3" />
+            <property name="whirl_island_b1f_nugget" type="bit" address="0xD889" position="4" />
+            <property name="whirl_island_b1f_escape_rope" type="bit" address="0xD889" position="5" />
+            <property name="whirl_island_b2f_full_restore" type="bit" address="0xD889" position="6" />
+            <property name="whirl_island_b2f_max_revive" type="bit" address="0xD889" position="7" />
+            <property name="whirl_island_b2f_max_elixer" type="bit" address="0xD88A" position="0" />
+            <property name="silver_cave_room_1_max_elixer" type="bit" address="0xD88A" position="1" />
+            <property name="silver_cave_room_1_x_accuracy" type="bit" address="0xD88A" position="2" />
+            <property name="silver_cave_room_1_escape_rope" type="bit" address="0xD88A" position="3" />
+            <property name="silver_cave_item_rooms_max_revive" type="bit" address="0xD88A" position="4" />
+            <property name="silver_cave_item_rooms_full_restore" type="bit" address="0xD88A" position="5" />
+            <property name="dark_cave_violet_entrance_potion" type="bit" address="0xD88A" position="6" />
+            <property name="dark_cave_violet_entrance_full_heal" type="bit" address="0xD88A" position="7" />
+            <property name="dark_cave_violet_entrance_hyper_potion" type="bit" address="0xD88B" position="0" />
+            <property name="dark_cave_blackthorn_entrance_revive" type="bit" address="0xD88B" position="1" />
+            <property name="dark_cave_blackthorn_entrance_tm_snore" type="bit" address="0xD88B" position="2" />
+            <property name="victory_road_tm_earthquake" type="bit" address="0xD88B" position="3" />
+            <property name="victory_road_max_revive" type="bit" address="0xD88B" position="4" />
+            <property name="victory_road_full_restore" type="bit" address="0xD88B" position="5" />
+            <property name="victory_road_full_heal" type="bit" address="0xD88B" position="6" />
+            <property name="victory_road_x_special" type="bit" address="0xD88B" position="7" />
+            <property name="dragons_den_b1f_dragon_fang" type="bit" address="0xD88C" position="0" />
+            <property name="tohjo_falls_moon_stone" type="bit" address="0xD88C" position="1" />
+            <property name="route_26_max_elixer" type="bit" address="0xD88C" position="2" />
+            <property name="route_27_tm_solarbeam" type="bit" address="0xD88C" position="3" />
+            <property name="route_27_rare_candy" type="bit" address="0xD88C" position="4" />
+            <property name="route_29_potion" type="bit" address="0xD88C" position="5" />
+            <property name="route_31_antidote" type="bit" address="0xD88C" position="6" />
+            <property name="route_31_poke_ball" type="bit" address="0xD88C" position="7" />
+            <property name="route_32_great_ball" type="bit" address="0xD88D" position="0" />
+            <property name="route_32_potion" type="bit" address="0xD88D" position="1" />
+            <property name="route_35_tm_rollout" type="bit" address="0xD88D" position="2" />
+            <property name="route_42_ultra_ball" type="bit" address="0xD88D" position="3" />
+            <property name="route_42_super_potion" type="bit" address="0xD88D" position="4" />
+            <property name="route_43_max_ether" type="bit" address="0xD88D" position="5" />
+            <property name="route_44_max_revive" type="bit" address="0xD88D" position="6" />
+            <property name="route_44_ultra_ball" type="bit" address="0xD88D" position="7" />
+            <property name="route_45_x_special" type="bit" address="0xD88E" position="0" />
+            <property name="route_45_revive" type="bit" address="0xD88E" position="1" />
+            <property name="route_45_elixer" type="bit" address="0xD88E" position="2" />
+            <property name="route_45_max_potion" type="bit" address="0xD88E" position="3" />
+            <property name="route_46_dire_hit" type="bit" address="0xD88E" position="4" />
+            <property name="rival_new_bark_town" type="bit" address="0xD88E" position="5" />
+            <property name="rival_cherrygrove_city" type="bit" address="0xD88E" position="6" />
+            <property name="rival_azalea_town" type="bit" address="0xD88E" position="7" />
+            <property name="rival_team_rocket_base" type="bit" address="0xD88F" position="0" />
+            <property name="rival_goldenrod_underground" type="bit" address="0xD88F" position="1" />
+            <property name="rival_victory_road" type="bit" address="0xD88F" position="2" />
+            <property name="rival_olivine_city" type="bit" address="0xD88F" position="3" />
+            <property name="rival_sprout_tower" type="bit" address="0xD88F" position="4" />
+            <property name="rival_burned_tower" type="bit" address="0xD88F" position="5" />
+            <property name="rival_dragons_den" type="bit" address="0xD88F" position="6" />
+            <property name="players_house_mom_1" type="bit" address="0xD88F" position="7" />
+            <property name="players_house_mom_2" type="bit" address="0xD890" position="0" />
+            <property name="mr_pokemons_house_oak" type="bit" address="0xD890" position="1" />
+            <property name="violet_city_earl" type="bit" address="0xD890" position="2" />
+            <property name="earls_academy_earl" type="bit" address="0xD890" position="3" />
+            <property name="goldenrod_city_rocket_scout" type="bit" address="0xD890" position="4" />
+            <property name="goldenrod_city_rocket_takeover" type="bit" address="0xD890" position="5" />
+            <property name="radio_tower_rocket_takeover" type="bit" address="0xD890" position="6" />
+            <property name="goldenrod_city_civilians" type="bit" address="0xD890" position="7" />
+            <property name="radio_tower_civilians_after" type="bit" address="0xD891" position="0" />
+            <property name="radio_tower_blackbelt_blocks_stairs" type="bit" address="0xD891" position="1" />
+            <property name="olivine_lighthouse_jasmine" type="bit" address="0xD891" position="2" />
+            <property name="olivine_gym_jasmine" type="bit" address="0xD891" position="3" />
+            <property name="lake_of_rage_lance" type="bit" address="0xD891" position="4" />
+            <property name="mahogany_mart_lance_and_dragonite" type="bit" address="0xD891" position="5" />
+            <property name="team_rocket_base_b2f_lance" type="bit" address="0xD891" position="6" />
+            <property name="team_rocket_base_b3f_lance_passwords" type="bit" address="0xD891" position="7" />
+            <property name="dragons_den_clair" type="bit" address="0xD892" position="0" />
+            <property name="team_rocket_base_security_grunts" type="bit" address="0xD892" position="1" />
+            <property name="team_rocket_base_population" type="bit" address="0xD892" position="2" />
+            <property name="team_rocket_base_b3f_executive" type="bit" address="0xD892" position="3" />
+            <property name="route_43_gate_rockets" type="bit" address="0xD892" position="4" />
+            <property name="team_rocket_base_b2f_executive" type="bit" address="0xD892" position="5" />
+            <property name="team_rocket_base_b2f_grunt_with_executive" type="bit" address="0xD892" position="6" />
+            <property name="team_rocket_base_b2f_dragonite" type="bit" address="0xD892" position="7" />
+            <property name="team_rocket_base_b2f_electrode_1" type="bit" address="0xD893" position="0" />
+            <property name="team_rocket_base_b2f_electrode_2" type="bit" address="0xD893" position="1" />
+            <property name="team_rocket_base_b2f_electrode_3" type="bit" address="0xD893" position="2" />
+            <property name="blackthorn_city_super_nerd_blocks_gym" type="bit" address="0xD893" position="3" />
+            <property name="blackthorn_city_super_nerd_does_not_block_gym" type="bit" address="0xD893" position="4" />
+            <property name="day_care_man_in_day_care" type="bit" address="0xD893" position="5" />
+            <property name="day_care_man_on_route_34" type="bit" address="0xD893" position="6" />
+            <property name="day_care_mon_1" type="bit" address="0xD893" position="7" />
+            <property name="day_care_mon_2" type="bit" address="0xD894" position="0" />
+            <property name="ilex_forest_farfetchd_1" type="bit" address="0xD894" position="1" />
+            <property name="ilex_forest_farfetchd_2" type="bit" address="0xD894" position="2" />
+            <property name="ilex_forest_farfetchd_3" type="bit" address="0xD894" position="3" />
+            <property name="ilex_forest_farfetchd_4" type="bit" address="0xD894" position="4" />
+            <property name="ilex_forest_farfetchd_5" type="bit" address="0xD894" position="5" />
+            <property name="ilex_forest_farfetchd_6" type="bit" address="0xD894" position="6" />
+            <property name="ilex_forest_farfetchd_7" type="bit" address="0xD894" position="7" />
+            <property name="ilex_forest_farfetchd_8" type="bit" address="0xD895" position="0" />
+            <property name="ilex_forest_farfetchd_9" type="bit" address="0xD895" position="1" />
+            <property name="ilex_forest_farfetchd_10" type="bit" address="0xD895" position="2" />
+            <property name="ilex_forest_apprentice" type="bit" address="0xD895" position="3" />
+            <property name="ilex_forest_charcoal_master" type="bit" address="0xD895" position="4" />
+            <property name="charcoal_kiln_farfetch_d" type="bit" address="0xD895" position="5" />
+            <property name="charcoal_kiln_apprentice" type="bit" address="0xD895" position="6" />
+            <property name="charcoal_kiln_boss" type="bit" address="0xD895" position="7" />
+            <property name="route_36_sudowoodo" type="bit" address="0xD896" position="0" />
+            <property name="azalea_town_slowpokes" type="bit" address="0xD896" position="1" />
+            <property name="azalea_town_slowpoketail_rocket" type="bit" address="0xD896" position="2" />
+            <property name="slowpoke_well_slowpokes" type="bit" address="0xD896" position="3" />
+            <property name="slowpoke_well_rockets" type="bit" address="0xD896" position="4" />
+            <property name="kurts_house_slowpoke" type="bit" address="0xD896" position="5" />
+            <property name="guide_gent_in_his_house" type="bit" address="0xD896" position="6" />
+            <property name="guide_gent_visible_in_cherrygrove" type="bit" address="0xD896" position="7" />
+            <property name="elms_aide_in_violet_pokemon_center" type="bit" address="0xD897" position="0" />
+            <property name="elms_aide_in_lab" type="bit" address="0xD897" position="1" />
+            <property name="cop_in_elms_lab" type="bit" address="0xD897" position="2" />
+            <property name="ruins_of_alph_outside_scientist" type="bit" address="0xD897" position="3" />
+            <property name="ruins_of_alph_research_center_scientist" type="bit" address="0xD897" position="4" />
+            <property name="ruins_of_alph_inner_chamber_tourists" type="bit" address="0xD897" position="5" />
+            <property name="boulder_in_blackthorn_gym_1" type="bit" address="0xD897" position="6" />
+            <property name="boulder_in_blackthorn_gym_2" type="bit" address="0xD897" position="7" />
+            <property name="boulder_in_blackthorn_gym_3" type="bit" address="0xD898" position="0" />
+            <property name="boulder_in_ice_path_1" type="bit" address="0xD898" position="1" />
+            <property name="boulder_in_ice_path_2" type="bit" address="0xD898" position="2" />
+            <property name="boulder_in_ice_path_3" type="bit" address="0xD898" position="3" />
+            <property name="boulder_in_ice_path_4" type="bit" address="0xD898" position="4" />
+            <property name="boulder_in_ice_path_1a" type="bit" address="0xD898" position="5" />
+            <property name="boulder_in_ice_path_2a" type="bit" address="0xD898" position="6" />
+            <property name="boulder_in_ice_path_3a" type="bit" address="0xD898" position="7" />
+            <property name="boulder_in_ice_path_4a" type="bit" address="0xD899" position="0" />
+            <property name="mystery_gift_delivery_guy" type="bit" address="0xD899" position="1" />
+            <property name="met_bill" type="bit" address="0xD899" position="2" />
+            <property name="ecruteak_poke_center_bill" type="bit" address="0xD899" position="3" />
+            <property name="route_30_battle" type="bit" address="0xD899" position="4" />
+            <property name="route_30_youngster_joey" type="bit" address="0xD899" position="5" />
+            <property name="bug_catching_contestant_1a" type="bit" address="0xD899" position="6" />
+            <property name="bug_catching_contestant_2a" type="bit" address="0xD899" position="7" />
+            <property name="bug_catching_contestant_3a" type="bit" address="0xD89A" position="0" />
+            <property name="bug_catching_contestant_4a" type="bit" address="0xD89A" position="1" />
+            <property name="bug_catching_contestant_5a" type="bit" address="0xD89A" position="2" />
+            <property name="bug_catching_contestant_6a" type="bit" address="0xD89A" position="3" />
+            <property name="bug_catching_contestant_7a" type="bit" address="0xD89A" position="4" />
+            <property name="bug_catching_contestant_8a" type="bit" address="0xD89A" position="5" />
+            <property name="bug_catching_contestant_9a" type="bit" address="0xD89A" position="6" />
+            <property name="bug_catching_contestant_10a" type="bit" address="0xD89A" position="7" />
+            <property name="bug_catching_contestant_1b" type="bit" address="0xD89B" position="0" />
+            <property name="bug_catching_contestant_2b" type="bit" address="0xD89B" position="1" />
+            <property name="bug_catching_contestant_3b" type="bit" address="0xD89B" position="2" />
+            <property name="bug_catching_contestant_4b" type="bit" address="0xD89B" position="3" />
+            <property name="bug_catching_contestant_5b" type="bit" address="0xD89B" position="4" />
+            <property name="bug_catching_contestant_6b" type="bit" address="0xD89B" position="5" />
+            <property name="bug_catching_contestant_7b" type="bit" address="0xD89B" position="6" />
+            <property name="bug_catching_contestant_8b" type="bit" address="0xD89B" position="7" />
+            <property name="bug_catching_contestant_9b" type="bit" address="0xD89C" position="0" />
+            <property name="bug_catching_contestant_10b" type="bit" address="0xD89C" position="1" />
+            <property name="olivine_port_sailor_at_gangway" type="bit" address="0xD89C" position="2" />
+            <property name="vermilion_port_sailor_at_gangway" type="bit" address="0xD89C" position="3" />
+            <property name="fast_ship_1f_gentleman" type="bit" address="0xD89C" position="4" />
+            <property name="fast_ship_cabins_nnw_nne_ne_sailor" type="bit" address="0xD89C" position="5" />
+            <property name="fast_ship_b1f_sailor_left" type="bit" address="0xD89C" position="6" />
+            <property name="fast_ship_b1f_sailor_right" type="bit" address="0xD89C" position="7" />
+            <property name="fast_ship_cabins_se_sse_gentleman" type="bit" address="0xD89D" position="0" />
+            <property name="fast_ship_cabins_se_sse_captains_cabin_twin_1" type="bit" address="0xD89D" position="1" />
+            <property name="fast_ship_cabins_se_sse_captains_cabin_twin_2" type="bit" address="0xD89D" position="2" />
+            <property name="olivine_port_passage_pokefan_m" type="bit" address="0xD89D" position="3" />
+            <property name="route_35_national_park_gate_youngster" type="bit" address="0xD89D" position="4" />
+            <property name="lake_of_rage_civilians" type="bit" address="0xD89D" position="5" />
+            <property name="mahogany_mart_owners" type="bit" address="0xD89D" position="6" />
+            <property name="olivine_port_sprites_before_hall_of_fame" type="bit" address="0xD89D" position="7" />
+            <property name="olivine_port_sprites_after_hall_of_fame" type="bit" address="0xD89E" position="0" />
+            <property name="fast_ship_passengers_first_trip" type="bit" address="0xD89E" position="1" />
+            <property name="fast_ship_passengers_eastbound" type="bit" address="0xD89E" position="2" />
+            <property name="fast_ship_passengers_westbound" type="bit" address="0xD89E" position="3" />
+            <property name="tin_tower_roof_ho_oh" type="bit" address="0xD89E" position="4" />
+            <property name="whirl_island_lugia_chamber_lugia" type="bit" address="0xD89E" position="5" />
+            <property name="kurts_house_kurt_1" type="bit" address="0xD89E" position="6" />
+            <property name="kurts_house_kurt_2" type="bit" address="0xD89E" position="7" />
+            <property name="slowpoke_well_kurt" type="bit" address="0xD89F" position="0" />
+            <property name="players_house_2f_console" type="bit" address="0xD89F" position="1" />
+            <property name="players_house_2f_doll_1" type="bit" address="0xD89F" position="2" />
+            <property name="players_house_2f_doll_2" type="bit" address="0xD89F" position="3" />
+            <property name="players_house_2f_big_doll" type="bit" address="0xD89F" position="4" />
+            <property name="route_35_national_park_gate_officer_contest_day" type="bit" address="0xD89F" position="5" />
+            <property name="route_35_national_park_gate_officer_not_contest_day" type="bit" address="0xD89F" position="6" />
+            <property name="route_36_national_park_gate_officer_contest_day" type="bit" address="0xD89F" position="7" />
+            <property name="route_36_national_park_gate_officer_not_contest_day" type="bit" address="0xD8A0" position="0" />
+            <property name="goldenrod_train_station_gentleman" type="bit" address="0xD8A0" position="1" />
+            <property name="burned_tower_b1f_beasts_1" type="bit" address="0xD8A0" position="2" />
+            <property name="burned_tower_b1f_beasts_2" type="bit" address="0xD8A0" position="3" />
+            <property name="blackthorn_city_gramps_blocks_dragons_den" type="bit" address="0xD8A0" position="4" />
+            <property name="blackthorn_city_gramps_not_blocking_dragons_den" type="bit" address="0xD8A0" position="5" />
+            <property name="ruins_of_alph_kabuto_chamber_receptionist" type="bit" address="0xD8A0" position="6" />
+            <property name="opened_mt_silver" type="bit" address="0xD8A0" position="7" />
+            <property name="fought_snorlax" type="bit" address="0xD8A1" position="0" />
+            <property name="lake_of_rage_red_gyarados" type="bit" address="0xD8A1" position="1" />
+            <property name="goldenrod_underground_granny" type="bit" address="0xD8A1" position="2" />
+            <property name="goldenrod_underground_gramps" type="bit" address="0xD8A1" position="3" />
+            <property name="goldenrod_underground_older_haircut_brother" type="bit" address="0xD8A1" position="4" />
+            <property name="goldenrod_underground_younger_haircut_brother" type="bit" address="0xD8A1" position="5" />
+            <property name="mahogany_town_pokefan_m_blocks_east" type="bit" address="0xD8A1" position="6" />
+            <property name="mahogany_town_pokefan_m_blocks_gym" type="bit" address="0xD8A1" position="7" />
+            <property name="route_32_frieda_of_friday" type="bit" address="0xD8A2" position="0" />
+            <property name="route_29_tuscany_of_tuesday" type="bit" address="0xD8A2" position="1" />
+            <property name="route_36_arthur_of_thursday" type="bit" address="0xD8A2" position="2" />
+            <property name="route_37_sunny_of_sunday" type="bit" address="0xD8A2" position="3" />
+            <property name="lake_of_rage_wesley_of_wednesday" type="bit" address="0xD8A2" position="4" />
+            <property name="blackthorn_city_santos_of_saturday" type="bit" address="0xD8A2" position="5" />
+            <property name="route_40_monica_of_monday" type="bit" address="0xD8A2" position="6" />
+            <property name="lances_room_oak_and_mary" type="bit" address="0xD8A2" position="7" />
+            <property name="union_cave_b2f_lapras" type="bit" address="0xD8A3" position="0" />
+            <property name="team_rocket_disbanded" type="bit" address="0xD8A3" position="1" />
+            <property name="red_in_mt_silver" type="bit" address="0xD8A3" position="2" />
+            <property name="goldenrod_dept_store_5f_happiness_lady" type="bit" address="0xD8A3" position="3" />
+            <property name="burned_tower_firebreather_dick_normal" type="bit" address="0xD8A3" position="4" />
+            <property name="burned_tower_firebreather_dick_ashes" type="bit" address="0xD8A3" position="5" />
+            <property name="ecruteak_tin_tower_entrance_sage_left" type="bit" address="0xD8A3" position="6" />
+            <property name="ecruteak_tin_tower_entrance_sage_right" type="bit" address="0xD8A3" position="7" />
+            <property name="route_24_rocket" type="bit" address="0xD8A4" position="4" />
+            <property name="cerulean_gym_rocket" type="bit" address="0xD8A4" position="5" />
+            <property name="route_25_misty_boyfriend" type="bit" address="0xD8A4" position="6" />
+            <property name="trainers_in_cerulean_gym" type="bit" address="0xD8A4" position="7" />
+            <property name="vermilion_city_snorlax" type="bit" address="0xD8A5" position="0" />
+            <property name="route_5_6_pokefan_m_blocks_underground_path" type="bit" address="0xD8A5" position="1" />
+            <property name="saffron_train_station_population" type="bit" address="0xD8A5" position="2" />
+            <property name="copycats_house_2f_doll" type="bit" address="0xD8A5" position="3" />
+            <property name="vermilion_fan_club_doll" type="bit" address="0xD8A5" position="4" />
+            <property name="blue_in_cinnabar" type="bit" address="0xD8A5" position="5" />
+            <property name="viridian_gym_blue" type="bit" address="0xD8A5" position="6" />
+            <property name="seafoam_gym_gym_guide" type="bit" address="0xD8A5" position="7" />
+            <property name="mt_moon_square_rock" type="bit" address="0xD8A6" position="0" />
+            <property name="mt_moon_square_clefairy" type="bit" address="0xD8A6" position="1" />
+            <property name="mt_moon_rival" type="bit" address="0xD8A6" position="2" />
+            <property name="indigo_plateau_pokecenter_rival" type="bit" address="0xD8A6" position="3" />
+            <property name="teleport_guy" type="bit" address="0xD8A6" position="4" />
+            <property name="picked_up_focus_band" type="bit" address="0xD8A6" position="5" />
+            <property name="rock_tunnel_1f_elixer" type="bit" address="0xD8A6" position="6" />
+            <property name="rock_tunnel_1f_tm_steel_wing" type="bit" address="0xD8A6" position="7" />
+            <property name="rock_tunnel_b1f_iron" type="bit" address="0xD8A7" position="0" />
+            <property name="rock_tunnel_b1f_pp_up" type="bit" address="0xD8A7" position="1" />
+            <property name="rock_tunnel_b1f_revive" type="bit" address="0xD8A7" position="2" />
+            <property name="route_2_dire_hit" type="bit" address="0xD8A7" position="3" />
+            <property name="route_2_max_potion" type="bit" address="0xD8A7" position="4" />
+            <property name="route_2_carbos" type="bit" address="0xD8A7" position="5" />
+            <property name="route_2_elixer" type="bit" address="0xD8A7" position="6" />
+            <property name="route_4_hp_up" type="bit" address="0xD8A7" position="7" />
+            <property name="route_12_calcium" type="bit" address="0xD8A8" position="0" />
+            <property name="route_12_nugget" type="bit" address="0xD8A8" position="1" />
+            <property name="route_15_pp_up" type="bit" address="0xD8A8" position="2" />
+            <property name="route_25_protein" type="bit" address="0xD8A8" position="3" />
+        </event_flags>
+
         <roamers>
             <property name="roamers_current_map_index" type="int" address="0xdd2f" />
             <property name="roamers_currnet_map_group" type="int" address="0xdd30" reference="map_groups" />
@@ -308,8 +1682,8 @@
             <property name="outcome"     type="int" />
             <property name="type"        type="int"    address="0xD119" reference="battle_types" />
             <player>
+                <property name="party_position" type="int" address="0xCFC6" />
                 <active_pokemon>
-                    <property name="party_position" type="int" address="0xCFC6" />
                     <property name="held_item"      type="int" address="0xcb0d" reference="items" />
                     <property name="species"        type="int" address="0xCB0C" reference="species"  />
                     <property name="dex_number"     type="int" address="0xCB0C" reference="dex_numbers"  />
@@ -424,15 +1798,15 @@
                         <property name="accuracy" type="int" address="0xCBB7" reference="stage_modifiers" />
                         <property name="evasion"  type="int" address="0xCBB8" reference="stage_modifiers" />
                     </modifiers>
-                    <property name="enemy_mon_end" type="int" address="0xd116" />
-                    <!-- <base_stats>
-                        <property name="hp"              type="int" address="0xd10f" length="2" />
-                        <property name="attack"          type="int" address="0xd111" length="2" />
-                        <property name="defense"         type="int" address="0xd113" length="2" />
-                        <property name="special_attack"  type="int" address="0xd115" length="2" />
-                        <property name="special_defense" type="int" address="0xd117" length="2" />
-                        <property name="speed"           type="int" address="0xd119" length="2" />
-                    </base_stats> -->
+                    <property name="enemy_mon_end" type="int" address="0xD116" />
+                    <base_stats>
+                        <property name="hp"              type="int" address="0xD10F" length="2" />
+                        <property name="attack"          type="int" address="0xD111" length="2" />
+                        <property name="defense"         type="int" address="0xD113" length="2" />
+                        <property name="speed"           type="int" address="0xD115" length="2" />
+                        <property name="special_attack"  type="int" address="0xD117" length="2" />
+                        <property name="special_defense" type="int" address="0xD119" length="2" />
+                    </base_stats>
                     <ivs>
                         <property name="attack"  type="nibble" address="0xD0F5" position="0" />
                         <property name="defense" type="nibble" address="0xD0F5" position="1" />
@@ -440,57 +1814,57 @@
                         <property name="special" type="nibble" address="0xD0F6" position="1" />
                     </ivs>
                     <volatile_status_conditions>
-                        <property name="confused"        type="bit" address="0xcb4c" position="7" />
-                        <property name="toxic"           type="bit" address="0xcb4e" position="0" />
-                        <property name="leech_seed"      type="bit" address="0xcb4d" position="7" />
-                        <property name="curse"           type="bit" address="0xcb4b" position="1" />
-                        <property name="in_love"         type="bit" address="0xcb4b" position="7" />
-                        <property name="nightmare"       type="bit" address="0xcb4b" position="0" />
+                        <property name="confused"        type="bit" address="0xCb4C" position="7" />
+                        <property name="toxic"           type="bit" address="0xCb4E" position="0" />
+                        <property name="leech_seed"      type="bit" address="0xCb4D" position="7" />
+                        <property name="curse"           type="bit" address="0xCb4B" position="1" />
+                        <property name="in_love"         type="bit" address="0xCb4B" position="7" />
+                        <property name="nightmare"       type="bit" address="0xCb4B" position="0" />
                     </volatile_status_conditions>
                     <effects>
-                        <property name="protect"         type="bit" address="0xcb4b" position="2" />
-                        <property name="identified"      type="bit" address="0xcb4b" position="3" />
-                        <property name="perish"          type="bit" address="0xcb4b" position="4" />
-                        <property name="endure"          type="bit" address="0xcb4b" position="5" />
-                        <property name="rollout"         type="bit" address="0xcb4b" position="6" />
-                        <property name="curled"          type="bit" address="0xcb4c" position="0" />
-                        <property name="bide"            type="bit" address="0xcb4c" position="0" />
-                        <property name="rampage"         type="bit" address="0xcb4c" position="1" />
-                        <property name="in_loop"         type="bit" address="0xcb4c" position="2" />
-                        <property name="flinched"        type="bit" address="0xcb4c" position="3" />
-                        <property name="charged"         type="bit" address="0xcb4c" position="4" />
-                        <property name="underground"     type="bit" address="0xcb4c" position="5" />
-                        <property name="flying"          type="bit" address="0xcb4c" position="6" />
-                        <property name="bypass_accuracy" type="bit" address="0xcb4d" position="0" />
-                        <property name="mist"            type="bit" address="0xcb4d" position="1" />
-                        <property name="focus_energy"    type="bit" address="0xcb4d" position="2" />
-                        <property name="substitute"      type="bit" address="0xcb4d" position="4" />
-                        <property name="recharge"        type="bit" address="0xcb4d" position="5" />
-                        <property name="rage"            type="bit" address="0xcb4d" position="6" />
-                        <property name="transformed"     type="bit" address="0xcb4e" position="3" />
-                        <property name="encored"         type="bit" address="0xcb4e" position="4" />
-                        <property name="lock_on"         type="bit" address="0xcb4e" position="5" />
-                        <property name="destiny_bond"    type="bit" address="0xcb4e" position="6" />
-                        <property name="cant_run"        type="bit" address="0xcb4e" position="7" />
+                        <property name="protect"         type="bit" address="0xCB4B" position="2" />
+                        <property name="identified"      type="bit" address="0xCB4B" position="3" />
+                        <property name="perish"          type="bit" address="0xCB4B" position="4" />
+                        <property name="endure"          type="bit" address="0xCB4B" position="5" />
+                        <property name="rollout"         type="bit" address="0xCB4B" position="6" />
+                        <property name="curled"          type="bit" address="0xCB4C" position="0" />
+                        <property name="bide"            type="bit" address="0xCB4C" position="0" />
+                        <property name="rampage"         type="bit" address="0xCB4C" position="1" />
+                        <property name="in_loop"         type="bit" address="0xCB4C" position="2" />
+                        <property name="flinched"        type="bit" address="0xCB4C" position="3" />
+                        <property name="charged"         type="bit" address="0xCB4C" position="4" />
+                        <property name="underground"     type="bit" address="0xCB4C" position="5" />
+                        <property name="flying"          type="bit" address="0xCB4C" position="6" />
+                        <property name="bypass_accuracy" type="bit" address="0xCB4D" position="0" />
+                        <property name="mist"            type="bit" address="0xCB4D" position="1" />
+                        <property name="focus_energy"    type="bit" address="0xCB4D" position="2" />
+                        <property name="substitute"      type="bit" address="0xCB4D" position="4" />
+                        <property name="recharge"        type="bit" address="0xCB4D" position="5" />
+                        <property name="rage"            type="bit" address="0xCB4D" position="6" />
+                        <property name="transformed"     type="bit" address="0xCB4E" position="3" />
+                        <property name="encored"         type="bit" address="0xCB4E" position="4" />
+                        <property name="lock_on"         type="bit" address="0xCB4E" position="5" />
+                        <property name="destiny_bond"    type="bit" address="0xCB4E" position="6" />
+                        <property name="cant_run"        type="bit" address="0xCB4E" position="7" />
                     </effects>
                     <counters>
                         <property name="rollout"     type="int" address="0xCB58" />
                         <property name="confuse"     type="int" address="0xCB59" />
-                        <property name="toxic"       type="int" address="0xCB5a" />
-                        <property name="disable"     type="int" address="0xCB5b" />
-                        <property name="encore"      type="int" address="0xCB5c" />
-                        <property name="perish"      type="int" address="0xCB5d" />
-                        <property name="fury_cutter" type="int" address="0xCB5e" />
-                        <property name="protect"     type="int" address="0xCB5f" />
+                        <property name="toxic"       type="int" address="0xCB5A" />
+                        <property name="disable"     type="int" address="0xCB5B" />
+                        <property name="encore"      type="int" address="0xCB5C" />
+                        <property name="perish"      type="int" address="0xCB5D" />
+                        <property name="fury_cutter" type="int" address="0xCB5E" />
+                        <property name="protect"     type="int" address="0xCB5F" />
                     </counters>
                 </active_pokemon>
                 <team>
-                    <class name="0" type="party_pokemon" var:address="0xDD5D" var:nickname_address="0xDEBF" />
-                    <class name="1" type="party_pokemon" var:address="0xDD8D" var:nickname_address="0xDECA" />
-                    <class name="2" type="party_pokemon" var:address="0xDDBD" var:nickname_address="0xDED5" />
-                    <class name="3" type="party_pokemon" var:address="0xDDED" var:nickname_address="0xDEE0" />
-                    <class name="4" type="party_pokemon" var:address="0xDE1D" var:nickname_address="0xDEEB" />
-                    <class name="5" type="party_pokemon" var:address="0xDE4D" var:nickname_address="0xDEF6" />
+                    <class name="0" type="party_pokemon" var:address="0xDD5D" var:nicknameAddress="0xDEBF" />
+                    <class name="1" type="party_pokemon" var:address="0xDD8D" var:nicknameAddress="0xDECA" />
+                    <class name="2" type="party_pokemon" var:address="0xDDBD" var:nicknameAddress="0xDED5" />
+                    <class name="3" type="party_pokemon" var:address="0xDDED" var:nicknameAddress="0xDEE0" />
+                    <class name="4" type="party_pokemon" var:address="0xDE1D" var:nicknameAddress="0xDEEB" />
+                    <class name="5" type="party_pokemon" var:address="0xDE4D" var:nicknameAddress="0xDEF6" />
                 </team>
             </opponent>
             <field>
@@ -528,16 +1902,13 @@
                     ; Backed up if the enemy switches.
                     ; All bits cleared if the enemy faints.
                 -->
-                <property name="wBattleParticipantsNotFainted_slot0" type="bit" address="0xcb42" position="0"/>
-                <property name="wBattleParticipantsNotFainted_slot1" type="bit" address="0xcb42" position="1"/>
-                <property name="wBattleParticipantsNotFainted_slot2" type="bit" address="0xcb42" position="2"/>
-                <property name="wBattleParticipantsNotFainted_slot3" type="bit" address="0xcb42" position="3"/>
-                <property name="wBattleParticipantsNotFainted_slot4" type="bit" address="0xcb42" position="4"/>
-                <property name="wBattleParticipantsNotFainted_slot5" type="bit" address="0xcb42" position="5"/>
-                <property name="wBattleHasJustStarted" type="int" address="0xd150"/>
+                <property name="battle_participants_not_fainted_slot_0" type="bit" address="0xCB42" position="0"/>
+                <property name="battle_participants_not_fainted_slot_1" type="bit" address="0xCB42" position="1"/>
+                <property name="battle_participants_not_fainted_slot_2" type="bit" address="0xCB42" position="2"/>
+                <property name="battle_participants_not_fainted_slot_3" type="bit" address="0xCB42" position="3"/>
+                <property name="battle_participants_not_fainted_slot_4" type="bit" address="0xCB42" position="4"/>
+                <property name="battle_participants_not_fainted_slot_5" type="bit" address="0xCB42" position="5"/>
                 <property name="outcome_flags" type="int" address="0xCFE9" />
-                <property name="wBattleEnded" type="int" address="0xcc12" />
-                <property name="wBattleEnd" type="int" address="0xcc1f" />
                 <property name="text_buffer" type="string" address="0xcf6b" length="11" />
             </other>
         </battle>
@@ -568,7 +1939,7 @@
                 <property name="prompt" type="string" address="0xC606" reference="text_prompt" />
             </text>
             <menu>
-                <property name="current_item"                     type="int" address="0xCC26" /> <!-- TODO: check addresses -->
+                <property name="current_item"                     type="int" address="0xCC26" />
                 <property name="menu_flags"                       type="int" address="0xceb8" />
                 <property name="menu_cursor_position"             type="int" address="0xcebf" />
                 <property name="party_menu_cursor"                type="int" address="0xcfc9" />
@@ -597,10 +1968,8 @@
         </screen>
 
         <options>
-            <!-- <property name="clockDay"         type="string" address="0xXXXX" length="5" /> -->
-            <!-- <property name="clockTime"        type="string" address="0xXXXX" length="5" /> -->
-            <property name="text_speed_2"      type="bit" address="0xD199" position="1" description="False+False = Fast, True+False = Mid, True+True = Slow" />
-            <property name="text_speed_3"      type="bit" address="0xD199" position="2" description="False+False = Fast, True+False = Mid, True+True = Slow" />
+            <property name="text_speed"        type="int" address="0xD199" after-read-value-expression="getBits(x, 0, 3)" reference="text_speeds" />
+            <property name="no_text_scroll"    type="bit" address="0xD199" position="4" />
             <property name="sound"             type="bit" address="0xD199" position="5" description="Mono = False, Stereo = True" />
             <property name="battle_style"      type="bit" address="0xD199" position="6" description="Shift = False, Set = True" />
             <property name="battle_animations" type="bit" address="0xD199" position="7" description="On = False, Off = True" />
@@ -613,7 +1982,6 @@
             <property name="frames"  type="int" address="0xD1EF" />
         </game_time>
 
-        <!-- TODO: consider refactoring these properties to make them easier to understand for end-users -->
         <time>
             <current>
                 <property name="day"         type="int" address="0xD1F2" reference="day_names" after-read-value-expression="x % 7" />
@@ -637,9 +2005,9 @@
                 <property name="day_hi" type="int" address="0xFF94" />
                 <property name="day_lo" type="int" address="0xFF95" />
             </rtc>
-            <gameClock>
+            <game_clock>
                 <property name="day" type="int" address="0xD4B6" reference="day_names" />
-            </gameClock>
+            </game_clock>
         </time>
         <input>
             <property name="a" type="bit" address="0xFFA6" position="0"/>
@@ -653,8 +2021,8 @@
         </input>
         <meta>
             <property name="generation" type="int" value="2" />
-			<property name="game_name"  type="int" value="Gold and Silver" />
-            <property name="game_type"  type="int" value="Originals" />
+			<property name="game_name"  type="string" value="Gold and Silver" />
+            <property name="game_type"  type="string" value="Originals" />
 			<property name="state"      type="string" />
             <!-- TODO: setup enemy state logic -->
 			<!-- <property name="state_enemy"    type="string" /> -->
@@ -662,6 +2030,12 @@
     </properties>
 
     <references>
+        <text_speeds>
+            <entry key="0x00" value="Instant" />
+            <entry key="0x01" value="Fast" />
+            <entry key="0x03" value="Mid" />
+            <entry key="0x05" value="Slow" />
+        </text_speeds>
         <day_names>
             <entry key="0x00" value="Sunday" />
             <entry key="0x01" value="Monday" />
@@ -671,6 +2045,13 @@
             <entry key="0x05" value="Friday" />
             <entry key="0x06" value="Saturday" />
         </day_names>
+        <movement_states>
+            <entry key="0x00" value="Walk" />
+            <entry key="0x01" value="Bike" />
+            <entry key="0x02" value="Skate" />
+            <entry key="0x03" value="Surf" />
+            <entry key="0x04" value="Surf-Pikachu" />
+        </movement_states>
         <time_of_day>
             <entry key="0x00" value="Morning" />
             <entry key="0x01" value="Day" />

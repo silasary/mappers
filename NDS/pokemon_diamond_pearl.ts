@@ -62,8 +62,6 @@ export function getGamestate(): string {
     const team_count: number = getValue<number>('player.team_count')
     const active_pokemonPv: number = getValue<number>('battle.player.active_pokemon.internals.personality_value')
     const teamPokemonPv: number = getValue<number>('player.team.0.internals.personality_value')
-    const teamNickname: number = getValue<number>('player.team.0.nickname') //TODO: remove these once all properties are mapped - HGSS and Plat should have the same state functions
-    const battleNickname: number = getValue<number>('battle.player.active_pokemon.nickname') //TODO: remove these once all properties are mapped - HGSS and Plat should have the same state functions
     const outcome_flags: number = getValue<number>('battle.other.outcome_flags')
     if (team_count === 0) {
         return 'No Pokemon'
@@ -74,7 +72,7 @@ export function getGamestate(): string {
     else if (active_pokemonPv === teamPokemonPv) {
         return 'Battle'
     }
-    else if (teamNickname !== battleNickname) {
+    else if (active_pokemonPv !== teamPokemonPv) {
         return 'Overworld'
     }
     return 'No Pokemon'
@@ -146,21 +144,21 @@ function getPlayerPartyPosition(): number {
 // Preprocessor runs every loop (everytime gamehook updates)
 export function preprocessor() {
     // This is the same as the global_pointer, it is named "base_ptr" for consistency with the old C# code    
-    const base_ptr: number = memory.defaultNamespace.get_uint32_le(0x211186C) //HGSS pointer (Test value: 226F234)
+    const base_ptr: number = memory.defaultNamespace.get_uint32_le(0x2106FAC) // Diamond and Pearl pointer (Test value: 2260300)
 
     if (base_ptr === 0) {
         // Ends logic is the base_ptr is 0, this is to prevent errors during reset and getting on a bike.
         variables.global_pointer = null
         return
     }
-
+    
     variables.global_pointer = base_ptr // Variable used for mapper addresses, it is the same as "base_ptr"
-    variables.dynamic_player = base_ptr + 0x5BA78
-    variables.dynamic_opponent = base_ptr +  0x5C048
-    variables.dynamic_ally = base_ptr + 0x5BA78 + (0x5D0 * 2) 
-    variables.dynamic_opponent_2 = base_ptr + 0x5BA78 + (0x5D0 * 3) 
-    variables.current_party_indexes = base_ptr + 0x571E0
-    const enemy_ptr = memory.defaultNamespace.get_uint32_le(base_ptr + 0x37970) // Only needs to be calculated once per loop
+    variables.dynamic_player = base_ptr + 0x597D8
+    variables.dynamic_opponent = base_ptr +  0x59D88
+    variables.dynamic_ally = base_ptr + 0x5A338 
+    variables.dynamic_opponent_2 = base_ptr + 0x5A8E8
+    variables.current_party_indexes = base_ptr + 0x5596C
+    const enemy_ptr = memory.defaultNamespace.get_uint32_le(base_ptr + 0x364C8) // Only needs to be calculated once per loop
 
     // Set property values
     const gamestate: string = getGamestate()
@@ -172,7 +170,7 @@ export function preprocessor() {
     setValue('meta.state_enemy', getMetaEnemyState(gamestate, battle_outcomes, enemyBarSyncedHp))
     setValue('overworld.encounter_rate', getEncounterRate())
     setValue('player.party_position', getPlayerPartyPosition())
-
+    
     // //Set player.active_pokemon properties
     // const party_position_overworld = getPlayerPartyPosition()
     // const party_position_battle = getValue('battle.player.party_position')
@@ -193,7 +191,7 @@ export function preprocessor() {
 
     // Loop through various party-structures to decrypt the Pokemon data
     const partyStructures = [
-        "player", "static_wild",
+        "player", 
         // "static_player", "static_opponent", "static_ally", "static_opponent_2",
         "dynamic_player", "dynamic_opponent", "dynamic_ally", "dynamic_opponent_2",
     ];
@@ -201,24 +199,22 @@ export function preprocessor() {
         let user = partyStructures[i];
 
         // Determine the offset from the base_ptr (global_pointer) - only run once per party-structure loop
-        // Updating structures start offset from the global_pointer by 0x5BA78; they are 0x5B0 bytes long
+        // Updating structures start offset from the global_pointer by 0x5888C; they are 0x5B0 bytes long
         // team_count is always offset from the start of the team structure by -0x04 and it's a 1-byte value
         const offsets = {
-            player: 0xD088,
-            //static team structures
-            static_player: 0x37B24,
-            static_wild: 0x38540,
-            static_opponent: 0x1C70, //TODO: needs testing
-            static_ally: 0x1C70 + 0x1438, //TODO: needs testing
-            static_opponent_2: 0x1C70 + 0xA1C, //TODO: needs testing
-            //dynamic team structures
-            dynamic_player: 0x5BA78,
-            dynamic_opponent: 0x5C048,
-            dynamic_ally: 0x5BA78 + (0x5D0 * 2),
-            dynamic_opponent_2: 0x5BA78 + (0x5D0 * 3),
+            player: 0xD2AC,
+            // static_player: 0x35514,
+            // static_wild: 0x35AC4,
+            // static_opponent: 0x774,
+            // static_ally: 0x7A0 + 0x5B0,
+            // static_opponent_2: 0x7A0 + 0xB60,
+            dynamic_player: 0x597D8,
+            dynamic_opponent: 0x59D88, 
+            dynamic_ally: 0x5A338, // TODO: Requires testing
+            dynamic_opponent_2: 0x5A8E8, // TODO: Requires testing
         };
 
-        let baseAddress = (user === "static_opponent" || user === "static_ally" || user === "static_opponent_2") ? enemy_ptr : base_ptr;
+        let baseAddress = (user === "static_opponent" || user === "static_ally" || user === "static_opponent_2" ) ? enemy_ptr : base_ptr;
 
         // Loop through each party-slot within the given party-structure
         for (let slotIndex = 0; slotIndex < 6; slotIndex++) {

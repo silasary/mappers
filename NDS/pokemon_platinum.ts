@@ -3,7 +3,9 @@ import {
     memory, 
     // console,
     setValue, 
-    getValue 
+    getValue,
+    // copyProperties, 
+    // setProperty, 
 } from "../common";
 
 export function getBits(a: number, b: number, d: number): number {
@@ -49,7 +51,7 @@ const shuffleOrders = {
     23: [3, 2, 1, 0]
 };
 
-export function getMetaState(): string {
+export function getGamestate(): string {
     // FSM FOR GAMESTATE TRACKING
     // MAIN GAMESTATE: This tracks the three basic states the game can be in.
     // 1. "No Pokemon": cartridge reset; player has not received a Pokemon
@@ -96,7 +98,7 @@ export function getBattleMode(state: string, opponentTrainer: string | null): st
 
 export function getBattleOutcome(): string | null {
     const outcome_flags: number = getValue('battle.other.outcome_flags')
-    const state: string = getMetaState()
+    const state: string = getGamestate()
     switch (state) {
         case 'From Battle':
             switch (outcome_flags) {
@@ -120,10 +122,29 @@ export function getEncounterRate(): number {
     return walking;
 }
 
+function getPlayerPartyPosition(): number {
+    const state: string = getGamestate()
+    switch (state) {
+        case 'Battle':
+            return getValue('battle.player.party_position')
+        case 'From Battle':
+            return getValue('battle.player.party_position')
+        default: {
+            const team: number[] = [0, 1, 2, 3, 4, 5]
+            for (let i = 0; i < team.length; i++) {
+                if (getValue<number>(`player.team.${i}.stats.hp`) > 0) {
+                    return i
+                }
+            }
+            return 0
+        }
+    }
+}
+
 // Preprocessor runs every loop (everytime gamehook updates)
 export function preprocessor() {
     // This is the same as the global_pointer, it is named "base_ptr" for consistency with the old C# code    
-    const base_ptr: number = memory.defaultNamespace.get_uint32_le(0x2101D2C) // Platinum pointer
+    const base_ptr: number = memory.defaultNamespace.get_uint32_le(0x2101D2C) // Platinum pointer (Test value: 22711B8)
 
     if (base_ptr === 0) {
         // Ends logic is the base_ptr is 0, this is to prevent errors during reset and getting on a bike.
@@ -132,17 +153,41 @@ export function preprocessor() {
     }
     
     variables.global_pointer = base_ptr // Variable used for mapper addresses, it is the same as "base_ptr"
+    variables.dynamic_player = base_ptr + 0x5888C
+    variables.dynamic_opponent = base_ptr +  0x58E3C
+    variables.dynamic_ally = base_ptr + 0x593EC 
+    variables.dynamic_opponent_2 = base_ptr + 0x5999C
+    variables.current_party_indexes = base_ptr + 0x54598 + 0x3EC
     const enemy_ptr = memory.defaultNamespace.get_uint32_le(base_ptr + 0x352F4) // Only needs to be calculated once per loop
 
     // Set property values
-    const metaState: string = getMetaState()
+    const gamestate: string = getGamestate()
     const battle_outcomes: number = getValue<number>('battle.outcome')
     const enemyBarSyncedHp: number = getValue<number>('battle.opponent.enemy_bar_synced_hp')
     const opponentTrainer: string | null = getValue<string | null>('battle.opponent.trainer')
-    setValue('meta.state', metaState)
-    setValue('battle.mode', getBattleMode(metaState, opponentTrainer))
-    setValue('meta.state_enemy', getMetaEnemyState(metaState, battle_outcomes, enemyBarSyncedHp))
+    setValue('meta.state', gamestate)
+    setValue('battle.mode', getBattleMode(gamestate, opponentTrainer))
+    setValue('meta.state_enemy', getMetaEnemyState(gamestate, battle_outcomes, enemyBarSyncedHp))
     setValue('overworld.encounter_rate', getEncounterRate())
+    setValue('player.party_position', getPlayerPartyPosition())
+
+    // //Set player.active_pokemon properties
+    // const party_position_overworld = getPlayerPartyPosition()
+    // const party_position_battle = getValue('battle.player.party_position')
+    // if (gamestate === 'Battle') {
+    //     copyProperties(`player.team.${party_position_battle}`, 'player.active_pokemon')
+    //     copyProperties('battle.player.active_pokemon', 'player.active_pokemon')
+    // } else {
+    //     setProperty('player.active_pokemon.modifiers.attack', { address: null, value: 0 })
+    //     setProperty('player.active_pokemon.modifiers.defense', { address: null, value: 0 })
+    //     setProperty('player.active_pokemon.modifiers.speed', { address: null, value: 0 })
+    //     setProperty('player.active_pokemon.modifiers.special_attack', { address: null, value: 0 })
+    //     setProperty('player.active_pokemon.modifiers.special_defense', { address: null, value: 0 })
+    //     setProperty('player.active_pokemon.modifiers.accuracy', { address: null, value: 0 })
+    //     setProperty('player.active_pokemon.modifiers.evasion', { address: null, value: 0 })
+        
+    //     copyProperties(`player.team.${party_position_overworld}`, 'player.active_pokemon')
+    // }
 
     // Loop through various party-structures to decrypt the Pokemon data
     const partyStructures = [
@@ -158,13 +203,11 @@ export function preprocessor() {
         // team_count is always offset from the start of the team structure by -0x04 and it's a 1-byte value
         const offsets = {
             player: 0xD094,
-            //static team structures
             static_player: 0x35514,
             static_wild: 0x35AC4,
             static_opponent: 0x7A0,
             static_ally: 0x7A0 + 0x5B0,
             static_opponent_2: 0x7A0 + 0xB60,
-            //dynamic team structures
             dynamic_player: 0x5888C,
             dynamic_opponent: 0x58E3C, 
             dynamic_ally: 0x593EC, // TODO: Requires testing
