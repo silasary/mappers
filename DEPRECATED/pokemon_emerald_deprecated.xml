@@ -586,10 +586,6 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
       <property name="sound"       type="bit" address="dma_b + 21" position="0" />
       <property name="buttonMode"  type="int" address="dma_b + 19" />
     </options>
-    <misc>
-      <property name="rngValue1" type="int" address="0x3005D80" length="4" />
-      <property name="palette5" type="int" address="0x2037724" length="4" reference="palette" />
-    </misc>
     <audio>
       <property name="overworldmusicID"      type="int" address="0x2037328" length="2" />
       <property name="musicID"      type="int" address="0x3007420" length="4" />
