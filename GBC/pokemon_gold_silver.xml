@@ -40,10 +40,10 @@
             </stats>
             <ivs>
                 <property name="hp"      type="int"    description="Calculated from the IVs; not actually stored in memory" />
-                <property name="attack"  type="nibble" address="{address} + 21" bits="0" />
-                <property name="defense" type="nibble" address="{address} + 21" bits="1" />
-                <property name="speed"   type="nibble" address="{address} + 22" bits="0" />
-                <property name="special" type="nibble" address="{address} + 22" bits="1" />
+                <property name="attack"  type="int" address="{address} + 21" bits="4-7" />
+                <property name="defense" type="int" address="{address} + 21" bits="0-3" />
+                <property name="speed"   type="int" address="{address} + 22" bits="4-7" />
+                <property name="special" type="int" address="{address} + 22" bits="0-3" />
             </ivs>
             <evs>
                 <property name="hp"      type="int" address="{address} + 11" length="2" />
@@ -183,10 +183,10 @@
             <property name="map_index" type="int" address="{address}+3" length="1" />
             <property name="hp"        type="int" address="{address}+4" length="1" />
             <ivs>
-                <property name="attack"  type="nibble" address="{address}+5" bits="0" />
-                <property name="defense" type="nibble" address="{address}+5" bits="1" />
-                <property name="speed"   type="nibble" address="{address}+6" bits="0" />
-                <property name="special" type="nibble" address="{address}+6" bits="1" />
+                <property name="attack"  type="int" address="{address}+5" bits="4-7" />
+                <property name="defense" type="int" address="{address}+5" bits="0-3" />
+                <property name="speed"   type="int" address="{address}+6" bits="4-7" />
+                <property name="special" type="int" address="{address}+6" bits="0-3" />
             </ivs>
         </roamer>
     </classes>
@@ -1808,10 +1808,10 @@
                         <property name="special_defense" type="int" address="0xD119" length="2" />
                     </base_stats>
                     <ivs>
-                        <property name="attack"  type="nibble" address="0xD0F5" bits="0" />
-                        <property name="defense" type="nibble" address="0xD0F5" bits="1" />
-                        <property name="speed"   type="nibble" address="0xD0F6" bits="0" />
-                        <property name="special" type="nibble" address="0xD0F6" bits="1" />
+                        <property name="attack"  type="int" address="0xD0F5" bits="4-7" />
+                        <property name="defense" type="int" address="0xD0F5" bits="0-3" />
+                        <property name="speed"   type="int" address="0xD0F6" bits="4-7" />
+                        <property name="special" type="int" address="0xD0F6" bits="0-3" />
                     </ivs>
                     <volatile_status_conditions>
                         <property name="confused"        type="bool" address="0xCb4C" bits="7" />

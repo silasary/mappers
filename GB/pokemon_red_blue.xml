@@ -38,10 +38,10 @@
             </stats>
             <ivs>
                 <property name="hp"      type="int"    description="Calculated from the IVs; not actually stored in memory" />
-                <property name="attack"  type="nibble" address="{address} + 27" bits="0" />
-                <property name="defense" type="nibble" address="{address} + 27" bits="1" />
-                <property name="speed"   type="nibble" address="{address} + 28" bits="0" />
-                <property name="special" type="nibble" address="{address} + 28" bits="1" />
+                <property name="attack"  type="int" address="{address} + 27" bits="4-7" />
+                <property name="defense" type="int" address="{address} + 27" bits="0-3" />
+                <property name="speed"   type="int" address="{address} + 28" bits="4-7" />
+                <property name="special" type="int" address="{address} + 28" bits="0-3" />
             </ivs>
             <evs>
                 <property name="hp"      type="int" address="{address} + 17" length="2" description="HP EV (stat experience)" />
@@ -156,10 +156,10 @@
                 <class name="3" type="party_move" var:moveAddress="{address} + 5" />
             </moves>
             <ivs>
-                <property name="attack"  type="nibble" address="{address} + 27" bits="0" />
-                <property name="defense" type="nibble" address="{address} + 27" bits="1" />
-                <property name="speed"   type="nibble" address="{address} + 28" bits="0" />
-                <property name="special" type="nibble" address="{address} + 28" bits="1" />
+                <property name="attack"  type="int" address="{address} + 27" bits="4-7" />
+                <property name="defense" type="int" address="{address} + 27" bits="0-3" />
+                <property name="speed"   type="int" address="{address} + 28" bits="4-7" />
+                <property name="special" type="int" address="{address} + 28" bits="0-3" />
             </ivs>
             <evs>
                 <property name="hp"      type="int" address="{address} + 17" length="2" description="HP EV (stat experience)" />
@@ -960,10 +960,10 @@
                         <property name="evasion"  type="int" address="0xCD33" reference="stage_modifiers" />
                     </modifiers>
                     <ivs>
-                        <property name="attack"  type="nibble" address="0xCFF1" bits="0" />
-                        <property name="defense" type="nibble" address="0xCFF1" bits="1" />
-                        <property name="speed"   type="nibble" address="0xCFF2" bits="0" />
-                        <property name="special" type="nibble" address="0xCFF2" bits="1" />
+                        <property name="attack"  type="int" address="0xCFF1" bits="4-7" />
+                        <property name="defense" type="int" address="0xCFF1" bits="0-3" />
+                        <property name="speed"   type="int" address="0xCFF2" bits="4-7" />
+                        <property name="special" type="int" address="0xCFF2" bits="0-3" />
                     </ivs>
                     <base_stats>
                         <property name="hp"      type="int" address="0xD002" after-read-value-expression="x % 16" />

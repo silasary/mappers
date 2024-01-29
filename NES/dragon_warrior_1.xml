@@ -65,10 +65,10 @@
                 <property name="strength" type="int" address="0x100" />
                 <property name="agility" type="int" address="0x101" />
                 <property name="abilities" type="string" address="0x103" reference="abilities" />
-                <property name="sleep_resist" type="nibble" address="0x104" bits="0" />
-                <property name="stopspell_resist" type="nibble" address="0x104" bits="1" />
-                <property name="hurt_resist" type="nibble" address="0x105" bits="0" />
-                <property name="dodge_chance" type="nibble" address="0x105" bits="1" />
+                <property name="sleep_resist" type="int" address="0x104" bits="4-7" />
+                <property name="stopspell_resist" type="int" address="0x104" bits="0-3" />
+                <property name="hurt_resist" type="int" address="0x105" bits="4-7" />
+                <property name="dodge_chance" type="int" address="0x105" bits="0-3" />
                 <property name="xp_reward" type="int" address="0x106" />
                 <property name="gold_reward" type="int" address="0x107" />
             </enemy>
