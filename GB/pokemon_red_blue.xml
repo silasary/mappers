@@ -6,49 +6,49 @@
     xmlns:var="https://schemas.gamehook.io/attributes/var">
     <macros>
         <pokemon>
-            <property name="species"    type="int" address="address" reference="species" />
-            <property name="dex_number" type="int" address="address" reference="dex_numbers" />
+            <property name="species"    type="int" address="{address}" reference="species" />
+            <property name="dex_number" type="int" address="{address}" reference="dex_numbers" />
         </pokemon>
     </macros>
 
     <classes>
         <party_pokemon>
             <macro type="pokemon" />
-            <property name="nickname"   type="string" address="nicknameAddress" length="11" />
-            <property name="level"      type="int" address="address + 33" />
-            <property name="exp"        type="int" address="address + 14" length="3" />
-            <property name="type_1"     type="int" address="address + 5"  reference="pokemon_types" />
-            <property name="type_2"     type="int" address="address + 6"  reference="pokemon_types" />
-            <property name="ot_id"      type="int" address="address + 12" length="2" />
-            <property name="catch_rate" type="int" address="address + 7"  description="Held item when traded to gen2" /> <!-- this gives a bad value. For Squirtle, it says 8, but the offical number is 45 -->
-            <property name="status_condition" type="int" address="address + 4"  reference="status_conditions" />
+            <property name="nickname"   type="string" address="{nicknameAddress}" length="11" />
+            <property name="level"      type="int" address="{address} + 33" />
+            <property name="exp"        type="int" address="{address} + 14" length="3" />
+            <property name="type_1"     type="int" address="{address} + 5"  reference="pokemon_types" />
+            <property name="type_2"     type="int" address="{address} + 6"  reference="pokemon_types" />
+            <property name="ot_id"      type="int" address="{address} + 12" length="2" />
+            <property name="catch_rate" type="int" address="{address} + 7"  description="Held item when traded to gen2" /> <!-- this gives a bad value. For Squirtle, it says 8, but the offical number is 45 -->
+            <property name="status_condition" type="int" address="{address} + 4"  reference="status_conditions" />
             <moves>
-                <class name="0" type="party_move" var:moveAddress="address + 8" />
-                <class name="1" type="party_move" var:moveAddress="address + 9" />
-                <class name="2" type="party_move" var:moveAddress="address + 10" />
-                <class name="3" type="party_move" var:moveAddress="address + 11" />
+                <class name="0" type="party_move" var:moveAddress="{address} + 8" />
+                <class name="1" type="party_move" var:moveAddress="{address} + 9" />
+                <class name="2" type="party_move" var:moveAddress="{address} + 10" />
+                <class name="3" type="party_move" var:moveAddress="{address} + 11" />
             </moves>
             <stats>
-                <property name="hp"      type="int" address="address + 1"  length="2" />
-                <property name="hp_max"  type="int" address="address + 34" length="2" />
-                <property name="attack"  type="int" address="address + 36" length="2" description="The Attack stat as it appears in the Pokemon's summary page in game" />
-                <property name="defense" type="int" address="address + 38" length="2" description="The Attack stat as it appears in the Pokemon's summary page in game" />
-                <property name="speed"   type="int" address="address + 40" length="2" description="The Attack stat as it appears in the Pokemon's summary page in game" />
-                <property name="special" type="int" address="address + 42" length="2" description="The Attack stat as it appears in the Pokemon's summary page in game" />
+                <property name="hp"      type="int" address="{address} + 1"  length="2" />
+                <property name="hp_max"  type="int" address="{address} + 34" length="2" />
+                <property name="attack"  type="int" address="{address} + 36" length="2" description="The Attack stat as it appears in the Pokemon's summary page in game" />
+                <property name="defense" type="int" address="{address} + 38" length="2" description="The Attack stat as it appears in the Pokemon's summary page in game" />
+                <property name="speed"   type="int" address="{address} + 40" length="2" description="The Attack stat as it appears in the Pokemon's summary page in game" />
+                <property name="special" type="int" address="{address} + 42" length="2" description="The Attack stat as it appears in the Pokemon's summary page in game" />
             </stats>
             <ivs>
                 <property name="hp"      type="int"    description="Calculated from the IVs; not actually stored in memory" />
-                <property name="attack"  type="nibble" address="address + 27" position="0" />
-                <property name="defense" type="nibble" address="address + 27" position="1" />
-                <property name="speed"   type="nibble" address="address + 28" position="0" />
-                <property name="special" type="nibble" address="address + 28" position="1" />
+                <property name="attack"  type="nibble" address="{address} + 27" position="0" />
+                <property name="defense" type="nibble" address="{address} + 27" position="1" />
+                <property name="speed"   type="nibble" address="{address} + 28" position="0" />
+                <property name="special" type="nibble" address="{address} + 28" position="1" />
             </ivs>
             <evs>
-                <property name="hp"      type="int" address="address + 17" length="2" description="HP EV (stat experience)" />
-                <property name="attack"  type="int" address="address + 19" length="2" description="Attack EV (stat experience)" />
-                <property name="defense" type="int" address="address + 21" length="2" description="Defense EV (stat experience)" />
-                <property name="speed"   type="int" address="address + 23" length="2" description="Speed EV (stat experience)" />
-                <property name="special" type="int" address="address + 25" length="2" description="Special EV (stat experience)" />
+                <property name="hp"      type="int" address="{address} + 17" length="2" description="HP EV (stat experience)" />
+                <property name="attack"  type="int" address="{address} + 19" length="2" description="Attack EV (stat experience)" />
+                <property name="defense" type="int" address="{address} + 21" length="2" description="Defense EV (stat experience)" />
+                <property name="speed"   type="int" address="{address} + 23" length="2" description="Speed EV (stat experience)" />
+                <property name="special" type="int" address="{address} + 25" length="2" description="Special EV (stat experience)" />
             </evs>
         </party_pokemon>
         <player_active_pokemon>
@@ -138,35 +138,35 @@
         </player_active_pokemon>
         <pc_pokemon>
             <macro type="pokemon" />
-            <property name="nickname" type="string" address="nicknameAddress" length="11" />
-            <property name="level"    type="int"    address="address + 3" />
-            <property name="exp"      type="int"    address="address + 14" length="3" />
-            <property name="type_1"   type="int"    address="address + 5"  reference="pokemon_types" />
-            <property name="type_2"   type="int"    address="address + 6"  reference="pokemon_types" />
-            <property name="ot_id"    type="int"    address="address + 12" length="2" />
-            <property name="status_condition" type="int"    address="address + 4"  reference="status_conditions" />
+            <property name="nickname" type="string" address="{nicknameAddress}" length="11" />
+            <property name="level"    type="int"    address="{address} + 3" />
+            <property name="exp"      type="int"    address="{address} + 14" length="3" />
+            <property name="type_1"   type="int"    address="{address} + 5"  reference="pokemon_types" />
+            <property name="type_2"   type="int"    address="{address} + 6"  reference="pokemon_types" />
+            <property name="ot_id"    type="int"    address="{address} + 12" length="2" />
+            <property name="status_condition" type="int"    address="{address} + 4"  reference="status_conditions" />
             <stats>
-                <property name="hp" type="int" address="address + 1" length="2" />
+                <property name="hp" type="int" address="{address} + 1" length="2" />
                 <!-- Other stats are not stored by the game to minimize filesize, they are recalculated when the Pokemon is withdrawn from the PC. -->
             </stats>
             <moves>
-                <class name="0" type="party_move" var:moveAddress="address + 2" />
-                <class name="1" type="party_move" var:moveAddress="address + 3" />
-                <class name="2" type="party_move" var:moveAddress="address + 4" />
-                <class name="3" type="party_move" var:moveAddress="address + 5" />
+                <class name="0" type="party_move" var:moveAddress="{address} + 2" />
+                <class name="1" type="party_move" var:moveAddress="{address} + 3" />
+                <class name="2" type="party_move" var:moveAddress="{address} + 4" />
+                <class name="3" type="party_move" var:moveAddress="{address} + 5" />
             </moves>
             <ivs>
-                <property name="attack"  type="nibble" address="address + 27" position="0" />
-                <property name="defense" type="nibble" address="address + 27" position="1" />
-                <property name="speed"   type="nibble" address="address + 28" position="0" />
-                <property name="special" type="nibble" address="address + 28" position="1" />
+                <property name="attack"  type="nibble" address="{address} + 27" position="0" />
+                <property name="defense" type="nibble" address="{address} + 27" position="1" />
+                <property name="speed"   type="nibble" address="{address} + 28" position="0" />
+                <property name="special" type="nibble" address="{address} + 28" position="1" />
             </ivs>
             <evs>
-                <property name="hp"      type="int" address="address + 17" length="2" description="HP EV (stat experience)" />
-                <property name="attack"  type="int" address="address + 19" length="2" description="Attack EV (stat experience)" />
-                <property name="defense" type="int" address="address + 21" length="2" description="Defense EV (stat experience)" />
-                <property name="speed"   type="int" address="address + 23" length="2" description="Speed EV (stat experience)" />
-                <property name="special" type="int" address="address + 25" length="2" description="Special EV (stat experience)" />
+                <property name="hp"      type="int" address="{address} + 17" length="2" description="HP EV (stat experience)" />
+                <property name="attack"  type="int" address="{address} + 19" length="2" description="Attack EV (stat experience)" />
+                <property name="defense" type="int" address="{address} + 21" length="2" description="Defense EV (stat experience)" />
+                <property name="speed"   type="int" address="{address} + 23" length="2" description="Speed EV (stat experience)" />
+                <property name="special" type="int" address="{address} + 25" length="2" description="Special EV (stat experience)" />
             </evs>
         </pc_pokemon>
 
@@ -177,29 +177,29 @@
         </active_pokemon_move>
 
         <party_move>
-            <property name="move"  type="int" address="moveAddress" reference="moves" />
-            <property name="pp"    type="int" address="moveAddress + 21" after-read-value-expression="x % 64" />
-            <property name="pp_up" type="int" address="moveAddress + 21" after-read-value-expression="Math.floor(x / 64)" />
+            <property name="move"  type="int" address="{moveAddress}" reference="moves" />
+            <property name="pp"    type="int" address="{moveAddress} + 21" after-read-value-expression="x % 64" />
+            <property name="pp_up" type="int" address="{moveAddress} + 21" after-read-value-expression="Math.floor(x / 64)" />
         </party_move>
 
         <battle_move>
-            <property name="move" type="int" address="moveAddress" reference="moves" />
-            <property name="pp"   type="int" address="moveAddress + 17" after-read-value-expression="x % 64" />
+            <property name="move" type="int" address="{moveAddress}" reference="moves" />
+            <property name="pp"   type="int" address="{moveAddress} + 17" after-read-value-expression="x % 64" />
         </battle_move>
 
         <opponent_battle_move>
-            <property name="move" type="int" address="moveAddress" reference="moves" />
+            <property name="move" type="int" address="{moveAddress}" reference="moves" />
         </opponent_battle_move>
 
         <player_item>
-            <property name="item"     type="int" address="address" reference="items" />
-            <property name="quantity" type="int" address="address + 1" />
+            <property name="item"     type="int" address="{address}" reference="items" />
+            <property name="quantity" type="int" address="{address} + 1" />
         </player_item>
 
         <encounter>
-            <property name="level"   type="int" address="address" />
-            <property name="species" type="int" address="address + 1" reference="species" />
-            <property name="dex_number" type="int" address="address + 1" reference="dex_numbers" />
+            <property name="level"   type="int" address="{address}" />
+            <property name="species" type="int" address="{address} + 1" reference="species" />
+            <property name="dex_number" type="int" address="{address} + 1" reference="dex_numbers" />
         </encounter>
     </classes>
 

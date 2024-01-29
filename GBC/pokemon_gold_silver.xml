@@ -6,51 +6,51 @@
     xmlns:var="https://schemas.gamehook.io/attributes/var">
     <macros>
         <pokemon>
-            <property name="species"    type="int" address="address" reference="species" />
-            <property name="dex_number" type="int" address="address" reference="dex_numbers" />
+            <property name="species"    type="int" address="{address}" reference="species" />
+            <property name="dex_number" type="int" address="{address}" reference="dex_numbers" />
         </pokemon>
     </macros>
 
     <classes>
         <party_pokemon>
             <macro type="pokemon" />
-            <property name="nickname"   type="string" address="nicknameAddress" length="11" />
-            <property name="level"      type="int" address="address + 31" />
-            <property name="exp"        type="int" address="address + 8" length="3" />
-            <property name="ot_id"      type="int" address="address + 6" length="2" />
-            <property name="held_item"  type="int" address="address + 1" reference="items" />
-            <property name="friendship" type="int" address="address + 27" />
+            <property name="nickname"   type="string" address="{nicknameAddress}" length="11" />
+            <property name="level"      type="int" address="{address} + 31" />
+            <property name="exp"        type="int" address="{address} + 8" length="3" />
+            <property name="ot_id"      type="int" address="{address} + 6" length="2" />
+            <property name="held_item"  type="int" address="{address} + 1" reference="items" />
+            <property name="friendship" type="int" address="{address} + 27" />
             <property name="shiny"      type="bool" description="Calculated from the IVs; not actually stored in memory" />
-            <property name="pokerus"    type="int" address="address + 28" />
-            <property name="status_condition" type="int" address="address + 32" reference="status_conditions" />
+            <property name="pokerus"    type="int" address="{address} + 28" />
+            <property name="status_condition" type="int" address="{address} + 32" reference="status_conditions" />
             <moves>
-                <class name="0" type="party_move" var:moveAddress="address + 2" />
-                <class name="1" type="party_move" var:moveAddress="address + 3" />
-                <class name="2" type="party_move" var:moveAddress="address + 4" />
-                <class name="3" type="party_move" var:moveAddress="address + 5" />
+                <class name="0" type="party_move" var:moveAddress="{address} + 2" />
+                <class name="1" type="party_move" var:moveAddress="{address} + 3" />
+                <class name="2" type="party_move" var:moveAddress="{address} + 4" />
+                <class name="3" type="party_move" var:moveAddress="{address} + 5" />
             </moves>
             <stats>
-                <property name="hp"              type="int" address="address + 34" length="2" />
-                <property name="hp_max"          type="int" address="address + 36" length="2" />
-                <property name="attack"          type="int" address="address + 38" length="2" />
-                <property name="defense"         type="int" address="address + 40" length="2" />
-                <property name="speed"           type="int" address="address + 42" length="2" />
-                <property name="special_attack"  type="int" address="address + 44" length="2" />
-                <property name="special_defense" type="int" address="address + 46" length="2" />
+                <property name="hp"              type="int" address="{address} + 34" length="2" />
+                <property name="hp_max"          type="int" address="{address} + 36" length="2" />
+                <property name="attack"          type="int" address="{address} + 38" length="2" />
+                <property name="defense"         type="int" address="{address} + 40" length="2" />
+                <property name="speed"           type="int" address="{address} + 42" length="2" />
+                <property name="special_attack"  type="int" address="{address} + 44" length="2" />
+                <property name="special_defense" type="int" address="{address} + 46" length="2" />
             </stats>
             <ivs>
                 <property name="hp"      type="int"    description="Calculated from the IVs; not actually stored in memory" />
-                <property name="attack"  type="nibble" address="address + 21" position="0" />
-                <property name="defense" type="nibble" address="address + 21" position="1" />
-                <property name="speed"   type="nibble" address="address + 22" position="0" />
-                <property name="special" type="nibble" address="address + 22" position="1" />
+                <property name="attack"  type="nibble" address="{address} + 21" position="0" />
+                <property name="defense" type="nibble" address="{address} + 21" position="1" />
+                <property name="speed"   type="nibble" address="{address} + 22" position="0" />
+                <property name="special" type="nibble" address="{address} + 22" position="1" />
             </ivs>
             <evs>
-                <property name="hp"      type="int" address="address + 11" length="2" />
-                <property name="attack"  type="int" address="address + 13" length="2" />
-                <property name="defense" type="int" address="address + 15" length="2" />
-                <property name="speed"   type="int" address="address + 17" length="2" />
-                <property name="special" type="int" address="address + 19" length="2" />
+                <property name="hp"      type="int" address="{address} + 11" length="2" />
+                <property name="attack"  type="int" address="{address} + 13" length="2" />
+                <property name="defense" type="int" address="{address} + 15" length="2" />
+                <property name="speed"   type="int" address="{address} + 17" length="2" />
+                <property name="special" type="int" address="{address} + 19" length="2" />
             </evs>
             <hidden_power>
                 <property name="type"  type="int" reference="types" description="Calculated from the IVs; not actually stored in memory" />
@@ -159,34 +159,34 @@
         </active_pokemon_move>
 
         <party_move>
-            <property name="move"  type="int" address="moveAddress" reference="moves" />
-            <property name="pp"    type="int" address="moveAddress + 21" after-read-value-expression="x % 64" />
-            <property name="pp_up" type="int" address="moveAddress + 21" after-read-value-expression="Math.floor(x / 64)" />
+            <property name="move"  type="int" address="{moveAddress}" reference="moves" />
+            <property name="pp"    type="int" address="{moveAddress} + 21" after-read-value-expression="x % 64" />
+            <property name="pp_up" type="int" address="{moveAddress} + 21" after-read-value-expression="Math.floor(x / 64)" />
         </party_move>
 
         <battle_moves>
-            <property name="move"  type="int" address="moveAddress" reference="moves" />
-            <property name="pp"    type="int" address="moveAddress + 6" after-read-value-expression="x % 64" />
-            <property name="pp_up" type="int" address="moveAddress + 6" after-read-value-expression="Math.floor(x / 64)" />
+            <property name="move"  type="int" address="{moveAddress}" reference="moves" />
+            <property name="pp"    type="int" address="{moveAddress} + 6" after-read-value-expression="x % 64" />
+            <property name="pp_up" type="int" address="{moveAddress} + 6" after-read-value-expression="Math.floor(x / 64)" />
         </battle_moves>
 
         <player_item>
-            <property name="item"     type="int" address="address" reference="items" />
-            <property name="quantity" type="int" address="address + 1"  />
+            <property name="item"     type="int" address="{address}" reference="items" />
+            <property name="quantity" type="int" address="{address} + 1"  />
         </player_item>
 
         <roamer>
             <macro type="pokemon" />
-            <property name="level"     type="int" address="address+1" length="1" />
-            <property name="map_name"  type="int" address="address+2" length="2" reference="maps" />
-            <property name="map_group" type="int" address="address+2" length="1" reference="map_groups" />
-            <property name="map_index" type="int" address="address+3" length="1" />
-            <property name="hp"        type="int" address="address+4" length="1" />
+            <property name="level"     type="int" address="{address}+1" length="1" />
+            <property name="map_name"  type="int" address="{address}+2" length="2" reference="maps" />
+            <property name="map_group" type="int" address="{address}+2" length="1" reference="map_groups" />
+            <property name="map_index" type="int" address="{address}+3" length="1" />
+            <property name="hp"        type="int" address="{address}+4" length="1" />
             <ivs>
-                <property name="attack"  type="nibble" address="address+5" position="0" />
-                <property name="defense" type="nibble" address="address+5" position="1" />
-                <property name="speed"   type="nibble" address="address+6" position="0" />
-                <property name="special" type="nibble" address="address+6" position="1" />
+                <property name="attack"  type="nibble" address="{address}+5" position="0" />
+                <property name="defense" type="nibble" address="{address}+5" position="1" />
+                <property name="speed"   type="nibble" address="{address}+6" position="0" />
+                <property name="special" type="nibble" address="{address}+6" position="1" />
             </ivs>
         </roamer>
     </classes>
