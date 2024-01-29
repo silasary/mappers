@@ -746,8 +746,8 @@
 				</team>
 			</opponent_2>
             <field>
-                <property name="weather" type="int" address="global_pointer + 0x54238 - 4" length="2" reference="weather" />
-                <property name="weather_count" type="int" address="global_pointer + 0x54238" />
+                <property name="weather" type="int" address="global_pointer + 0x54234" length="2" reference="weather" />
+                <property name="weather_count" type="int" address="global_pointer + 0x54234 + 4" />
             </field>
 			<other>
             	<property name="outcome_flags" type="int" address="global_pointer + 0x571D3" />
