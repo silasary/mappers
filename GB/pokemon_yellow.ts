@@ -8,10 +8,6 @@ import { hpIv } from "../common/pokemon";
 
 const PARTY_SIZE = 6;
 
-export function getBits(a: number, b: number, d: number): number {
-  return (a >> b) & ((1 << d) - 1);
-}
-
 function getGamestate(): string {
   // FSM FOR GAMESTATE TRACKING
   // MAIN GAMESTATE: This tracks the three basic states the game can be in.

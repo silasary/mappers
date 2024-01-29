@@ -493,12 +493,10 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
       <property name="gameClear" type="bool" bits="4" address="{dma_a} + 4069" />  
     </events>
     <options> 
-      <!-- textSpeed:   { type: "int", preprocessor: "dma_967d10cc(0x0300500C, 20), 2, 0)", postprocessor: "BitRange(x, 2, 0)" } # 0:SLOW, 1:MID, 2:FAST -->
       <property name="battleAnim"  type="bool" address="{dma_b} + 21" bits="2" />
       <property name="battleStyle" type="bool" address="{dma_b} + 21" bits="1" />
       <property name="sound"       type="bool" address="{dma_b} + 21" bits="0" />
       <property name="buttonMode"  type="int" address="{dma_b} + 19" />
-      <!-- windowFrame: { type: "int", preprocessor: "dma_967d10cc(0x0300500C, 20), 7, 3)", postprocessor: "BitRange(x, 2, 0)" } #  -->
     </options> 
     <gameTime>
       <property name="hours"   type="int" address="{dma_b} + 14" />

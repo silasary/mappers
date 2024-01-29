@@ -36,12 +36,12 @@
 				<property name="special_defense" type="int" address="154" length="2" memoryContainer="{memoryContainer}" />
 			</stats>
 			<ivs>
-				<property name="hp"              type="int" address="56" length="4" memoryContainer="{memoryContainer}" after-read-value-expression="getBits(x, 0, 5)" />
-				<property name="attack"          type="int" address="56" length="4" memoryContainer="{memoryContainer}" after-read-value-expression="getBits(x, 5, 5)" />
-				<property name="defense"         type="int" address="56" length="4" memoryContainer="{memoryContainer}" after-read-value-expression="getBits(x, 10, 5)" />
-				<property name="speed"           type="int" address="56" length="4" memoryContainer="{memoryContainer}" after-read-value-expression="getBits(x, 15, 5)" />
-				<property name="special_attack"  type="int" address="56" length="4" memoryContainer="{memoryContainer}" after-read-value-expression="getBits(x, 20, 5)" />
-				<property name="special_defense" type="int" address="56" length="4" memoryContainer="{memoryContainer}" after-read-value-expression="getBits(x, 25, 5)" />
+				<property name="hp"              type="int" address="56" length="4" memoryContainer="{memoryContainer}" bits="0-4"   />
+				<property name="attack"          type="int" address="56" length="4" memoryContainer="{memoryContainer}" bits="5-9"   />
+				<property name="defense"         type="int" address="56" length="4" memoryContainer="{memoryContainer}" bits="10-14" />
+				<property name="speed"           type="int" address="56" length="4" memoryContainer="{memoryContainer}" bits="15-19" />
+				<property name="special_attack"  type="int" address="56" length="4" memoryContainer="{memoryContainer}" bits="20-24" />
+				<property name="special_defense" type="int" address="56" length="4" memoryContainer="{memoryContainer}" bits="25-29" />
 			</ivs>
 			<evs>
 				<property name="hp"              type="int" address="24" memoryContainer="{memoryContainer}" />
@@ -75,7 +75,7 @@
 					<property name="egg_location"      type="int" address="126" memoryContainer="{memoryContainer}" length="2" />
 					<property name="met_location"      type="int" address="128" memoryContainer="{memoryContainer}" length="2" />
 					<property name="pokeball"          type="int" address="131" memoryContainer="{memoryContainer}" />
-					<property name="met_level"         type="int" address="132" memoryContainer="{memoryContainer}" after-read-value-expression="getBits(x, 6, 0)" />
+					<property name="met_level"         type="int" address="132" memoryContainer="{memoryContainer}" bits="0-6" />
 					<property name="female_ot_gender"  type="bool" address="132" memoryContainer="{memoryContainer}" bits="7" />
 					<property name="encounter_type"    type="int" address="133" memoryContainer="{memoryContainer}" />
 				</met_info>
@@ -244,12 +244,12 @@
 				<property name="evasion"         address="{address} + 31" type="int" reference="stage_modifiers" />
 			</modifiers>
 			<ivs>
-				<property name="hp"              address="{address} + 20" type="int"  length="4" after-read-value-expression="getBits(x, 0, 5)" />
-				<property name="attack"          address="{address} + 20" type="int"  length="4" after-read-value-expression="getBits(x, 5, 5)" />
-				<property name="defense"         address="{address} + 20" type="int"  length="4" after-read-value-expression="getBits(x, 10, 5)" />
-				<property name="speed"           address="{address} + 20" type="int"  length="4" after-read-value-expression="getBits(x, 15, 5)" />
-				<property name="special_attack"  address="{address} + 20" type="int"  length="4" after-read-value-expression="getBits(x, 20, 5)" />
-				<property name="special_defense" address="{address} + 20" type="int"  length="4" after-read-value-expression="getBits(x, 25, 5)" />
+				<property name="hp"              address="{address} + 20" type="int"  length="4" bits="0-4"   />
+				<property name="attack"          address="{address} + 20" type="int"  length="4" bits="5-9"   />
+				<property name="defense"         address="{address} + 20" type="int"  length="4" bits="10-14" />
+				<property name="speed"           address="{address} + 20" type="int"  length="4" bits="15-19" />
+				<property name="special_attack"  address="{address} + 20" type="int"  length="4" bits="20-24" />
+				<property name="special_defense" address="{address} + 20" type="int"  length="4" bits="25-29" />
 			</ivs>
 			<internals>
 				<property name="personality_value" address="{address} + 104" type="uint" length="4"/>

@@ -9,8 +9,6 @@ import {
     setProperty, 
 } from "../common";
 
-export { BitRange } from '../common';
-
 //Decryption Functions
 //16-bit and 32-bit data access functions
 function DATA16_LE(data: number[], offset: number) {

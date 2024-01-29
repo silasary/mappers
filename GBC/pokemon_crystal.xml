@@ -2072,7 +2072,7 @@
         </screen>
 
         <options>
-            <property name="text_speed"        type="int" address="0xCFCC" after-read-value-expression="getBits(x, 0, 3)" reference="text_speeds" />
+            <property name="text_speed"        type="int" address="0xCFCC"  bits="0-2" reference="text_speeds" />
             <property name="no_text_scroll"    type="bool" address="0xCFCC" bits="4" />
             <property name="sound"             type="bool" address="0xCFCC" bits="5" description="Mono = False, Stereo = True" />
             <property name="battle_style"      type="bool" address="0xCFCC" bits="6" description="Shift = False, Set = True" />

@@ -9,9 +9,6 @@ import {
     setProperty, 
 } from "../common";
 
-export { BitRange } from '../common';
-
-
 function DATA32_LE(data: number[], offset: number) {
     let val = (data[offset] << 0)
         | (data[offset + 1] << 8)

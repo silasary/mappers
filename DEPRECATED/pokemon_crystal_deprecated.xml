@@ -126,16 +126,16 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
         <property name="5" type="string" address="0xDE36" length="11" />
       </otNames>
       <items>
-        <class name="0" type="playerItem" var:address="0xD893" />
-        <class name="1" type="playerItem" var:address="0xD895" />
-        <class name="2" type="playerItem" var:address="0xD897" />
-        <class name="3" type="playerItem" var:address="0xD899" />
-        <class name="4" type="playerItem" var:address="0xD89B" />
-        <class name="5" type="playerItem" var:address="0xD89D" />
-        <class name="6" type="playerItem" var:address="0xD89F" />
-        <class name="7" type="playerItem" var:address="0xD8A1" />
-        <class name="8" type="playerItem" var:address="0xD8A3" />
-        <class name="9" type="playerItem" var:address="0xD8A5" />
+        <class name="0"  type="playerItem" var:address="0xD893" />
+        <class name="1"  type="playerItem" var:address="0xD895" />
+        <class name="2"  type="playerItem" var:address="0xD897" />
+        <class name="3"  type="playerItem" var:address="0xD899" />
+        <class name="4"  type="playerItem" var:address="0xD89B" />
+        <class name="5"  type="playerItem" var:address="0xD89D" />
+        <class name="6"  type="playerItem" var:address="0xD89F" />
+        <class name="7"  type="playerItem" var:address="0xD8A1" />
+        <class name="8"  type="playerItem" var:address="0xD8A3" />
+        <class name="9"  type="playerItem" var:address="0xD8A5" />
         <class name="10" type="playerItem" var:address="0xD8A7" />
         <class name="11" type="playerItem" var:address="0xD8A9" />
         <class name="12" type="playerItem" var:address="0xD8AB" />
@@ -150,16 +150,16 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
       </items>
       <property name="pokeBallCount" type="int" address="0xD8D7" />
       <pokeBalls>
-        <class name="0" type="playerItem" var:address="0xD8D8" />
-        <class name="1" type="playerItem" var:address="0xD8DA" />
-        <class name="2" type="playerItem" var:address="0xD8DC" />
-        <class name="3" type="playerItem" var:address="0xD8DE" />
-        <class name="4" type="playerItem" var:address="0xD8E0" />
-        <class name="5" type="playerItem" var:address="0xD8E2" />
-        <class name="6" type="playerItem" var:address="0xD8E4" />
-        <class name="7" type="playerItem" var:address="0xD8E6" />
-        <class name="8" type="playerItem" var:address="0xD8E8" />
-        <class name="9" type="playerItem" var:address="0xD8EA" />
+        <class name="0"  type="playerItem" var:address="0xD8D8" />
+        <class name="1"  type="playerItem" var:address="0xD8DA" />
+        <class name="2"  type="playerItem" var:address="0xD8DC" />
+        <class name="3"  type="playerItem" var:address="0xD8DE" />
+        <class name="4"  type="playerItem" var:address="0xD8E0" />
+        <class name="5"  type="playerItem" var:address="0xD8E2" />
+        <class name="6"  type="playerItem" var:address="0xD8E4" />
+        <class name="7"  type="playerItem" var:address="0xD8E6" />
+        <class name="8"  type="playerItem" var:address="0xD8E8" />
+        <class name="9"  type="playerItem" var:address="0xD8EA" />
         <class name="10" type="playerItem" var:address="0xD8EC" />
         <class name="11" type="playerItem" var:address="0xD8ED" />
       </pokeBalls>

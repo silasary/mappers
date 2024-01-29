@@ -201,7 +201,7 @@ For all new software, please use the paths within 'pokemon_gold_silver.xml'
       <property name="mapNumber" type="int" address="0xDA01" />
     </overworld>
     <battle>
-      <property name="mode"    type="int" address="0xD116"  reference="battleModes" />
+      <property name="mode" type="int" address="0xD116"  reference="battleModes" />
       <property name="battleStart" type="int" address="0xC664" />
       <trainer>
         <team>

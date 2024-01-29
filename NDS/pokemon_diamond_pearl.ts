@@ -8,10 +8,6 @@ import {
     // setProperty, 
 } from "../common";
 
-export function getBits(a: number, b: number, d: number): number {
-    return (a >> b) & ((1 << d) - 1);
-}
-
 // prng function; used for decryption.
 function prngNext(prngSeed: number) {
     // Ensure 32-bit unsigned result

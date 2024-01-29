@@ -13,10 +13,6 @@ import {
 
 const PARTY_SIZE: number = 6;
 
-export function getBits(a: number, b: number, d: number): number {
-  return (a >> b) & ((1 << d) - 1);
-}
-
 export function getGamestate(): string {
   const team_0_level: number = getValue('player.team.0.level')
   const outcome_flags: number = getValue('battle.other.outcome_flags')

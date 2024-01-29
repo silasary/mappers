@@ -1,7 +1,5 @@
 import { memory } from "../common";
 
-export { BitRange } from '../common';
-
 function DATA32_LE(data, offset) {
     let val = (data[offset] << 0)
         | (data[offset + 1] << 8)

@@ -157,20 +157,3 @@ export function copyProperties(sourcePath: string, destinationPath: string) {
         }
     })
 }
-
-/** @deprecated Use the bits attribute within the GameHook mapper XML */
-export function BitRange(value: number, upperBounds: number, lowerBounds: number): number {
-    // Validate the input bounds
-    if (lowerBounds < 0 || upperBounds >= 32 || lowerBounds > upperBounds) {
-        throw new Error('Invalid bounds');
-    }
-
-    // Shift the value to the right by lowerBounds
-    let shiftedValue = value >>> lowerBounds;
-
-    // Create a mask for the upper bounds
-    let mask = (1 << (upperBounds - lowerBounds + 1)) - 1;
-
-    // Apply the mask to get the bit range
-    return shiftedValue & mask;
-}

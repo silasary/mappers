@@ -41,12 +41,12 @@
                 <property name="special_defense" type="int" address="98" memoryContainer="{memoryContainer}" length="2" />
             </stats>
             <ivs>
-                <property name="hp"              type="int" address="32 + 40" memoryContainer="{memoryContainer}" length="4" after-read-value-expression="BitRange(x, 4, 0)" />
-                <property name="attack"          type="int" address="32 + 40" memoryContainer="{memoryContainer}" length="4" after-read-value-expression="BitRange(x, 9, 5)" />
-                <property name="defense"         type="int" address="32 + 40" memoryContainer="{memoryContainer}" length="4" after-read-value-expression="BitRange(x, 14, 10)" />
-                <property name="speed"           type="int" address="32 + 40" memoryContainer="{memoryContainer}" length="4" after-read-value-expression="BitRange(x, 19, 15)" />
-                <property name="special_attack"  type="int" address="32 + 40" memoryContainer="{memoryContainer}" length="4" after-read-value-expression="BitRange(x, 24, 20)" />
-                <property name="special_defense" type="int" address="32 + 40" memoryContainer="{memoryContainer}" length="4" after-read-value-expression="BitRange(x, 29, 25)" />
+                <property name="hp"              type="int" address="32 + 40" memoryContainer="{memoryContainer}" length="4" bits="0-4"   />
+                <property name="attack"          type="int" address="32 + 40" memoryContainer="{memoryContainer}" length="4" bits="5-9"   />
+                <property name="defense"         type="int" address="32 + 40" memoryContainer="{memoryContainer}" length="4" bits="10-14" />
+                <property name="speed"           type="int" address="32 + 40" memoryContainer="{memoryContainer}" length="4" bits="15-19" />
+                <property name="special_attack"  type="int" address="32 + 40" memoryContainer="{memoryContainer}" length="4" bits="20-24" />
+                <property name="special_defense" type="int" address="32 + 40" memoryContainer="{memoryContainer}" length="4" bits="25-29" />
             </ivs>
             <evs>
                 <property name="hp"              type="int" address="32 + 24" memoryContainer="{memoryContainer}" />
@@ -61,16 +61,16 @@
                 <property name="checksum"   type="int"    address="28"      memoryContainer="{memoryContainer}" length="2" description="Used to valid the decrypted data block" />
             </internals>
             <misc> 
-                <property name="is_egg"            type="bool"    address="40" memoryContainer="{memoryContainer}" length="4" bits="30" />
+                <property name="is_egg"            type="bool"   address="40" memoryContainer="{memoryContainer}" length="4" bits="30" />
                 <property name="language"          type="int"    address="18" memoryContainer="{memoryContainer}" reference="language" />
-                <property name="is_bad_egg"        type="bool"    address="19" memoryContainer="{memoryContainer}" bits="0" />
-                <property name="has_species"       type="bool"    address="19" memoryContainer="{memoryContainer}" bits="1" />
-                <property name="use_egg_name"      type="bool"    address="19" memoryContainer="{memoryContainer}" bits="2" />
+                <property name="is_bad_egg"        type="bool"   address="19" memoryContainer="{memoryContainer}" bits="0" />
+                <property name="has_species"       type="bool"   address="19" memoryContainer="{memoryContainer}" bits="1" />
+                <property name="use_egg_name"      type="bool"   address="19" memoryContainer="{memoryContainer}" bits="2" />
                 <property name="ot_name"           type="string" address="20" memoryContainer="{memoryContainer}" length="7"/>
-                <property name="marking_circle"    type="bool"    address="27" memoryContainer="{memoryContainer}" bits="0" />
-                <property name="marking_square"    type="bool"    address="27" memoryContainer="{memoryContainer}" bits="1" />
-                <property name="marking_triangle"  type="bool"    address="27" memoryContainer="{memoryContainer}" bits="2" />
-                <property name="marking_heart"     type="bool"    address="27" memoryContainer="{memoryContainer}" bits="3" />
+                <property name="marking_circle"    type="bool"   address="27" memoryContainer="{memoryContainer}" bits="0" />
+                <property name="marking_square"    type="bool"   address="27" memoryContainer="{memoryContainer}" bits="1" />
+                <property name="marking_triangle"  type="bool"   address="27" memoryContainer="{memoryContainer}" bits="2" />
+                <property name="marking_heart"     type="bool"   address="27" memoryContainer="{memoryContainer}" bits="3" />
                 <property name="pokerus_status"    type="int"    address="36" memoryContainer="{memoryContainer}" />
                 <property name="met_location"      type="int"    address="37" memoryContainer="{memoryContainer}" />
                 <property name="origins_info"      type="int"    address="38" memoryContainer="{memoryContainer}" length="2" />
@@ -188,12 +188,12 @@
                 <property name="special_defense" type="int" address="address + 10" length="2" />
             </stats>
             <ivs>
-                <property name="hp"              type="int" address="address + 20" length="4" after-read-value-expression="BitRange(x, 4, 0)" />
-                <property name="attack"          type="int" address="address + 20" length="4" after-read-value-expression="BitRange(x, 9, 5)" />
-                <property name="defense"         type="int" address="address + 20" length="4" after-read-value-expression="BitRange(x, 14, 10)" />
-                <property name="speed"           type="int" address="address + 20" length="4" after-read-value-expression="BitRange(x, 19, 15)" />
-                <property name="special_attack"  type="int" address="address + 20" length="4" after-read-value-expression="BitRange(x, 24, 20)" />
-                <property name="special_defense" type="int" address="address + 20" length="4" after-read-value-expression="BitRange(x, 29, 25)" />
+                <property name="hp"              type="int" address="address + 20" length="4" bits="0-4"   />
+                <property name="attack"          type="int" address="address + 20" length="4" bits="5-9"   />
+                <property name="defense"         type="int" address="address + 20" length="4" bits="10-14" />
+                <property name="speed"           type="int" address="address + 20" length="4" bits="15-19" />
+                <property name="special_attack"  type="int" address="address + 20" length="4" bits="20-24" />
+                <property name="special_defense" type="int" address="address + 20" length="4" bits="25-29" />
             </ivs>
             <modifiers>
                 <property name="attack"          type="int" address="address + 25" reference="stage_modifiers" />
@@ -412,12 +412,10 @@
 
         <!-- Offset from saveblock2 directly -->
         <!-- <options> 
-            <property name="text_speed"        type="int" address="0x02024ea4 + 20" after-read-value-expression="BitRange(x, 2, 0)" />
             <property name="battle_animations" type="bool" address="0x02024ea4 + 21" bits="2" />
             <property name="battle_style"      type="bool" address="0x02024ea4 + 21" bits="1" />
             <property name="sound"             type="bool" address="0x02024ea4 + 21" bits="0" />
             <property name="button_mode"       type="int" address="0x02024ea4 + 19" />
-            <property name="window_frame"      type="int" address="0x02024ea4 + 20" after-read-value-expression="BitRange(x, 2, 0)" />
         </options>  -->
         <!-- <audio></audio> -->
         <!-- <pc>  saveblock1 + 0x498
