@@ -5326,22 +5326,22 @@
 			<entry key="592" value="Rock Peak Ruins - Map 1" />
 		</maps>
 		<trainers>
-			<entry key="0" />
-			<entry key="1"  value="Youngster Tristan" />
-			<entry key="2"  value="Youngster Logan" />
-			<entry key="3"  value="Lass Natalie" />
-			<entry key="4"  value="Youngster Michael" />
-			<entry key="5"  value="Camper Mickey" />
-			<entry key="6"  value="Camper Mickey" />
-			<entry key="7"  value="Picnicker Angelica" />
-			<entry key="8"  value="Picnicker Angelica" />
-			<entry key="9"  value="Youngster Mickey" />
+			<entry key="0" value="Pokemon Trainer  -" />
+			<entry key="1" value="Youngster Tristan" />
+			<entry key="2" value="Youngster Logan" />
+			<entry key="3" value="Lass Natalie" />
+			<entry key="4" value="Youngster Michael" />
+			<entry key="5" value="Camper Mickey" />
+			<entry key="6" value="Camper Mickey" />
+			<entry key="7" value="Picnicker Angelica" />
+			<entry key="8" value="Picnicker Angelica" />
+			<entry key="9" value="Youngster Mickey" />
 			<entry key="10" value="Youngster Tyler" />
 			<entry key="11" value="Lass Samantha" />
 			<entry key="12" value="Lass Sarah" />
 			<entry key="13" value="Bug Catcher Brandon" />
 			<entry key="14" value="Aroma Lady Taylor" />
-			<entry key="15" value="Twins Liv and Liz" />
+			<entry key="15" value="Twins Liv & Liz" />
 			<entry key="16" value="Camper Jacob" />
 			<entry key="17" value="Picnicker Siena" />
 			<entry key="18" value="Hiker Daniel" />
@@ -5381,7 +5381,7 @@
 			<entry key="52" value="Youngster Mickey" />
 			<entry key="53" value="Poke Kid Danielle" />
 			<entry key="54" value="Fisherman Mickey" />
-			<entry key="55" value="Young Couple Ty and Sue" />
+			<entry key="55" value="Young Couple Ty & Sue" />
 			<entry key="56" value="Pokemon Breeder Kahlil" />
 			<entry key="57" value="Pokemon Breeder Amber" />
 			<entry key="58" value="Cowgirl Angelica" />
@@ -5391,7 +5391,7 @@
 			<entry key="62" value="Ace Trainer Mickey" />
 			<entry key="63" value="Ace Trainer Angelica" />
 			<entry key="64" value="Waitress Angelica" />
-			<entry key="65" value="Twins Teri and Tia" />
+			<entry key="65" value="Twins Teri & Tia" />
 			<entry key="66" value="Ace Trainer Ernest" />
 			<entry key="67" value="Ace Trainer Alyssa" />
 			<entry key="68" value="Veteran Brian" />
@@ -5401,7 +5401,7 @@
 			<entry key="72" value="Ninja Boy Davido" />
 			<entry key="73" value="Dragon Tamer Patrick" />
 			<entry key="74" value="Bird Keeper Brianna" />
-			<entry key="75" value="Double Team Zac and Jen" />
+			<entry key="75" value="Double Team Zac & Jen" />
 			<entry key="76" value="Bird Keeper Alexandra" />
 			<entry key="77" value="Battle Girl Angelica" />
 			<entry key="78" value="Ninja Boy Zach" />
@@ -5429,16 +5429,16 @@
 			<entry key="100" value="Youngster Mickey" />
 			<entry key="101" value="Youngster Mickey" />
 			<entry key="102" value="Policeman Caleb" />
-			<entry key="103" value="Swimmer Sheltin" />
-			<entry key="104" value="Swimmer Evan" />
-			<entry key="105" value="Swimmer Haley" />
-			<entry key="106" value="Swimmer Mary" />
+			<entry key="103" value="SwimmerM Sheltin" />
+			<entry key="104" value="SwimmerM Evan" />
+			<entry key="105" value="SwimmerF Haley" />
+			<entry key="106" value="SwimmerF Mary" />
 			<entry key="107" value="Tuber Jared" />
 			<entry key="108" value="Tuber Chelsea" />
 			<entry key="109" value="Battle Girl Angelica" />
 			<entry key="110" value="Sailor Paul" />
 			<entry key="111" value="Fisherman Kenneth" />
-			<entry key="112" value="Sis and Bro Tara and Tim" />
+			<entry key="112" value="Sis and Bro Tara & Tim" />
 			<entry key="113" value="Ruin Maniac Bryan" />
 			<entry key="114" value="Ruin Maniac Ronald" />
 			<entry key="115" value="Hiker Mickey" />
@@ -5475,25 +5475,25 @@
 			<entry key="146" value="Ninja Boy Matthew" />
 			<entry key="147" value="Ninja Boy Ethan" />
 			<entry key="148" value="Black Belt Luke" />
-			<entry key="149" value="Swimmer Mickey" />
-			<entry key="150" value="Swimmer Mickey" />
-			<entry key="151" value="Swimmer Angelica" />
-			<entry key="152" value="Swimmer Angelica" />
+			<entry key="149" value="SwimmerM Mickey" />
+			<entry key="150" value="SwimmerM Mickey" />
+			<entry key="151" value="SwimmerF Angelica" />
+			<entry key="152" value="SwimmerF Angelica" />
 			<entry key="153" value="Fisherman Miguel" />
 			<entry key="154" value="Fisherman Luc" />
-			<entry key="155" value="Sis and Bro Tara and Tim" />
-			<entry key="156" value="Swimmer Mickey" />
-			<entry key="157" value="Swimmer Mickey" />
-			<entry key="158" value="Swimmer Angelica" />
-			<entry key="159" value="Swimmer Adrian" />
-			<entry key="160" value="Swimmer Erik" />
-			<entry key="161" value="Swimmer Vincent" />
-			<entry key="162" value="Swimmer Jessica" />
-			<entry key="163" value="Swimmer Erica" />
-			<entry key="164" value="Swimmer Katelyn" />
-			<entry key="165" value="Sis and Bro Tara and Tim" />
-			<entry key="166" value="Swimmer Dillon" />
-			<entry key="167" value="Swimmer Vanessa" />
+			<entry key="155" value="Sis and Bro Tara & Tim" />
+			<entry key="156" value="SwimmerM Mickey" />
+			<entry key="157" value="SwimmerM Mickey" />
+			<entry key="158" value="SwimmerF Angelica" />
+			<entry key="159" value="SwimmerM Adrian" />
+			<entry key="160" value="SwimmerM Erik" />
+			<entry key="161" value="SwimmerM Vincent" />
+			<entry key="162" value="SwimmerF Jessica" />
+			<entry key="163" value="SwimmerF Erica" />
+			<entry key="164" value="SwimmerF Katelyn" />
+			<entry key="165" value="Sis and Bro Tara & Tim" />
+			<entry key="166" value="SwimmerM Dillon" />
+			<entry key="167" value="SwimmerF Vanessa" />
 			<entry key="168" value="Fisherman Cory" />
 			<entry key="169" value="Ruin Maniac Mickey" />
 			<entry key="170" value="Ace Trainer Jake" />
@@ -5508,19 +5508,19 @@
 			<entry key="179" value="Clown Mickey" />
 			<entry key="180" value="Sailor Luther" />
 			<entry key="181" value="Artist Mickey" />
-			<entry key="182" value="Young Couple Tara and Tim" />
-			<entry key="183" value="Swimmer Wesley" />
-			<entry key="184" value="Swimmer Ricardo" />
-			<entry key="185" value="Swimmer Francisco" />
-			<entry key="186" value="Swimmer Colton" />
-			<entry key="187" value="Swimmer Troy" />
-			<entry key="188" value="Swimmer Oscar" />
-			<entry key="189" value="Swimmer Miranda" />
-			<entry key="190" value="Swimmer Aubree" />
-			<entry key="191" value="Swimmer Paige" />
-			<entry key="192" value="Swimmer Crystal" />
-			<entry key="193" value="Swimmer Cassandra" />
-			<entry key="194" value="Swimmer Gabrielle" />
+			<entry key="182" value="Young Couple Tara & Tim" />
+			<entry key="183" value="SwimmerM Wesley" />
+			<entry key="184" value="SwimmerM Ricardo" />
+			<entry key="185" value="SwimmerM Francisco" />
+			<entry key="186" value="SwimmerM Colton" />
+			<entry key="187" value="SwimmerM Troy" />
+			<entry key="188" value="SwimmerM Oscar" />
+			<entry key="189" value="SwimmerF Miranda" />
+			<entry key="190" value="SwimmerF Aubree" />
+			<entry key="191" value="SwimmerF Paige" />
+			<entry key="192" value="SwimmerF Crystal" />
+			<entry key="193" value="SwimmerF Cassandra" />
+			<entry key="194" value="SwimmerF Gabrielle" />
 			<entry key="195" value="Worker Colin" />
 			<entry key="196" value="Worker Mason" />
 			<entry key="197" value="Worker Mickey" />
@@ -5533,7 +5533,7 @@
 			<entry key="204" value="Lass Briana" />
 			<entry key="205" value="Psychic Elijah" />
 			<entry key="206" value="Psychic Lindsey" />
-			<entry key="207" value="Young Couple Tara and Tim" />
+			<entry key="207" value="Young Couple Tara & Tim" />
 			<entry key="208" value="Worker Mickey" />
 			<entry key="209" value="Worker Mickey" />
 			<entry key="210" value="Worker Mickey" />
@@ -5549,7 +5549,7 @@
 			<entry key="220" value="Sailor Mickey" />
 			<entry key="221" value="School Kid Mickey" />
 			<entry key="222" value="School Kid Angelica" />
-			<entry key="223" value="Young Couple Tara and Tim" />
+			<entry key="223" value="Young Couple Tara & Tim" />
 			<entry key="224" value="Ace Trainer Omar" />
 			<entry key="225" value="Ace Trainer Henry" />
 			<entry key="226" value="Ace Trainer Mariah" />
@@ -5562,8 +5562,8 @@
 			<entry key="233" value="Bird Keeper Hana" />
 			<entry key="234" value="Psychic Bryce" />
 			<entry key="235" value="Psychic Valencia" />
-			<entry key="236" value="Double Team Jo and Pat" />
-			<entry key="237" value="Double Team Al and Kay" />
+			<entry key="236" value="Double Team Jo & Pat" />
+			<entry key="237" value="Double Team Al & Kay" />
 			<entry key="238" value="Youngster Mickey" />
 			<entry key="239" value="Lass Angelica" />
 			<entry key="240" value="Veteran Grant" />
@@ -5616,11 +5616,11 @@
 			<entry key="287" value="Ace Trainer Maya" />
 			<entry key="288" value="Psychic Maxwell" />
 			<entry key="289" value="Psychic Brittney" />
-			<entry key="290" value="Belle and Pa Ava and Matt" />
+			<entry key="290" value="Belle & Pa Ava & Matt" />
 			<entry key="291" value="Rancher Mickey" />
 			<entry key="292" value="Rancher Marco" />
 			<entry key="293" value="Fisherman Erick" />
-			<entry key="294" value="Twins Emma and Lil" />
+			<entry key="294" value="Twins Emma & Lil" />
 			<entry key="295" value="Commander Mars" />
 			<entry key="296" value="Galactic Grunt" />
 			<entry key="297" value="Galactic Grunt" />
@@ -5677,10 +5677,10 @@
 			<entry key="348" value="Beauty Lindsay" />
 			<entry key="349" value="Skier Mickey" />
 			<entry key="350" value="Skier Angelica" />
-			<entry key="351" value="Swimmer Mickey" />
-			<entry key="352" value="Swimmer Mickey" />
-			<entry key="353" value="Swimmer Angelica" />
-			<entry key="354" value="Swimmer Angelica" />
+			<entry key="351" value="SwimmerM Mickey" />
+			<entry key="352" value="SwimmerM Mickey" />
+			<entry key="353" value="SwimmerF Angelica" />
+			<entry key="354" value="SwimmerF Angelica" />
 			<entry key="355" value="Youngster Dallas" />
 			<entry key="356" value="Youngster Sebastian" />
 			<entry key="357" value="Youngster Donny" />
@@ -5694,7 +5694,7 @@
 			<entry key="365" value="Waiter Mickey" />
 			<entry key="366" value="Waitress Kati" />
 			<entry key="367" value="Worker Gerardo" />
-			<entry key="368" value="Interviewers Roxy and Oli" />
+			<entry key="368" value="Interviewers Roxy & Oli" />
 			<entry key="369" value="Cameraman Tevin" />
 			<entry key="370" value="Reporter Kinsey" />
 			<entry key="371" value="Idol Grace" />
@@ -5819,8 +5819,8 @@
 			<entry key="490" value="Ninja Boy Bruce" />
 			<entry key="491" value="Beauty Devon" />
 			<entry key="492" value="Beauty Nicola" />
-			<entry key="493" value="Swimmer Mickey" />
-			<entry key="494" value="Swimmer Claire" />
+			<entry key="493" value="SwimmerM Mickey" />
+			<entry key="494" value="SwimmerF Claire" />
 			<entry key="495" value="Youngster Mickey" />
 			<entry key="496" value="Youngster Wayne" />
 			<entry key="497" value="Tuber Jacky" />
@@ -5859,8 +5859,8 @@
 			<entry key="530" value="Pokefan Leonard" />
 			<entry key="531" value="Pokefan Rebekah" />
 			<entry key="532" value="Youngster Oliver" />
-			<entry key="533" value="Belle and Pa Beth and Bob" />
-			<entry key="534" value="Young Couple Mike and Nat" />
+			<entry key="533" value="Belle & Pa Beth & Bob" />
+			<entry key="534" value="Young Couple Mike & Nat" />
 			<entry key="535" value="Aroma Lady Alison" />
 			<entry key="536" value="Artist Ismael" />
 			<entry key="537" value="Pokemon Breeder Kaylee" />
@@ -5923,14 +5923,14 @@
 			<entry key="594" value="Pokemon Ranger Ashlee" />
 			<entry key="595" value="Pokemon Ranger Felicia" />
 			<entry key="596" value="Pokemon Ranger Krista" />
-			<entry key="597" value="Swimmer Glenn" />
-			<entry key="598" value="Swimmer Kurt" />
-			<entry key="599" value="Swimmer Sam" />
-			<entry key="600" value="Swimmer Wade" />
-			<entry key="601" value="Swimmer Joanna" />
-			<entry key="602" value="Swimmer Sophia" />
-			<entry key="603" value="Swimmer Mallory" />
-			<entry key="604" value="Swimmer Lydia" />
+			<entry key="597" value="SwimmerM Glenn" />
+			<entry key="598" value="SwimmerM Kurt" />
+			<entry key="599" value="SwimmerM Sam" />
+			<entry key="600" value="SwimmerM Wade" />
+			<entry key="601" value="SwimmerF Joanna" />
+			<entry key="602" value="SwimmerF Sophia" />
+			<entry key="603" value="SwimmerF Mallory" />
+			<entry key="604" value="SwimmerF Lydia" />
 			<entry key="605" value="Veteran Mickey" />
 			<entry key="606" value="Veteran Harlan" />
 			<entry key="607" value="Rival" />
@@ -6013,8 +6013,8 @@
 			<entry key="684" value="Fisherman Joseph" />
 			<entry key="685" value="Fisherman Miguel" />
 			<entry key="686" value="Fisherman Alec" />
-			<entry key="687" value="Twins Teri and Tia" />
-			<entry key="688" value="Twins Teri and Tia" />
+			<entry key="687" value="Twins Teri & Tia" />
+			<entry key="688" value="Twins Teri & Tia" />
 			<entry key="689" value="PI Carlos" />
 			<entry key="690" value="PI Carlos" />
 			<entry key="691" value="Gentleman Jeremy" />
@@ -6085,12 +6085,12 @@
 			<entry key="756" value="Skier Andrea" />
 			<entry key="757" value="Skier Madison" />
 			<entry key="758" value="Skier Madison" />
-			<entry key="759" value="Swimmer Wesley" />
-			<entry key="760" value="Swimmer Francisco" />
-			<entry key="761" value="Swimmer Glenn" />
-			<entry key="762" value="Swimmer Miranda" />
-			<entry key="763" value="Swimmer Crystal" />
-			<entry key="764" value="Swimmer Joanna" />
+			<entry key="759" value="SwimmerM Wesley" />
+			<entry key="760" value="SwimmerM Francisco" />
+			<entry key="761" value="SwimmerM Glenn" />
+			<entry key="762" value="SwimmerF Miranda" />
+			<entry key="763" value="SwimmerF Crystal" />
+			<entry key="764" value="SwimmerF Joanna" />
 			<entry key="765" value="Youngster Tristan" />
 			<entry key="766" value="Youngster Tristan" />
 			<entry key="767" value="Youngster Tristan" />
@@ -6121,10 +6121,10 @@
 			<entry key="792" value="Idol Angelica" />
 			<entry key="793" value="Idol Angelica" />
 			<entry key="794" value="Idol Angelica" />
-			<entry key="795" value="Interviewers Tara and Tim" />
-			<entry key="796" value="Interviewers Tara and Tim" />
-			<entry key="797" value="Interviewers Tara and Tim" />
-			<entry key="798" value="Interviewers Tara and Tim" />
+			<entry key="795" value="Interviewers Tara & Tim" />
+			<entry key="796" value="Interviewers Tara & Tim" />
+			<entry key="797" value="Interviewers Tara & Tim" />
+			<entry key="798" value="Interviewers Tara & Tim" />
 			<entry key="799" value="Clown Mickey" />
 			<entry key="800" value="Clown Mickey" />
 			<entry key="801" value="Clown Mickey" />
@@ -6140,7 +6140,7 @@
 			<entry key="811" value="Reporter Angelica" />
 			<entry key="812" value="Reporter Angelica" />
 			<entry key="813" value="Scientist Mickey" />
-			<entry key="814" value="Swimmer Mickey" />
+			<entry key="814" value="SwimmerM Mickey" />
 			<entry key="815" value="Waiter Mickey" />
 			<entry key="816" value="Worker Mickey" />
 			<entry key="817" value="Youngster Roland" />
@@ -6209,9 +6209,9 @@
 			<entry key="880" value="Idol Grace" />
 			<entry key="881" value="Idol Grace" />
 			<entry key="882" value="Idol Grace" />
-			<entry key="883" value="Interviewers Roxy and Oli" />
-			<entry key="884" value="Interviewers Roxy and Oli" />
-			<entry key="885" value="Interviewers Roxy and Oli" />
+			<entry key="883" value="Interviewers Roxy & Oli" />
+			<entry key="884" value="Interviewers Roxy & Oli" />
+			<entry key="885" value="Interviewers Roxy & Oli" />
 			<entry key="886" value="Clown Lee" />
 			<entry key="887" value="Clown Lee" />
 			<entry key="888" value="Clown Lee" />
@@ -6235,7 +6235,7 @@
 			<entry key="906" value="Cameraman Tevin" />
 			<entry key="907" value="Guitarist Arturo" />
 			<entry key="908" value="Idol Grace" />
-			<entry key="909" value="Interviewers Roxy and Oli" />
+			<entry key="909" value="Interviewers Roxy & Oli" />
 			<entry key="910" value="Clown Lee" />
 			<entry key="911" value="Poke Kid Ariel" />
 			<entry key="912" value="Reporter Kinsey" />
@@ -6243,7 +6243,7 @@
 			<entry key="914" value="Cameraman Tevin" />
 			<entry key="915" value="Guitarist Arturo" />
 			<entry key="916" value="Idol Grace" />
-			<entry key="917" value="Interviewers Roxy and Oli" />
+			<entry key="917" value="Interviewers Roxy & Oli" />
 			<entry key="918" value="Clown Lee" />
 			<entry key="919" value="Poke Kid Ariel" />
 			<entry key="920" value="Reporter Kinsey" />
