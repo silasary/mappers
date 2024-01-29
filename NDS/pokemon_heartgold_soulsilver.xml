@@ -4618,1531 +4618,1397 @@
 			<entry key="123" value="Iron Ruins" />
 			<entry key="124" value="Iceberg Ruins" />
 			<entry key="125" value="Rock Peak Ruins" />
+			<entry key="126" value="New Bark Town" />
+			<entry key="127" value="Cherrygrove City" />
+			<entry key="128" value="Violet City" />
+			<entry key="129" value="Azalea Town" />
+			<entry key="130" value="Cianwood City" />
+			<entry key="131" value="Goldenrod City" />
+			<entry key="132" value="Olivine City" />
+			<entry key="133" value="Ecruteak City" />
+			<entry key="134" value="Mahogany Town" />
+			<entry key="135" value="Lake of Rage" />
+			<entry key="136" value="Blackthorn City" />
+			<entry key="137" value="Mt. Silver" />
+			<entry key="138" value="Pallet Town" />
+			<entry key="139" value="Viridian City" />
+			<entry key="140" value="Pewter City" />
+			<entry key="141" value="Cerulean City" />
+			<entry key="142" value="Lavender Town" />
+			<entry key="143" value="Vermilion City" />
+			<entry key="144" value="Celadon City" />
+			<entry key="145" value="Fuchsia City" />
+			<entry key="146" value="Cinnabar Island" />
+			<entry key="147" value="Indigo Plateau" />
+			<entry key="148" value="Saffron City" />
+			<entry key="149" value="Route 1" />
+			<entry key="150" value="Route 2" />
+			<entry key="151" value="Route 3" />
+			<entry key="152" value="Route 4" />
+			<entry key="153" value="Route 5" />
+			<entry key="154" value="Route 6" />
+			<entry key="155" value="Route 7" />
+			<entry key="156" value="Route 8" />
+			<entry key="157" value="Route 9" />
+			<entry key="158" value="Route 10" />
+			<entry key="159" value="Route 11" />
+			<entry key="160" value="Route 12" />
+			<entry key="161" value="Route 13" />
+			<entry key="162" value="Route 14" />
+			<entry key="163" value="Route 15" />
+			<entry key="164" value="Route 16" />
+			<entry key="165" value="Route 17" />
+			<entry key="166" value="Route 18" />
+			<entry key="167" value="Route 19" />
+			<entry key="168" value="Route 20" />
+			<entry key="169" value="Route 21" />
+			<entry key="170" value="Route 22" />
+			<entry key="171" value="Route 23" />
+			<entry key="172" value="Route 24" />
+			<entry key="173" value="Route 25" />
+			<entry key="174" value="Route 26" />
+			<entry key="175" value="Route 27" />
+			<entry key="176" value="Route 28" />
+			<entry key="177" value="Route 29" />
+			<entry key="178" value="Route 30" />
+			<entry key="179" value="Route 31" />
+			<entry key="180" value="Route 32" />
+			<entry key="181" value="Route 33" />
+			<entry key="182" value="Route 34" />
+			<entry key="183" value="Route 35" />
+			<entry key="184" value="Route 36" />
+			<entry key="185" value="Route 37" />
+			<entry key="186" value="Route 38" />
+			<entry key="187" value="Route 39" />
+			<entry key="188" value="Route 40" />
+			<entry key="189" value="Route 41" />
+			<entry key="190" value="Route 42" />
+			<entry key="191" value="Route 43" />
+			<entry key="192" value="Route 44" />
+			<entry key="193" value="Route 45" />
+			<entry key="194" value="Route 46" />
+			<entry key="195" value="Route 47" />
+			<entry key="196" value="Route 48" />
+			<entry key="197" value="DIGLETT's Cave" />
+			<entry key="198" value="Mt. Moon" />
+			<entry key="199" value="Cerulean Cave" />
+			<entry key="200" value="Rock Tunnel" />
+			<entry key="201" value="Power Plant" />
+			<entry key="202" value="Safari Zone" />
+			<entry key="203" value="Seafoam Islands" />
+			<entry key="204" value="Sprout Tower" />
+			<entry key="205" value="Bell Tower" />
+			<entry key="206" value="Burned Tower" />
+			<entry key="207" value="National Park" />
+			<entry key="208" value="Radio Tower" />
+			<entry key="209" value="Ruins of Alph" />
+			<entry key="210" value="Union Cave" />
+			<entry key="211" value="SLOWPOKE Well" />
+			<entry key="212" value="Lighthouse" />
+			<entry key="213" value="Team Rocket HQ" />
+			<entry key="214" value="Ilex Forest" />
+			<entry key="215" value="Goldenrod Tunnel" />
+			<entry key="216" value="Mt. Mortar" />
+			<entry key="217" value="Ice Path" />
+			<entry key="218" value="Whirl Islands" />
+			<entry key="219" value="Mt. Silver Cave" />
+			<entry key="220" value="Dark Cave" />
+			<entry key="221" value="Victory Road" />
+			<entry key="222" value="Dragon's Den" />
+			<entry key="223" value="Tohjo Falls" />
+			<entry key="224" value="Viridian Forest" />
+			<entry key="225" value="Pokeathlon Dome" />
+			<entry key="226" value="S.S. Aqua" />
+			<entry key="227" value="Safari Zone Gate" />
+			<entry key="228" value="Cliff Cave" />
+			<entry key="229" value="Frontier Access" />
+			<entry key="230" value="Bellchime Trail" />
+			<entry key="231" value="Sinjoh Ruins" />
+			<entry key="232" value="Embedded Tower" />
+			<entry key="233" value="Pokewalker" />
+			<entry key="234" value="Cliff Edge Gate" />
 		</map_group>
 		<maps>
 			<entry key="0" value="Mystery Zone - Map 1" />
 			<entry key="1" value="Mystery Zone - Map 2" />
 			<entry key="2" value="Mystery Zone - Map 3" />
-			<entry key="3" value="Jubilife City - Map 1" />
-			<entry key="4" value="Jubilife City - Map 2" />
-			<entry key="5" value="Jubilife City - Map 3" />
-			<entry key="6" value="Jubilife City - Map 4" />
-			<entry key="7" value="Jubilife City - Map 5" />
-			<entry key="8" value="Poketch Co. - Map 1" />
-			<entry key="9" value="Poketch Co. - Map 2" />
-			<entry key="10" value="Poketch Co. - Map 3" />
-			<entry key="11" value="Jubilife TV - Map 1" />
-			<entry key="12" value="Jubilife TV - Map 2" />
-			<entry key="13" value="Jubilife TV - Map 3" />
-			<entry key="14" value="Jubilife TV - Map 4" />
-			<entry key="15" value="Jubilife TV - Map 5" />
-			<entry key="16" value="Jubilife TV - Map 6" />
-			<entry key="17" value="Jubilife TV - Map 7" />
-			<entry key="18" value="Jubilife TV - Map 8" />
-			<entry key="19" value="Jubilife City - Map 6" />
-			<entry key="20" value="Jubilife City - Map 7" />
-			<entry key="21" value="Jubilife City - Map 8" />
-			<entry key="22" value="Jubilife City - Map 9" />
-			<entry key="23" value="Jubilife City - Map 10" />
-			<entry key="24" value="Jubilife City - Map 11" />
-			<entry key="25" value="Jubilife City - Map 12" />
-			<entry key="26" value="Jubilife City - Map 13" />
-			<entry key="27" value="Jubilife City - Map 14" />
-			<entry key="28" value="Global Terminal - Map 1" />
-			<entry key="29" value="Trainers' School - Map 1" />
-			<entry key="30" value="Jubilife City - Map 15" />
-			<entry key="31" value="Jubilife City - Map 16" />
-			<entry key="32" value="Jubilife City - Map 17" />
-			<entry key="33" value="Canalave City - Map 1" />
-			<entry key="34" value="Canalave City - Map 2" />
-			<entry key="35" value="Canalave City - Map 3" />
-			<entry key="36" value="Canalave City - Map 4" />
-			<entry key="37" value="Canalave City - Map 5" />
-			<entry key="38" value="Canalave Library - Map 1" />
-			<entry key="39" value="Canalave Library - Map 2" />
-			<entry key="40" value="Canalave Library - Map 3" />
-			<entry key="41" value="Canalave City - Map 6" />
-			<entry key="42" value="Canalave City - Map 7" />
-			<entry key="43" value="Canalave City - Map 8" />
-			<entry key="44" value="Canalave City - Map 9" />
-			<entry key="45" value="Oreburgh City - Map 1" />
-			<entry key="46" value="Oreburgh City - Map 2" />
-			<entry key="47" value="Oreburgh City - Map 3" />
-			<entry key="48" value="Oreburgh City - Map 4" />
-			<entry key="49" value="Oreburgh City - Map 5" />
-			<entry key="50" value="Oreburgh City - Map 6" />
-			<entry key="51" value="Oreburgh City - Map 7" />
-			<entry key="52" value="Oreburgh City - Map 8" />
-			<entry key="53" value="Oreburgh City - Map 9" />
-			<entry key="54" value="Oreburgh City - Map 10" />
-			<entry key="55" value="Oreburgh City - Map 11" />
-			<entry key="56" value="Oreburgh City - Map 12" />
-			<entry key="57" value="Oreburgh City - Map 13" />
-			<entry key="58" value="Oreburgh City - Map 14" />
-			<entry key="59" value="Mining Museum - Map 1" />
-			<entry key="60" value="Oreburgh City - Map 15" />
-			<entry key="61" value="Oreburgh City - Map 16" />
-			<entry key="62" value="Oreburgh City - Map 17" />
-			<entry key="63" value="Oreburgh City - Map 18" />
-			<entry key="64" value="Oreburgh City - Map 19" />
-			<entry key="65" value="Eterna City - Map 1" />
-			<entry key="66" value="Eterna City - Map 2" />
-			<entry key="67" value="Eterna City - Map 3" />
-			<entry key="68" value="Eterna City - Map 4" />
-			<entry key="69" value="Eterna City - Map 5" />
-			<entry key="70" value="Eterna City - Map 6" />
-			<entry key="71" value="Cycle Shop - Map 1" />
-			<entry key="72" value="T.G. Eterna Bldg - Map 1" />
-			<entry key="73" value="T.G. Eterna Bldg - Map 2" />
-			<entry key="74" value="T.G. Eterna Bldg - Map 3" />
-			<entry key="75" value="T.G. Eterna Bldg - Map 4" />
-			<entry key="76" value="Eterna City - Map 7" />
-			<entry key="77" value="Eterna City - Map 8" />
-			<entry key="78" value="Eterna City - Map 9" />
-			<entry key="79" value="Eterna City - Map 10" />
-			<entry key="80" value="Route 206 - Map 1" />
-			<entry key="81" value="Eterna City - Map 11" />
-			<entry key="82" value="Eterna City - Map 12" />
-			<entry key="83" value="Eterna City - Map 13" />
-			<entry key="84" value="Eterna City - Map 14" />
-			<entry key="85" value="Eterna City - Map 15" />
-			<entry key="86" value="Hearthome City - Map 1" />
-			<entry key="87" value="Hearthome City - Map 2" />
-			<entry key="88" value="Hearthome City - Map 3" />
-			<entry key="89" value="Hearthome City - Map 4" />
-			<entry key="90" value="Hearthome City - Map 5" />
-			<entry key="91" value="Hearthome City - Map 6" />
-			<entry key="92" value="Hearthome City - Map 7" />
-			<entry key="93" value="Hearthome City - Map 8" />
-			<entry key="94" value="Hearthome City - Map 9" />
-			<entry key="95" value="Hearthome City - Map 10" />
-			<entry key="96" value="Hearthome City - Map 11" />
-			<entry key="97" value="Hearthome City - Map 12" />
-			<entry key="98" value="Hearthome City - Map 13" />
-			<entry key="99" value="Hearthome City - Map 14" />
-			<entry key="100" value="Hearthome City - Map 15" />
-			<entry key="101" value="Hearthome City - Map 16" />
-			<entry key="102" value="Hearthome City - Map 17" />
-			<entry key="103" value="Hearthome City - Map 18" />
-			<entry key="104" value="Hearthome City - Map 19" />
-			<entry key="105" value="Hearthome City - Map 20" />
-			<entry key="106" value="Hearthome City - Map 21" />
-			<entry key="107" value="Hearthome City - Map 22" />
-			<entry key="108" value="Hearthome City - Map 23" />
-			<entry key="109" value="Route 208 - Map 1" />
-			<entry key="110" value="Route 209 - Map 1" />
-			<entry key="111" value="Route 212 - Map 1" />
-			<entry key="112" value="Hearthome City - Map 24" />
-			<entry key="113" value="Hearthome City - Map 25" />
-			<entry key="114" value="Hearthome City - Map 26" />
-			<entry key="115" value="Hearthome City - Map 27" />
-			<entry key="116" value="Poffin House - Map 1" />
-			<entry key="117" value="Contest Hall - Map 1" />
-			<entry key="118" value="Contest Hall - Map 2" />
-			<entry key="119" value="Foreign Building - Map 1" />
-			<entry key="120" value="Pastoria City - Map 1" />
-			<entry key="121" value="Pastoria City - Map 2" />
-			<entry key="122" value="Pastoria City - Map 3" />
-			<entry key="123" value="Pastoria City - Map 4" />
-			<entry key="124" value="Pastoria City - Map 5" />
-			<entry key="125" value="Pastoria City - Map 6" />
-			<entry key="126" value="Pastoria City - Map 7" />
-			<entry key="127" value="Pastoria City - Map 8" />
-			<entry key="128" value="Pastoria City - Map 9" />
-			<entry key="129" value="Pastoria City - Map 10" />
-			<entry key="130" value="Pastoria City - Map 11" />
-			<entry key="131" value="Pastoria City - Map 12" />
-			<entry key="132" value="Veilstone City - Map 1" />
-			<entry key="133" value="Veilstone City - Map 2" />
-			<entry key="134" value="Veilstone City - Map 3" />
-			<entry key="135" value="Veilstone City - Map 4" />
-			<entry key="136" value="Game Corner - Map 1" />
-			<entry key="137" value="Veilstone Store - Map 1" />
-			<entry key="138" value="Veilstone Store - Map 2" />
-			<entry key="139" value="Veilstone Store - Map 3" />
-			<entry key="140" value="Veilstone Store - Map 4" />
-			<entry key="141" value="Veilstone Store - Map 5" />
-			<entry key="142" value="Veilstone Store - Map 6" />
-			<entry key="143" value="Veilstone City - Map 5" />
-			<entry key="144" value="Veilstone City - Map 6" />
-			<entry key="145" value="Veilstone City - Map 7" />
-			<entry key="146" value="Veilstone City - Map 8" />
-			<entry key="147" value="Veilstone City - Map 9" />
-			<entry key="148" value="Veilstone City - Map 10" />
-			<entry key="149" value="Route 215 - Map 1" />
-			<entry key="150" value="Sunyshore City - Map 1" />
-			<entry key="151" value="Sunyshore City - Map 2" />
-			<entry key="152" value="Sunyshore City - Map 3" />
-			<entry key="153" value="Sunyshore City - Map 4" />
-			<entry key="154" value="Sunyshore City - Map 5" />
-			<entry key="155" value="Sunyshore City - Map 6" />
-			<entry key="156" value="Sunyshore City - Map 7" />
-			<entry key="157" value="Sunyshore Market - Map 1" />
-			<entry key="158" value="Sunyshore City - Map 8" />
-			<entry key="159" value="Sunyshore City - Map 9" />
-			<entry key="160" value="Sunyshore City - Map 10" />
-			<entry key="161" value="Sunyshore City - Map 11" />
-			<entry key="162" value="Sunyshore City - Map 12" />
-			<entry key="163" value="Sunyshore City - Map 13" />
-			<entry key="164" value="Vista Lighthouse - Map 1" />
-			<entry key="165" value="Snowpoint City - Map 1" />
-			<entry key="166" value="Snowpoint City - Map 2" />
-			<entry key="167" value="Snowpoint City - Map 3" />
-			<entry key="168" value="Snowpoint City - Map 4" />
-			<entry key="169" value="Snowpoint City - Map 5" />
-			<entry key="170" value="Snowpoint City - Map 6" />
-			<entry key="171" value="Snowpoint City - Map 7" />
-			<entry key="172" value="Pokemon League - Map 1" />
-			<entry key="173" value="Pokemon League - Map 2" />
-			<entry key="174" value="Pokemon League - Map 3" />
-			<entry key="175" value="Pokemon League - Map 4" />
-			<entry key="176" value="Pokemon League - Map 5" />
-			<entry key="177" value="Pokemon League - Map 6" />
-			<entry key="178" value="Pokemon League - Map 7" />
-			<entry key="179" value="Pokemon League - Map 8" />
-			<entry key="180" value="Pokemon League - Map 9" />
-			<entry key="181" value="Pokemon League - Map 10" />
-			<entry key="182" value="Pokemon League - Map 11" />
-			<entry key="183" value="Pokemon League - Map 12" />
-			<entry key="184" value="Pokemon League - Map 13" />
-			<entry key="185" value="Pokemon League - Map 14" />
-			<entry key="186" value="Pokemon League - Map 15" />
-			<entry key="187" value="Pokemon League - Map 16" />
-			<entry key="188" value="Fight Area - Map 1" />
-			<entry key="189" value="Fight Area - Map 2" />
-			<entry key="190" value="Fight Area - Map 3" />
-			<entry key="191" value="Fight Area - Map 4" />
-			<entry key="192" value="Battle Park - Map 1" />
-			<entry key="193" value="Route 225 - Map 1" />
-			<entry key="194" value="Fight Area - Map 5" />
-			<entry key="195" value="Fight Area - Map 6" />
-			<entry key="196" value="Mystery Zone - Map 4" />
-			<entry key="197" value="Oreburgh Mine - Map 1" />
-			<entry key="198" value="Oreburgh Mine - Map 2" />
-			<entry key="199" value="Oreburgh Mine - Map 3" />
-			<entry key="200" value="Valley Windworks - Map 1" />
-			<entry key="201" value="Valley Windworks - Map 2" />
-			<entry key="202" value="Eterna Forest - Map 1" />
-			<entry key="203" value="Eterna Forest - Map 2" />
-			<entry key="204" value="Fuego Ironworks - Map 1" />
-			<entry key="205" value="Fuego Ironworks - Map 2" />
-			<entry key="206" value="Mystery Zone - Map 5" />
-			<entry key="207" value="Mt. Coronet - Map 1" />
-			<entry key="208" value="Mt. Coronet - Map 2" />
-			<entry key="209" value="Mt. Coronet - Map 3" />
-			<entry key="210" value="Mt. Coronet - Map 4" />
-			<entry key="211" value="Mt. Coronet - Map 5" />
-			<entry key="212" value="Mt. Coronet - Map 6" />
-			<entry key="213" value="Mt. Coronet - Map 7" />
-			<entry key="214" value="Mt. Coronet - Map 8" />
-			<entry key="215" value="Mt. Coronet - Map 9" />
-			<entry key="216" value="Mt. Coronet - Map 10" />
-			<entry key="217" value="Mt. Coronet - Map 11" />
-			<entry key="218" value="Mt. Coronet - Map 12" />
-			<entry key="219" value="Mt. Coronet - Map 13" />
-			<entry key="220" value="Spear Pillar - Map 1" />
-			<entry key="221" value="Spear Pillar - Map 2" />
-			<entry key="222" value="Mystery Zone - Map 6" />
-			<entry key="223" value="Pastoria City - Map 13" />
-			<entry key="224" value="Mystery Zone - Map 7" />
-			<entry key="225" value="Solaceon Ruins - Map 1" />
-			<entry key="226" value="Solaceon Ruins - Map 2" />
-			<entry key="227" value="Solaceon Ruins - Map 3" />
-			<entry key="228" value="Solaceon Ruins - Map 4" />
-			<entry key="229" value="Solaceon Ruins - Map 5" />
-			<entry key="230" value="Solaceon Ruins - Map 6" />
-			<entry key="231" value="Solaceon Ruins - Map 7" />
-			<entry key="232" value="Solaceon Ruins - Map 8" />
-			<entry key="233" value="Solaceon Ruins - Map 9" />
-			<entry key="234" value="Solaceon Ruins - Map 10" />
-			<entry key="235" value="Solaceon Ruins - Map 11" />
-			<entry key="236" value="Solaceon Ruins - Map 12" />
-			<entry key="237" value="Solaceon Ruins - Map 13" />
-			<entry key="238" value="Solaceon Ruins - Map 14" />
-			<entry key="239" value="Solaceon Ruins - Map 15" />
-			<entry key="240" value="Solaceon Ruins - Map 16" />
-			<entry key="241" value="Solaceon Ruins - Map 17" />
-			<entry key="242" value="Solaceon Ruins - Map 18" />
-			<entry key="243" value="Mystery Zone - Map 8" />
-			<entry key="244" value="Victory Road - Map 1" />
-			<entry key="245" value="Victory Road - Map 2" />
-			<entry key="246" value="Victory Road - Map 3" />
-			<entry key="247" value="Victory Road - Map 4" />
-			<entry key="248" value="Victory Road - Map 5" />
-			<entry key="249" value="Victory Road - Map 6" />
-			<entry key="250" value="Mystery Zone - Map 9" />
-			<entry key="251" value="Pal Park - Map 1" />
-			<entry key="252" value="Mystery Zone - Map 10" />
-			<entry key="253" value="Amity Square - Map 1" />
-			<entry key="254" value="Ravaged Path - Map 1" />
-			<entry key="255" value="Mystery Zone - Map 11" />
-			<entry key="256" value="Floaroma Meadow - Map 1" />
-			<entry key="257" value="Floaroma Meadow - Map 2" />
-			<entry key="258" value="Oreburgh Gate - Map 1" />
-			<entry key="259" value="Oreburgh Gate - Map 2" />
-			<entry key="260" value="Fullmoon Island - Map 1" />
-			<entry key="261" value="Fullmoon Island - Map 2" />
-			<entry key="262" value="Stark Mountain - Map 1" />
-			<entry key="263" value="Stark Mountain - Map 2" />
-			<entry key="264" value="Stark Mountain - Map 3" />
-			<entry key="265" value="Stark Mountain - Map 4" />
-			<entry key="266" value="Mystery Zone - Map 12" />
-			<entry key="267" value="Sendoff Spring - Map 1" />
-			<entry key="268" value="Turnback Cave - Map 1" />
-			<entry key="269" value="Turnback Cave - Map 2" />
-			<entry key="270" value="Turnback Cave - Map 3" />
-			<entry key="271" value="Turnback Cave - Map 4" />
-			<entry key="272" value="Turnback Cave - Map 5" />
-			<entry key="273" value="Turnback Cave - Map 6" />
-			<entry key="274" value="Flower Paradise - Map 1" />
-			<entry key="275" value="Mystery Zone - Map 13" />
-			<entry key="276" value="Mystery Zone - Map 14" />
-			<entry key="277" value="Mystery Zone - Map 15" />
-			<entry key="278" value="Snowpoint Temple - Map 1" />
-			<entry key="279" value="Snowpoint Temple - Map 2" />
-			<entry key="280" value="Snowpoint Temple - Map 3" />
-			<entry key="281" value="Snowpoint Temple - Map 4" />
-			<entry key="282" value="Snowpoint Temple - Map 5" />
-			<entry key="283" value="Snowpoint Temple - Map 6" />
-			<entry key="284" value="Wayward Cave - Map 1" />
-			<entry key="285" value="Wayward Cave - Map 2" />
-			<entry key="286" value="Ruin Maniac Cave - Map 1" />
-			<entry key="287" value="Trophy Garden - Map 1" />
-			<entry key="288" value="Iron Island - Map 1" />
-			<entry key="289" value="Iron Island - Map 2" />
-			<entry key="290" value="Iron Island - Map 3" />
-			<entry key="291" value="Iron Island - Map 4" />
-			<entry key="292" value="Iron Island - Map 5" />
-			<entry key="293" value="Iron Island - Map 6" />
-			<entry key="294" value="Iron Island - Map 7" />
-			<entry key="295" value="Old Chateau - Map 1" />
-			<entry key="296" value="Old Chateau - Map 2" />
-			<entry key="297" value="Old Chateau - Map 3" />
-			<entry key="298" value="Old Chateau - Map 4" />
-			<entry key="299" value="Old Chateau - Map 5" />
-			<entry key="300" value="Old Chateau - Map 6" />
-			<entry key="301" value="Old Chateau - Map 7" />
-			<entry key="302" value="Old Chateau - Map 8" />
-			<entry key="303" value="Old Chateau - Map 9" />
-			<entry key="304" value="Mystery Zone - Map 16" />
-			<entry key="305" value="Galactic HQ - Map 1" />
-			<entry key="306" value="Galactic HQ - Map 2" />
-			<entry key="307" value="Galactic HQ - Map 3" />
-			<entry key="308" value="Galactic HQ - Map 4" />
-			<entry key="309" value="Galactic HQ - Map 5" />
-			<entry key="310" value="Galactic HQ - Map 6" />
-			<entry key="311" value="Lake Verity - Map 1" />
-			<entry key="312" value="Lake Verity - Map 2" />
-			<entry key="313" value="Verity Cavern - Map 1" />
-			<entry key="314" value="Lake Valor - Map 1" />
-			<entry key="315" value="Lake Valor - Map 2" />
-			<entry key="316" value="Valor Cavern - Map 1" />
-			<entry key="317" value="Lake Acuity - Map 1" />
-			<entry key="318" value="Lake Acuity - Map 2" />
-			<entry key="319" value="Acuity Cavern - Map 1" />
-			<entry key="320" value="Newmoon Island - Map 1" />
-			<entry key="321" value="Newmoon Island - Map 2" />
-			<entry key="322" value="Battle Park - Map 2" />
-			<entry key="323" value="Battle Park - Map 3" />
-			<entry key="324" value="Mystery Zone - Map 17" />
-			<entry key="325" value="Mystery Zone - Map 18" />
-			<entry key="326" value="Battle Tower - Map 1" />
-			<entry key="327" value="Battle Tower - Map 2" />
-			<entry key="328" value="Battle Tower - Map 3" />
-			<entry key="329" value="Battle Tower - Map 4" />
-			<entry key="330" value="Battle Tower - Map 5" />
-			<entry key="331" value="Battle Tower - Map 6" />
-			<entry key="332" value="Mystery Zone - Map 19" />
-			<entry key="333" value="Mystery Zone - Map 20" />
-			<entry key="334" value="Verity Lakefront - Map 1" />
-			<entry key="335" value="Verity Lakefront - Map 2" />
-			<entry key="336" value="Valor Lakefront - Map 1" />
-			<entry key="337" value="Restaurant - Map 1" />
-			<entry key="338" value="Grand Lake - Map 1" />
-			<entry key="339" value="Grand Lake - Map 2" />
-			<entry key="340" value="Acuity Lakefront - Map 1" />
-			<entry key="341" value="Spring Path - Map 1" />
-			<entry key="342" value="Route 201 - Map 1" />
-			<entry key="343" value="Route 202 - Map 1" />
-			<entry key="344" value="Route 203 - Map 1" />
-			<entry key="345" value="Route 204 - Map 1" />
-			<entry key="346" value="Route 204 - Map 2" />
-			<entry key="347" value="Route 205 - Map 1" />
-			<entry key="348" value="Route 205 - Map 2" />
-			<entry key="349" value="Route 205 - Map 3" />
-			<entry key="350" value="Route 206 - Map 2" />
-			<entry key="351" value="Route 206 - Map 3" />
-			<entry key="352" value="Mystery Zone - Map 21" />
-			<entry key="353" value="Route 207 - Map 1" />
-			<entry key="354" value="Route 208 - Map 2" />
-			<entry key="355" value="Route 208 - Map 3" />
-			<entry key="356" value="Route 209 - Map 2" />
-			<entry key="357" value="Route 209 - Map 3" />
-			<entry key="358" value="Route 209 - Map 4" />
-			<entry key="359" value="Route 209 - Map 5" />
-			<entry key="360" value="Route 209 - Map 6" />
-			<entry key="361" value="Route 209 - Map 7" />
-			<entry key="362" value="Route 210 - Map 1" />
-			<entry key="363" value="Route 210 - Map 2" />
-			<entry key="364" value="Route 210 - Map 3" />
-			<entry key="365" value="Route 211 - Map 1" />
-			<entry key="366" value="Route 211 - Map 2" />
-			<entry key="367" value="Route 212 - Map 2" />
-			<entry key="368" value="Pokemon Mansion - Map 1" />
-			<entry key="369" value="Pokemon Mansion - Map 2" />
-			<entry key="370" value="Pokemon Mansion - Map 3" />
-			<entry key="371" value="Route 212 - Map 3" />
-			<entry key="372" value="Route 212 - Map 4" />
-			<entry key="373" value="Route 213 - Map 1" />
-			<entry key="374" value="Route 213 - Map 2" />
-			<entry key="375" value="Footstep House - Map 1" />
-			<entry key="376" value="Grand Lake - Map 3" />
-			<entry key="377" value="Grand Lake - Map 4" />
-			<entry key="378" value="Grand Lake - Map 5" />
-			<entry key="379" value="Grand Lake - Map 6" />
-			<entry key="380" value="Route 214 - Map 1" />
-			<entry key="381" value="Route 214 - Map 2" />
-			<entry key="382" value="Route 215 - Map 2" />
-			<entry key="383" value="Route 216 - Map 1" />
-			<entry key="384" value="Route 216 - Map 2" />
-			<entry key="385" value="Route 217 - Map 1" />
-			<entry key="386" value="Route 217 - Map 2" />
-			<entry key="387" value="Route 217 - Map 3" />
-			<entry key="388" value="Route 218 - Map 1" />
-			<entry key="389" value="Route 218 - Map 2" />
-			<entry key="390" value="Route 218 - Map 3" />
-			<entry key="391" value="Route 219 - Map 1" />
-			<entry key="392" value="Route 221 - Map 1" />
-			<entry key="393" value="Pal Park - Map 2" />
-			<entry key="394" value="Route 221 - Map 2" />
-			<entry key="395" value="Route 222 - Map 1" />
-			<entry key="396" value="Route 222 - Map 2" />
-			<entry key="397" value="Route 222 - Map 3" />
-			<entry key="398" value="Route 222 - Map 4" />
-			<entry key="399" value="Route 224 - Map 1" />
-			<entry key="400" value="Route 225 - Map 2" />
-			<entry key="401" value="Mystery Zone - Map 22" />
-			<entry key="402" value="Mystery Zone - Map 23" />
-			<entry key="403" value="Route 227 - Map 1" />
-			<entry key="404" value="Mystery Zone - Map 24" />
-			<entry key="405" value="Mystery Zone - Map 25" />
-			<entry key="406" value="Route 228 - Map 1" />
-			<entry key="407" value="Route 229 - Map 1" />
-			<entry key="408" value="Mystery Zone - Map 26" />
-			<entry key="409" value="Mystery Zone - Map 27" />
-			<entry key="410" value="Mystery Zone - Map 28" />
-			<entry key="411" value="Twinleaf Town - Map 1" />
-			<entry key="412" value="Twinleaf Town - Map 2" />
-			<entry key="413" value="Twinleaf Town - Map 3" />
-			<entry key="414" value="Twinleaf Town - Map 4" />
-			<entry key="415" value="Twinleaf Town - Map 5" />
-			<entry key="416" value="Twinleaf Town - Map 6" />
-			<entry key="417" value="Twinleaf Town - Map 7" />
-			<entry key="418" value="Sandgem Town - Map 1" />
-			<entry key="419" value="Sandgem Town - Map 2" />
-			<entry key="420" value="Sandgem Town - Map 3" />
-			<entry key="421" value="Sandgem Town - Map 4" />
-			<entry key="422" value="Sandgem Town - Map 5" />
-			<entry key="423" value="Sandgem Town - Map 6" />
-			<entry key="424" value="Sandgem Town - Map 7" />
-			<entry key="425" value="Sandgem Town - Map 8" />
-			<entry key="426" value="Floaroma Town - Map 1" />
-			<entry key="427" value="Floaroma Town - Map 2" />
-			<entry key="428" value="Floaroma Town - Map 3" />
-			<entry key="429" value="Floaroma Town - Map 4" />
-			<entry key="430" value="Flower Shop - Map 1" />
-			<entry key="431" value="Floaroma Town - Map 5" />
-			<entry key="432" value="Floaroma Town - Map 6" />
-			<entry key="433" value="Solaceon Town - Map 1" />
-			<entry key="434" value="Solaceon Town - Map 2" />
-			<entry key="435" value="Solaceon Town - Map 3" />
-			<entry key="436" value="Solaceon Town - Map 4" />
-			<entry key="437" value="Pokemon Day Care - Map 1" />
-			<entry key="438" value="Solaceon Town - Map 5" />
-			<entry key="439" value="Solaceon Town - Map 6" />
-			<entry key="440" value="Solaceon Town - Map 7" />
-			<entry key="441" value="Solaceon Town - Map 8" />
-			<entry key="442" value="Celestic Town - Map 1" />
-			<entry key="443" value="Celestic Town - Map 2" />
-			<entry key="444" value="Celestic Town - Map 3" />
-			<entry key="445" value="Celestic Town - Map 4" />
-			<entry key="446" value="Celestic Town - Map 5" />
-			<entry key="447" value="Celestic Town - Map 6" />
-			<entry key="448" value="Celestic Town - Map 7" />
-			<entry key="449" value="Celestic Town - Map 8" />
-			<entry key="450" value="Survival Area - Map 1" />
-			<entry key="451" value="Survival Area - Map 2" />
-			<entry key="452" value="Survival Area - Map 3" />
-			<entry key="453" value="Survival Area - Map 4" />
-			<entry key="454" value="Battleground - Map 1" />
-			<entry key="455" value="Survival Area - Map 5" />
-			<entry key="456" value="Survival Area - Map 6" />
-			<entry key="457" value="Resort Area - Map 1" />
-			<entry key="458" value="Resort Area - Map 2" />
-			<entry key="459" value="Resort Area - Map 3" />
-			<entry key="460" value="Resort Area - Map 4" />
-			<entry key="461" value="Resort Area - Map 5" />
-			<entry key="462" value="Resort Area - Map 6" />
-			<entry key="463" value="Resort Area - Map 7" />
-			<entry key="464" value="Villa - Map 1" />
-			<entry key="465" value="Resort Area - Map 8" />
-			<entry key="466" value="Mystery Zone - Map 29" />
-			<entry key="467" value="Route 220 - Map 1" />
-			<entry key="468" value="Route 223 - Map 1" />
-			<entry key="469" value="Route 226 - Map 1" />
-			<entry key="470" value="Mystery Zone - Map 30" />
-			<entry key="471" value="Route 230 - Map 1" />
-			<entry key="472" value="Seabreak Path - Map 1" />
-			<entry key="473" value="Mystery Zone - Map 31" />
-			<entry key="474" value="Jubilife City - Map 18" />
-			<entry key="475" value="Canalave City - Map 10" />
-			<entry key="476" value="Oreburgh City - Map 20" />
-			<entry key="477" value="Eterna City - Map 16" />
-			<entry key="478" value="Hearthome City - Map 28" />
-			<entry key="479" value="Pastoria City - Map 14" />
-			<entry key="480" value="Veilstone City - Map 11" />
-			<entry key="481" value="Sunyshore City - Map 14" />
-			<entry key="482" value="Snowpoint City - Map 8" />
-			<entry key="483" value="Pokemon League - Map 17" />
-			<entry key="484" value="Fight Area - Map 7" />
-			<entry key="485" value="Sandgem Town - Map 9" />
-			<entry key="486" value="Floaroma Town - Map 7" />
-			<entry key="487" value="Solaceon Town - Map 9" />
-			<entry key="488" value="Celestic Town - Map 9" />
-			<entry key="489" value="Survival Area - Map 7" />
-			<entry key="490" value="Resort Area - Map 9" />
-			<entry key="491" value="Canalave City - Map 11" />
-			<entry key="492" value="Cafe - Map 1" />
-			<entry key="493" value="Battle Tower - Map 7" />
-			<entry key="494" value="Galactic HQ - Map 7" />
-			<entry key="495" value="Pokemon League - Map 18" />
-			<entry key="496" value="Pokemon League - Map 19" />
-			<entry key="497" value="Galactic HQ - Map 8" />
-			<entry key="498" value="Route 225 - Map 3" />
-			<entry key="499" value="Route 226 - Map 2" />
-			<entry key="500" value="Route 227 - Map 2" />
-			<entry key="501" value="Route 228 - Map 2" />
-			<entry key="502" value="Route 228 - Map 3" />
-			<entry key="503" value="Route 228 - Map 4" />
-			<entry key="504" value="Great Marsh - Map 1" />
-			<entry key="505" value="Great Marsh - Map 2" />
-			<entry key="506" value="Great Marsh - Map 3" />
-			<entry key="507" value="Great Marsh - Map 4" />
-			<entry key="508" value="Great Marsh - Map 5" />
-			<entry key="509" value="Great Marsh - Map 6" />
-			<entry key="510" value="Hall of Origin - Map 1" />
-			<entry key="511" value="Hall of Origin - Map 2" />
-			<entry key="512" value="Ruin Maniac Cave - Map 2" />
-			<entry key="513" value="Maniac Tunnel - Map 1" />
-			<entry key="514" value="Iron Island - Map 8" />
-			<entry key="515" value="Solaceon Ruins - Map 19" />
-			<entry key="516" value="Vista Lighthouse - Map 2" />
-			<entry key="517" value="Jubilife City - Map 19" />
-			<entry key="518" value="Turnback Cave - Map 7" />
-			<entry key="519" value="Turnback Cave - Map 8" />
-			<entry key="520" value="Turnback Cave - Map 9" />
-			<entry key="521" value="Turnback Cave - Map 10" />
-			<entry key="522" value="Turnback Cave - Map 11" />
-			<entry key="523" value="Turnback Cave - Map 12" />
-			<entry key="524" value="Turnback Cave - Map 13" />
-			<entry key="525" value="Turnback Cave - Map 14" />
-			<entry key="526" value="Turnback Cave - Map 15" />
-			<entry key="527" value="Turnback Cave - Map 16" />
-			<entry key="528" value="Turnback Cave - Map 17" />
-			<entry key="529" value="Turnback Cave - Map 18" />
-			<entry key="530" value="Turnback Cave - Map 19" />
-			<entry key="531" value="Turnback Cave - Map 20" />
-			<entry key="532" value="Turnback Cave - Map 21" />
-			<entry key="533" value="Turnback Cave - Map 22" />
-			<entry key="534" value="Turnback Cave - Map 23" />
-			<entry key="535" value="Turnback Cave - Map 24" />
-			<entry key="536" value="Turnback Cave - Map 25" />
-			<entry key="537" value="Turnback Cave - Map 26" />
-			<entry key="538" value="Turnback Cave - Map 27" />
-			<entry key="539" value="Turnback Cave - Map 28" />
-			<entry key="540" value="Turnback Cave - Map 29" />
-			<entry key="541" value="Turnback Cave - Map 30" />
-			<entry key="542" value="Turnback Cave - Map 31" />
-			<entry key="543" value="Turnback Cave - Map 32" />
-			<entry key="544" value="Turnback Cave - Map 33" />
-			<entry key="545" value="Turnback Cave - Map 34" />
-			<entry key="546" value="Turnback Cave - Map 35" />
-			<entry key="547" value="Turnback Cave - Map 36" />
-			<entry key="548" value="Turnback Cave - Map 37" />
-			<entry key="549" value="Turnback Cave - Map 38" />
-			<entry key="550" value="Turnback Cave - Map 39" />
-			<entry key="551" value="Turnback Cave - Map 40" />
-			<entry key="552" value="Turnback Cave - Map 41" />
-			<entry key="553" value="Turnback Cave - Map 42" />
-			<entry key="554" value="Turnback Cave - Map 43" />
-			<entry key="555" value="Turnback Cave - Map 44" />
-			<entry key="556" value="Turnback Cave - Map 45" />
-			<entry key="557" value="Turnback Cave - Map 46" />
-			<entry key="558" value="Contest Hall - Map 3" />
-			<entry key="559" value="Battle Frontier - Map 1" />
-			<entry key="560" value="Battle Frontier - Map 2" />
-			<entry key="561" value="Battle Tower - Map 8" />
-			<entry key="562" value="Battle Factory - Map 1" />
-			<entry key="563" value="Battle Hall - Map 1" />
-			<entry key="564" value="Battle Castle - Map 1" />
-			<entry key="565" value="Battle Arcade - Map 1" />
-			<entry key="566" value="Veilstone Store - Map 7" />
-			<entry key="567" value="Global Terminal - Map 2" />
-			<entry key="568" value="Global Terminal - Map 3" />
-			<entry key="569" value="Galactic HQ - Map 9" />
-			<entry key="570" value="Distortion World - Map 1" />
-			<entry key="571" value="ROTOM's Room - Map 1" />
-			<entry key="572" value="T.G. Eterna Bldg - Map 5" />
-			<entry key="573" value="Distortion World - Map 2" />
-			<entry key="574" value="Distortion World - Map 3" />
-			<entry key="575" value="Distortion World - Map 4" />
-			<entry key="576" value="Distortion World - Map 5" />
-			<entry key="577" value="Distortion World - Map 6" />
-			<entry key="578" value="Distortion World - Map 7" />
-			<entry key="579" value="Distortion World - Map 8" />
-			<entry key="580" value="Distortion World - Map 9" />
-			<entry key="581" value="Distortion World - Map 10" />
-			<entry key="582" value="Distortion World - Map 11" />
-			<entry key="583" value="Distortion World - Map 12" />
-			<entry key="584" value="Spear Pillar - Map 3" />
-			<entry key="585" value="Spear Pillar - Map 4" />
-			<entry key="586" value="Jubilife City - Map 20" />
-			<entry key="587" value="Iron Island - Map 9" />
-			<entry key="588" value="Iron Ruins - Map 1" />
-			<entry key="589" value="Mt. Coronet - Map 14" />
-			<entry key="590" value="Iceberg Ruins - Map 1" />
-			<entry key="591" value="Route 228 - Map 5" />
-			<entry key="592" value="Rock Peak Ruins - Map 1" />
+			<entry key="3" value="Mystery Zone - Map 4" />
+			<entry key="4" value="Mystery Zone - Map 5" />
+			<entry key="5" value="Mystery Zone - Map 6" />
+			<entry key="6" value="Bellchime Trail - Map 1" />
+			<entry key="7" value="Burned Tower - Map 1" />
+			<entry key="8" value="Ruins of Alph - Map 1" />
+			<entry key="9" value="Route 1 - Map 1" />
+			<entry key="10" value="Route 2 - Map 1" />
+			<entry key="11" value="Route 3 - Map 1" />
+			<entry key="12" value="Route 4 - Map 1" />
+			<entry key="13" value="Route 5 - Map 1" />
+			<entry key="14" value="Route 6 - Map 1" />
+			<entry key="15" value="Route 7 - Map 1" />
+			<entry key="16" value="Route 8 - Map 1" />
+			<entry key="17" value="Route 9 - Map 1" />
+			<entry key="18" value="Route 10 - Map 1" />
+			<entry key="19" value="Route 11 - Map 1" />
+			<entry key="20" value="Route 12 - Map 1" />
+			<entry key="21" value="Route 13 - Map 1" />
+			<entry key="22" value="Route 14 - Map 1" />
+			<entry key="23" value="Route 15 - Map 1" />
+			<entry key="24" value="Route 16 - Map 1" />
+			<entry key="25" value="Route 17 - Map 1" />
+			<entry key="26" value="Route 18 - Map 1" />
+			<entry key="27" value="Route 22 - Map 1" />
+			<entry key="28" value="Route 24 - Map 1" />
+			<entry key="29" value="Route 25 - Map 1" />
+			<entry key="30" value="Route 26 - Map 1" />
+			<entry key="31" value="Route 27 - Map 1" />
+			<entry key="32" value="Route 28 - Map 1" />
+			<entry key="33" value="Route 29 - Map 1" />
+			<entry key="34" value="Route 30 - Map 1" />
+			<entry key="35" value="Route 31 - Map 1" />
+			<entry key="36" value="Route 32 - Map 1" />
+			<entry key="37" value="Route 33 - Map 1" />
+			<entry key="38" value="Route 34 - Map 1" />
+			<entry key="39" value="Route 35 - Map 1" />
+			<entry key="40" value="Route 36 - Map 1" />
+			<entry key="41" value="Route 37 - Map 1" />
+			<entry key="42" value="Route 38 - Map 1" />
+			<entry key="43" value="Route 39 - Map 1" />
+			<entry key="44" value="Route 42 - Map 1" />
+			<entry key="45" value="Route 43 - Map 1" />
+			<entry key="46" value="Route 44 - Map 1" />
+			<entry key="47" value="Route 45 - Map 1" />
+			<entry key="48" value="Route 46 - Map 1" />
+			<entry key="49" value="Pallet Town - Map 1" />
+			<entry key="50" value="Viridian City - Map 1" />
+			<entry key="51" value="Pewter City - Map 1" />
+			<entry key="52" value="Cerulean City - Map 1" />
+			<entry key="53" value="Lavender Town - Map 1" />
+			<entry key="54" value="Vermilion City - Map 1" />
+			<entry key="55" value="Celadon City - Map 1" />
+			<entry key="56" value="Fuchsia City - Map 1" />
+			<entry key="57" value="Cinnabar Island - Map 1" />
+			<entry key="58" value="Indigo Plateau - Map 1" />
+			<entry key="59" value="Saffron City - Map 1" />
+			<entry key="60" value="New Bark Town - Map 1" />
+			<entry key="61" value="New Bark Town - Map 2" />
+			<entry key="62" value="New Bark Town - Map 3" />
+			<entry key="63" value="New Bark Town - Map 4" />
+			<entry key="64" value="New Bark Town - Map 5" />
+			<entry key="65" value="New Bark Town - Map 6" />
+			<entry key="66" value="New Bark Town - Map 7" />
+			<entry key="67" value="Cherrygrove City - Map 1" />
+			<entry key="68" value="Cherrygrove City - Map 2" />
+			<entry key="69" value="Cherrygrove City - Map 3" />
+			<entry key="70" value="Cherrygrove City - Map 4" />
+			<entry key="71" value="Cherrygrove City - Map 5" />
+			<entry key="72" value="Cherrygrove City - Map 6" />
+			<entry key="73" value="Violet City - Map 1" />
+			<entry key="74" value="Azalea Town - Map 1" />
+			<entry key="75" value="Cianwood City - Map 1" />
+			<entry key="76" value="Goldenrod City - Map 1" />
+			<entry key="77" value="Olivine City - Map 1" />
+			<entry key="78" value="Ecruteak City - Map 1" />
+			<entry key="79" value="Ecruteak City - Map 2" />
+			<entry key="80" value="Ecruteak City - Map 3" />
+			<entry key="81" value="Ecruteak City - Map 4" />
+			<entry key="82" value="Jubilife City - Map 1" />
+			<entry key="83" value="Ecruteak City - Map 5" />
+			<entry key="84" value="Ecruteak City - Map 6" />
+			<entry key="85" value="Ecruteak City - Map 7" />
+			<entry key="86" value="Ecruteak City - Map 8" />
+			<entry key="87" value="Mahogany Town - Map 1" />
+			<entry key="88" value="Lake of Rage - Map 1" />
+			<entry key="89" value="Blackthorn City - Map 1" />
+			<entry key="90" value="Mt. Silver - Map 1" />
+			<entry key="91" value="Route 19 - Map 1" />
+			<entry key="92" value="Route 20 - Map 1" />
+			<entry key="93" value="Route 21 - Map 1" />
+			<entry key="94" value="Route 40 - Map 1" />
+			<entry key="95" value="Route 41 - Map 1" />
+			<entry key="96" value="National Park - Map 1" />
+			<entry key="97" value="Route 31 - Map 2" />
+			<entry key="98" value="Route 32 - Map 2" />
+			<entry key="99" value="Union Cave - Map 1" />
+			<entry key="100" value="Azalea Town - Map 2" />
+			<entry key="101" value="Route 35 - Map 2" />
+			<entry key="102" value="Route 35 - Map 3" />
+			<entry key="103" value="Route 36 - Map 2" />
+			<entry key="104" value="Route 36 - Map 3" />
+			<entry key="105" value="Jubilife City - Map 2" />
+			<entry key="106" value="DIGLETT's Cave - Map 1" />
+			<entry key="107" value="Mt. Moon - Map 1" />
+			<entry key="108" value="Rock Tunnel - Map 1" />
+			<entry key="109" value="Pal Park - Map 1" />
+			<entry key="110" value="Sprout Tower - Map 1" />
+			<entry key="111" value="Bell Tower - Map 1" />
+			<entry key="112" value="Radio Tower - Map 1" />
+			<entry key="113" value="Ruins of Alph - Map 2" />
+			<entry key="114" value="SLOWPOKE Well - Map 1" />
+			<entry key="115" value="Lighthouse - Map 1" />
+			<entry key="116" value="Mahogany Town - Map 2" />
+			<entry key="117" value="Ilex Forest - Map 1" />
+			<entry key="118" value="Goldenrod Tunnel - Map 1" />
+			<entry key="119" value="Mt. Mortar - Map 1" />
+			<entry key="120" value="Ice Path - Map 1" />
+			<entry key="121" value="Whirl Islands - Map 1" />
+			<entry key="122" value="Mt. Silver Cave - Map 1" />
+			<entry key="123" value="Dark Cave - Map 1" />
+			<entry key="124" value="Victory Road - Map 1" />
+			<entry key="125" value="Dragon's Den - Map 1" />
+			<entry key="126" value="Tohjo Falls - Map 1" />
+			<entry key="127" value="Route 30 - Map 2" />
+			<entry key="128" value="Ecruteak City - Map 9" />
+			<entry key="129" value="Ecruteak City - Map 10" />
+			<entry key="130" value="Ecruteak City - Map 11" />
+			<entry key="131" value="Ecruteak City - Map 12" />
+			<entry key="132" value="Route 42 - Map 2" />
+			<entry key="133" value="Mahogany Town - Map 3" />
+			<entry key="134" value="Route 29 - Map 2" />
+			<entry key="135" value="Violet City - Map 2" />
+			<entry key="136" value="Azalea Town - Map 3" />
+			<entry key="137" value="Goldenrod City - Map 2" />
+			<entry key="138" value="Olivine City - Map 2" />
+			<entry key="139" value="Cianwood City - Map 2" />
+			<entry key="140" value="Mahogany Town - Map 4" />
+			<entry key="141" value="Blackthorn City - Map 2" />
+			<entry key="142" value="Route 43 - Map 2" />
+			<entry key="143" value="Route 30 - Map 3" />
+			<entry key="144" value="Cherrygrove City - Map 7" />
+			<entry key="145" value="Cerulean Cave - Map 1" />
+			<entry key="146" value="Seafoam Islands - Map 1" />
+			<entry key="147" value="Viridian Forest - Map 1" />
+			<entry key="148" value="Power Plant - Map 1" />
+			<entry key="149" value="Route 36 - Map 4" />
+			<entry key="150" value="Pokeathlon Dome - Map 1" />
+			<entry key="151" value="Route 47 - Map 1" />
+			<entry key="152" value="Route 48 - Map 1" />
+			<entry key="153" value="Union Cave - Map 2" />
+			<entry key="154" value="Union Cave - Map 3" />
+			<entry key="155" value="Sprout Tower - Map 2" />
+			<entry key="156" value="Sprout Tower - Map 3" />
+			<entry key="157" value="Violet City - Map 3" />
+			<entry key="158" value="Violet City - Map 4" />
+			<entry key="159" value="Violet City - Map 5" />
+			<entry key="160" value="Violet City - Map 6" />
+			<entry key="161" value="Jubilife City - Map 3" />
+			<entry key="162" value="Violet City - Map 7" />
+			<entry key="163" value="Azalea Town - Map 4" />
+			<entry key="164" value="Azalea Town - Map 5" />
+			<entry key="165" value="Azalea Town - Map 6" />
+			<entry key="166" value="Azalea Town - Map 7" />
+			<entry key="167" value="Violet City - Map 8" />
+			<entry key="168" value="Azalea Town - Map 8" />
+			<entry key="169" value="Route 32 - Map 3" />
+			<entry key="170" value="Route 32 - Map 4" />
+			<entry key="171" value="Route 34 - Map 2" />
+			<entry key="172" value="Route 38 - Map 2" />
+			<entry key="173" value="Safari Zone Gate - Map 1" />
+			<entry key="174" value="Safari Zone Gate - Map 2" />
+			<entry key="175" value="Jubilife City - Map 4" />
+			<entry key="176" value="Dark Cave - Map 2" />
+			<entry key="177" value="SLOWPOKE Well - Map 2" />
+			<entry key="178" value="Victory Road - Map 2" />
+			<entry key="179" value="Victory Road - Map 3" />
+			<entry key="180" value="Azalea Town - Map 9" />
+			<entry key="181" value="SLOWPOKE Well - Map 3" />
+			<entry key="182" value="Goldenrod City - Map 3" />
+			<entry key="183" value="Goldenrod City - Map 4" />
+			<entry key="184" value="Goldenrod City - Map 5" />
+			<entry key="185" value="Goldenrod City - Map 6" />
+			<entry key="186" value="Radio Tower - Map 2" />
+			<entry key="187" value="Radio Tower - Map 3" />
+			<entry key="188" value="Radio Tower - Map 4" />
+			<entry key="189" value="Radio Tower - Map 5" />
+			<entry key="190" value="Radio Tower - Map 6" />
+			<entry key="191" value="Goldenrod City - Map 7" />
+			<entry key="192" value="Goldenrod City - Map 8" />
+			<entry key="193" value="Goldenrod City - Map 9" />
+			<entry key="194" value="Goldenrod City - Map 10" />
+			<entry key="195" value="Goldenrod City - Map 11" />
+			<entry key="196" value="Goldenrod City - Map 12" />
+			<entry key="197" value="Goldenrod City - Map 13" />
+			<entry key="198" value="Goldenrod City - Map 14" />
+			<entry key="199" value="Goldenrod Tunnel - Map 2" />
+			<entry key="200" value="Goldenrod City - Map 15" />
+			<entry key="201" value="Goldenrod City - Map 16" />
+			<entry key="202" value="Goldenrod City - Map 17" />
+			<entry key="203" value="Goldenrod City - Map 18" />
+			<entry key="204" value="Goldenrod City - Map 19" />
+			<entry key="205" value="Goldenrod City - Map 20" />
+			<entry key="206" value="Goldenrod City - Map 21" />
+			<entry key="207" value="Global Terminal - Map 1" />
+			<entry key="208" value="Goldenrod City - Map 22" />
+			<entry key="209" value="Goldenrod City - Map 23" />
+			<entry key="210" value="Goldenrod City - Map 24" />
+			<entry key="211" value="Goldenrod City - Map 25" />
+			<entry key="212" value="Goldenrod City - Map 26" />
+			<entry key="213" value="Goldenrod City - Map 27" />
+			<entry key="214" value="Route 39 - Map 2" />
+			<entry key="215" value="Route 39 - Map 3" />
+			<entry key="216" value="Ecruteak City - Map 13" />
+			<entry key="217" value="Burned Tower - Map 2" />
+			<entry key="218" value="Ruins of Alph - Map 3" />
+			<entry key="219" value="Goldenrod City - Map 28" />
+			<entry key="220" value="Lighthouse - Map 2" />
+			<entry key="221" value="Lighthouse - Map 3" />
+			<entry key="222" value="Lighthouse - Map 4" />
+			<entry key="223" value="Lighthouse - Map 5" />
+			<entry key="224" value="Lighthouse - Map 6" />
+			<entry key="225" value="Lighthouse - Map 7" />
+			<entry key="226" value="Olivine City - Map 3" />
+			<entry key="227" value="Olivine City - Map 4" />
+			<entry key="228" value="Olivine City - Map 5" />
+			<entry key="229" value="Olivine City - Map 6" />
+			<entry key="230" value="Olivine City - Map 7" />
+			<entry key="231" value="Olivine City - Map 8" />
+			<entry key="232" value="Cianwood City - Map 3" />
+			<entry key="233" value="Cianwood City - Map 4" />
+			<entry key="234" value="Cianwood City - Map 5" />
+			<entry key="235" value="Cianwood City - Map 6" />
+			<entry key="236" value="Cianwood City - Map 7" />
+			<entry key="237" value="Ice Path - Map 2" />
+			<entry key="238" value="Ice Path - Map 3" />
+			<entry key="239" value="Ice Path - Map 4" />
+			<entry key="240" value="Olivine City - Map 9" />
+			<entry key="241" value="Cianwood City - Map 8" />
+			<entry key="242" value="Whirl Islands - Map 2" />
+			<entry key="243" value="Whirl Islands - Map 3" />
+			<entry key="244" value="Whirl Islands - Map 4" />
+			<entry key="245" value="Route 43 - Map 3" />
+			<entry key="246" value="Mahogany Town - Map 5" />
+			<entry key="247" value="Team Rocket HQ - Map 1" />
+			<entry key="248" value="Team Rocket HQ - Map 2" />
+			<entry key="249" value="Team Rocket HQ - Map 3" />
+			<entry key="250" value="Mt. Mortar - Map 2" />
+			<entry key="251" value="Mt. Mortar - Map 3" />
+			<entry key="252" value="Mt. Mortar - Map 4" />
+			<entry key="253" value="Dragon's Den - Map 2" />
+			<entry key="254" value="Fight Area - Map 1" />
+			<entry key="255" value="Fight Area - Map 2" />
+			<entry key="256" value="Fight Area - Map 3" />
+			<entry key="257" value="Fight Area - Map 4" />
+			<entry key="258" value="Fight Area - Map 5" />
+			<entry key="259" value="Fight Area - Map 6" />
+			<entry key="260" value="Fight Area - Map 7" />
+			<entry key="261" value="Fight Area - Map 8" />
+			<entry key="262" value="Fight Area - Map 9" />
+			<entry key="263" value="Battle Park - Map 1" />
+			<entry key="264" value="Battle Park - Map 2" />
+			<entry key="265" value="Battle Tower - Map 1" />
+			<entry key="266" value="Battle Tower - Map 2" />
+			<entry key="267" value="Battle Tower - Map 3" />
+			<entry key="268" value="Battle Tower - Map 4" />
+			<entry key="269" value="Battle Tower - Map 5" />
+			<entry key="270" value="Battle Tower - Map 6" />
+			<entry key="271" value="Battle Tower - Map 7" />
+			<entry key="272" value="Battle Frontier - Map 1" />
+			<entry key="273" value="Battle Frontier - Map 2" />
+			<entry key="274" value="Battle Tower - Map 8" />
+			<entry key="275" value="Battle Factory - Map 1" />
+			<entry key="276" value="Battle Hall - Map 1" />
+			<entry key="277" value="Battle Castle - Map 1" />
+			<entry key="278" value="Battle Arcade - Map 1" />
+			<entry key="279" value="Cliff Edge Gate - Map 1" />
+			<entry key="280" value="Pokeathlon Dome - Map 2" />
+			<entry key="281" value="Pokeathlon Dome - Map 3" />
+			<entry key="282" value="Pokeathlon Dome - Map 4" />
+			<entry key="283" value="Pokeathlon Dome - Map 5" />
+			<entry key="284" value="Pokeathlon Dome - Map 6" />
+			<entry key="285" value="Pokeathlon Dome - Map 7" />
+			<entry key="286" value="Pokeathlon Dome - Map 8" />
+			<entry key="287" value="Pokeathlon Dome - Map 9" />
+			<entry key="288" value="Dragon's Den - Map 3" />
+			<entry key="289" value="Blackthorn City - Map 3" />
+			<entry key="290" value="Blackthorn City - Map 4" />
+			<entry key="291" value="Blackthorn City - Map 5" />
+			<entry key="292" value="Blackthorn City - Map 6" />
+			<entry key="293" value="Blackthorn City - Map 7" />
+			<entry key="294" value="Lake of Rage - Map 2" />
+			<entry key="295" value="Lake of Rage - Map 3" />
+			<entry key="296" value="Route 26 - Map 2" />
+			<entry key="297" value="Route 26 - Map 3" />
+			<entry key="298" value="Tohjo Falls - Map 2" />
+			<entry key="299" value="Route 26 - Map 4" />
+			<entry key="300" value="Pokemon League - Map 1" />
+			<entry key="301" value="Pokemon League - Map 2" />
+			<entry key="302" value="Pokemon League - Map 3" />
+			<entry key="303" value="Pokemon League - Map 4" />
+			<entry key="304" value="Pokemon League - Map 5" />
+			<entry key="305" value="Pokemon League - Map 6" />
+			<entry key="306" value="Pokemon League - Map 7" />
+			<entry key="307" value="S.S. Aqua - Map 1" />
+			<entry key="308" value="S.S. Aqua - Map 2" />
+			<entry key="309" value="S.S. Aqua - Map 3" />
+			<entry key="310" value="S.S. Aqua - Map 4" />
+			<entry key="311" value="S.S. Aqua - Map 5" />
+			<entry key="312" value="Ruins of Alph - Map 4" />
+			<entry key="313" value="Ruins of Alph - Map 5" />
+			<entry key="314" value="Ruins of Alph - Map 6" />
+			<entry key="315" value="Ruins of Alph - Map 7" />
+			<entry key="316" value="Ruins of Alph - Map 8" />
+			<entry key="317" value="Ruins of Alph - Map 9" />
+			<entry key="318" value="Ruins of Alph - Map 10" />
+			<entry key="319" value="Ruins of Alph - Map 11" />
+			<entry key="320" value="Ruins of Alph - Map 12" />
+			<entry key="321" value="Ruins of Alph - Map 13" />
+			<entry key="322" value="Route 27 - Map 2" />
+			<entry key="323" value="Ruins of Alph - Map 14" />
+			<entry key="324" value="Ruins of Alph - Map 15" />
+			<entry key="325" value="Ruins of Alph - Map 16" />
+			<entry key="326" value="Ruins of Alph - Map 17" />
+			<entry key="327" value="Ruins of Alph - Map 18" />
+			<entry key="328" value="S.S. Aqua - Map 6" />
+			<entry key="329" value="S.S. Aqua - Map 7" />
+			<entry key="330" value="Olivine City - Map 10" />
+			<entry key="331" value="Route 34 - Map 3" />
+			<entry key="332" value="Bell Tower - Map 2" />
+			<entry key="333" value="Bell Tower - Map 3" />
+			<entry key="334" value="Bell Tower - Map 4" />
+			<entry key="335" value="Bell Tower - Map 5" />
+			<entry key="336" value="Bell Tower - Map 6" />
+			<entry key="337" value="Bell Tower - Map 7" />
+			<entry key="338" value="Bell Tower - Map 8" />
+			<entry key="339" value="Bell Tower - Map 9" />
+			<entry key="340" value="Bell Tower - Map 10" />
+			<entry key="341" value="Bell Tower - Map 11" />
+			<entry key="342" value="Cliff Cave - Map 1" />
+			<entry key="343" value="Safari Zone - Map 1" />
+			<entry key="344" value="Safari Zone - Map 2" />
+			<entry key="345" value="Safari Zone - Map 3" />
+			<entry key="346" value="Safari Zone - Map 4" />
+			<entry key="347" value="Safari Zone - Map 5" />
+			<entry key="348" value="Safari Zone - Map 6" />
+			<entry key="349" value="Safari Zone - Map 7" />
+			<entry key="350" value="Safari Zone - Map 8" />
+			<entry key="351" value="Safari Zone - Map 9" />
+			<entry key="352" value="Safari Zone - Map 10" />
+			<entry key="353" value="Safari Zone - Map 11" />
+			<entry key="354" value="Safari Zone - Map 12" />
+			<entry key="355" value="Safari Zone - Map 13" />
+			<entry key="356" value="Safari Zone - Map 14" />
+			<entry key="357" value="Safari Zone - Map 15" />
+			<entry key="358" value="Vermilion City - Map 2" />
+			<entry key="359" value="Vermilion City - Map 3" />
+			<entry key="360" value="Vermilion City - Map 4" />
+			<entry key="361" value="Vermilion City - Map 5" />
+			<entry key="362" value="Vermilion City - Map 6" />
+			<entry key="363" value="Vermilion City - Map 7" />
+			<entry key="364" value="Vermilion City - Map 8" />
+			<entry key="365" value="Vermilion City - Map 9" />
+			<entry key="366" value="Route 40 - Map 2" />
+			<entry key="367" value="Olivine City - Map 11" />
+			<entry key="368" value="Mahogany Town - Map 6" />
+			<entry key="369" value="Blackthorn City - Map 8" />
+			<entry key="370" value="Celadon City - Map 2" />
+			<entry key="371" value="Celadon City - Map 3" />
+			<entry key="372" value="Celadon City - Map 4" />
+			<entry key="373" value="Celadon City - Map 5" />
+			<entry key="374" value="Celadon City - Map 6" />
+			<entry key="375" value="Celadon City - Map 7" />
+			<entry key="376" value="Celadon City - Map 8" />
+			<entry key="377" value="Celadon City - Map 9" />
+			<entry key="378" value="Celadon City - Map 10" />
+			<entry key="379" value="Celadon City - Map 11" />
+			<entry key="380" value="Celadon City - Map 12" />
+			<entry key="381" value="Celadon City - Map 13" />
+			<entry key="382" value="Celadon City - Map 14" />
+			<entry key="383" value="Celadon City - Map 15" />
+			<entry key="384" value="New Bark Town - Map 8" />
+			<entry key="385" value="Cianwood City - Map 9" />
+			<entry key="386" value="Vermilion City - Map 10" />
+			<entry key="387" value="Vermilion City - Map 11" />
+			<entry key="388" value="Route 10 - Map 2" />
+			<entry key="389" value="Route 6 - Map 2" />
+			<entry key="390" value="Route 8 - Map 2" />
+			<entry key="391" value="Route 5 - Map 2" />
+			<entry key="392" value="Route 15 - Map 2" />
+			<entry key="393" value="Celadon City - Map 16" />
+			<entry key="394" value="Celadon City - Map 17" />
+			<entry key="395" value="Celadon City - Map 18" />
+			<entry key="396" value="Mahogany Town - Map 7" />
+			<entry key="397" value="Mahogany Town - Map 8" />
+			<entry key="398" value="Saffron City - Map 2" />
+			<entry key="399" value="Saffron City - Map 3" />
+			<entry key="400" value="Saffron City - Map 4" />
+			<entry key="401" value="Saffron City - Map 5" />
+			<entry key="402" value="Saffron City - Map 6" />
+			<entry key="403" value="ROTOM's Room - Map 1" />
+			<entry key="404" value="Saffron City - Map 7" />
+			<entry key="405" value="Saffron City - Map 8" />
+			<entry key="406" value="Saffron City - Map 9" />
+			<entry key="407" value="Saffron City - Map 10" />
+			<entry key="408" value="Saffron City - Map 11" />
+			<entry key="409" value="Saffron City - Map 12" />
+			<entry key="410" value="Saffron City - Map 13" />
+			<entry key="411" value="Frontier Access - Map 1" />
+			<entry key="412" value="Global Terminal - Map 2" />
+			<entry key="413" value="Global Terminal - Map 3" />
+			<entry key="414" value="Route 2 - Map 2" />
+			<entry key="415" value="Route 16 - Map 2" />
+			<entry key="416" value="Route 20 - Map 2" />
+			<entry key="417" value="Route 2 - Map 3" />
+			<entry key="418" value="Route 2 - Map 4" />
+			<entry key="419" value="Route 2 - Map 5" />
+			<entry key="420" value="Route 2 - Map 6" />
+			<entry key="421" value="Route 16 - Map 3" />
+			<entry key="422" value="Route 16 - Map 4" />
+			<entry key="423" value="Route 18 - Map 2" />
+			<entry key="424" value="Route 19 - Map 2" />
+			<entry key="425" value="Route 11 - Map 2" />
+			<entry key="426" value="Cerulean City - Map 2" />
+			<entry key="427" value="Cerulean City - Map 3" />
+			<entry key="428" value="Cerulean City - Map 4" />
+			<entry key="429" value="Cerulean City - Map 5" />
+			<entry key="430" value="Cerulean City - Map 6" />
+			<entry key="431" value="Cerulean City - Map 7" />
+			<entry key="432" value="Cerulean City - Map 8" />
+			<entry key="433" value="Lavender Town - Map 2" />
+			<entry key="434" value="Lavender Town - Map 3" />
+			<entry key="435" value="Lavender Town - Map 4" />
+			<entry key="436" value="Lavender Town - Map 5" />
+			<entry key="437" value="Lavender Town - Map 6" />
+			<entry key="438" value="Lavender Town - Map 7" />
+			<entry key="439" value="Lavender Town - Map 8" />
+			<entry key="440" value="Route 25 - Map 2" />
+			<entry key="441" value="Goldenrod City - Map 29" />
+			<entry key="442" value="Celadon City - Map 19" />
+			<entry key="443" value="Celadon City - Map 20" />
+			<entry key="444" value="Celadon City - Map 21" />
+			<entry key="445" value="Saffron City - Map 14" />
+			<entry key="446" value="Lighthouse - Map 8" />
+			<entry key="447" value="Radio Tower - Map 7" />
+			<entry key="448" value="Mt. Moon - Map 2" />
+			<entry key="449" value="Mt. Moon - Map 3" />
+			<entry key="450" value="Cerulean Cave - Map 2" />
+			<entry key="451" value="Cerulean Cave - Map 3" />
+			<entry key="452" value="Rock Tunnel - Map 2" />
+			<entry key="453" value="Seafoam Islands - Map 2" />
+			<entry key="454" value="Seafoam Islands - Map 3" />
+			<entry key="455" value="Seafoam Islands - Map 4" />
+			<entry key="456" value="Seafoam Islands - Map 5" />
+			<entry key="457" value="Seafoam Islands - Map 6" />
+			<entry key="458" value="Seafoam Islands - Map 7" />
+			<entry key="459" value="Mt. Silver Cave - Map 2" />
+			<entry key="460" value="Mt. Silver Cave - Map 3" />
+			<entry key="461" value="Mt. Silver Cave - Map 4" />
+			<entry key="462" value="Mt. Silver Cave - Map 5" />
+			<entry key="463" value="Mt. Silver Cave - Map 6" />
+			<entry key="464" value="Mt. Silver Cave - Map 7" />
+			<entry key="465" value="Mt. Silver Cave - Map 8" />
+			<entry key="466" value="Route 10 - Map 3" />
+			<entry key="467" value="Power Plant - Map 2" />
+			<entry key="468" value="Route 5 - Map 3" />
+			<entry key="469" value="Route 5 - Map 4" />
+			<entry key="470" value="Route 6 - Map 3" />
+			<entry key="471" value="Pewter City - Map 2" />
+			<entry key="472" value="Pewter City - Map 3" />
+			<entry key="473" value="Pewter City - Map 4" />
+			<entry key="474" value="Pewter City - Map 5" />
+			<entry key="475" value="Pewter City - Map 6" />
+			<entry key="476" value="Pewter City - Map 7" />
+			<entry key="477" value="Pewter City - Map 8" />
+			<entry key="478" value="Fuchsia City - Map 2" />
+			<entry key="479" value="Pal Park - Map 2" />
+			<entry key="480" value="Fuchsia City - Map 3" />
+			<entry key="481" value="Fuchsia City - Map 4" />
+			<entry key="482" value="Fuchsia City - Map 5" />
+			<entry key="483" value="Fuchsia City - Map 6" />
+			<entry key="484" value="Route 10 - Map 4" />
+			<entry key="485" value="Fuchsia City - Map 7" />
+			<entry key="486" value="Whirl Islands - Map 5" />
+			<entry key="487" value="National Park - Map 2" />
+			<entry key="488" value="National Park - Map 3" />
+			<entry key="489" value="Power Plant - Map 3" />
+			<entry key="490" value="Ruins of Alph - Map 19" />
+			<entry key="491" value="Ruins of Alph - Map 20" />
+			<entry key="492" value="Ruins of Alph - Map 21" />
+			<entry key="493" value="Route 7 - Map 2" />
+			<entry key="494" value="Lavender Town - Map 9" />
+			<entry key="495" value="Cerulean City - Map 9" />
+			<entry key="496" value="Viridian City - Map 2" />
+			<entry key="497" value="Viridian City - Map 3" />
+			<entry key="498" value="Viridian City - Map 4" />
+			<entry key="499" value="Viridian City - Map 5" />
+			<entry key="500" value="Viridian City - Map 6" />
+			<entry key="501" value="Viridian City - Map 7" />
+			<entry key="502" value="Viridian City - Map 8" />
+			<entry key="503" value="Pallet Town - Map 2" />
+			<entry key="504" value="Pallet Town - Map 3" />
+			<entry key="505" value="Pallet Town - Map 4" />
+			<entry key="506" value="Pallet Town - Map 5" />
+			<entry key="507" value="Pallet Town - Map 6" />
+			<entry key="508" value="Cinnabar Island - Map 2" />
+			<entry key="509" value="Cinnabar Island - Map 3" />
+			<entry key="510" value="Route 28 - Map 2" />
+			<entry key="511" value="Route 3 - Map 2" />
+			<entry key="512" value="Route 3 - Map 3" />
+			<entry key="513" value="Mt. Moon - Map 4" />
+			<entry key="514" value="Mt. Silver - Map 2" />
+			<entry key="515" value="Mt. Silver - Map 3" />
+			<entry key="516" value="Mystery Zone - Map 7" />
+			<entry key="517" value="Route 5 - Map 5" />
+			<entry key="518" value="Mt. Moon - Map 5" />
+			<entry key="519" value="Goldenrod City - Map 30" />
+			<entry key="520" value="Saffron City - Map 15" />
+			<entry key="521" value="Sinjoh Ruins - Map 1" />
+			<entry key="522" value="Sinjoh Ruins - Map 2" />
+			<entry key="523" value="Sinjoh Ruins - Map 3" />
+			<entry key="524" value="Embedded Tower - Map 1" />
+			<entry key="525" value="Embedded Tower - Map 2" />
+			<entry key="526" value="Embedded Tower - Map 3" />
+			<entry key="527" value="Route 1 - Map 2" />
+			<entry key="528" value="Frontier Access - Map 2" />
+			<entry key="529" value="Frontier Access - Map 3" />
+			<entry key="530" value="Frontier Access - Map 4" />
+			<entry key="531" value="Frontier Access - Map 5" />
+			<entry key="532" value="Route 5 - Map 6" />
+			<entry key="533" value="Route 12 - Map 2" />
+			<entry key="534" value="Safari Zone Gate - Map 3" />
+			<entry key="535" value="Safari Zone Gate - Map 4" />
+			<entry key="536" value="Goldenrod City - Map 31" />
+			<entry key="537" value="Celadon City - Map 22" />
+			<entry key="538" value="Mystery Zone - Map 8" />
+			<entry key="539" value="Pokemon League - Map 8" />
 		</maps>
 		<trainers>
-			<entry key="0" />
-			<entry key="1"  value="Youngster Tristan" />
-			<entry key="2"  value="Youngster Logan" />
-			<entry key="3"  value="Lass Natalie" />
-			<entry key="4"  value="Youngster Michael" />
-			<entry key="5"  value="Camper Mickey" />
-			<entry key="6"  value="Camper Mickey" />
-			<entry key="7"  value="Picnicker Angelica" />
-			<entry key="8"  value="Picnicker Angelica" />
-			<entry key="9"  value="Youngster Mickey" />
-			<entry key="10" value="Youngster Tyler" />
-			<entry key="11" value="Lass Samantha" />
-			<entry key="12" value="Lass Sarah" />
-			<entry key="13" value="Bug Catcher Brandon" />
-			<entry key="14" value="Aroma Lady Taylor" />
-			<entry key="15" value="Twins Liv and Liz" />
-			<entry key="16" value="Camper Jacob" />
-			<entry key="17" value="Picnicker Siena" />
-			<entry key="18" value="Hiker Daniel" />
-			<entry key="19" value="Hiker Nicholas" />
-			<entry key="20" value="Battle Girl Kelsey" />
-			<entry key="21" value="Aroma Lady Elizabeth" />
-			<entry key="22" value="Fisherman Andrew" />
-			<entry key="23" value="Fisherman Joseph" />
-			<entry key="24" value="Fisherman Zachary" />
-			<entry key="25" value="Cyclist Axel" />
-			<entry key="26" value="Cyclist James" />
-			<entry key="27" value="Cyclist John" />
-			<entry key="28" value="Cyclist Ryan" />
-			<entry key="29" value="Cyclist Megan" />
-			<entry key="30" value="Cyclist Nicole" />
-			<entry key="31" value="Cyclist Kayla" />
-			<entry key="32" value="Cyclist Rachel" />
-			<entry key="33" value="Youngster Austin" />
-			<entry key="34" value="Camper Anthony" />
-			<entry key="35" value="Picnicker Lauren" />
-			<entry key="36" value="Hiker Kevin" />
-			<entry key="37" value="Hiker Justin" />
-			<entry key="38" value="Battle Girl Helen" />
-			<entry key="39" value="Hiker Robert" />
-			<entry key="40" value="Hiker Alexander" />
-			<entry key="41" value="Hiker Jonathan" />
-			<entry key="42" value="Black Belt Kyle" />
-			<entry key="43" value="Fisherman Cody" />
-			<entry key="44" value="Aroma Lady Hannah" />
-			<entry key="45" value="Artist William" />
-			<entry key="46" value="Pokemon Breeder Albert" />
-			<entry key="47" value="Pokemon Breeder Jennifer" />
-			<entry key="48" value="Cowgirl Shelley" />
-			<entry key="49" value="Jogger Richard" />
-			<entry key="50" value="Pokefan Mickey" />
-			<entry key="51" value="Pokefan Angelica" />
-			<entry key="52" value="Youngster Mickey" />
-			<entry key="53" value="Poke Kid Danielle" />
-			<entry key="54" value="Fisherman Mickey" />
-			<entry key="55" value="Young Couple Ty and Sue" />
-			<entry key="56" value="Pokemon Breeder Kahlil" />
-			<entry key="57" value="Pokemon Breeder Amber" />
-			<entry key="58" value="Cowgirl Angelica" />
-			<entry key="59" value="Jogger Mickey" />
-			<entry key="60" value="Pokefan Mickey" />
-			<entry key="61" value="Pokefan Angelica" />
-			<entry key="62" value="Ace Trainer Mickey" />
-			<entry key="63" value="Ace Trainer Angelica" />
-			<entry key="64" value="Waitress Angelica" />
-			<entry key="65" value="Twins Teri and Tia" />
-			<entry key="66" value="Ace Trainer Ernest" />
-			<entry key="67" value="Ace Trainer Alyssa" />
-			<entry key="68" value="Veteran Brian" />
-			<entry key="69" value="Black Belt Adam" />
-			<entry key="70" value="Ninja Boy Joel" />
-			<entry key="71" value="Ninja Boy Nathan" />
-			<entry key="72" value="Ninja Boy Davido" />
-			<entry key="73" value="Dragon Tamer Patrick" />
-			<entry key="74" value="Bird Keeper Brianna" />
-			<entry key="75" value="Double Team Zac and Jen" />
-			<entry key="76" value="Bird Keeper Alexandra" />
-			<entry key="77" value="Battle Girl Angelica" />
-			<entry key="78" value="Ninja Boy Zach" />
-			<entry key="79" value="Black Belt Sean" />
-			<entry key="80" value="Ninja Boy Nick" />
-			<entry key="81" value="Bird Keeper Katherine" />
-			<entry key="82" value="Rich Boy Jason" />
-			<entry key="83" value="Lady Melissa" />
-			<entry key="84" value="Gentleman Jeremy" />
-			<entry key="85" value="Socialite Reina" />
-			<entry key="86" value="Beauty Angelica" />
-			<entry key="87" value="Collector Mickey" />
-			<entry key="88" value="Policeman Bobby" />
-			<entry key="89" value="Policeman Alex" />
-			<entry key="90" value="Policeman Dylan" />
-			<entry key="91" value="Fisherman Juan" />
-			<entry key="92" value="Fisherman Josh" />
-			<entry key="93" value="Fisherman Travis" />
-			<entry key="94" value="Pokemon Ranger Taylor" />
-			<entry key="95" value="Pokemon Ranger Jeffrey" />
-			<entry key="96" value="Pokemon Ranger Allison" />
-			<entry key="97" value="Pokemon Ranger Angelica" />
-			<entry key="98" value="Scientist Mickey" />
-			<entry key="99" value="Scientist Stefano" />
-			<entry key="100" value="Youngster Mickey" />
-			<entry key="101" value="Youngster Mickey" />
-			<entry key="102" value="Policeman Caleb" />
-			<entry key="103" value="Swimmer Sheltin" />
-			<entry key="104" value="Swimmer Evan" />
-			<entry key="105" value="Swimmer Haley" />
-			<entry key="106" value="Swimmer Mary" />
-			<entry key="107" value="Tuber Jared" />
-			<entry key="108" value="Tuber Chelsea" />
-			<entry key="109" value="Battle Girl Angelica" />
-			<entry key="110" value="Sailor Paul" />
-			<entry key="111" value="Fisherman Kenneth" />
-			<entry key="112" value="Sis and Bro Tara and Tim" />
-			<entry key="113" value="Ruin Maniac Bryan" />
-			<entry key="114" value="Ruin Maniac Ronald" />
-			<entry key="115" value="Hiker Mickey" />
-			<entry key="116" value="Veteran Mickey" />
-			<entry key="117" value="Camper Mickey" />
-			<entry key="118" value="Picnicker Angelica" />
-			<entry key="119" value="Psychic Mitchell" />
-			<entry key="120" value="Psychic Abigail" />
-			<entry key="121" value="PI Carlos" />
-			<entry key="122" value="Guitarist Mickey" />
-			<entry key="123" value="PI Mickey" />
-			<entry key="124" value="Beauty Angelica" />
-			<entry key="125" value="Beauty Angelica" />
-			<entry key="126" value="Black Belt Mickey" />
-			<entry key="127" value="Black Belt Gregory" />
-			<entry key="128" value="Black Belt Derek" />
-			<entry key="129" value="Black Belt Nathaniel" />
-			<entry key="130" value="Jogger Scott" />
-			<entry key="131" value="Bird Keeper Angelica" />
-			<entry key="132" value="Ace Trainer Blake" />
-			<entry key="133" value="Ace Trainer Garrett" />
-			<entry key="134" value="Ace Trainer Laura" />
-			<entry key="135" value="Ace Trainer Maria" />
-			<entry key="136" value="Skier Bradley" />
-			<entry key="137" value="Skier Edward" />
-			<entry key="138" value="Skier Kaitlyn" />
-			<entry key="139" value="Skier Andrea" />
-			<entry key="140" value="Ace Trainer Dalton" />
-			<entry key="141" value="Ace Trainer Olivia" />
-			<entry key="142" value="Skier Shawn" />
-			<entry key="143" value="Skier Bjorn" />
-			<entry key="144" value="Skier Lexie" />
-			<entry key="145" value="Skier Madison" />
-			<entry key="146" value="Ninja Boy Matthew" />
-			<entry key="147" value="Ninja Boy Ethan" />
-			<entry key="148" value="Black Belt Luke" />
-			<entry key="149" value="Swimmer Mickey" />
-			<entry key="150" value="Swimmer Mickey" />
-			<entry key="151" value="Swimmer Angelica" />
-			<entry key="152" value="Swimmer Angelica" />
-			<entry key="153" value="Fisherman Miguel" />
-			<entry key="154" value="Fisherman Luc" />
-			<entry key="155" value="Sis and Bro Tara and Tim" />
-			<entry key="156" value="Swimmer Mickey" />
-			<entry key="157" value="Swimmer Mickey" />
-			<entry key="158" value="Swimmer Angelica" />
-			<entry key="159" value="Swimmer Adrian" />
-			<entry key="160" value="Swimmer Erik" />
-			<entry key="161" value="Swimmer Vincent" />
-			<entry key="162" value="Swimmer Jessica" />
-			<entry key="163" value="Swimmer Erica" />
-			<entry key="164" value="Swimmer Katelyn" />
-			<entry key="165" value="Sis and Bro Tara and Tim" />
-			<entry key="166" value="Swimmer Dillon" />
-			<entry key="167" value="Swimmer Vanessa" />
-			<entry key="168" value="Fisherman Cory" />
-			<entry key="169" value="Ruin Maniac Mickey" />
-			<entry key="170" value="Ace Trainer Jake" />
-			<entry key="171" value="Ace Trainer Shannon" />
-			<entry key="172" value="Fisherman Brett" />
-			<entry key="173" value="Fisherman Alec" />
-			<entry key="174" value="Fisherman George" />
-			<entry key="175" value="Fisherman Cole" />
-			<entry key="176" value="Roughneck Mickey" />
-			<entry key="177" value="Roughneck Mickey" />
-			<entry key="178" value="Guitarist Mickey" />
-			<entry key="179" value="Clown Mickey" />
-			<entry key="180" value="Sailor Luther" />
-			<entry key="181" value="Artist Mickey" />
-			<entry key="182" value="Young Couple Tara and Tim" />
-			<entry key="183" value="Swimmer Wesley" />
-			<entry key="184" value="Swimmer Ricardo" />
-			<entry key="185" value="Swimmer Francisco" />
-			<entry key="186" value="Swimmer Colton" />
-			<entry key="187" value="Swimmer Troy" />
-			<entry key="188" value="Swimmer Oscar" />
-			<entry key="189" value="Swimmer Miranda" />
-			<entry key="190" value="Swimmer Aubree" />
-			<entry key="191" value="Swimmer Paige" />
-			<entry key="192" value="Swimmer Crystal" />
-			<entry key="193" value="Swimmer Cassandra" />
-			<entry key="194" value="Swimmer Gabrielle" />
-			<entry key="195" value="Worker Colin" />
-			<entry key="196" value="Worker Mason" />
-			<entry key="197" value="Worker Mickey" />
-			<entry key="198" value="Scientist Mickey" />
-			<entry key="199" value="Scientist Mickey" />
-			<entry key="200" value="Scientist Mickey" />
-			<entry key="201" value="Bug Catcher Jack" />
-			<entry key="202" value="Bug Catcher Phillip" />
-			<entry key="203" value="Bug Catcher Donald" />
-			<entry key="204" value="Lass Briana" />
-			<entry key="205" value="Psychic Elijah" />
-			<entry key="206" value="Psychic Lindsey" />
-			<entry key="207" value="Young Couple Tara and Tim" />
-			<entry key="208" value="Worker Mickey" />
-			<entry key="209" value="Worker Mickey" />
-			<entry key="210" value="Worker Mickey" />
-			<entry key="211" value="Ace Trainer Mickey" />
-			<entry key="212" value="Ace Trainer Mickey" />
-			<entry key="213" value="Ace Trainer Angelica" />
-			<entry key="214" value="Ace Trainer Angelica" />
-			<entry key="215" value="Veteran Mickey" />
-			<entry key="216" value="Veteran Mickey" />
-			<entry key="217" value="Psychic Mickey" />
-			<entry key="218" value="Psychic Angelica" />
-			<entry key="219" value="Dragon Tamer Mickey" />
-			<entry key="220" value="Sailor Mickey" />
-			<entry key="221" value="School Kid Mickey" />
-			<entry key="222" value="School Kid Angelica" />
-			<entry key="223" value="Young Couple Tara and Tim" />
-			<entry key="224" value="Ace Trainer Omar" />
-			<entry key="225" value="Ace Trainer Henry" />
-			<entry key="226" value="Ace Trainer Mariah" />
-			<entry key="227" value="Ace Trainer Sydney" />
-			<entry key="228" value="Veteran Edgar" />
-			<entry key="229" value="Veteran Clayton" />
-			<entry key="230" value="Dragon Tamer Ondrej" />
-			<entry key="231" value="Dragon Tamer Clinton" />
-			<entry key="232" value="Black Belt David" />
-			<entry key="233" value="Bird Keeper Hana" />
-			<entry key="234" value="Psychic Bryce" />
-			<entry key="235" value="Psychic Valencia" />
-			<entry key="236" value="Double Team Jo and Pat" />
-			<entry key="237" value="Double Team Al and Kay" />
-			<entry key="238" value="Youngster Mickey" />
-			<entry key="239" value="Lass Angelica" />
-			<entry key="240" value="Veteran Grant" />
-			<entry key="241" value="Fisherman Mickey" />
-			<entry key="242" value="Sailor Mickey" />
-			<entry key="243" value="Beauty Angelica" />
-			<entry key="244" value="Youngster Jonathon" />
-			<entry key="245" value="Youngster Darius" />
-			<entry key="246" value="Leader Roark" />
-			<entry key="247" value="Rival" />
-			<entry key="248" value="Rival" />
-			<entry key="249" value="Rival" />
-			<entry key="250" value="Leader Byron" />
-			<entry key="251" value="Ace Trainer Angelica" />
-			<entry key="252" value="Camper Mickey" />
-			<entry key="253" value="Camper Mickey" />
-			<entry key="254" value="Camper Mickey" />
-			<entry key="255" value="Camper Mickey" />
-			<entry key="256" value="Worker Jackson" />
-			<entry key="257" value="Worker Gary" />
-			<entry key="258" value="Black Belt Philip" />
-			<entry key="259" value="Aroma Lady Jenna" />
-			<entry key="260" value="Aroma Lady Angela" />
-			<entry key="261" value="Elite Four Aaron" />
-			<entry key="262" value="Elite Four Bertha" />
-			<entry key="263" value="Elite Four Flint" />
-			<entry key="264" value="Elite Four Lucian" />
-			<entry key="265" value="Camper Curtis" />
-			<entry key="266" value="Camper Drew" />
-			<entry key="267" value="Champion Cynthia" />
-			<entry key="268" value="Ace Trainer Sergio" />
-			<entry key="269" value="Ace Trainer Isaiah" />
-			<entry key="270" value="Ace Trainer Savannah" />
-			<entry key="271" value="Ace Trainer Alicia" />
-			<entry key="272" value="Collector Douglas" />
-			<entry key="273" value="Collector Brady" />
-			<entry key="274" value="Collector Ivan" />
-			<entry key="275" value="Collector Fernando" />
-			<entry key="276" value="Collector Edwin" />
-			<entry key="277" value="Dragon Tamer Hayden" />
-			<entry key="278" value="Ace Trainer Dennis" />
-			<entry key="279" value="Ace Trainer Cesar" />
-			<entry key="280" value="Ace Trainer Allen" />
-			<entry key="281" value="Ace Trainer Zachery" />
-			<entry key="282" value="Ace Trainer Ruben" />
-			<entry key="283" value="Ace Trainer Breanna" />
-			<entry key="284" value="Ace Trainer Catherine" />
-			<entry key="285" value="Ace Trainer Destiny" />
-			<entry key="286" value="Ace Trainer Jamie" />
-			<entry key="287" value="Ace Trainer Maya" />
-			<entry key="288" value="Psychic Maxwell" />
-			<entry key="289" value="Psychic Brittney" />
-			<entry key="290" value="Belle and Pa Ava and Matt" />
-			<entry key="291" value="Rancher Mickey" />
-			<entry key="292" value="Rancher Marco" />
-			<entry key="293" value="Fisherman Erick" />
-			<entry key="294" value="Twins Emma and Lil" />
-			<entry key="295" value="Commander Mars" />
-			<entry key="296" value="Galactic Grunt" />
-			<entry key="297" value="Galactic Grunt" />
-			<entry key="298" value="Galactic Grunt" />
-			<entry key="299" value="Galactic Grunt" />
-			<entry key="300" value="Guitarist Tony" />
-			<entry key="301" value="Guitarist Jerry" />
-			<entry key="302" value="Guitarist Preston" />
-			<entry key="303" value="Guitarist Lonnie" />
-			<entry key="304" value="Ruin Maniac Calvin" />
-			<entry key="305" value="Ruin Maniac Larry" />
-			<entry key="306" value="Jogger Wyatt" />
-			<entry key="307" value="Jogger Craig" />
-			<entry key="308" value="Jogger Raul" />
-			<entry key="309" value="Black Belt Colby" />
-			<entry key="310" value="Black Belt Darren" />
-			<entry key="311" value="Black Belt Rafael" />
-			<entry key="312" value="Black Belt Jeffery" />
-			<entry key="313" value="Black Belt Carl" />
-			<entry key="314" value="Black Belt Ricky" />
-			<entry key="315" value="Leader Gardenia" />
-			<entry key="316" value="Leader Wake" />
-			<entry key="317" value="Leader Maylene" />
-			<entry key="318" value="Leader Fantina" />
-			<entry key="319" value="Leader Candice" />
-			<entry key="320" value="Leader Volkner" />
-			<entry key="321" value="Lass Angelica" />
-			<entry key="322" value="Lass Madeline" />
-			<entry key="323" value="Lass Kaitlin" />
-			<entry key="324" value="Lass Caroline" />
-			<entry key="325" value="Lass Molly" />
-			<entry key="326" value="Hiker Louis" />
-			<entry key="327" value="Parasol Lady Alexa" />
-			<entry key="328" value="Parasol Lady Sabrina" />
-			<entry key="329" value="Picnicker Diana" />
-			<entry key="330" value="Picnicker Cheyenne" />
-			<entry key="331" value="Poke Kid Meghan" />
-			<entry key="332" value="Policeman Danny" />
-			<entry key="333" value="Policeman Thomas" />
-			<entry key="334" value="Rich Boy Mickey" />
-			<entry key="335" value="Rich Boy Trey" />
-			<entry key="336" value="Lady Angelica" />
-			<entry key="337" value="Sailor Marc" />
-			<entry key="338" value="Sailor Skyler" />
-			<entry key="339" value="Sailor Damian" />
-			<entry key="340" value="School Kid Chance" />
-			<entry key="341" value="School Kid Forrest" />
-			<entry key="342" value="School Kid Harrison" />
-			<entry key="343" value="School Kid Mackenzie" />
-			<entry key="344" value="School Kid Tiera" />
-			<entry key="345" value="School Kid Christine" />
-			<entry key="346" value="Beauty Cyndy" />
-			<entry key="347" value="Beauty Angelica" />
-			<entry key="348" value="Beauty Lindsay" />
-			<entry key="349" value="Skier Mickey" />
-			<entry key="350" value="Skier Angelica" />
-			<entry key="351" value="Swimmer Mickey" />
-			<entry key="352" value="Swimmer Mickey" />
-			<entry key="353" value="Swimmer Angelica" />
-			<entry key="354" value="Swimmer Angelica" />
-			<entry key="355" value="Youngster Dallas" />
-			<entry key="356" value="Youngster Sebastian" />
-			<entry key="357" value="Youngster Donny" />
-			<entry key="358" value="Tuber Trenton" />
-			<entry key="359" value="Tuber Conner" />
-			<entry key="360" value="Tuber Mariel" />
-			<entry key="361" value="Tuber Holly" />
-			<entry key="362" value="Veteran Armando" />
-			<entry key="363" value="Waiter Mickey" />
-			<entry key="364" value="Waiter Mickey" />
-			<entry key="365" value="Waiter Mickey" />
-			<entry key="366" value="Waitress Kati" />
-			<entry key="367" value="Worker Gerardo" />
-			<entry key="368" value="Interviewers Roxy and Oli" />
-			<entry key="369" value="Cameraman Tevin" />
-			<entry key="370" value="Reporter Kinsey" />
-			<entry key="371" value="Idol Grace" />
-			<entry key="372" value="Battle Girl Tyler" />
-			<entry key="373" value="Bird Keeper Autumn" />
-			<entry key="374" value="Pokemon Breeder Mickey" />
-			<entry key="375" value="Pokemon Breeder Angelica" />
-			<entry key="376" value="Cameraman Mickey" />
-			<entry key="377" value="Camper Zackary" />
-			<entry key="378" value="Camper Lawrence" />
-			<entry key="379" value="Camper Diego" />
-			<entry key="380" value="Camper Parker" />
-			<entry key="381" value="Collector Dean" />
-			<entry key="382" value="Collector Jamal" />
-			<entry key="383" value="Collector Terry" />
-			<entry key="384" value="Pokefan Mickey" />
-			<entry key="385" value="Pokefan Angelica" />
-			<entry key="386" value="Dragon Tamer Joe" />
-			<entry key="387" value="Ace Trainer Mickey" />
-			<entry key="388" value="Ace Trainer Jonah" />
-			<entry key="389" value="Ace Trainer Micah" />
-			<entry key="390" value="Ace Trainer Arthur" />
-			<entry key="391" value="Ace Trainer Angelica" />
-			<entry key="392" value="Ace Trainer Brenda" />
-			<entry key="393" value="Ace Trainer Brandi" />
-			<entry key="394" value="Ace Trainer Clarice" />
-			<entry key="395" value="Psychic Kody" />
-			<entry key="396" value="Psychic Landon" />
-			<entry key="397" value="Psychic Deandre" />
-			<entry key="398" value="Psychic Rachael" />
-			<entry key="399" value="Psychic Desiree" />
-			<entry key="400" value="Psychic Kendra" />
-			<entry key="401" value="Fisherman Walter" />
-			<entry key="402" value="Gentleman Mickey" />
-			<entry key="403" value="Galactic Boss Cyrus" />
-			<entry key="404" value="Galactic Boss Cyrus" />
-			<entry key="405" value="Commander Mars" />
-			<entry key="406" value="Commander Jupiter" />
-			<entry key="407" value="Commander Jupiter" />
-			<entry key="408" value="Commander Saturn" />
-			<entry key="409" value="Commander Saturn" />
-			<entry key="410" value="Galactic Grunt" />
-			<entry key="411" value="Galactic Grunt" />
-			<entry key="412" value="Galactic Grunt" />
-			<entry key="413" value="Galactic Grunt" />
-			<entry key="414" value="Galactic Grunt" />
-			<entry key="415" value="Galactic Grunt" />
-			<entry key="416" value="Galactic Grunt" />
-			<entry key="417" value="Galactic Grunt" />
-			<entry key="418" value="Galactic Grunt" />
-			<entry key="419" value="Galactic Grunt" />
-			<entry key="420" value="Galactic Grunt" />
-			<entry key="421" value="Galactic Grunt" />
-			<entry key="422" value="Galactic Grunt" />
-			<entry key="423" value="Galactic Grunt" />
-			<entry key="424" value="Galactic Grunt" />
-			<entry key="425" value="Galactic Grunt" />
-			<entry key="426" value="Galactic Grunt" />
-			<entry key="427" value="Galactic Grunt" />
-			<entry key="428" value="Galactic Grunt" />
-			<entry key="429" value="Galactic Grunt" />
-			<entry key="430" value="Galactic Grunt" />
-			<entry key="431" value="Guitarist Arturo" />
-			<entry key="432" value="Guitarist Mickey" />
-			<entry key="433" value="Guitarist Mickey" />
-			<entry key="434" value="Guitarist Mickey" />
-			<entry key="435" value="Guitarist Mickey" />
-			<entry key="436" value="Guitarist Mickey" />
-			<entry key="437" value="Idol Angelica" />
-			<entry key="438" value="Idol Angelica" />
-			<entry key="439" value="Idol Angelica" />
-			<entry key="440" value="Idol Angelica" />
-			<entry key="441" value="Ruin Maniac Mickey" />
-			<entry key="442" value="Ruin Maniac Harry" />
-			<entry key="443" value="Ruin Maniac Gerald" />
-			<entry key="444" value="Black Belt Miles" />
-			<entry key="445" value="Black Belt Kendal" />
-			<entry key="446" value="Black Belt Eddie" />
-			<entry key="447" value="Black Belt Willie" />
-			<entry key="448" value="Socialite Angelica" />
-			<entry key="449" value="Lass Angelica" />
-			<entry key="450" value="Lass Cassidy" />
-			<entry key="451" value="Hiker Theodore" />
-			<entry key="452" value="Hiker Damon" />
-			<entry key="453" value="Hiker Maurice" />
-			<entry key="454" value="Hiker Reginald" />
-			<entry key="455" value="Hiker Lorenzo" />
-			<entry key="456" value="Picnicker Karina" />
-			<entry key="457" value="Picnicker Summer" />
-			<entry key="458" value="Picnicker Tori" />
-			<entry key="459" value="Picnicker Ana" />
-			<entry key="460" value="Clown Lee" />
-			<entry key="461" value="Clown Mickey" />
-			<entry key="462" value="Clown Mickey" />
-			<entry key="463" value="Clown Mickey" />
-			<entry key="464" value="Clown Mickey" />
-			<entry key="465" value="Poke Kid Ariel" />
-			<entry key="466" value="Policeman Mickey" />
-			<entry key="467" value="Rich Boy Mickey" />
-			<entry key="468" value="Rich Boy Mickey" />
-			<entry key="469" value="Lady Angelica" />
-			<entry key="470" value="Rival" />
-			<entry key="471" value="Rival" />
-			<entry key="472" value="Rival" />
-			<entry key="473" value="Rival" />
-			<entry key="474" value="Rival" />
-			<entry key="475" value="Rival" />
-			<entry key="476" value="Rival" />
-			<entry key="477" value="Rival" />
-			<entry key="478" value="Rival" />
-			<entry key="479" value="Rival" />
-			<entry key="480" value="Rival" />
-			<entry key="481" value="Rival" />
-			<entry key="482" value="Sailor Zachariah" />
-			<entry key="483" value="Sailor Samson" />
-			<entry key="484" value="School Kid Mickey" />
-			<entry key="485" value="School Kid Angelica" />
-			<entry key="486" value="Scientist Shaun" />
-			<entry key="487" value="Scientist Mickey" />
-			<entry key="488" value="Ninja Boy Fabian" />
-			<entry key="489" value="Ninja Boy Brennan" />
-			<entry key="490" value="Ninja Boy Bruce" />
-			<entry key="491" value="Beauty Devon" />
-			<entry key="492" value="Beauty Nicola" />
-			<entry key="493" value="Swimmer Mickey" />
-			<entry key="494" value="Swimmer Claire" />
-			<entry key="495" value="Youngster Mickey" />
-			<entry key="496" value="Youngster Wayne" />
-			<entry key="497" value="Tuber Jacky" />
-			<entry key="498" value="Tuber Caitlyn" />
-			<entry key="499" value="Veteran Terrell" />
-			<entry key="500" value="Veteran Brenden" />
-			<entry key="501" value="Waiter Mickey" />
-			<entry key="502" value="Worker Mickey" />
-			<entry key="503" value="Worker Noel" />
-			<entry key="504" value="Worker Braden" />
-			<entry key="505" value="Worker Brendon" />
-			<entry key="506" value="Worker Quentin" />
-			<entry key="507" value="Galactic Grunt" />
-			<entry key="508" value="Galactic Grunt" />
-			<entry key="509" value="Galactic Grunt" />
-			<entry key="510" value="Galactic Grunt" />
-			<entry key="511" value="Galactic Grunt" />
-			<entry key="512" value="Galactic Grunt" />
-			<entry key="513" value="Galactic Grunt" />
-			<entry key="514" value="Galactic Grunt" />
-			<entry key="515" value="Galactic Grunt" />
-			<entry key="516" value="Galactic Grunt" />
-			<entry key="517" value="Galactic Grunt" />
-			<entry key="518" value="Galactic Grunt" />
-			<entry key="519" value="Galactic Grunt" />
-			<entry key="520" value="Galactic Grunt" />
-			<entry key="521" value="Galactic Grunt" />
-			<entry key="522" value="Galactic Grunt" />
-			<entry key="523" value="Galactic Grunt" />
-			<entry key="524" value="Galactic Grunt" />
-			<entry key="525" value="Galactic Grunt" />
-			<entry key="526" value="Galactic Grunt" />
-			<entry key="527" value="Galactic Grunt" />
-			<entry key="528" value="Commander Mars" />
-			<entry key="529" value="Roughneck Kirby" />
-			<entry key="530" value="Pokefan Leonard" />
-			<entry key="531" value="Pokefan Rebekah" />
-			<entry key="532" value="Youngster Oliver" />
-			<entry key="533" value="Belle and Pa Beth and Bob" />
-			<entry key="534" value="Young Couple Mike and Nat" />
-			<entry key="535" value="Aroma Lady Alison" />
-			<entry key="536" value="Artist Ismael" />
-			<entry key="537" value="Pokemon Breeder Kaylee" />
-			<entry key="538" value="Cameraman Darryl" />
-			<entry key="539" value="Collector Eugene" />
-			<entry key="540" value="Pokefan Meredith" />
-			<entry key="541" value="PI Kendrick" />
-			<entry key="542" value="Gentleman Leonardo" />
-			<entry key="543" value="Socialite Rebecca" />
-			<entry key="544" value="Lass Blythe" />
-			<entry key="545" value="Rich Boy Roman" />
-			<entry key="546" value="Lady Kylie" />
-			<entry key="547" value="Reporter Valerie" />
-			<entry key="548" value="School Kid Esteban" />
-			<entry key="549" value="Scientist Emilio" />
-			<entry key="550" value="Beauty Gabriella" />
-			<entry key="551" value="Beauty Harley" />
-			<entry key="552" value="Veteran Emanuel" />
-			<entry key="553" value="Ruin Maniac Karl" />
-			<entry key="554" value="Bird Keeper Audrey" />
-			<entry key="555" value="Bird Keeper Geneva" />
-			<entry key="556" value="Bird Keeper Krystal" />
-			<entry key="557" value="Dragon Tamer Geoffrey" />
-			<entry key="558" value="Dragon Tamer Darien" />
-			<entry key="559" value="Dragon Tamer Keegan" />
-			<entry key="560" value="Dragon Tamer Stanley" />
-			<entry key="561" value="Dragon Tamer Drake" />
-			<entry key="562" value="Dragon Tamer Kenny" />
-			<entry key="563" value="Ace Trainer Rodolfo" />
-			<entry key="564" value="Ace Trainer Saul" />
-			<entry key="565" value="Ace Trainer Jose" />
-			<entry key="566" value="Ace Trainer Felix" />
-			<entry key="567" value="Ace Trainer Quinn" />
-			<entry key="568" value="Ace Trainer Graham" />
-			<entry key="569" value="Ace Trainer Keenan" />
-			<entry key="570" value="Ace Trainer Stefan" />
-			<entry key="571" value="Ace Trainer Skylar" />
-			<entry key="572" value="Ace Trainer Abel" />
-			<entry key="573" value="Ace Trainer Deanna" />
-			<entry key="574" value="Ace Trainer Moira" />
-			<entry key="575" value="Ace Trainer Dana" />
-			<entry key="576" value="Ace Trainer Mikayla" />
-			<entry key="577" value="Ace Trainer Meagan" />
-			<entry key="578" value="Ace Trainer Sandra" />
-			<entry key="579" value="Ace Trainer Kassandra" />
-			<entry key="580" value="Ace Trainer Jasmin" />
-			<entry key="581" value="Ace Trainer Natasha" />
-			<entry key="582" value="Ace Trainer Monique" />
-			<entry key="583" value="Psychic Corbin" />
-			<entry key="584" value="Psychic Sterling" />
-			<entry key="585" value="Psychic Daisy" />
-			<entry key="586" value="Psychic Chelsey" />
-			<entry key="587" value="Black Belt Davon" />
-			<entry key="588" value="Black Belt Griffin" />
-			<entry key="589" value="Black Belt Ray" />
-			<entry key="590" value="Black Belt Jarrett" />
-			<entry key="591" value="Pokemon Ranger Kyler" />
-			<entry key="592" value="Pokemon Ranger Deshawn" />
-			<entry key="593" value="Pokemon Ranger Dwayne" />
-			<entry key="594" value="Pokemon Ranger Ashlee" />
-			<entry key="595" value="Pokemon Ranger Felicia" />
-			<entry key="596" value="Pokemon Ranger Krista" />
-			<entry key="597" value="Swimmer Glenn" />
-			<entry key="598" value="Swimmer Kurt" />
-			<entry key="599" value="Swimmer Sam" />
-			<entry key="600" value="Swimmer Wade" />
-			<entry key="601" value="Swimmer Joanna" />
-			<entry key="602" value="Swimmer Sophia" />
-			<entry key="603" value="Swimmer Mallory" />
-			<entry key="604" value="Swimmer Lydia" />
-			<entry key="605" value="Veteran Mickey" />
-			<entry key="606" value="Veteran Harlan" />
-			<entry key="607" value="Rival" />
-			<entry key="608" value="Pokemon Trainer Cheryl" />
-			<entry key="609" value="Pokemon Trainer Riley" />
-			<entry key="610" value="Pokemon Trainer Marley" />
-			<entry key="611" value="Pokemon Trainer Buck" />
-			<entry key="612" value="Pokemon Trainer Mira" />
-			<entry key="613" value="Pokemon Trainer Lucas" />
-			<entry key="614" value="Pokemon Trainer Lucas" />
-			<entry key="615" value="Pokemon Trainer Lucas" />
-			<entry key="616" value="Pokemon Trainer Dawn" />
-			<entry key="617" value="Pokemon Trainer Dawn" />
-			<entry key="618" value="Pokemon Trainer Dawn" />
-			<entry key="619" value="Rival" />
-			<entry key="620" value="Rival" />
-			<entry key="621" value="Pokemon Trainer Lucas" />
-			<entry key="622" value="Pokemon Trainer Lucas" />
-			<entry key="623" value="Pokemon Trainer Lucas" />
-			<entry key="624" value="Pokemon Trainer Dawn" />
-			<entry key="625" value="Pokemon Trainer Dawn" />
-			<entry key="626" value="Pokemon Trainer Dawn" />
-			<entry key="627" value="Aroma Lady Elizabeth" />
-			<entry key="628" value="Aroma Lady Elizabeth" />
-			<entry key="629" value="Aroma Lady Elizabeth" />
-			<entry key="630" value="Artist William" />
-			<entry key="631" value="Artist William" />
-			<entry key="632" value="Artist William" />
-			<entry key="633" value="Battle Girl Helen" />
-			<entry key="634" value="Battle Girl Helen" />
-			<entry key="635" value="Battle Girl Helen" />
-			<entry key="636" value="Bird Keeper Brianna" />
-			<entry key="637" value="Bird Keeper Brianna" />
-			<entry key="638" value="Bird Keeper Audrey" />
-			<entry key="639" value="Pokemon Breeder Albert" />
-			<entry key="640" value="Pokemon Breeder Albert" />
-			<entry key="641" value="Pokemon Breeder Albert" />
-			<entry key="642" value="Pokemon Breeder Jennifer" />
-			<entry key="643" value="Pokemon Breeder Jennifer" />
-			<entry key="644" value="Pokemon Breeder Jennifer" />
-			<entry key="645" value="Camper Zackary" />
-			<entry key="646" value="Camper Zackary" />
-			<entry key="647" value="Camper Zackary" />
-			<entry key="648" value="Ace Trainer Dalton" />
-			<entry key="649" value="Ace Trainer Olivia" />
-			<entry key="650" value="Collector Ivan" />
-			<entry key="651" value="Cowgirl Angelica" />
-			<entry key="652" value="Cowgirl Angelica" />
-			<entry key="653" value="Cyclist John" />
-			<entry key="654" value="Cyclist John" />
-			<entry key="655" value="Cyclist John" />
-			<entry key="656" value="Cyclist Kayla" />
-			<entry key="657" value="Cyclist Kayla" />
-			<entry key="658" value="Cyclist Kayla" />
-			<entry key="659" value="Dragon Tamer Patrick" />
-			<entry key="660" value="Dragon Tamer Patrick" />
-			<entry key="661" value="Dragon Tamer Hayden" />
-			<entry key="662" value="Dragon Tamer Geoffrey" />
-			<entry key="663" value="Ace Trainer Jake" />
-			<entry key="664" value="Ace Trainer Dennis" />
-			<entry key="665" value="Ace Trainer Dennis" />
-			<entry key="666" value="Ace Trainer Rodolfo" />
-			<entry key="667" value="Ace Trainer Saul" />
-			<entry key="668" value="Ace Trainer Shannon" />
-			<entry key="669" value="Ace Trainer Maya" />
-			<entry key="670" value="Ace Trainer Maya" />
-			<entry key="671" value="Ace Trainer Deanna" />
-			<entry key="672" value="Ace Trainer Moira" />
-			<entry key="673" value="Psychic Mitchell" />
-			<entry key="674" value="Psychic Mitchell" />
-			<entry key="675" value="Psychic Maxwell" />
-			<entry key="676" value="Psychic Corbin" />
-			<entry key="677" value="Psychic Abigail" />
-			<entry key="678" value="Psychic Abigail" />
-			<entry key="679" value="Psychic Brittney" />
-			<entry key="680" value="Psychic Daisy" />
-			<entry key="681" value="Rancher Marco" />
-			<entry key="682" value="Rancher Marco" />
-			<entry key="683" value="Fisherman Joseph" />
-			<entry key="684" value="Fisherman Joseph" />
-			<entry key="685" value="Fisherman Miguel" />
-			<entry key="686" value="Fisherman Alec" />
-			<entry key="687" value="Twins Teri and Tia" />
-			<entry key="688" value="Twins Teri and Tia" />
-			<entry key="689" value="PI Carlos" />
-			<entry key="690" value="PI Carlos" />
-			<entry key="691" value="Gentleman Jeremy" />
-			<entry key="692" value="Gentleman Jeremy" />
-			<entry key="693" value="Gentleman Jeremy" />
-			<entry key="694" value="Guitarist Tony" />
-			<entry key="695" value="Ruin Maniac Harry" />
-			<entry key="696" value="Ruin Maniac Harry" />
-			<entry key="697" value="Jogger Craig" />
-			<entry key="698" value="Jogger Craig" />
-			<entry key="699" value="Black Belt Philip" />
-			<entry key="700" value="Black Belt Davon" />
-			<entry key="701" value="Socialite Reina" />
-			<entry key="702" value="Socialite Reina" />
-			<entry key="703" value="Lass Samantha" />
-			<entry key="704" value="Lass Samantha" />
-			<entry key="705" value="Lass Samantha" />
-			<entry key="706" value="Lass Madeline" />
-			<entry key="707" value="Lass Madeline" />
-			<entry key="708" value="Lass Madeline" />
-			<entry key="709" value="Hiker Theodore" />
-			<entry key="710" value="Hiker Theodore" />
-			<entry key="711" value="Hiker Theodore" />
-			<entry key="712" value="Bug Catcher Brandon" />
-			<entry key="713" value="Bug Catcher Brandon" />
-			<entry key="714" value="Bug Catcher Brandon" />
-			<entry key="715" value="Parasol Lady Alexa" />
-			<entry key="716" value="Parasol Lady Alexa" />
-			<entry key="717" value="Parasol Lady Alexa" />
-			<entry key="718" value="Picnicker Karina" />
-			<entry key="719" value="Picnicker Karina" />
-			<entry key="720" value="Picnicker Karina" />
-			<entry key="721" value="Poke Kid Danielle" />
-			<entry key="722" value="Poke Kid Danielle" />
-			<entry key="723" value="Poke Kid Danielle" />
-			<entry key="724" value="Policeman Danny" />
-			<entry key="725" value="Policeman Danny" />
-			<entry key="726" value="Policeman Danny" />
-			<entry key="727" value="Rich Boy Trey" />
-			<entry key="728" value="Rich Boy Trey" />
-			<entry key="729" value="Lady Melissa" />
-			<entry key="730" value="Lady Melissa" />
-			<entry key="731" value="Lady Melissa" />
-			<entry key="732" value="Pokemon Ranger Taylor" />
-			<entry key="733" value="Pokemon Ranger Taylor" />
-			<entry key="734" value="Pokemon Ranger Taylor" />
-			<entry key="735" value="Pokemon Ranger Kyler" />
-			<entry key="736" value="Pokemon Ranger Allison" />
-			<entry key="737" value="Pokemon Ranger Allison" />
-			<entry key="738" value="Pokemon Ranger Allison" />
-			<entry key="739" value="Pokemon Ranger Ashlee" />
-			<entry key="740" value="Sailor Marc" />
-			<entry key="741" value="Sailor Marc" />
-			<entry key="742" value="Sailor Zachariah" />
-			<entry key="743" value="Scientist Shaun" />
-			<entry key="744" value="Scientist Shaun" />
-			<entry key="745" value="Scientist Shaun" />
-			<entry key="746" value="Ninja Boy Zach" />
-			<entry key="747" value="Ninja Boy Zach" />
-			<entry key="748" value="Ninja Boy Zach" />
-			<entry key="749" value="Beauty Cyndy" />
-			<entry key="750" value="Beauty Cyndy" />
-			<entry key="751" value="Skier Edward" />
-			<entry key="752" value="Skier Edward" />
-			<entry key="753" value="Skier Bjorn" />
-			<entry key="754" value="Skier Bjorn" />
-			<entry key="755" value="Skier Andrea" />
-			<entry key="756" value="Skier Andrea" />
-			<entry key="757" value="Skier Madison" />
-			<entry key="758" value="Skier Madison" />
-			<entry key="759" value="Swimmer Wesley" />
-			<entry key="760" value="Swimmer Francisco" />
-			<entry key="761" value="Swimmer Glenn" />
-			<entry key="762" value="Swimmer Miranda" />
-			<entry key="763" value="Swimmer Crystal" />
-			<entry key="764" value="Swimmer Joanna" />
-			<entry key="765" value="Youngster Tristan" />
-			<entry key="766" value="Youngster Tristan" />
-			<entry key="767" value="Youngster Tristan" />
-			<entry key="768" value="Youngster Dallas" />
-			<entry key="769" value="Youngster Dallas" />
-			<entry key="770" value="Youngster Dallas" />
-			<entry key="771" value="Tuber Jared" />
-			<entry key="772" value="Tuber Jared" />
-			<entry key="773" value="Tuber Chelsea" />
-			<entry key="774" value="Veteran Brian" />
-			<entry key="775" value="Tuber Chelsea" />
-			<entry key="776" value="Veteran Brian" />
-			<entry key="777" value="Veteran Armando" />
-			<entry key="778" value="Veteran Mickey" />
-			<entry key="779" value="Cameraman Mickey" />
-			<entry key="780" value="Cameraman Mickey" />
-			<entry key="781" value="Cameraman Mickey" />
-			<entry key="782" value="Cameraman Mickey" />
-			<entry key="783" value="Cameraman Mickey" />
-			<entry key="784" value="Guitarist Mickey" />
-			<entry key="785" value="Guitarist Arturo" />
-			<entry key="786" value="Guitarist Arturo" />
-			<entry key="787" value="Guitarist Mickey" />
-			<entry key="788" value="Guitarist Mickey" />
-			<entry key="789" value="Guitarist Mickey" />
-			<entry key="790" value="Idol Angelica" />
-			<entry key="791" value="Idol Angelica" />
-			<entry key="792" value="Idol Angelica" />
-			<entry key="793" value="Idol Angelica" />
-			<entry key="794" value="Idol Angelica" />
-			<entry key="795" value="Interviewers Tara and Tim" />
-			<entry key="796" value="Interviewers Tara and Tim" />
-			<entry key="797" value="Interviewers Tara and Tim" />
-			<entry key="798" value="Interviewers Tara and Tim" />
-			<entry key="799" value="Clown Mickey" />
-			<entry key="800" value="Clown Mickey" />
-			<entry key="801" value="Clown Mickey" />
-			<entry key="802" value="Clown Mickey" />
-			<entry key="803" value="Clown Mickey" />
-			<entry key="804" value="Poke Kid Angelica" />
-			<entry key="805" value="Poke Kid Angelica" />
-			<entry key="806" value="Poke Kid Angelica" />
-			<entry key="807" value="Poke Kid Angelica" />
-			<entry key="808" value="Policeman Mickey" />
-			<entry key="809" value="Reporter Angelica" />
-			<entry key="810" value="Reporter Angelica" />
-			<entry key="811" value="Reporter Angelica" />
-			<entry key="812" value="Reporter Angelica" />
-			<entry key="813" value="Scientist Mickey" />
-			<entry key="814" value="Swimmer Mickey" />
-			<entry key="815" value="Waiter Mickey" />
-			<entry key="816" value="Worker Mickey" />
-			<entry key="817" value="Youngster Roland" />
-			<entry key="818" value="Lass Carrie" />
-			<entry key="819" value="Youngster Norman" />
-			<entry key="820" value="Youngster Roland" />
-			<entry key="821" value="Lass Carrie" />
-			<entry key="822" value="Youngster Norman" />
-			<entry key="823" value="Youngster Roland" />
-			<entry key="824" value="Lass Carrie" />
-			<entry key="825" value="Youngster Norman" />
-			<entry key="826" value="Tower Tycoon Palmer" />
-			<entry key="827" value="Ace Trainer Anton" />
-			<entry key="828" value="Ace Trainer Brenna" />
-			<entry key="829" value="Scientist Darrius" />
-			<entry key="830" value="Scientist Fredrick" />
-			<entry key="831" value="Scientist Travon" />
-			<entry key="832" value="Poke Kid Janet" />
-			<entry key="833" value="Galactic Grunt" />
-			<entry key="834" value="Galactic Grunt" />
-			<entry key="835" value="Galactic Grunt" />
-			<entry key="836" value="Galactic Grunt" />
-			<entry key="837" value="Rival" />
-			<entry key="838" value="Rival" />
-			<entry key="839" value="Rival" />
-			<entry key="840" value="Rival" />
-			<entry key="841" value="Rival" />
-			<entry key="842" value="Rival" />
-			<entry key="843" value="Galactic Grunt" />
-			<entry key="844" value="Worker Dillan" />
-			<entry key="845" value="Worker Holden" />
-			<entry key="846" value="Worker Conrad" />
-			<entry key="847" value="Galactic Grunt" />
-			<entry key="848" value="Galactic Grunt" />
-			<entry key="849" value="Galactic Grunt" />
-			<entry key="850" value="Rival" />
-			<entry key="851" value="Rival" />
-			<entry key="852" value="Rival" />
-			<entry key="853" value="Leader Candice" />
-			<entry key="854" value="Leader Maylene" />
-			<entry key="855" value="Leader Volkner" />
-			<entry key="856" value="Leader Byron" />
-			<entry key="857" value="Leader Gardenia" />
-			<entry key="858" value="Leader Roark" />
-			<entry key="859" value="Leader Wake" />
-			<entry key="860" value="Leader Fantina" />
-			<entry key="861" value="Pokemon Trainer Riley" />
-			<entry key="862" value="Pokemon Trainer Buck" />
-			<entry key="863" value="Pokemon Trainer Marley" />
-			<entry key="864" value="Pokemon Trainer Mira" />
-			<entry key="865" value="Pokemon Trainer Cheryl" />
-			<entry key="866" value="Elite Four Aaron" />
-			<entry key="867" value="Elite Four Bertha" />
-			<entry key="868" value="Elite Four Flint" />
-			<entry key="869" value="Elite Four Lucian" />
-			<entry key="870" value="Champion Cynthia" />
-			<entry key="871" value="Rival" />
-			<entry key="872" value="Rival" />
-			<entry key="873" value="Rival" />
-			<entry key="874" value="Cameraman Tevin" />
-			<entry key="875" value="Cameraman Tevin" />
-			<entry key="876" value="Cameraman Tevin" />
-			<entry key="877" value="Guitarist Arturo" />
-			<entry key="878" value="Guitarist Arturo" />
-			<entry key="879" value="Guitarist Arturo" />
-			<entry key="880" value="Idol Grace" />
-			<entry key="881" value="Idol Grace" />
-			<entry key="882" value="Idol Grace" />
-			<entry key="883" value="Interviewers Roxy and Oli" />
-			<entry key="884" value="Interviewers Roxy and Oli" />
-			<entry key="885" value="Interviewers Roxy and Oli" />
-			<entry key="886" value="Clown Lee" />
-			<entry key="887" value="Clown Lee" />
-			<entry key="888" value="Clown Lee" />
-			<entry key="889" value="Poke Kid Ariel" />
-			<entry key="890" value="Poke Kid Ariel" />
-			<entry key="891" value="Poke Kid Ariel" />
-			<entry key="892" value="Rich Boy Liam" />
-			<entry key="893" value="Lady Celeste" />
-			<entry key="894" value="Reporter Kinsey" />
-			<entry key="895" value="Reporter Kinsey" />
-			<entry key="896" value="Reporter Kinsey" />
-			<entry key="897" value="Maid Belinda" />
-			<entry key="898" value="Maid Sophie" />
-			<entry key="899" value="Maid Emily" />
-			<entry key="900" value="Maid Elena" />
-			<entry key="901" value="Maid Clare" />
-			<entry key="902" value="Hall Matron Argenta" />
-			<entry key="903" value="Factory Head Thorton" />
-			<entry key="904" value="Arcade Star Dahlia" />
-			<entry key="905" value="Castle Valet Darach" />
-			<entry key="906" value="Cameraman Tevin" />
-			<entry key="907" value="Guitarist Arturo" />
-			<entry key="908" value="Idol Grace" />
-			<entry key="909" value="Interviewers Roxy and Oli" />
-			<entry key="910" value="Clown Lee" />
-			<entry key="911" value="Poke Kid Ariel" />
-			<entry key="912" value="Reporter Kinsey" />
-			<entry key="913" value="Galactic Boss Cyrus" />
-			<entry key="914" value="Cameraman Tevin" />
-			<entry key="915" value="Guitarist Arturo" />
-			<entry key="916" value="Idol Grace" />
-			<entry key="917" value="Interviewers Roxy and Oli" />
-			<entry key="918" value="Clown Lee" />
-			<entry key="919" value="Poke Kid Ariel" />
-			<entry key="920" value="Reporter Kinsey" />
-			<entry key="921" value="Leader Volkner" />
-			<entry key="922" value="Elite Four Flint" />
-			<entry key="923" value="Rival" />
-			<entry key="924" value="Rival" />
-			<entry key="925" value="Rival" />
-			<entry key="926" value="Commander Mars" />
-			<entry key="927" value="Commander Jupiter" />
+			<entry key="0" value="Pokemon Trainer  -" />
+			<entry key="1" value="Rival Silver" />
+			<entry key="2" value="Rival Silver" />
+			<entry key="3" value="Rival Silver" />
+			<entry key="4" value="Bug Catcher Wade" />
+			<entry key="5" value="Beauty Victoria" />
+			<entry key="6" value="Policeman Keith" />
+			<entry key="7" value="Juggler Irwin" />
+			<entry key="8" value="Youngster Joey" />
+			<entry key="9" value="SwimmerF Elaine" />
+			<entry key="10" value="Twins Amy & Mimi" />
+			<entry key="11" value="Kimono Girl Mickey" />
+			<entry key="12" value="Team Rocket Grunt" />
+			<entry key="13" value="Team Rocket Grunt" />
+			<entry key="14" value="Burglar Duncan" />
+			<entry key="15" value="Firebreather Otis" />
+			<entry key="16" value="SwimmerM Simon" />
+			<entry key="17" value="Black Belt Kenji" />
+			<entry key="18" value="Fisherman Justin" />
+			<entry key="19" value="Biker Mickey" />
+			<entry key="20" value="Leader Falkner" />
+			<entry key="21" value="Leader Bugsy" />
+			<entry key="22" value="Lass Carrie" />
+			<entry key="23" value="Poke Maniac Larry" />
+			<entry key="24" value="School Kid Alan" />
+			<entry key="25" value="Hiker Russel" />
+			<entry key="26" value="Camper Roland" />
+			<entry key="27" value="Picnicker Liz" />
+			<entry key="28" value="Ace Trainer Jake" />
+			<entry key="29" value="Bird Keeper Rod" />
+			<entry key="30" value="Leader Whitney" />
+			<entry key="31" value="Leader Morty" />
+			<entry key="32" value="Leader Pryce" />
+			<entry key="33" value="Leader Jasmine" />
+			<entry key="34" value="Leader Chuck" />
+			<entry key="35" value="Leader Clair" />
+			<entry key="36" value="Ace Trainer Joyce" />
+			<entry key="37" value="Gentleman Preston" />
+			<entry key="38" value="Teacher Colette" />
+			<entry key="39" value="Sailor Eugene" />
+			<entry key="40" value="Super Nerd Mickey" />
+			<entry key="41" value="Guitarist Clyde" />
+			<entry key="42" value="Psychic Nathan" />
+			<entry key="43" value="Sage Chow" />
+			<entry key="44" value="Pokefan Derek" />
+			<entry key="45" value="Pokefan Ruth" />
+			<entry key="46" value="Medium Martha" />
+			<entry key="47" value="Youngster Mikey" />
+			<entry key="48" value="Bug Catcher Rob" />
+			<entry key="49" value="Youngster Albert" />
+			<entry key="50" value="Bird Keeper Abe" />
+			<entry key="51" value="Sage Nico" />
+			<entry key="52" value="Sage Edmond" />
+			<entry key="53" value="Sage Jin" />
+			<entry key="54" value="Sage Troy" />
+			<entry key="55" value="Sage Neal" />
+			<entry key="56" value="Youngster Gordon" />
+			<entry key="57" value="Fisherman Ralph" />
+			<entry key="58" value="Fisherman Arnold" />
+			<entry key="59" value="Fisherman Kyle" />
+			<entry key="60" value="Fisherman Henry" />
+			<entry key="61" value="Hiker Anthony" />
+			<entry key="62" value="Youngster Samuel" />
+			<entry key="63" value="Team Rocket Mickey" />
+			<entry key="64" value="Youngster Ian" />
+			<entry key="65" value="Picnicker Gina" />
+			<entry key="66" value="Camper Todd" />
+			<entry key="67" value="Bug Catcher Benny" />
+			<entry key="68" value="Bug Catcher Al" />
+			<entry key="69" value="Bug Catcher Josh" />
+			<entry key="70" value="Beauty Samantha" />
+			<entry key="71" value="Lass Cathy" />
+			<entry key="72" value="Bird Keeper Bryan" />
+			<entry key="73" value="Bird Keeper Theo" />
+			<entry key="74" value="Camper Ivan" />
+			<entry key="75" value="Camper Elliot" />
+			<entry key="76" value="Picnicker Brooke" />
+			<entry key="77" value="Picnicker Kim" />
+			<entry key="78" value="Bug Catcher Arnie" />
+			<entry key="79" value="Bug Catcher Ken" />
+			<entry key="80" value="Policeman Dirk" />
+			<entry key="81" value="Twins Tori & Til" />
+			<entry key="82" value="Bird Keeper Toby" />
+			<entry key="83" value="Picnicker Cindy" />
+			<entry key="84" value="Camper Barry" />
+			<entry key="85" value="SwimmerF Paula" />
+			<entry key="86" value="SwimmerM Randall" />
+			<entry key="87" value="Sage Mickey" />
+			<entry key="88" value="Sage Mickey" />
+			<entry key="89" value="Medium Grace" />
+			<entry key="90" value="SwimmerF Kaylee" />
+			<entry key="91" value="SwimmerF Susie" />
+			<entry key="92" value="SwimmerF Denise" />
+			<entry key="93" value="SwimmerF Kara" />
+			<entry key="94" value="SwimmerF Wendy" />
+			<entry key="95" value="SwimmerM Charlie" />
+			<entry key="96" value="SwimmerM George" />
+			<entry key="97" value="SwimmerM Berke" />
+			<entry key="98" value="SwimmerM Ronald" />
+			<entry key="99" value="SwimmerM Matthew" />
+			<entry key="100" value="Hiker Anthony" />
+			<entry key="101" value="Team Rocket Grunt" />
+			<entry key="102" value="Ace Trainer Gaven" />
+			<entry key="103" value="Ace Trainer Blake" />
+			<entry key="104" value="Ace Trainer Brian" />
+			<entry key="105" value="Ace Trainer Mickey" />
+			<entry key="106" value="Ace Trainer Mickey" />
+			<entry key="107" value="Ace Trainer Mickey" />
+			<entry key="108" value="Ace Trainer Ryan" />
+			<entry key="109" value="Ace Trainer Alton" />
+			<entry key="110" value="Ace Trainer Paulo" />
+			<entry key="111" value="Ace Trainer Mike" />
+			<entry key="112" value="Ace Trainer Cody" />
+			<entry key="113" value="Ace Trainer Jamie" />
+			<entry key="114" value="Ace Trainer Reena" />
+			<entry key="115" value="Ace Trainer Megan" />
+			<entry key="116" value="Ace Trainer Lois" />
+			<entry key="117" value="Ace Trainer Lola" />
+			<entry key="118" value="Ace Trainer Kate" />
+			<entry key="119" value="Ace Trainer Fran" />
+			<entry key="120" value="Ace Trainer Irene" />
+			<entry key="121" value="Ace Trainer Kelly" />
+			<entry key="122" value="Fisherman Marvin" />
+			<entry key="123" value="Fisherman Tully" />
+			<entry key="124" value="Fisherman Wilton" />
+			<entry key="125" value="Fisherman Edgar" />
+			<entry key="126" value="Fisherman Andre" />
+			<entry key="127" value="Fisherman Raymond" />
+			<entry key="128" value="Fisherman Jonah" />
+			<entry key="129" value="Poke Maniac Shane" />
+			<entry key="130" value="Poke Maniac Beckett" />
+			<entry key="131" value="Poke Maniac Brent" />
+			<entry key="132" value="Poke Maniac Ron" />
+			<entry key="133" value="Poke Maniac Morgan" />
+			<entry key="134" value="Hiker Benjamin" />
+			<entry key="135" value="School Kid Johnny" />
+			<entry key="136" value="Lass Linda" />
+			<entry key="137" value="Bird Keeper Vance" />
+			<entry key="138" value="Camper Mickey" />
+			<entry key="139" value="Picnicker Debra" />
+			<entry key="140" value="Bug Catcher Doug" />
+			<entry key="141" value="Camper Mickey" />
+			<entry key="142" value="Picnicker Gina" />
+			<entry key="143" value="Hiker Erik" />
+			<entry key="144" value="Hiker Michael" />
+			<entry key="145" value="Hiker Parry" />
+			<entry key="146" value="Hiker Timothy" />
+			<entry key="147" value="Camper Ted" />
+			<entry key="148" value="Camper Lloyd" />
+			<entry key="149" value="Camper Dean" />
+			<entry key="150" value="Camper Sid" />
+			<entry key="151" value="Picnicker Erin" />
+			<entry key="152" value="Picnicker Hope" />
+			<entry key="153" value="Picnicker Sharon" />
+			<entry key="154" value="Hiker Bailey" />
+			<entry key="155" value="Hiker Anthony" />
+			<entry key="156" value="Black Belt Yoshi" />
+			<entry key="157" value="Black Belt Lao" />
+			<entry key="158" value="Black Belt Kiyo" />
+			<entry key="159" value="Black Belt Lung" />
+			<entry key="160" value="Kimono Girl Naoko" />
+			<entry key="161" value="Kimono Girl Sayo" />
+			<entry key="162" value="Kimono Girl Zuki" />
+			<entry key="163" value="Kimono Girl Kuni" />
+			<entry key="164" value="Kimono Girl Miki" />
+			<entry key="165" value="SwimmerF Mickey" />
+			<entry key="166" value="SwimmerF Mickey" />
+			<entry key="167" value="SwimmerF Mickey" />
+			<entry key="168" value="SwimmerM Mickey" />
+			<entry key="169" value="SwimmerM Mickey" />
+			<entry key="170" value="SwimmerM Mickey" />
+			<entry key="171" value="SwimmerM Mickey" />
+			<entry key="172" value="Poke Maniac Brent" />
+			<entry key="173" value="Poke Maniac Brent" />
+			<entry key="174" value="Biker Mickey" />
+			<entry key="175" value="Medium Bethany" />
+			<entry key="176" value="Medium Margaret" />
+			<entry key="177" value="Medium Ethel" />
+			<entry key="178" value="School Kid Jack" />
+			<entry key="179" value="School Kid Kipp" />
+			<entry key="180" value="Beauty Mickey" />
+			<entry key="181" value="Pokefan William" />
+			<entry key="182" value="Pokefan Beverly" />
+			<entry key="183" value="Lass Alice" />
+			<entry key="184" value="Lass Krise" />
+			<entry key="185" value="Team Rocket Grunt" />
+			<entry key="186" value="Team Rocket Grunt" />
+			<entry key="187" value="Team Rocket Grunt" />
+			<entry key="188" value="Team Rocket Grunt" />
+			<entry key="189" value="Team Rocket Grunt" />
+			<entry key="190" value="Team Rocket Grunt" />
+			<entry key="191" value="Team Rocket Grunt" />
+			<entry key="192" value="Team Rocket Grunt" />
+			<entry key="193" value="Team Rocket Grunt" />
+			<entry key="194" value="Team Rocket Mickey" />
+			<entry key="195" value="Team Rocket Grunt" />
+			<entry key="196" value="Team Rocket Grunt" />
+			<entry key="197" value="Team Rocket Grunt" />
+			<entry key="198" value="Team Rocket Grunt" />
+			<entry key="199" value="Team Rocket Grunt" />
+			<entry key="200" value="Team Rocket Grunt" />
+			<entry key="201" value="Poke Maniac Andrew" />
+			<entry key="202" value="Poke Maniac Calvin" />
+			<entry key="203" value="Hiker Phillip" />
+			<entry key="204" value="Hiker Leonard" />
+			<entry key="205" value="Ace Trainer Nick" />
+			<entry key="206" value="Ace Trainer Gwen" />
+			<entry key="207" value="Beauty Mickey" />
+			<entry key="208" value="Beauty Mickey" />
+			<entry key="209" value="Beauty Cassie" />
+			<entry key="210" value="Beauty Caroline" />
+			<entry key="211" value="Sailor Huey" />
+			<entry key="212" value="Sailor Terrell" />
+			<entry key="213" value="Sailor Kent" />
+			<entry key="214" value="Sailor Roberto" />
+			<entry key="215" value="Lass Connie" />
+			<entry key="216" value="Team Rocket Grunt" />
+			<entry key="217" value="Bird Keeper Denis" />
+			<entry key="218" value="Team Rocket Grunt" />
+			<entry key="219" value="Team Rocket Grunt" />
+			<entry key="220" value="Team Rocket Grunt" />
+			<entry key="221" value="Team Rocket Mickey" />
+			<entry key="222" value="Team Rocket Grunt" />
+			<entry key="223" value="Team Rocket Grunt" />
+			<entry key="224" value="Team Rocket Grunt" />
+			<entry key="225" value="Team Rocket Mickey" />
+			<entry key="226" value="Team Rocket Mickey" />
+			<entry key="227" value="Team Rocket Grunt" />
+			<entry key="228" value="Team Rocket Grunt" />
+			<entry key="229" value="Team Rocket Mickey" />
+			<entry key="230" value="Psychic Franklin" />
+			<entry key="231" value="Gentleman Edward" />
+			<entry key="232" value="Guitarist Vincent" />
+			<entry key="233" value="Super Nerd Eric" />
+			<entry key="234" value="Hiker Eoin" />
+			<entry key="235" value="Hiker Noland" />
+			<entry key="236" value="Ace Trainer Shaye" />
+			<entry key="237" value="Ace Trainer Carol" />
+			<entry key="238" value="Sailor Stanly" />
+			<entry key="239" value="Sailor Jeff" />
+			<entry key="240" value="Sailor Garrett" />
+			<entry key="241" value="Sailor Kenneth" />
+			<entry key="242" value="Juggler Fritz" />
+			<entry key="243" value="SwimmerF Katie" />
+			<entry key="244" value="Champion Lance" />
+			<entry key="245" value="Elite Four Will" />
+			<entry key="246" value="Elite Four Karen" />
+			<entry key="247" value="Elite Four Koga" />
+			<entry key="248" value="Bug Catcher Ed" />
+			<entry key="249" value="Bug Catcher Don" />
+			<entry key="250" value="Black Belt Kenji" />
+			<entry key="251" value="Black Belt Nob" />
+			<entry key="252" value="SwimmerM Harold" />
+			<entry key="253" value="Leader Brock" />
+			<entry key="254" value="Leader Misty" />
+			<entry key="255" value="Leader Lt. Surge" />
+			<entry key="256" value="Leader Erika" />
+			<entry key="257" value="Leader Janine" />
+			<entry key="258" value="Leader Sabrina" />
+			<entry key="259" value="Leader Blaine" />
+			<entry key="260" value="Pokemon Trainer Red" />
+			<entry key="261" value="Leader Blue" />
+			<entry key="262" value="Team Rocket Mickey" />
+			<entry key="263" value="Rival Silver" />
+			<entry key="264" value="Rival Silver" />
+			<entry key="265" value="Rival Silver" />
+			<entry key="266" value="Rival Silver" />
+			<entry key="267" value="Rival Silver" />
+			<entry key="268" value="Rival Silver" />
+			<entry key="269" value="Rival Silver" />
+			<entry key="270" value="Rival Silver" />
+			<entry key="271" value="Rival Silver" />
+			<entry key="272" value="Rival Silver" />
+			<entry key="273" value="SwimmerM Mickey" />
+			<entry key="274" value="Camper Todd" />
+			<entry key="275" value="Camper Todd" />
+			<entry key="276" value="Picnicker Liz" />
+			<entry key="277" value="Picnicker Liz" />
+			<entry key="278" value="Black Belt Kenji" />
+			<entry key="279" value="Youngster Joey" />
+			<entry key="280" value="Youngster Joey" />
+			<entry key="281" value="Firebreather Richard" />
+			<entry key="282" value="Firebreather Ned" />
+			<entry key="283" value="Burglar Orson" />
+			<entry key="284" value="Burglar Corey" />
+			<entry key="285" value="Rival Silver" />
+			<entry key="286" value="Rival Silver" />
+			<entry key="287" value="Rival Silver" />
+			<entry key="288" value="Rival Silver" />
+			<entry key="289" value="Rival Silver" />
+			<entry key="290" value="Elder Li" />
+			<entry key="291" value="SwimmerF Debbie" />
+			<entry key="292" value="SwimmerF Mickey" />
+			<entry key="293" value="SwimmerF Nicole" />
+			<entry key="294" value="SwimmerF Lori" />
+			<entry key="295" value="SwimmerF Mickey" />
+			<entry key="296" value="SwimmerF Nikki" />
+			<entry key="297" value="SwimmerF Diana" />
+			<entry key="298" value="SwimmerF Briana" />
+			<entry key="299" value="Bird Keeper Hank" />
+			<entry key="300" value="Bird Keeper Roy" />
+			<entry key="301" value="Bird Keeper Boris" />
+			<entry key="302" value="Bird Keeper Bob" />
+			<entry key="303" value="Bird Keeper Jose" />
+			<entry key="304" value="Camper Mickey" />
+			<entry key="305" value="Camper Mickey" />
+			<entry key="306" value="Camper Mickey" />
+			<entry key="307" value="Camper Mickey" />
+			<entry key="308" value="Camper Jerry" />
+			<entry key="309" value="Biker Dwayne" />
+			<entry key="310" value="Biker Harris" />
+			<entry key="311" value="Biker Zeke" />
+			<entry key="312" value="Biker Charles" />
+			<entry key="313" value="Biker Reese" />
+			<entry key="314" value="Biker Joel" />
+			<entry key="315" value="Biker Glenn" />
+			<entry key="316" value="Psychic Herman" />
+			<entry key="317" value="Psychic Fidel" />
+			<entry key="318" value="Firebreather Burt" />
+			<entry key="319" value="Firebreather Bill" />
+			<entry key="320" value="Fisherman Martin" />
+			<entry key="321" value="Fisherman Stephen" />
+			<entry key="322" value="Fisherman Barney" />
+			<entry key="323" value="Fisherman Tully" />
+			<entry key="324" value="Fisherman Tully" />
+			<entry key="325" value="Fisherman Wilton" />
+			<entry key="326" value="Twins Jo & Zoe" />
+			<entry key="327" value="School Kid Danny" />
+			<entry key="328" value="School Kid Tommy" />
+			<entry key="329" value="School Kid Dudley" />
+			<entry key="330" value="School Kid Joe" />
+			<entry key="331" value="School Kid Billy" />
+			<entry key="332" value="Picnicker Heidi" />
+			<entry key="333" value="Picnicker Edna" />
+			<entry key="334" value="Picnicker Gina" />
+			<entry key="335" value="Picnicker Erin" />
+			<entry key="336" value="Picnicker Tanya" />
+			<entry key="337" value="Gentleman Gregory" />
+			<entry key="338" value="Gentleman Mickey" />
+			<entry key="339" value="Black Belt Wai" />
+			<entry key="340" value="Beauty Mickey" />
+			<entry key="341" value="Beauty Mickey" />
+			<entry key="342" value="Beauty Mickey" />
+			<entry key="343" value="Beauty Mickey" />
+			<entry key="344" value="Beauty Mickey" />
+			<entry key="345" value="Beauty Mickey" />
+			<entry key="346" value="Beauty Julia" />
+			<entry key="347" value="Beauty Mickey" />
+			<entry key="348" value="Pokefan Robert" />
+			<entry key="349" value="Pokefan Joshua" />
+			<entry key="350" value="Pokefan Carter" />
+			<entry key="351" value="Pokefan Trevor" />
+			<entry key="352" value="Pokefan Georgia" />
+			<entry key="353" value="Team Rocket Grunt" />
+			<entry key="354" value="Lass Laura" />
+			<entry key="355" value="Lass Shannon" />
+			<entry key="356" value="Lass Michelle" />
+			<entry key="357" value="Hiker Clarke" />
+			<entry key="358" value="Hiker Kenny" />
+			<entry key="359" value="Hiker Jim" />
+			<entry key="360" value="Bug Catcher Arnie" />
+			<entry key="361" value="Ace Trainer Kevin" />
+			<entry key="362" value="Ace Trainer Quinn" />
+			<entry key="363" value="Ace Trainer Emma" />
+			<entry key="364" value="Super Nerd Sam" />
+			<entry key="365" value="Super Nerd Tyrone" />
+			<entry key="366" value="Super Nerd Pat" />
+			<entry key="367" value="Super Nerd Shawn" />
+			<entry key="368" value="Medium Rebecca" />
+			<entry key="369" value="Medium Darcy" />
+			<entry key="370" value="SwimmerM Jerome" />
+			<entry key="371" value="SwimmerM Tucker" />
+			<entry key="372" value="SwimmerM Mickey" />
+			<entry key="373" value="SwimmerM Frankie" />
+			<entry key="374" value="SwimmerM Tyson" />
+			<entry key="375" value="SwimmerM Mickey" />
+			<entry key="376" value="SwimmerM Mickey" />
+			<entry key="377" value="SwimmerM Parker" />
+			<entry key="378" value="Youngster Warren" />
+			<entry key="379" value="Youngster Jimmy" />
+			<entry key="380" value="Youngster Owen" />
+			<entry key="381" value="Youngster Jason" />
+			<entry key="382" value="Teacher Hillary" />
+			<entry key="383" value="Bird Keeper Peter" />
+			<entry key="384" value="Hiker Daniel" />
+			<entry key="385" value="Twins Dara & Dia" />
+			<entry key="386" value="Psychic Greg" />
+			<entry key="387" value="Twins Amy & Mimi" />
+			<entry key="388" value="Firebreather Walt" />
+			<entry key="389" value="Psychic Nelson" />
+			<entry key="390" value="Firebreather Ray" />
+			<entry key="391" value="Poke Maniac Issac" />
+			<entry key="392" value="Poke Maniac Donald" />
+			<entry key="393" value="Super Nerd Teru" />
+			<entry key="394" value="Ace Trainer Mickey" />
+			<entry key="395" value="Psychic Mark" />
+			<entry key="396" value="Juggler Horton" />
+			<entry key="397" value="School Kid Chad" />
+			<entry key="398" value="Beauty Valerie" />
+			<entry key="399" value="Firebreather Lyle" />
+			<entry key="400" value="Lass Dana" />
+			<entry key="401" value="Gentleman Alfred" />
+			<entry key="402" value="Picnicker Tiffany" />
+			<entry key="403" value="Camper Spencer" />
+			<entry key="404" value="Team Rocket Grunt" />
+			<entry key="405" value="Psychic Phil" />
+			<entry key="406" value="Poke Maniac Zach" />
+			<entry key="407" value="Ace Trainer Allen" />
+			<entry key="408" value="Ace Trainer Cybil" />
+			<entry key="409" value="Pokefan Brandon" />
+			<entry key="410" value="Sailor Harry" />
+			<entry key="411" value="Psychic Vernon" />
+			<entry key="412" value="Psychic Eli" />
+			<entry key="413" value="Fisherman Scott" />
+			<entry key="414" value="Bird Keeper Jose" />
+			<entry key="415" value="Psychic Jared" />
+			<entry key="416" value="Twins Jo & Zoe" />
+			<entry key="417" value="Ace Trainer Jenn" />
+			<entry key="418" value="Elite Four Bruno" />
+			<entry key="419" value="Lass Ellen" />
+			<entry key="420" value="Bird Keeper Perry" />
+			<entry key="421" value="Bird Keeper Bret" />
+			<entry key="422" value="Psychic Rodney" />
+			<entry key="423" value="Pokefan Jeremy" />
+			<entry key="424" value="Pokefan Colin" />
+			<entry key="425" value="Twins Meg & Peg" />
+			<entry key="426" value="Twins Meg & Peg" />
+			<entry key="427" value="Teacher Shirley" />
+			<entry key="428" value="School Kid Nate" />
+			<entry key="429" value="School Kid Ricky" />
+			<entry key="430" value="School Kid Jack" />
+			<entry key="431" value="School Kid Jack" />
+			<entry key="432" value="School Kid Alan" />
+			<entry key="433" value="School Kid Alan" />
+			<entry key="434" value="School Kid Chad" />
+			<entry key="435" value="School Kid Chad" />
+			<entry key="436" value="Pokefan Beverly" />
+			<entry key="437" value="Pokefan Beverly" />
+			<entry key="438" value="Pokefan Derek" />
+			<entry key="439" value="Pokefan Derek" />
+			<entry key="440" value="Sailor Huey" />
+			<entry key="441" value="Sailor Huey" />
+			<entry key="442" value="Lass Mickey" />
+			<entry key="443" value="Lass Mickey" />
+			<entry key="444" value="Ace Trainer Reena" />
+			<entry key="445" value="Ace Trainer Reena" />
+			<entry key="446" value="Bird Keeper Jose" />
+			<entry key="447" value="Bird Keeper Vance" />
+			<entry key="448" value="Bird Keeper Vance" />
+			<entry key="449" value="Bug Catcher Arnie" />
+			<entry key="450" value="Fisherman Wilton" />
+			<entry key="451" value="Hiker Parry" />
+			<entry key="452" value="Hiker Parry" />
+			<entry key="453" value="Picnicker Erin" />
+			<entry key="454" value="Juggler Irwin" />
+			<entry key="455" value="Juggler Irwin" />
+			<entry key="456" value="Ace Trainer Gaven" />
+			<entry key="457" value="Ace Trainer Gaven" />
+			<entry key="458" value="Ace Trainer Jamie" />
+			<entry key="459" value="Ace Trainer Jamie" />
+			<entry key="460" value="Bug Catcher Wade" />
+			<entry key="461" value="Bug Catcher Wade" />
+			<entry key="462" value="Fisherman Ralph" />
+			<entry key="463" value="Fisherman Ralph" />
+			<entry key="464" value="Lass Dana" />
+			<entry key="465" value="Lass Dana" />
+			<entry key="466" value="Picnicker Tiffany" />
+			<entry key="467" value="Picnicker Tiffany" />
+			<entry key="468" value="Scientist Ross" />
+			<entry key="469" value="Scientist Mitch" />
+			<entry key="470" value="Scientist Gregg" />
+			<entry key="471" value="Scientist Garett" />
+			<entry key="472" value="Scientist Trenton" />
+			<entry key="473" value="Super Nerd Mickey" />
+			<entry key="474" value="Super Nerd Mickey" />
+			<entry key="475" value="Super Nerd Mickey" />
+			<entry key="476" value="Super Nerd Mickey" />
+			<entry key="477" value="Super Nerd Mickey" />
+			<entry key="478" value="Executive Ariana" />
+			<entry key="479" value="Executive Ariana" />
+			<entry key="480" value="Skier Diana" />
+			<entry key="481" value="Skier Jill" />
+			<entry key="482" value="Boarder Deandre" />
+			<entry key="483" value="Boarder Patton" />
+			<entry key="484" value="Boarder Gerardo" />
+			<entry key="485" value="Executive Archer" />
+			<entry key="486" value="Executive Proton" />
+			<entry key="487" value="Executive Petrel" />
+			<entry key="488" value="Executive Petrel" />
+			<entry key="489" value="Rival Silver" />
+			<entry key="490" value="Rival Silver" />
+			<entry key="491" value="Rival Silver" />
+			<entry key="492" value="Pokefan Alex" />
+			<entry key="493" value="Medium Edith" />
+			<entry key="494" value="Medium Georgina" />
+			<entry key="495" value="Passerby Boy" />
+			<entry key="496" value="Passerby Boy" />
+			<entry key="497" value="Passerby Boy" />
+			<entry key="498" value="Mystery Man Eusine" />
+			<entry key="499" value="Team Rocket Grunt" />
+			<entry key="500" value="Ace Trainer Kobe" />
+			<entry key="501" value="Ace Trainer Piper" />
+			<entry key="502" value="Twins Clea & Gil" />
+			<entry key="503" value="School Kid Jack" />
+			<entry key="504" value="School Kid Mickey" />
+			<entry key="505" value="School Kid Alan" />
+			<entry key="506" value="School Kid Mickey" />
+			<entry key="507" value="School Kid Chad" />
+			<entry key="508" value="School Kid Mickey" />
+			<entry key="509" value="Sailor Huey" />
+			<entry key="510" value="Youngster Joey" />
+			<entry key="511" value="Youngster Mickey" />
+			<entry key="512" value="Bug Catcher Wade" />
+			<entry key="513" value="Bug Catcher Arnie" />
+			<entry key="514" value="Bug Catcher Mickey" />
+			<entry key="515" value="Fisherman Ralph" />
+			<entry key="516" value="Fisherman Mickey" />
+			<entry key="517" value="Fisherman Tully" />
+			<entry key="518" value="Picnicker Liz" />
+			<entry key="519" value="Picnicker Mickey" />
+			<entry key="520" value="Picnicker Gina" />
+			<entry key="521" value="Picnicker Mickey" />
+			<entry key="522" value="Picnicker Tiffany" />
+			<entry key="523" value="Hiker Anthony" />
+			<entry key="524" value="Hiker Mickey" />
+			<entry key="525" value="Camper Todd" />
+			<entry key="526" value="Camper Mickey" />
+			<entry key="527" value="Juggler Irwin" />
+			<entry key="528" value="Lass Dana" />
+			<entry key="529" value="Lass Mickey" />
+			<entry key="530" value="Poke Maniac Brent" />
+			<entry key="531" value="Twins Mickey" />
+			<entry key="532" value="Bug Catcher Mickey" />
+			<entry key="533" value="Bug Catcher Wayne" />
+			<entry key="534" value="Beauty Kimberly" />
+			<entry key="535" value="Pokefan Marigold" />
+			<entry key="536" value="Camper Bertrand" />
+			<entry key="537" value="Poke Maniac Harrison" />
+			<entry key="538" value="Super Nerd Hugh" />
+			<entry key="539" value="Super Nerd Markus" />
+			<entry key="540" value="Pokefan Rex" />
+			<entry key="541" value="Pokefan Andy" />
+			<entry key="542" value="Sage Mickey" />
+			<entry key="543" value="Sage Mickey" />
+			<entry key="544" value="Sage Mickey" />
+			<entry key="545" value="Ace Trainer French" />
+			<entry key="546" value="School Kid Sherman" />
+			<entry key="547" value="Hiker Bruce" />
+			<entry key="548" value="Black Belt Manford" />
+			<entry key="549" value="Double Team Zac & Jen" />
+			<entry key="550" value="Black Belt Ander" />
+			<entry key="551" value="Hiker Dwight" />
+			<entry key="552" value="Youngster Regis" />
+			<entry key="553" value="Young Couple Moe & Lulu" />
+			<entry key="554" value="Gentleman Milton" />
+			<entry key="555" value="Bird Keeper Justin" />
+			<entry key="556" value="Bird Keeper Gail" />
+			<entry key="557" value="Young Couple Vic & Tara" />
+			<entry key="558" value="Fisherman Kyler" />
+			<entry key="559" value="Young Couple Tim & Sue" />
+			<entry key="560" value="Camper Clark" />
+			<entry key="561" value="Camper Tanner" />
+			<entry key="562" value="Picnicker Piper" />
+			<entry key="563" value="Picnicker Ginger" />
+			<entry key="564" value="Teacher Clarice" />
+			<entry key="565" value="Bird Keeper Josh" />
+			<entry key="566" value="School Kid Connor" />
+			<entry key="567" value="School Kid Torin" />
+			<entry key="568" value="School Kid Travis" />
+			<entry key="569" value="Twins Kay & Tia" />
+			<entry key="570" value="Pokefan Boone" />
+			<entry key="571" value="Pokefan Eleanor" />
+			<entry key="572" value="Biker Dale" />
+			<entry key="573" value="Biker Jacob" />
+			<entry key="574" value="Biker Aiden" />
+			<entry key="575" value="Biker Dan" />
+			<entry key="576" value="Biker Theron" />
+			<entry key="577" value="Biker Markey" />
+			<entry key="578" value="Biker Teddy" />
+			<entry key="579" value="Biker Ernest" />
+			<entry key="580" value="Camper Pedro" />
+			<entry key="581" value="Picnicker Adrian" />
+			<entry key="582" value="Picnicker Cheyenne" />
+			<entry key="583" value="Bird Keeper Bert" />
+			<entry key="584" value="Bird Keeper Ernie" />
+			<entry key="585" value="SwimmerM Elmo" />
+			<entry key="586" value="SwimmerM Luis" />
+			<entry key="587" value="SwimmerF Leona" />
+			<entry key="588" value="SwimmerF Mina" />
+			<entry key="589" value="Fisherman Murphy" />
+			<entry key="590" value="Fisherman Liam" />
+			<entry key="591" value="Fisherman Gideon" />
+			<entry key="592" value="SwimmerF Chelan" />
+			<entry key="593" value="SwimmerF Kendra" />
+			<entry key="594" value="SwimmerM Esteban" />
+			<entry key="595" value="SwimmerM Duane" />
+			<entry key="596" value="Bird Keeper Kinsley" />
+			<entry key="597" value="Bird Keeper Easton" />
+			<entry key="598" value="Twins Day & Dani" />
+			<entry key="599" value="Camper Virgil" />
+			<entry key="600" value="Picnicker Selina" />
+			<entry key="601" value="Team Rocket Grunt" />
+			<entry key="602" value="Bird Keeper Jose" />
+			<entry key="603" value="Picnicker Erin" />
+			<entry key="604" value="Ace Trainer Gaven" />
+			<entry key="605" value="Black Belt Kenji" />
+			<entry key="606" value="Hiker Parry" />
+			<entry key="607" value="Ace Trainer Reena" />
+			<entry key="608" value="Fisherman Wilton" />
+			<entry key="609" value="Ace Trainer Jamie" />
+			<entry key="610" value="Pokefan Derek" />
+			<entry key="611" value="Pokefan Beverly" />
+			<entry key="612" value="Bird Keeper Vance" />
+			<entry key="613" value="Lass Krise" />
+			<entry key="614" value="Lass Krise" />
+			<entry key="615" value="Lass Krise" />
+			<entry key="616" value="Youngster Ian" />
+			<entry key="617" value="Youngster Ian" />
+			<entry key="618" value="Youngster Ian" />
+			<entry key="619" value="Firebreather Walt" />
+			<entry key="620" value="Firebreather Walt" />
+			<entry key="621" value="Firebreather Walt" />
+			<entry key="622" value="Bug Catcher Doug" />
+			<entry key="623" value="Bug Catcher Doug" />
+			<entry key="624" value="Bug Catcher Doug" />
+			<entry key="625" value="Bug Catcher Rob" />
+			<entry key="626" value="Bug Catcher Rob" />
+			<entry key="627" value="Bug Catcher Rob" />
+			<entry key="628" value="Biker Reese" />
+			<entry key="629" value="Biker Reese" />
+			<entry key="630" value="Biker Reese" />
+			<entry key="631" value="Biker Aiden" />
+			<entry key="632" value="Biker Aiden" />
+			<entry key="633" value="Biker Aiden" />
+			<entry key="634" value="Biker Ernest" />
+			<entry key="635" value="Biker Ernest" />
+			<entry key="636" value="Biker Ernest" />
+			<entry key="637" value="Teacher Hillary" />
+			<entry key="638" value="Teacher Hillary" />
+			<entry key="639" value="Teacher Hillary" />
+			<entry key="640" value="School Kid Billy" />
+			<entry key="641" value="School Kid Billy" />
+			<entry key="642" value="School Kid Billy" />
+			<entry key="643" value="Twins Kay & Tia" />
+			<entry key="644" value="Twins Kay & Tia" />
+			<entry key="645" value="Twins Kay & Tia" />
+			<entry key="646" value="Bird Keeper Josh" />
+			<entry key="647" value="Bird Keeper Josh" />
+			<entry key="648" value="Bird Keeper Josh" />
+			<entry key="649" value="School Kid Torin" />
+			<entry key="650" value="School Kid Torin" />
+			<entry key="651" value="School Kid Torin" />
+			<entry key="652" value="Young Couple Tim & Sue" />
+			<entry key="653" value="Young Couple Tim & Sue" />
+			<entry key="654" value="Young Couple Tim & Sue" />
+			<entry key="655" value="Hiker Kenny" />
+			<entry key="656" value="Hiker Kenny" />
+			<entry key="657" value="Hiker Kenny" />
+			<entry key="658" value="Camper Tanner" />
+			<entry key="659" value="Camper Tanner" />
+			<entry key="660" value="Camper Tanner" />
+			<entry key="661" value="Fisherman Kyle" />
+			<entry key="662" value="Fisherman Kyle" />
+			<entry key="663" value="Fisherman Kyle" />
+			<entry key="664" value="Fisherman Kyler" />
+			<entry key="665" value="Fisherman Kyler" />
+			<entry key="666" value="Fisherman Kyler" />
+			<entry key="667" value="Pokemon Trainer Cheryl" />
+			<entry key="668" value="Pokemon Trainer Marley" />
+			<entry key="669" value="Pokemon Trainer Mira" />
+			<entry key="670" value="Pokemon Trainer Riley" />
+			<entry key="671" value="Pokemon Trainer Buck" />
+			<entry key="672" value="Gentleman Alfred" />
+			<entry key="673" value="Gentleman Alfred" />
+			<entry key="674" value="Gentleman Alfred" />
+			<entry key="675" value="Pokemon Trainer Lance" />
+			<entry key="676" value="Sailor Parker" />
+			<entry key="677" value="Sailor Eddie" />
+			<entry key="678" value="SwimmerF Joy" />
+			<entry key="679" value="Beauty Callie" />
+			<entry key="680" value="Beauty Kassandra" />
+			<entry key="681" value="Ace Trainer Arabella" />
+			<entry key="682" value="Ace Trainer Bonita" />
+			<entry key="683" value="Ace Trainer Salma" />
+			<entry key="684" value="Double Team Elan & Ida" />
+			<entry key="685" value="Hiker Edwin" />
+			<entry key="686" value="Boarder Bryce" />
+			<entry key="687" value="Boarder Shaun" />
+			<entry key="688" value="Skier Cady" />
+			<entry key="689" value="Super Nerd Cary" />
+			<entry key="690" value="Super Nerd Waldo" />
+			<entry key="691" value="Super Nerd Merle" />
+			<entry key="692" value="Scientist Lowell" />
+			<entry key="693" value="Scientist Linden" />
+			<entry key="694" value="Scientist Daniel" />
+			<entry key="695" value="Bug Catcher Dane" />
+			<entry key="696" value="Bug Catcher Dion" />
+			<entry key="697" value="Bug Catcher Stacey" />
+			<entry key="698" value="Bug Catcher Ellis" />
+			<entry key="699" value="Bug Catcher Abner" />
+			<entry key="700" value="Rocket Boss Giovanni" />
+			<entry key="701" value="Champion Lance" />
+			<entry key="702" value="Elite Four Will" />
+			<entry key="703" value="Elite Four Koga" />
+			<entry key="704" value="Elite Four Bruno" />
+			<entry key="705" value="Elite Four Karen" />
+			<entry key="706" value="Executive Proton" />
+			<entry key="707" value="Tower Tycoon Palmer" />
+			<entry key="708" value="Hall Matron Argenta" />
+			<entry key="709" value="Factory Head Thorton" />
+			<entry key="710" value="Arcade Star Dahlia" />
+			<entry key="711" value="Castle Valet Darach" />
+			<entry key="712" value="Leader Falkner" />
+			<entry key="713" value="Leader Bugsy" />
+			<entry key="714" value="Leader Whitney" />
+			<entry key="715" value="Leader Morty" />
+			<entry key="716" value="Leader Pryce" />
+			<entry key="717" value="Leader Jasmine" />
+			<entry key="718" value="Leader Chuck" />
+			<entry key="719" value="Leader Clair" />
+			<entry key="720" value="Leader Brock" />
+			<entry key="721" value="Leader Misty" />
+			<entry key="722" value="Leader Lt. Surge" />
+			<entry key="723" value="Leader Erika" />
+			<entry key="724" value="Leader Janine" />
+			<entry key="725" value="Leader Sabrina" />
+			<entry key="726" value="Leader Blaine" />
+			<entry key="727" value="Leader Blue" />
+			<entry key="728" value="Beauty Charlotte" />
+			<entry key="729" value="Young Couple Duff & Eda" />
+			<entry key="730" value="Double Team Thom & Kae" />
+			<entry key="731" value="Hiker Devin" />
+			<entry key="732" value="Camper Grant" />
+			<entry key="733" value="Champion Lance" />
+			<entry key="734" value="Leader Clair" />
+			<entry key="735" value="Rival Silver" />
+			<entry key="736" value="Rival Silver" />
+			<entry key="737" value="Rival Silver" />
 		</trainers>
 		<items>
 			<entry key="0x0000" />
