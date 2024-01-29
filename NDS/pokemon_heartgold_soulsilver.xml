@@ -746,8 +746,8 @@
 				</team>
 			</opponent_2>
             <field>
-                <property name="weather" type="int" address="{global_pointer} + 0x54238 - 4" length="2" reference="weather" />
-                <property name="weather_count" type="int" address="{global_pointer} + 0x54238" />
+                <property name="weather" type="int" address="{global_pointer} + 0x54234" length="2" reference="weather" />
+                <property name="weather_count" type="int" address="{global_pointer} + 0x54234 + 4" />
             </field>
 			<other>
             	<property name="outcome_flags" type="int" address="{global_pointer} + 0x571D3" />
@@ -5281,7 +5281,7 @@
 			<entry key="7" value="Juggler Irwin" />
 			<entry key="8" value="Youngster Joey" />
 			<entry key="9" value="SwimmerF Elaine" />
-			<entry key="10" value="Twins Amy & Mimi" />
+			<entry key="10" value="Twins Amy &amp;amp; Mimi" />
 			<entry key="11" value="Kimono Girl Mickey" />
 			<entry key="12" value="Team Rocket Grunt" />
 			<entry key="13" value="Team Rocket Grunt" />
@@ -5352,7 +5352,7 @@
 			<entry key="78" value="Bug Catcher Arnie" />
 			<entry key="79" value="Bug Catcher Ken" />
 			<entry key="80" value="Policeman Dirk" />
-			<entry key="81" value="Twins Tori & Til" />
+			<entry key="81" value="Twins Tori &amp;amp; Til" />
 			<entry key="82" value="Bird Keeper Toby" />
 			<entry key="83" value="Picnicker Cindy" />
 			<entry key="84" value="Camper Barry" />
@@ -5597,7 +5597,7 @@
 			<entry key="323" value="Fisherman Tully" />
 			<entry key="324" value="Fisherman Tully" />
 			<entry key="325" value="Fisherman Wilton" />
-			<entry key="326" value="Twins Jo & Zoe" />
+			<entry key="326" value="Twins Jo &amp; Zoe" />
 			<entry key="327" value="School Kid Danny" />
 			<entry key="328" value="School Kid Tommy" />
 			<entry key="329" value="School Kid Dudley" />
@@ -5656,9 +5656,9 @@
 			<entry key="382" value="Teacher Hillary" />
 			<entry key="383" value="Bird Keeper Peter" />
 			<entry key="384" value="Hiker Daniel" />
-			<entry key="385" value="Twins Dara & Dia" />
+			<entry key="385" value="Twins Dara &amp; Dia" />
 			<entry key="386" value="Psychic Greg" />
-			<entry key="387" value="Twins Amy & Mimi" />
+			<entry key="387" value="Twins Amy &amp; Mimi" />
 			<entry key="388" value="Firebreather Walt" />
 			<entry key="389" value="Psychic Nelson" />
 			<entry key="390" value="Firebreather Ray" />
@@ -5687,7 +5687,7 @@
 			<entry key="413" value="Fisherman Scott" />
 			<entry key="414" value="Bird Keeper Jose" />
 			<entry key="415" value="Psychic Jared" />
-			<entry key="416" value="Twins Jo & Zoe" />
+			<entry key="416" value="Twins Jo &amp; Zoe" />
 			<entry key="417" value="Ace Trainer Jenn" />
 			<entry key="418" value="Elite Four Bruno" />
 			<entry key="419" value="Lass Ellen" />
@@ -5696,8 +5696,8 @@
 			<entry key="422" value="Psychic Rodney" />
 			<entry key="423" value="Pokefan Jeremy" />
 			<entry key="424" value="Pokefan Colin" />
-			<entry key="425" value="Twins Meg & Peg" />
-			<entry key="426" value="Twins Meg & Peg" />
+			<entry key="425" value="Twins Meg &amp; Peg" />
+			<entry key="426" value="Twins Meg &amp; Peg" />
 			<entry key="427" value="Teacher Shirley" />
 			<entry key="428" value="School Kid Nate" />
 			<entry key="429" value="School Kid Ricky" />
@@ -5773,7 +5773,7 @@
 			<entry key="499" value="Team Rocket Grunt" />
 			<entry key="500" value="Ace Trainer Kobe" />
 			<entry key="501" value="Ace Trainer Piper" />
-			<entry key="502" value="Twins Clea & Gil" />
+			<entry key="502" value="Twins Clea &amp; Gil" />
 			<entry key="503" value="School Kid Jack" />
 			<entry key="504" value="School Kid Mickey" />
 			<entry key="505" value="School Kid Alan" />
@@ -5820,17 +5820,17 @@
 			<entry key="546" value="School Kid Sherman" />
 			<entry key="547" value="Hiker Bruce" />
 			<entry key="548" value="Black Belt Manford" />
-			<entry key="549" value="Double Team Zac & Jen" />
+			<entry key="549" value="Double Team Zac &amp; Jen" />
 			<entry key="550" value="Black Belt Ander" />
 			<entry key="551" value="Hiker Dwight" />
 			<entry key="552" value="Youngster Regis" />
-			<entry key="553" value="Young Couple Moe & Lulu" />
+			<entry key="553" value="Young Couple Moe &amp; Lulu" />
 			<entry key="554" value="Gentleman Milton" />
 			<entry key="555" value="Bird Keeper Justin" />
 			<entry key="556" value="Bird Keeper Gail" />
-			<entry key="557" value="Young Couple Vic & Tara" />
+			<entry key="557" value="Young Couple Vic &amp; Tara" />
 			<entry key="558" value="Fisherman Kyler" />
-			<entry key="559" value="Young Couple Tim & Sue" />
+			<entry key="559" value="Young Couple Tim &amp; Sue" />
 			<entry key="560" value="Camper Clark" />
 			<entry key="561" value="Camper Tanner" />
 			<entry key="562" value="Picnicker Piper" />
@@ -5840,7 +5840,7 @@
 			<entry key="566" value="School Kid Connor" />
 			<entry key="567" value="School Kid Torin" />
 			<entry key="568" value="School Kid Travis" />
-			<entry key="569" value="Twins Kay & Tia" />
+			<entry key="569" value="Twins Kay &amp; Tia" />
 			<entry key="570" value="Pokefan Boone" />
 			<entry key="571" value="Pokefan Eleanor" />
 			<entry key="572" value="Biker Dale" />
@@ -5869,7 +5869,7 @@
 			<entry key="595" value="SwimmerM Duane" />
 			<entry key="596" value="Bird Keeper Kinsley" />
 			<entry key="597" value="Bird Keeper Easton" />
-			<entry key="598" value="Twins Day & Dani" />
+			<entry key="598" value="Twins Day &amp; Dani" />
 			<entry key="599" value="Camper Virgil" />
 			<entry key="600" value="Picnicker Selina" />
 			<entry key="601" value="Team Rocket Grunt" />
@@ -5914,18 +5914,18 @@
 			<entry key="640" value="School Kid Billy" />
 			<entry key="641" value="School Kid Billy" />
 			<entry key="642" value="School Kid Billy" />
-			<entry key="643" value="Twins Kay & Tia" />
-			<entry key="644" value="Twins Kay & Tia" />
-			<entry key="645" value="Twins Kay & Tia" />
+			<entry key="643" value="Twins Kay &amp; Tia" />
+			<entry key="644" value="Twins Kay &amp; Tia" />
+			<entry key="645" value="Twins Kay &amp; Tia" />
 			<entry key="646" value="Bird Keeper Josh" />
 			<entry key="647" value="Bird Keeper Josh" />
 			<entry key="648" value="Bird Keeper Josh" />
 			<entry key="649" value="School Kid Torin" />
 			<entry key="650" value="School Kid Torin" />
 			<entry key="651" value="School Kid Torin" />
-			<entry key="652" value="Young Couple Tim & Sue" />
-			<entry key="653" value="Young Couple Tim & Sue" />
-			<entry key="654" value="Young Couple Tim & Sue" />
+			<entry key="652" value="Young Couple Tim &amp; Sue" />
+			<entry key="653" value="Young Couple Tim &amp; Sue" />
+			<entry key="654" value="Young Couple Tim &amp; Sue" />
 			<entry key="655" value="Hiker Kenny" />
 			<entry key="656" value="Hiker Kenny" />
 			<entry key="657" value="Hiker Kenny" />
@@ -5955,7 +5955,7 @@
 			<entry key="681" value="Ace Trainer Arabella" />
 			<entry key="682" value="Ace Trainer Bonita" />
 			<entry key="683" value="Ace Trainer Salma" />
-			<entry key="684" value="Double Team Elan & Ida" />
+			<entry key="684" value="Double Team Elan &amp; Ida" />
 			<entry key="685" value="Hiker Edwin" />
 			<entry key="686" value="Boarder Bryce" />
 			<entry key="687" value="Boarder Shaun" />
@@ -6000,8 +6000,8 @@
 			<entry key="726" value="Leader Blaine" />
 			<entry key="727" value="Leader Blue" />
 			<entry key="728" value="Beauty Charlotte" />
-			<entry key="729" value="Young Couple Duff & Eda" />
-			<entry key="730" value="Double Team Thom & Kae" />
+			<entry key="729" value="Young Couple Duff &amp; Eda" />
+			<entry key="730" value="Double Team Thom &amp; Kae" />
 			<entry key="731" value="Hiker Devin" />
 			<entry key="732" value="Camper Grant" />
 			<entry key="733" value="Champion Lance" />
