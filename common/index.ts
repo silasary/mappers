@@ -47,13 +47,25 @@ interface IByteArray {
 
 interface IMapperProperty {
     path: string
+    memoryContainer?: string | null
     address?: number | null
-    value: any
+    length?: number | null
+    size?: number | null
+    bits?: string | null
+    reference?: string | null
+    value?: any
+    bytes?: number[] | null
 }
 
 interface IMapperSetCommand {
+    memoryContainer?: string | null
     address?: number | null
+    length?: number | null
+    size?: number | null
+    bits?: string | null
+    reference?: string | null
     value?: any | null
+    bytes?: number[] | null
 }
 
 interface PropertiesDictionary {
@@ -114,8 +126,14 @@ export function getProperty(path: string) {
 export function setProperty(path: string, values: IMapperSetCommand) {
     const property = getProperty(path)
 
-    if (values.address !== undefined)   property.address = values.address
-    if (values.value !== undefined)     property.value = values.value
+    if (values.memoryContainer !== undefined) property.memoryContainer = values.memoryContainer
+    if (values.address !== undefined) property.address = values.address
+    if (values.length !== undefined) property.length = values.length
+    if (values.size !== undefined) property.size = values.size
+    if (values.bits !== undefined) property.bits = values.bits
+    if (values.reference !== undefined) property.reference = values.reference
+    if (values.bytes !== undefined) property.bytes = values.bytes
+    if (values.value !== undefined) property.value = values.value
 }
 
 export function copyProperties(sourcePath: string, destinationPath: string) {
@@ -127,11 +145,20 @@ export function copyProperties(sourcePath: string, destinationPath: string) {
 
         const source = sourceProps.find(x => x.path === `${sourcePath}${restOfThePath}`)
         if (source) {
-            setProperty(property.path, { address: source.address, value: source.value })
+            setProperty(property.path, {
+                memoryContainer: source.memoryContainer,
+                address: source.address,
+                length: source.length,
+                size: source.size,
+                bits: source.bits,
+                reference: source.reference,
+                value: source.value
+            })
         }
     })
 }
 
+/** @deprecated Use the bits attribute within the GameHook mapper XML */
 export function BitRange(value: number, upperBounds: number, lowerBounds: number): number {
     // Validate the input bounds
     if (lowerBounds < 0 || upperBounds >= 32 || lowerBounds > upperBounds) {
