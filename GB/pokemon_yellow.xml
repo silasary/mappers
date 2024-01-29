@@ -38,10 +38,10 @@
             </stats>
             <ivs>
                 <property name="hp"      type="int"    description="Calculated from the IVs; not actually stored in memory" />
-                <property name="attack"  type="nibble" address="{address} + 27" position="0" />
-                <property name="defense" type="nibble" address="{address} + 27" position="1" />
-                <property name="speed"   type="nibble" address="{address} + 28" position="0" />
-                <property name="special" type="nibble" address="{address} + 28" position="1" />
+                <property name="attack"  type="nibble" address="{address} + 27" bits="0" />
+                <property name="defense" type="nibble" address="{address} + 27" bits="1" />
+                <property name="speed"   type="nibble" address="{address} + 28" bits="0" />
+                <property name="special" type="nibble" address="{address} + 28" bits="1" />
             </ivs>
             <evs>
                 <property name="hp"      type="int" address="{address} + 17" length="2" description="HP EV (stat experience)" />
@@ -156,10 +156,10 @@
                 <class name="3" type="party_move" var:moveAddress="{address} + 5" />
             </moves>
             <ivs>
-                <property name="attack"  type="nibble" address="{address} + 27" position="0" />
-                <property name="defense" type="nibble" address="{address} + 27" position="1" />
-                <property name="speed"   type="nibble" address="{address} + 28" position="0" />
-                <property name="special" type="nibble" address="{address} + 28" position="1" />
+                <property name="attack"  type="nibble" address="{address} + 27" bits="0" />
+                <property name="defense" type="nibble" address="{address} + 27" bits="1" />
+                <property name="speed"   type="nibble" address="{address} + 28" bits="0" />
+                <property name="special" type="nibble" address="{address} + 28" bits="1" />
             </ivs>
             <evs>
                 <property name="hp"      type="int" address="{address} + 17" length="2" description="HP EV (stat experience)" />
@@ -219,14 +219,14 @@
                 <class name="5" type="party_pokemon" var:address="0xD246" var:nicknameAddress="0xD2EB" />
             </team>
             <badges>
-                <property name="0" type="bit" address="0xD355" position="0" description="boulderbadge" />
-                <property name="1" type="bit" address="0xD355" position="1" description="cascadebadge" />
-                <property name="2" type="bit" address="0xD355" position="2" description="thunderbadge" />
-                <property name="3" type="bit" address="0xD355" position="3" description="rainbowbadge" />
-                <property name="4" type="bit" address="0xD355" position="4" description="soulbadge" />
-                <property name="5" type="bit" address="0xD355" position="5" description="marshbadge" />
-                <property name="6" type="bit" address="0xD355" position="6" description="volcanobadge" />
-                <property name="7" type="bit" address="0xD355" position="7" description="earthbadge" />
+                <property name="0" type="bool" address="0xD355" bits="0" description="boulderbadge" />
+                <property name="1" type="bool" address="0xD355" bits="1" description="cascadebadge" />
+                <property name="2" type="bool" address="0xD355" bits="2" description="thunderbadge" />
+                <property name="3" type="bool" address="0xD355" bits="3" description="rainbowbadge" />
+                <property name="4" type="bool" address="0xD355" bits="4" description="soulbadge" />
+                <property name="5" type="bool" address="0xD355" bits="5" description="marshbadge" />
+                <property name="6" type="bool" address="0xD355" bits="6" description="volcanobadge" />
+                <property name="7" type="bool" address="0xD355" bits="7" description="earthbadge" />
             </badges>
             <property name="pokedex_seen"      type="bitArray" address="0xD309" length="19" />    
             <property name="pokedex_caught"    type="bitArray" address="0xD2F6" length="19" />
@@ -309,11 +309,11 @@
             </map_data>
         </overworld>
         <events>
-            <property name="trash_can_puzzle" type="bit" address="0xD772" position="0" description="Set value to 3 to solve the puzzle. Freezing this property breaks the gym trainers." />
+            <property name="trash_can_puzzle" type="bool" address="0xD772" bits="0" description="Set value to 3 to solve the puzzle. Freezing this property breaks the gym trainers." />
         </events>
         <flags>
-            <property name="count_play_time" type="bit" address="0xD731" position="0" description="play time being counted" />
-            <property name="debug_mode"      type="bit" address="0xD731" position="1" description="See mapper" />
+            <property name="count_play_time" type="bool" address="0xD731" bits="0" description="play time being counted" />
+            <property name="debug_mode"      type="bool" address="0xD731" bits="1" description="See mapper" />
                 <!-- "Only set by the debug build. If true:
                     * skips most of Prof. Oak's speech, and uses NINTEN as the player's name and SONY as the rival's name
                     * does not have the player start in floor two of the player's house (instead sending them to [wLastMap])
@@ -323,536 +323,536 @@
                     * skips the NPC who blocks Route 3 before beating Brock by holding down B
                     * skips Cerulean City rival battle by holding down B
                     * skips Pokémon Tower rival battle by holding down B" -->
-            <property name="fly_or_dungeon"          type="bit" address="0xD731" position="2" description="the target warp is a fly warp (bit 3 set or blacked out) or a dungeon warp (bit 4 set)" />
-            <property name="fly_warp"                type="bit" address="0xD731" position="3" /> 
-            <property name="dungeon_warp"            type="bit" address="0xD731" position="4" /> 
-            <property name="destination_is_blackout" type="bit" address="0xD731" position="6" />
-            <property name="beat_champion" type="bit" position="1" address="0xd866" />
+            <property name="fly_or_dungeon"          type="bool" address="0xD731" bits="2" description="the target warp is a fly warp (bit 3 set or blacked out) or a dungeon warp (bit 4 set)" />
+            <property name="fly_warp"                type="bool" address="0xD731" bits="3" /> 
+            <property name="dungeon_warp"            type="bool" address="0xD731" bits="4" /> 
+            <property name="destination_is_blackout" type="bool" address="0xD731" bits="6" />
+            <property name="beat_champion" type="bool" bits="1" address="0xd866" />
         </flags>
         <event_flags> <!-- TODO: test to ensure these work -->
-            <property name="followed_oak_into_lab" type="bit" address="0xD746" position="0" />
-            <property name="hall_of_fame_dex_rating" type="bit" address="0xD746" position="3" />
-            <property name="player_at_right_exit_to_pallet_town" type="bit" address="0xD746" position="5" />
-            <property name="pallet_after_getting_pokeballs" type="bit" address="0xD746" position="6" />
-            <property name="got_town_map" type="bit" address="0xD749" position="0" />
-            <property name="entered_blues_house" type="bit" address="0xD749" position="1" />
-            <property name="daisy_walking" type="bit" address="0xD749" position="2" />
-            <property name="followed_oak_into_lab_2" type="bit" address="0xD74A" position="0" />
-            <property name="oak_asked_to_choose_mon" type="bit" address="0xD74A" position="1" />
-            <property name="got_starter" type="bit" address="0xD74A" position="2" />
-            <property name="battled_rival_in_oaks_lab" type="bit" address="0xD74A" position="3" />
-            <property name="got_pokeballs_from_oak" type="bit" address="0xD74A" position="4" />
-            <property name="got_pokedex" type="bit" address="0xD74A" position="5" />
-            <property name="pallet_after_getting_pokeballs_2" type="bit" address="0xD74A" position="6" />
-            <property name="oak_appeared_in_pallet" type="bit" address="0xD74A" position="7" />
-            <property name="viridian_gym_open" type="bit" address="0xD74B" position="0" />
-            <property name="got_tm42" type="bit" address="0xD74B" position="1" />
-            <property name="spawned_old_man_1" type="bit" address="0xD74B" position="4" />
-            <property name="completed_catch_training" type="bit" address="0xD74B" position="5" />
-            <property name="completed_catch_training_again" type="bit" address="0xD74B" position="6" />
-            <property name="initial_catch_training" type="bit" address="0xD74B" position="7" />
-            <property name="oak_got_parcel" type="bit" address="0xD74D" position="0" />
-            <property name="got_oaks_parcel" type="bit" address="0xD74D" position="1" />
-            <property name="got_tm27" type="bit" address="0xD750" position="0" />
-            <property name="beat_viridian_gym_giovanni" type="bit" address="0xD750" position="1" />
-            <property name="beat_viridian_gym_trainer_0" type="bit" address="0xD750" position="2" />
-            <property name="beat_viridian_gym_trainer_1" type="bit" address="0xD750" position="3" />
-            <property name="beat_viridian_gym_trainer_2" type="bit" address="0xD750" position="4" />
-            <property name="beat_viridian_gym_trainer_3" type="bit" address="0xD750" position="5" />
-            <property name="beat_viridian_gym_trainer_4" type="bit" address="0xD750" position="6" />
-            <property name="beat_viridian_gym_trainer_5" type="bit" address="0xD750" position="7" />
-            <property name="beat_viridian_gym_trainer_6" type="bit" address="0xD751" position="0" />
-            <property name="beat_viridian_gym_trainer_7" type="bit" address="0xD751" position="1" />
-            <property name="bought_museum_ticket" type="bit" address="0xD753" position="0" />
-            <property name="got_old_amber" type="bit" address="0xD753" position="1" />
-            <property name="beat_pewter_gym_trainer_0" type="bit" address="0xD754" position="2" />
-            <property name="got_tm34" type="bit" address="0xD754" position="6" />
-            <property name="beat_brock" type="bit" address="0xD754" position="7" />
-            <property name="beat_cerulean_rival" type="bit" address="0xD759" position="0" />
-            <property name="beat_cerulean_rocket_thief" type="bit" address="0xD75A" position="7" />
-            <property name="got_bulbasaur_in_cerulean" type="bit" address="0xD75B" position="0" />
-            <property name="beat_cerulean_gym_trainer_0" type="bit" address="0xD75D" position="2" />
-            <property name="beat_cerulean_gym_trainer_1" type="bit" address="0xD75D" position="3" />
-            <property name="got_tm11" type="bit" address="0xD75D" position="6" />
-            <property name="beat_misty" type="bit" address="0xD75D" position="7" />
-            <property name="got_bicycle" type="bit" address="0xD75E" position="0" />
-            <property name="pokemon_tower_rival_on_left" type="bit" address="0xD764" position="0" />
-            <property name="beat_pokemon_tower_rival" type="bit" address="0xD764" position="1" />
-            <property name="beat_pokemontower_3_trainer_0" type="bit" address="0xD764" position="3" />
-            <property name="beat_pokemontower_3_trainer_1" type="bit" address="0xD764" position="4" />
-            <property name="beat_pokemontower_3_trainer_2" type="bit" address="0xD764" position="5" />
-            <property name="beat_pokemontower_4_trainer_0" type="bit" address="0xD765" position="3" />
-            <property name="beat_pokemontower_4_trainer_1" type="bit" address="0xD765" position="4" />
-            <property name="beat_pokemontower_4_trainer_2" type="bit" address="0xD765" position="5" />
-            <property name="beat_pokemontower_5_trainer_0" type="bit" address="0xD766" position="4" />
-            <property name="beat_pokemontower_5_trainer_1" type="bit" address="0xD766" position="5" />
-            <property name="beat_pokemontower_5_trainer_2" type="bit" address="0xD766" position="6" />
-            <property name="beat_pokemontower_5_trainer_3" type="bit" address="0xD766" position="7" />
-            <property name="in_purified_zone" type="bit" address="0xD767" position="1" />
-            <property name="beat_pokemontower_6_trainer_0" type="bit" address="0xD767" position="3" />
-            <property name="beat_pokemontower_6_trainer_1" type="bit" address="0xD767" position="4" />
-            <property name="beat_pokemontower_6_trainer_2" type="bit" address="0xD767" position="5" />
-            <property name="beat_ghost_marowak" type="bit" address="0xD768" position="1" />
-            <property name="beat_pokemontower_7_trainer_0" type="bit" address="0xD768" position="3" />
-            <property name="beat_pokemontower_7_trainer_1" type="bit" address="0xD768" position="4" />
-            <property name="beat_pokemontower_7_trainer_2" type="bit" address="0xD768" position="5" />
-            <property name="rescued_mr_fuji_2" type="bit" address="0xD769" position="1" />
-            <property name="got_poke_flute" type="bit" address="0xD76B" position="2" />
-            <property name="got_squirtle_from_officer_jenny" type="bit" address="0xD76F" position="1" />
-            <property name="got_bike_voucher" type="bit" address="0xD770" position="1" />
-            <property name="left_fanclub_after_bike_voucher" type="bit" address="0xD770" position="2" />
-            <property name="seel_fan_boast" type="bit" address="0xD770" position="6" />
-            <property name="pikachu_fan_boast" type="bit" address="0xD770" position="7" />
-            <property name="2nd_lock_opened" type="bit" address="0xD772" position="0" />
-            <property name="1st_lock_opened" type="bit" address="0xD772" position="1" />
-            <property name="beat_vermilion_gym_trainer_0" type="bit" address="0xD772" position="2" />
-            <property name="beat_vermilion_gym_trainer_1" type="bit" address="0xD772" position="3" />
-            <property name="beat_vermilion_gym_trainer_2" type="bit" address="0xD772" position="4" />
-            <property name="got_tm24" type="bit" address="0xD772" position="6" />
-            <property name="beat_lt_surge" type="bit" address="0xD772" position="7" />
-            <property name="got_tm41" type="bit" address="0xD776" position="0" />
-            <property name="got_tm13" type="bit" address="0xD777" position="4" />
-            <property name="got_tm48" type="bit" address="0xD777" position="5" />
-            <property name="got_tm49" type="bit" address="0xD777" position="6" />
-            <property name="got_tm18" type="bit" address="0xD777" position="7" />
-            <property name="got_tm21" type="bit" address="0xD77B" position="0" />
-            <property name="beat_erika" type="bit" address="0xD77B" position="1" />
-            <property name="beat_celadon_gym_trainer_0" type="bit" address="0xD77B" position="2" />
-            <property name="beat_celadon_gym_trainer_1" type="bit" address="0xD77B" position="3" />
-            <property name="beat_celadon_gym_trainer_2" type="bit" address="0xD77B" position="4" />
-            <property name="beat_celadon_gym_trainer_3" type="bit" address="0xD77B" position="5" />
-            <property name="beat_celadon_gym_trainer_4" type="bit" address="0xD77B" position="6" />
-            <property name="beat_celadon_gym_trainer_5" type="bit" address="0xD77B" position="7" />
-            <property name="beat_celadon_gym_trainer_6" type="bit" address="0xD77C" position="0" />
-            <property name="1b8" type="bit" address="0xD77D" position="0" />
-            <property name="found_rocket_hideout" type="bit" address="0xD77D" position="1" />
-            <property name="got_10_coins" type="bit" address="0xD77D" position="2" />
-            <property name="got_20_coins" type="bit" address="0xD77D" position="3" />
-            <property name="got_20_coins_2" type="bit" address="0xD77D" position="4" />
-            <property name="1bf" type="bit" address="0xD77D" position="7" />
-            <property name="got_coin_case" type="bit" address="0xD782" position="0" />
-            <property name="got_hm04" type="bit" address="0xD78D" position="0" />
-            <property name="gave_gold_teeth" type="bit" address="0xD78D" position="1" />
-            <property name="safari_game_over" type="bit" address="0xD78F" position="6" />
-            <property name="in_safari_zone" type="bit" address="0xD78F" position="7" />
-            <property name="got_tm06" type="bit" address="0xD791" position="0" />
-            <property name="beat_koga" type="bit" address="0xD791" position="1" />
-            <property name="beat_fuchsia_gym_trainer_0" type="bit" address="0xD791" position="2" />
-            <property name="beat_fuchsia_gym_trainer_1" type="bit" address="0xD791" position="3" />
-            <property name="beat_fuchsia_gym_trainer_2" type="bit" address="0xD791" position="4" />
-            <property name="beat_fuchsia_gym_trainer_3" type="bit" address="0xD791" position="5" />
-            <property name="beat_fuchsia_gym_trainer_4" type="bit" address="0xD791" position="6" />
-            <property name="beat_fuchsia_gym_trainer_5" type="bit" address="0xD791" position="7" />
-            <property name="mansion_switch_on" type="bit" address="0xD795" position="0" />
-            <property name="beat_mansion_1_trainer_0" type="bit" address="0xD797" position="1" />
-            <property name="got_tm38" type="bit" address="0xD799" position="0" />
-            <property name="beat_blaine" type="bit" address="0xD799" position="1" />
-            <property name="beat_cinnabar_gym_trainer_0" type="bit" address="0xD799" position="2" />
-            <property name="beat_cinnabar_gym_trainer_1" type="bit" address="0xD799" position="3" />
-            <property name="beat_cinnabar_gym_trainer_2" type="bit" address="0xD799" position="4" />
-            <property name="beat_cinnabar_gym_trainer_3" type="bit" address="0xD799" position="5" />
-            <property name="beat_cinnabar_gym_trainer_4" type="bit" address="0xD799" position="6" />
-            <property name="beat_cinnabar_gym_trainer_5" type="bit" address="0xD799" position="7" />
-            <property name="beat_cinnabar_gym_trainer_6" type="bit" address="0xD79A" position="0" />
-            <property name="2a7" type="bit" address="0xD79A" position="7" />
-            <property name="cinnabar_gym_gate0_unlocked" type="bit" address="0xD79B" position="0" />
-            <property name="cinnabar_gym_gate1_unlocked" type="bit" address="0xD79B" position="1" />
-            <property name="cinnabar_gym_gate2_unlocked" type="bit" address="0xD79B" position="2" />
-            <property name="cinnabar_gym_gate3_unlocked" type="bit" address="0xD79B" position="3" />
-            <property name="cinnabar_gym_gate4_unlocked" type="bit" address="0xD79B" position="4" />
-            <property name="cinnabar_gym_gate5_unlocked" type="bit" address="0xD79B" position="5" />
-            <property name="cinnabar_gym_gate6_unlocked" type="bit" address="0xD79B" position="6" />
-            <property name="got_tm35" type="bit" address="0xD7A0" position="7" />
-            <property name="gave_fossil_to_lab" type="bit" address="0xD7A2" position="0" />
-            <property name="lab_still_reviving_fossil" type="bit" address="0xD7A2" position="1" />
-            <property name="lab_handing_over_fossil_mon" type="bit" address="0xD7A2" position="2" />
-            <property name="got_tm31" type="bit" address="0xD7AE" position="0" />
-            <property name="defeated_fighting_dojo" type="bit" address="0xD7B0" position="0" />
-            <property name="beat_karate_master" type="bit" address="0xD7B0" position="1" />
-            <property name="beat_fighting_dojo_trainer_0" type="bit" address="0xD7B0" position="2" />
-            <property name="beat_fighting_dojo_trainer_1" type="bit" address="0xD7B0" position="3" />
-            <property name="beat_fighting_dojo_trainer_2" type="bit" address="0xD7B0" position="4" />
-            <property name="beat_fighting_dojo_trainer_3" type="bit" address="0xD7B0" position="5" />
-            <property name="got_hitmonlee" type="bit" address="0xD7B0" position="6" />
-            <property name="got_hitmonchan" type="bit" address="0xD7B0" position="7" />
-            <property name="got_tm46" type="bit" address="0xD7B2" position="0" />
-            <property name="beat_sabrina" type="bit" address="0xD7B2" position="1" />
-            <property name="beat_saffron_gym_trainer_0" type="bit" address="0xD7B2" position="2" />
-            <property name="beat_saffron_gym_trainer_1" type="bit" address="0xD7B2" position="3" />
-            <property name="beat_saffron_gym_trainer_2" type="bit" address="0xD7B2" position="4" />
-            <property name="beat_saffron_gym_trainer_3" type="bit" address="0xD7B2" position="5" />
-            <property name="beat_saffron_gym_trainer_4" type="bit" address="0xD7B2" position="6" />
-            <property name="beat_saffron_gym_trainer_5" type="bit" address="0xD7B2" position="7" />
-            <property name="beat_saffron_gym_trainer_6" type="bit" address="0xD7B3" position="0" />
-            <property name="silph_co_receptionist_at_desk" type="bit" address="0xD7B8" position="7" />
-            <property name="got_tm29" type="bit" address="0xD7BC" position="0" />
-            <property name="got_potion_sample" type="bit" address="0xD7BE" position="0" />
-            <property name="got_hm05" type="bit" address="0xD7C1" position="0" />
-            <property name="beat_route_3_trainer_0" type="bit" address="0xD7C2" position="2" />
-            <property name="beat_route_3_trainer_1" type="bit" address="0xD7C2" position="3" />
-            <property name="beat_route_3_trainer_2" type="bit" address="0xD7C2" position="4" />
-            <property name="beat_route_3_trainer_3" type="bit" address="0xD7C2" position="5" />
-            <property name="beat_route_3_trainer_4" type="bit" address="0xD7C2" position="6" />
-            <property name="beat_route_3_trainer_5" type="bit" address="0xD7C2" position="7" />
-            <property name="beat_route_3_trainer_6" type="bit" address="0xD7C3" position="0" />
-            <property name="beat_route_3_trainer_7" type="bit" address="0xD7C3" position="1" />
-            <property name="beat_route_4_trainer_0" type="bit" address="0xD7C4" position="2" />
-            <property name="bought_magikarp" type="bit" address="0xD7C5" position="7" />
-            <property name="beat_route_6_trainer_0" type="bit" address="0xD7C8" position="1" />
-            <property name="beat_route_6_trainer_1" type="bit" address="0xD7C8" position="2" />
-            <property name="beat_route_6_trainer_2" type="bit" address="0xD7C8" position="3" />
-            <property name="beat_route_6_trainer_3" type="bit" address="0xD7C8" position="4" />
-            <property name="beat_route_6_trainer_4" type="bit" address="0xD7C8" position="5" />
-            <property name="beat_route_6_trainer_5" type="bit" address="0xD7C8" position="6" />
-            <property name="beat_route_8_trainer_0" type="bit" address="0xD7CC" position="1" />
-            <property name="beat_route_8_trainer_1" type="bit" address="0xD7CC" position="2" />
-            <property name="beat_route_8_trainer_2" type="bit" address="0xD7CC" position="3" />
-            <property name="beat_route_8_trainer_3" type="bit" address="0xD7CC" position="4" />
-            <property name="beat_route_8_trainer_4" type="bit" address="0xD7CC" position="5" />
-            <property name="beat_route_8_trainer_5" type="bit" address="0xD7CC" position="6" />
-            <property name="beat_route_8_trainer_6" type="bit" address="0xD7CC" position="7" />
-            <property name="beat_route_8_trainer_7" type="bit" address="0xD7CD" position="0" />
-            <property name="beat_route_8_trainer_8" type="bit" address="0xD7CD" position="1" />
-            <property name="beat_route_9_trainer_0" type="bit" address="0xD7CE" position="1" />
-            <property name="beat_route_9_trainer_1" type="bit" address="0xD7CE" position="2" />
-            <property name="beat_route_9_trainer_2" type="bit" address="0xD7CE" position="3" />
-            <property name="beat_route_9_trainer_3" type="bit" address="0xD7CE" position="4" />
-            <property name="beat_route_9_trainer_4" type="bit" address="0xD7CE" position="5" />
-            <property name="beat_route_9_trainer_5" type="bit" address="0xD7CE" position="6" />
-            <property name="beat_route_9_trainer_6" type="bit" address="0xD7CE" position="7" />
-            <property name="beat_route_9_trainer_7" type="bit" address="0xD7CF" position="0" />
-            <property name="beat_route_9_trainer_8" type="bit" address="0xD7CF" position="1" />
-            <property name="beat_route_10_trainer_0" type="bit" address="0xD7D0" position="1" />
-            <property name="beat_route_10_trainer_1" type="bit" address="0xD7D0" position="2" />
-            <property name="beat_route_10_trainer_2" type="bit" address="0xD7D0" position="3" />
-            <property name="beat_route_10_trainer_3" type="bit" address="0xD7D0" position="4" />
-            <property name="beat_route_10_trainer_4" type="bit" address="0xD7D0" position="5" />
-            <property name="beat_route_10_trainer_5" type="bit" address="0xD7D0" position="6" />
-            <property name="beat_rock_tunnel_1_trainer_0" type="bit" address="0xD7D1" position="1" />
-            <property name="beat_rock_tunnel_1_trainer_1" type="bit" address="0xD7D1" position="2" />
-            <property name="beat_rock_tunnel_1_trainer_2" type="bit" address="0xD7D1" position="3" />
-            <property name="beat_rock_tunnel_1_trainer_3" type="bit" address="0xD7D1" position="4" />
-            <property name="beat_rock_tunnel_1_trainer_4" type="bit" address="0xD7D1" position="5" />
-            <property name="beat_rock_tunnel_1_trainer_5" type="bit" address="0xD7D1" position="6" />
-            <property name="beat_rock_tunnel_1_trainer_6" type="bit" address="0xD7D1" position="7" />
-            <property name="beat_power_plant_voltorb_0" type="bit" address="0xD7D2" position="1" />
-            <property name="beat_power_plant_voltorb_1" type="bit" address="0xD7D2" position="2" />
-            <property name="beat_power_plant_voltorb_2" type="bit" address="0xD7D2" position="3" />
-            <property name="beat_power_plant_voltorb_3" type="bit" address="0xD7D2" position="4" />
-            <property name="beat_power_plant_voltorb_4" type="bit" address="0xD7D2" position="5" />
-            <property name="beat_power_plant_voltorb_5" type="bit" address="0xD7D2" position="6" />
-            <property name="beat_power_plant_voltorb_6" type="bit" address="0xD7D2" position="7" />
-            <property name="beat_power_plant_voltorb_7" type="bit" address="0xD7D3" position="0" />
-            <property name="beat_zapdos" type="bit" address="0xD7D3" position="1" />
-            <property name="beat_route_11_trainer_0" type="bit" address="0xD7D4" position="1" />
-            <property name="beat_route_11_trainer_1" type="bit" address="0xD7D4" position="2" />
-            <property name="beat_route_11_trainer_2" type="bit" address="0xD7D4" position="3" />
-            <property name="beat_route_11_trainer_3" type="bit" address="0xD7D4" position="4" />
-            <property name="beat_route_11_trainer_4" type="bit" address="0xD7D4" position="5" />
-            <property name="beat_route_11_trainer_5" type="bit" address="0xD7D4" position="6" />
-            <property name="beat_route_11_trainer_6" type="bit" address="0xD7D4" position="7" />
-            <property name="beat_route_11_trainer_7" type="bit" address="0xD7D5" position="0" />
-            <property name="beat_route_11_trainer_8" type="bit" address="0xD7D5" position="1" />
-            <property name="beat_route_11_trainer_9" type="bit" address="0xD7D5" position="2" />
-            <property name="got_itemfinder" type="bit" address="0xD7D5" position="7" />
-            <property name="got_tm39" type="bit" address="0xD7D6" position="0" />
-            <property name="beat_route_12_trainer_0" type="bit" address="0xD7D6" position="2" />
-            <property name="beat_route_12_trainer_1" type="bit" address="0xD7D6" position="3" />
-            <property name="beat_route_12_trainer_2" type="bit" address="0xD7D6" position="4" />
-            <property name="beat_route_12_trainer_3" type="bit" address="0xD7D6" position="5" />
-            <property name="beat_route_12_trainer_4" type="bit" address="0xD7D6" position="6" />
-            <property name="beat_route_12_trainer_5" type="bit" address="0xD7D6" position="7" />
-            <property name="beat_route_12_trainer_6" type="bit" address="0xD7D7" position="0" />
-            <property name="fight_route12_snorlax" type="bit" address="0xD7D7" position="6" />
-            <property name="beat_route12_snorlax" type="bit" address="0xD7D7" position="7" />
-            <property name="beat_route_13_trainer_0" type="bit" address="0xD7D8" position="1" />
-            <property name="beat_route_13_trainer_1" type="bit" address="0xD7D8" position="2" />
-            <property name="beat_route_13_trainer_2" type="bit" address="0xD7D8" position="3" />
-            <property name="beat_route_13_trainer_3" type="bit" address="0xD7D8" position="4" />
-            <property name="beat_route_13_trainer_4" type="bit" address="0xD7D8" position="5" />
-            <property name="beat_route_13_trainer_5" type="bit" address="0xD7D8" position="6" />
-            <property name="beat_route_13_trainer_6" type="bit" address="0xD7D8" position="7" />
-            <property name="beat_route_13_trainer_7" type="bit" address="0xD7D9" position="0" />
-            <property name="beat_route_13_trainer_8" type="bit" address="0xD7D9" position="1" />
-            <property name="beat_route_13_trainer_9" type="bit" address="0xD7D9" position="2" />
-            <property name="beat_route_14_trainer_0" type="bit" address="0xD7DA" position="1" />
-            <property name="beat_route_14_trainer_1" type="bit" address="0xD7DA" position="2" />
-            <property name="beat_route_14_trainer_2" type="bit" address="0xD7DA" position="3" />
-            <property name="beat_route_14_trainer_3" type="bit" address="0xD7DA" position="4" />
-            <property name="beat_route_14_trainer_4" type="bit" address="0xD7DA" position="5" />
-            <property name="beat_route_14_trainer_5" type="bit" address="0xD7DA" position="6" />
-            <property name="beat_route_14_trainer_6" type="bit" address="0xD7DA" position="7" />
-            <property name="beat_route_14_trainer_7" type="bit" address="0xD7DB" position="0" />
-            <property name="beat_route_14_trainer_8" type="bit" address="0xD7DB" position="1" />
-            <property name="beat_route_14_trainer_9" type="bit" address="0xD7DB" position="2" />
-            <property name="got_exp_all" type="bit" address="0xD7DC" position="0" />
-            <property name="beat_route_15_trainer_0" type="bit" address="0xD7DC" position="1" />
-            <property name="beat_route_15_trainer_1" type="bit" address="0xD7DC" position="2" />
-            <property name="beat_route_15_trainer_2" type="bit" address="0xD7DC" position="3" />
-            <property name="beat_route_15_trainer_3" type="bit" address="0xD7DC" position="4" />
-            <property name="beat_route_15_trainer_4" type="bit" address="0xD7DC" position="5" />
-            <property name="beat_route_15_trainer_5" type="bit" address="0xD7DC" position="6" />
-            <property name="beat_route_15_trainer_6" type="bit" address="0xD7DC" position="7" />
-            <property name="beat_route_15_trainer_7" type="bit" address="0xD7DD" position="0" />
-            <property name="beat_route_15_trainer_8" type="bit" address="0xD7DD" position="1" />
-            <property name="beat_route_15_trainer_9" type="bit" address="0xD7DD" position="2" />
-            <property name="beat_route_16_trainer_0" type="bit" address="0xD7DE" position="1" />
-            <property name="beat_route_16_trainer_1" type="bit" address="0xD7DE" position="2" />
-            <property name="beat_route_16_trainer_2" type="bit" address="0xD7DE" position="3" />
-            <property name="beat_route_16_trainer_3" type="bit" address="0xD7DE" position="4" />
-            <property name="beat_route_16_trainer_4" type="bit" address="0xD7DE" position="5" />
-            <property name="beat_route_16_trainer_5" type="bit" address="0xD7DE" position="6" />
-            <property name="fight_route16_snorlax" type="bit" address="0xD7DF" position="0" />
-            <property name="beat_route16_snorlax" type="bit" address="0xD7DF" position="1" />
-            <property name="got_hm02" type="bit" address="0xD7DF" position="6" />
-            <property name="rescued_mr_fuji" type="bit" address="0xD7DF" position="7" />
-            <property name="beat_route_17_trainer_0" type="bit" address="0xD7E0" position="1" />
-            <property name="beat_route_17_trainer_1" type="bit" address="0xD7E0" position="2" />
-            <property name="beat_route_17_trainer_2" type="bit" address="0xD7E0" position="3" />
-            <property name="beat_route_17_trainer_3" type="bit" address="0xD7E0" position="4" />
-            <property name="beat_route_17_trainer_4" type="bit" address="0xD7E0" position="5" />
-            <property name="beat_route_17_trainer_5" type="bit" address="0xD7E0" position="6" />
-            <property name="beat_route_17_trainer_6" type="bit" address="0xD7E0" position="7" />
-            <property name="beat_route_17_trainer_7" type="bit" address="0xD7E1" position="0" />
-            <property name="beat_route_17_trainer_8" type="bit" address="0xD7E1" position="1" />
-            <property name="beat_route_17_trainer_9" type="bit" address="0xD7E1" position="2" />
-            <property name="beat_route_18_trainer_0" type="bit" address="0xD7E2" position="1" />
-            <property name="beat_route_18_trainer_1" type="bit" address="0xD7E2" position="2" />
-            <property name="beat_route_18_trainer_2" type="bit" address="0xD7E2" position="3" />
-            <property name="beat_route_19_trainer_0" type="bit" address="0xD7E4" position="1" />
-            <property name="beat_route_19_trainer_1" type="bit" address="0xD7E4" position="2" />
-            <property name="beat_route_19_trainer_2" type="bit" address="0xD7E4" position="3" />
-            <property name="beat_route_19_trainer_3" type="bit" address="0xD7E4" position="4" />
-            <property name="beat_route_19_trainer_4" type="bit" address="0xD7E4" position="5" />
-            <property name="beat_route_19_trainer_5" type="bit" address="0xD7E4" position="6" />
-            <property name="beat_route_19_trainer_6" type="bit" address="0xD7E4" position="7" />
-            <property name="beat_route_19_trainer_7" type="bit" address="0xD7E5" position="0" />
-            <property name="beat_route_19_trainer_8" type="bit" address="0xD7E5" position="1" />
-            <property name="beat_route_19_trainer_9" type="bit" address="0xD7E5" position="2" />
-            <property name="in_seafoam_islands" type="bit" address="0xD7E6" position="0" />
-            <property name="beat_route_20_trainer_0" type="bit" address="0xD7E6" position="1" />
-            <property name="beat_route_20_trainer_1" type="bit" address="0xD7E6" position="2" />
-            <property name="beat_route_20_trainer_2" type="bit" address="0xD7E6" position="3" />
-            <property name="beat_route_20_trainer_3" type="bit" address="0xD7E6" position="4" />
-            <property name="beat_route_20_trainer_4" type="bit" address="0xD7E6" position="5" />
-            <property name="beat_route_20_trainer_5" type="bit" address="0xD7E6" position="6" />
-            <property name="beat_route_20_trainer_6" type="bit" address="0xD7E6" position="7" />
-            <property name="beat_route_20_trainer_7" type="bit" address="0xD7E7" position="0" />
-            <property name="beat_route_20_trainer_8" type="bit" address="0xD7E7" position="1" />
-            <property name="beat_route_20_trainer_9" type="bit" address="0xD7E7" position="2" />
-            <property name="seafoam1_boulder1_down_hole" type="bit" address="0xD7E7" position="6" />
-            <property name="seafoam1_boulder2_down_hole" type="bit" address="0xD7E7" position="7" />
-            <property name="beat_route_21_trainer_0" type="bit" address="0xD7E8" position="1" />
-            <property name="beat_route_21_trainer_1" type="bit" address="0xD7E8" position="2" />
-            <property name="beat_route_21_trainer_2" type="bit" address="0xD7E8" position="3" />
-            <property name="beat_route_21_trainer_3" type="bit" address="0xD7E8" position="4" />
-            <property name="beat_route_21_trainer_4" type="bit" address="0xD7E8" position="5" />
-            <property name="beat_route_21_trainer_5" type="bit" address="0xD7E8" position="6" />
-            <property name="beat_route_21_trainer_6" type="bit" address="0xD7E8" position="7" />
-            <property name="beat_route_21_trainer_7" type="bit" address="0xD7E9" position="0" />
-            <property name="beat_route_21_trainer_8" type="bit" address="0xD7E9" position="1" />
-            <property name="1st_route22_rival_battle" type="bit" address="0xD7EA" position="0" />
-            <property name="2nd_route22_rival_battle" type="bit" address="0xD7EA" position="1" />
-            <property name="beat_route22_rival_1st_battle" type="bit" address="0xD7EA" position="5" />
-            <property name="beat_route22_rival_2nd_battle" type="bit" address="0xD7EA" position="6" />
-            <property name="route22_rival_wants_battle" type="bit" address="0xD7EA" position="7" />
-            <property name="passed_cascadebadge_check" type="bit" address="0xD7EC" position="0" />
-            <property name="passed_thunderbadge_check" type="bit" address="0xD7EC" position="1" />
-            <property name="passed_rainbowbadge_check" type="bit" address="0xD7EC" position="2" />
-            <property name="passed_soulbadge_check" type="bit" address="0xD7EC" position="3" />
-            <property name="passed_marshbadge_check" type="bit" address="0xD7EC" position="4" />
-            <property name="passed_volcanobadge_check" type="bit" address="0xD7EC" position="5" />
-            <property name="passed_earthbadge_check" type="bit" address="0xD7EC" position="6" />
-            <property name="victory_road_2_boulder_on_switch1" type="bit" address="0xD7ED" position="0" />
-            <property name="beat_victory_road_2_trainer_0" type="bit" address="0xD7ED" position="1" />
-            <property name="beat_victory_road_2_trainer_1" type="bit" address="0xD7ED" position="2" />
-            <property name="beat_victory_road_2_trainer_2" type="bit" address="0xD7ED" position="3" />
-            <property name="beat_victory_road_2_trainer_3" type="bit" address="0xD7ED" position="4" />
-            <property name="beat_victory_road_2_trainer_4" type="bit" address="0xD7ED" position="5" />
-            <property name="beat_moltres" type="bit" address="0xD7ED" position="6" />
-            <property name="victory_road_2_boulder_on_switch2" type="bit" address="0xD7ED" position="7" />
-            <property name="got_nugget" type="bit" address="0xD7EE" position="0" />
-            <property name="beat_route24_rocket" type="bit" address="0xD7EE" position="1" />
-            <property name="beat_route_24_trainer_0" type="bit" address="0xD7EE" position="2" />
-            <property name="beat_route_24_trainer_1" type="bit" address="0xD7EE" position="3" />
-            <property name="beat_route_24_trainer_2" type="bit" address="0xD7EE" position="4" />
-            <property name="beat_route_24_trainer_3" type="bit" address="0xD7EE" position="5" />
-            <property name="beat_route_24_trainer_4" type="bit" address="0xD7EE" position="6" />
-            <property name="beat_route_24_trainer_5" type="bit" address="0xD7EE" position="7" />
-            <property name="nugget_reward_available" type="bit" address="0xD7EF" position="1" />
-            <property name="54f" type="bit" address="0xD7F0" position="0" />
-            <property name="met_bill" type="bit" address="0xD7F0" position="1" />
-            <property name="beat_route_25_trainer_0" type="bit" address="0xD7F0" position="2" />
-            <property name="beat_route_25_trainer_1" type="bit" address="0xD7F0" position="3" />
-            <property name="beat_route_25_trainer_2" type="bit" address="0xD7F0" position="4" />
-            <property name="beat_route_25_trainer_3" type="bit" address="0xD7F0" position="5" />
-            <property name="beat_route_25_trainer_4" type="bit" address="0xD7F0" position="6" />
-            <property name="beat_route_25_trainer_5" type="bit" address="0xD7F0" position="7" />
-            <property name="beat_route_25_trainer_6" type="bit" address="0xD7F1" position="0" />
-            <property name="beat_route_25_trainer_7" type="bit" address="0xD7F1" position="1" />
-            <property name="beat_route_25_trainer_8" type="bit" address="0xD7F1" position="2" />
-            <property name="used_cell_separator_on_bill" type="bit" address="0xD7F1" position="4" />
-            <property name="got_ss_ticket" type="bit" address="0xD7F1" position="5" />
-            <property name="met_bill_2" type="bit" address="0xD7F1" position="6" />
-            <property name="bill_said_use_cell_separator" type="bit" address="0xD7F1" position="7" />
-            <property name="left_bills_house_after_helping" type="bit" address="0xD7F2" position="0" />
-            <property name="beat_viridian_forest_trainer_0" type="bit" address="0xD7F2" position="2" />
-            <property name="beat_viridian_forest_trainer_1" type="bit" address="0xD7F2" position="3" />
-            <property name="beat_viridian_forest_trainer_2" type="bit" address="0xD7F2" position="4" />
-            <property name="beat_viridian_forest_trainer_3" type="bit" address="0xD7F2" position="5" />
-            <property name="beat_viridian_forest_trainer_4" type="bit" address="0xD7F2" position="6" />
-            <property name="beat_mt_moon_1_trainer_0" type="bit" address="0xD7F4" position="1" />
-            <property name="beat_mt_moon_1_trainer_1" type="bit" address="0xD7F4" position="2" />
-            <property name="beat_mt_moon_1_trainer_2" type="bit" address="0xD7F4" position="3" />
-            <property name="beat_mt_moon_1_trainer_3" type="bit" address="0xD7F4" position="4" />
-            <property name="beat_mt_moon_1_trainer_4" type="bit" address="0xD7F4" position="5" />
-            <property name="beat_mt_moon_1_trainer_5" type="bit" address="0xD7F4" position="6" />
-            <property name="beat_mt_moon_1_trainer_6" type="bit" address="0xD7F4" position="7" />
-            <property name="got_dome_fossil" type="bit" address="0xD7F5" position="0" />
-            <property name="beat_mt_moon_exit_super_nerd" type="bit" address="0xD7F5" position="1" />
-            <property name="beat_mt_moon_3_trainer_0" type="bit" address="0xD7F5" position="2" />
-            <property name="beat_mt_moon_3_trainer_1" type="bit" address="0xD7F5" position="3" />
-            <property name="beat_mt_moon_3_trainer_2" type="bit" address="0xD7F5" position="4" />
-            <property name="beat_mt_moon_3_trainer_3" type="bit" address="0xD7F5" position="5" />
-            <property name="57e" type="bit" address="0xD7F5" position="6" />
-            <property name="got_helix_fossil" type="bit" address="0xD7F5" position="7" />
-            <property name="beat_ss_anne_5_trainer_0" type="bit" address="0xD7FE" position="4" />
-            <property name="beat_ss_anne_5_trainer_1" type="bit" address="0xD7FE" position="5" />
-            <property name="got_hm01" type="bit" address="0xD802" position="0" />
-            <property name="rubbed_captains_back" type="bit" address="0xD802" position="1" />
-            <property name="ss_anne_left" type="bit" address="0xD802" position="2" />
-            <property name="walked_past_guard_after_ss_anne_left" type="bit" address="0xD802" position="3" />
-            <property name="started_walking_out_of_dock" type="bit" address="0xD802" position="4" />
-            <property name="walked_out_of_dock" type="bit" address="0xD802" position="5" />
-            <property name="beat_ss_anne_8_trainer_0" type="bit" address="0xD804" position="1" />
-            <property name="beat_ss_anne_8_trainer_1" type="bit" address="0xD804" position="2" />
-            <property name="beat_ss_anne_8_trainer_2" type="bit" address="0xD804" position="3" />
-            <property name="beat_ss_anne_8_trainer_3" type="bit" address="0xD804" position="4" />
-            <property name="beat_ss_anne_9_trainer_0" type="bit" address="0xD806" position="1" />
-            <property name="beat_ss_anne_9_trainer_1" type="bit" address="0xD806" position="2" />
-            <property name="beat_ss_anne_9_trainer_2" type="bit" address="0xD806" position="3" />
-            <property name="beat_ss_anne_9_trainer_3" type="bit" address="0xD806" position="4" />
-            <property name="beat_ss_anne_10_trainer_0" type="bit" address="0xD808" position="1" />
-            <property name="beat_ss_anne_10_trainer_1" type="bit" address="0xD808" position="2" />
-            <property name="beat_ss_anne_10_trainer_2" type="bit" address="0xD808" position="3" />
-            <property name="beat_ss_anne_10_trainer_3" type="bit" address="0xD808" position="4" />
-            <property name="beat_ss_anne_10_trainer_4" type="bit" address="0xD808" position="5" />
-            <property name="beat_ss_anne_10_trainer_5" type="bit" address="0xD808" position="6" />
-            <property name="victory_road_3_boulder_on_switch1" type="bit" address="0xD812" position="0" />
-            <property name="beat_victory_road_3_trainer_0" type="bit" address="0xD812" position="1" />
-            <property name="beat_victory_road_3_trainer_1" type="bit" address="0xD812" position="2" />
-            <property name="beat_victory_road_3_trainer_2" type="bit" address="0xD812" position="3" />
-            <property name="beat_victory_road_3_trainer_3" type="bit" address="0xD812" position="4" />
-            <property name="victory_road_3_boulder_on_switch2" type="bit" address="0xD812" position="6" />
-            <property name="beat_rocket_hideout_1_trainer_0" type="bit" address="0xD814" position="1" />
-            <property name="beat_rocket_hideout_1_trainer_1" type="bit" address="0xD814" position="2" />
-            <property name="beat_rocket_hideout_1_trainer_2" type="bit" address="0xD814" position="3" />
-            <property name="beat_rocket_hideout_1_trainer_3" type="bit" address="0xD814" position="4" />
-            <property name="beat_rocket_hideout_1_trainer_4" type="bit" address="0xD814" position="5" />
-            <property name="677" type="bit" address="0xD814" position="7" />
-            <property name="67f" type="bit" address="0xD815" position="7" />
-            <property name="beat_rocket_hideout_2_trainer_0" type="bit" address="0xD816" position="1" />
-            <property name="beat_rocket_hideout_3_trainer_0" type="bit" address="0xD818" position="1" />
-            <property name="beat_rocket_hideout_3_trainer_1" type="bit" address="0xD818" position="2" />
-            <property name="6a0" type="bit" address="0xD81A" position="0" />
-            <property name="beat_rocket_hideout_4_trainer_0" type="bit" address="0xD81A" position="2" />
-            <property name="beat_rocket_hideout_4_trainer_1" type="bit" address="0xD81A" position="3" />
-            <property name="beat_rocket_hideout_4_trainer_2" type="bit" address="0xD81A" position="4" />
-            <property name="rocket_hideout_4_door_unlocked" type="bit" address="0xD81A" position="5" />
-            <property name="rocket_dropped_lift_key" type="bit" address="0xD81A" position="6" />
-            <property name="beat_rocket_hideout_giovanni" type="bit" address="0xD81A" position="7" />
-            <property name="beat_silph_co_2f_trainer_0" type="bit" address="0xD824" position="2" />
-            <property name="beat_silph_co_2f_trainer_1" type="bit" address="0xD824" position="3" />
-            <property name="beat_silph_co_2f_trainer_2" type="bit" address="0xD824" position="4" />
-            <property name="beat_silph_co_2f_trainer_3" type="bit" address="0xD824" position="5" />
-            <property name="silph_co_2_unlocked_door1" type="bit" address="0xD825" position="5" />
-            <property name="silph_co_2_unlocked_door2" type="bit" address="0xD825" position="6" />
-            <property name="got_tm36" type="bit" address="0xD825" position="7" />
-            <property name="beat_silph_co_3f_trainer_0" type="bit" address="0xD826" position="2" />
-            <property name="beat_silph_co_3f_trainer_1" type="bit" address="0xD826" position="3" />
-            <property name="silph_co_3_unlocked_door1" type="bit" address="0xD827" position="0" />
-            <property name="silph_co_3_unlocked_door2" type="bit" address="0xD827" position="1" />
-            <property name="beat_silph_co_4f_trainer_0" type="bit" address="0xD828" position="2" />
-            <property name="beat_silph_co_4f_trainer_1" type="bit" address="0xD828" position="3" />
-            <property name="beat_silph_co_4f_trainer_2" type="bit" address="0xD828" position="4" />
-            <property name="silph_co_4_unlocked_door1" type="bit" address="0xD829" position="0" />
-            <property name="silph_co_4_unlocked_door2" type="bit" address="0xD829" position="1" />
-            <property name="beat_silph_co_5f_trainer_0" type="bit" address="0xD82A" position="2" />
-            <property name="beat_silph_co_5f_trainer_1" type="bit" address="0xD82A" position="3" />
-            <property name="beat_silph_co_5f_trainer_2" type="bit" address="0xD82A" position="4" />
-            <property name="beat_silph_co_5f_trainer_3" type="bit" address="0xD82A" position="5" />
-            <property name="silph_co_5_unlocked_door1" type="bit" address="0xD82B" position="0" />
-            <property name="silph_co_5_unlocked_door2" type="bit" address="0xD82B" position="1" />
-            <property name="silph_co_5_unlocked_door3" type="bit" address="0xD82B" position="2" />
-            <property name="beat_silph_co_6f_trainer_0" type="bit" address="0xD82C" position="6" />
-            <property name="beat_silph_co_6f_trainer_1" type="bit" address="0xD82C" position="7" />
-            <property name="beat_silph_co_6f_trainer_2" type="bit" address="0xD82D" position="0" />
-            <property name="silph_co_6_unlocked_door" type="bit" address="0xD82D" position="7" />
-            <property name="beat_silph_co_rival" type="bit" address="0xD82E" position="0" />
-            <property name="beat_silph_co_7f_trainer_0" type="bit" address="0xD82E" position="5" />
-            <property name="beat_silph_co_7f_trainer_1" type="bit" address="0xD82E" position="6" />
-            <property name="beat_silph_co_7f_trainer_2" type="bit" address="0xD82E" position="7" />
-            <property name="beat_silph_co_7f_trainer_3" type="bit" address="0xD82F" position="0" />
-            <property name="silph_co_7_unlocked_door1" type="bit" address="0xD82F" position="4" />
-            <property name="silph_co_7_unlocked_door2" type="bit" address="0xD82F" position="5" />
-            <property name="silph_co_7_unlocked_door3" type="bit" address="0xD82F" position="6" />
-            <property name="beat_silph_co_8f_trainer_0" type="bit" address="0xD830" position="2" />
-            <property name="beat_silph_co_8f_trainer_1" type="bit" address="0xD830" position="3" />
-            <property name="beat_silph_co_8f_trainer_2" type="bit" address="0xD830" position="4" />
-            <property name="silph_co_8_unlocked_door" type="bit" address="0xD831" position="0" />
-            <property name="beat_silph_co_9f_trainer_0" type="bit" address="0xD832" position="2" />
-            <property name="beat_silph_co_9f_trainer_1" type="bit" address="0xD832" position="3" />
-            <property name="beat_silph_co_9f_trainer_2" type="bit" address="0xD832" position="4" />
-            <property name="silph_co_9_unlocked_door1" type="bit" address="0xD833" position="0" />
-            <property name="silph_co_9_unlocked_door2" type="bit" address="0xD833" position="1" />
-            <property name="silph_co_9_unlocked_door3" type="bit" address="0xD833" position="2" />
-            <property name="silph_co_9_unlocked_door4" type="bit" address="0xD833" position="3" />
-            <property name="beat_silph_co_10f_trainer_0" type="bit" address="0xD834" position="1" />
-            <property name="beat_silph_co_10f_trainer_1" type="bit" address="0xD834" position="2" />
-            <property name="silph_co_10_unlocked_door" type="bit" address="0xD835" position="0" />
-            <property name="780" type="bit" address="0xD836" position="0" />
-            <property name="781" type="bit" address="0xD836" position="1" />
-            <property name="782" type="bit" address="0xD836" position="2" />
-            <property name="beat_silph_co_11f_trainer_0" type="bit" address="0xD836" position="4" />
-            <property name="beat_silph_co_11f_trainer_1" type="bit" address="0xD836" position="5" />
-            <property name="silph_co_11_unlocked_door" type="bit" address="0xD837" position="0" />
-            <property name="got_master_ball" type="bit" address="0xD837" position="5" />
-            <property name="beat_silph_co_giovanni" type="bit" address="0xD837" position="7" />
-            <property name="beat_mansion_2_trainer_0" type="bit" address="0xD846" position="1" />
-            <property name="beat_mansion_3_trainer_0" type="bit" address="0xD848" position="1" />
-            <property name="beat_mansion_3_trainer_1" type="bit" address="0xD848" position="2" />
-            <property name="beat_mansion_4_trainer_0" type="bit" address="0xD84A" position="1" />
-            <property name="beat_mansion_4_trainer_1" type="bit" address="0xD84A" position="2" />
-            <property name="got_hm03" type="bit" address="0xD856" position="0" />
-            <property name="beat_mewtwo" type="bit" address="0xD85E" position="1" />
-            <property name="beat_loreleis_room_trainer_0" type="bit" address="0xD862" position="1" />
-            <property name="autowalked_into_loreleis_room" type="bit" address="0xD862" position="6" />
-            <property name="beat_brunos_room_trainer_0" type="bit" address="0xD863" position="1" />
-            <property name="autowalked_into_brunos_room" type="bit" address="0xD863" position="6" />
-            <property name="beat_agathas_room_trainer_0" type="bit" address="0xD864" position="1" />
-            <property name="autowalked_into_agathas_room" type="bit" address="0xD864" position="6" />
-            <property name="beat_lances_room_trainer_0" type="bit" address="0xD865" position="1" />
-            <property name="beat_lance" type="bit" address="0xD865" position="6" />
-            <property name="lances_room_lock_door" type="bit" address="0xD865" position="7" />
-            <property name="beat_champion_rival" type="bit" address="0xD866" position="1" />
-            <property name="beat_victory_road_1_trainer_0" type="bit" address="0xD868" position="1" />
-            <property name="beat_victory_road_1_trainer_1" type="bit" address="0xD868" position="2" />
-            <property name="victory_road_1_boulder_on_switch" type="bit" address="0xD868" position="7" />
-            <property name="beat_rock_tunnel_2_trainer_0" type="bit" address="0xD87C" position="1" />
-            <property name="beat_rock_tunnel_2_trainer_1" type="bit" address="0xD87C" position="2" />
-            <property name="beat_rock_tunnel_2_trainer_2" type="bit" address="0xD87C" position="3" />
-            <property name="beat_rock_tunnel_2_trainer_3" type="bit" address="0xD87C" position="4" />
-            <property name="beat_rock_tunnel_2_trainer_4" type="bit" address="0xD87C" position="5" />
-            <property name="beat_rock_tunnel_2_trainer_5" type="bit" address="0xD87C" position="6" />
-            <property name="beat_rock_tunnel_2_trainer_6" type="bit" address="0xD87C" position="7" />
-            <property name="beat_rock_tunnel_2_trainer_7" type="bit" address="0xD87D" position="0" />
-            <property name="seafoam2_boulder1_down_hole" type="bit" address="0xD87E" position="0" />
-            <property name="seafoam2_boulder2_down_hole" type="bit" address="0xD87E" position="1" />
-            <property name="seafoam3_boulder1_down_hole" type="bit" address="0xD87F" position="0" />
-            <property name="seafoam3_boulder2_down_hole" type="bit" address="0xD87F" position="1" />
-            <property name="seafoam4_boulder1_down_hole" type="bit" address="0xD880" position="0" />
-            <property name="seafoam4_boulder2_down_hole" type="bit" address="0xD880" position="1" />
-            <property name="beat_articuno" type="bit" address="0xD881" position="2" />
+            <property name="followed_oak_into_lab" type="bool" address="0xD746" bits="0" />
+            <property name="hall_of_fame_dex_rating" type="bool" address="0xD746" bits="3" />
+            <property name="player_at_right_exit_to_pallet_town" type="bool" address="0xD746" bits="5" />
+            <property name="pallet_after_getting_pokeballs" type="bool" address="0xD746" bits="6" />
+            <property name="got_town_map" type="bool" address="0xD749" bits="0" />
+            <property name="entered_blues_house" type="bool" address="0xD749" bits="1" />
+            <property name="daisy_walking" type="bool" address="0xD749" bits="2" />
+            <property name="followed_oak_into_lab_2" type="bool" address="0xD74A" bits="0" />
+            <property name="oak_asked_to_choose_mon" type="bool" address="0xD74A" bits="1" />
+            <property name="got_starter" type="bool" address="0xD74A" bits="2" />
+            <property name="battled_rival_in_oaks_lab" type="bool" address="0xD74A" bits="3" />
+            <property name="got_pokeballs_from_oak" type="bool" address="0xD74A" bits="4" />
+            <property name="got_pokedex" type="bool" address="0xD74A" bits="5" />
+            <property name="pallet_after_getting_pokeballs_2" type="bool" address="0xD74A" bits="6" />
+            <property name="oak_appeared_in_pallet" type="bool" address="0xD74A" bits="7" />
+            <property name="viridian_gym_open" type="bool" address="0xD74B" bits="0" />
+            <property name="got_tm42" type="bool" address="0xD74B" bits="1" />
+            <property name="spawned_old_man_1" type="bool" address="0xD74B" bits="4" />
+            <property name="completed_catch_training" type="bool" address="0xD74B" bits="5" />
+            <property name="completed_catch_training_again" type="bool" address="0xD74B" bits="6" />
+            <property name="initial_catch_training" type="bool" address="0xD74B" bits="7" />
+            <property name="oak_got_parcel" type="bool" address="0xD74D" bits="0" />
+            <property name="got_oaks_parcel" type="bool" address="0xD74D" bits="1" />
+            <property name="got_tm27" type="bool" address="0xD750" bits="0" />
+            <property name="beat_viridian_gym_giovanni" type="bool" address="0xD750" bits="1" />
+            <property name="beat_viridian_gym_trainer_0" type="bool" address="0xD750" bits="2" />
+            <property name="beat_viridian_gym_trainer_1" type="bool" address="0xD750" bits="3" />
+            <property name="beat_viridian_gym_trainer_2" type="bool" address="0xD750" bits="4" />
+            <property name="beat_viridian_gym_trainer_3" type="bool" address="0xD750" bits="5" />
+            <property name="beat_viridian_gym_trainer_4" type="bool" address="0xD750" bits="6" />
+            <property name="beat_viridian_gym_trainer_5" type="bool" address="0xD750" bits="7" />
+            <property name="beat_viridian_gym_trainer_6" type="bool" address="0xD751" bits="0" />
+            <property name="beat_viridian_gym_trainer_7" type="bool" address="0xD751" bits="1" />
+            <property name="bought_museum_ticket" type="bool" address="0xD753" bits="0" />
+            <property name="got_old_amber" type="bool" address="0xD753" bits="1" />
+            <property name="beat_pewter_gym_trainer_0" type="bool" address="0xD754" bits="2" />
+            <property name="got_tm34" type="bool" address="0xD754" bits="6" />
+            <property name="beat_brock" type="bool" address="0xD754" bits="7" />
+            <property name="beat_cerulean_rival" type="bool" address="0xD759" bits="0" />
+            <property name="beat_cerulean_rocket_thief" type="bool" address="0xD75A" bits="7" />
+            <property name="got_bulbasaur_in_cerulean" type="bool" address="0xD75B" bits="0" />
+            <property name="beat_cerulean_gym_trainer_0" type="bool" address="0xD75D" bits="2" />
+            <property name="beat_cerulean_gym_trainer_1" type="bool" address="0xD75D" bits="3" />
+            <property name="got_tm11" type="bool" address="0xD75D" bits="6" />
+            <property name="beat_misty" type="bool" address="0xD75D" bits="7" />
+            <property name="got_bicycle" type="bool" address="0xD75E" bits="0" />
+            <property name="pokemon_tower_rival_on_left" type="bool" address="0xD764" bits="0" />
+            <property name="beat_pokemon_tower_rival" type="bool" address="0xD764" bits="1" />
+            <property name="beat_pokemontower_3_trainer_0" type="bool" address="0xD764" bits="3" />
+            <property name="beat_pokemontower_3_trainer_1" type="bool" address="0xD764" bits="4" />
+            <property name="beat_pokemontower_3_trainer_2" type="bool" address="0xD764" bits="5" />
+            <property name="beat_pokemontower_4_trainer_0" type="bool" address="0xD765" bits="3" />
+            <property name="beat_pokemontower_4_trainer_1" type="bool" address="0xD765" bits="4" />
+            <property name="beat_pokemontower_4_trainer_2" type="bool" address="0xD765" bits="5" />
+            <property name="beat_pokemontower_5_trainer_0" type="bool" address="0xD766" bits="4" />
+            <property name="beat_pokemontower_5_trainer_1" type="bool" address="0xD766" bits="5" />
+            <property name="beat_pokemontower_5_trainer_2" type="bool" address="0xD766" bits="6" />
+            <property name="beat_pokemontower_5_trainer_3" type="bool" address="0xD766" bits="7" />
+            <property name="in_purified_zone" type="bool" address="0xD767" bits="1" />
+            <property name="beat_pokemontower_6_trainer_0" type="bool" address="0xD767" bits="3" />
+            <property name="beat_pokemontower_6_trainer_1" type="bool" address="0xD767" bits="4" />
+            <property name="beat_pokemontower_6_trainer_2" type="bool" address="0xD767" bits="5" />
+            <property name="beat_ghost_marowak" type="bool" address="0xD768" bits="1" />
+            <property name="beat_pokemontower_7_trainer_0" type="bool" address="0xD768" bits="3" />
+            <property name="beat_pokemontower_7_trainer_1" type="bool" address="0xD768" bits="4" />
+            <property name="beat_pokemontower_7_trainer_2" type="bool" address="0xD768" bits="5" />
+            <property name="rescued_mr_fuji_2" type="bool" address="0xD769" bits="1" />
+            <property name="got_poke_flute" type="bool" address="0xD76B" bits="2" />
+            <property name="got_squirtle_from_officer_jenny" type="bool" address="0xD76F" bits="1" />
+            <property name="got_bike_voucher" type="bool" address="0xD770" bits="1" />
+            <property name="left_fanclub_after_bike_voucher" type="bool" address="0xD770" bits="2" />
+            <property name="seel_fan_boast" type="bool" address="0xD770" bits="6" />
+            <property name="pikachu_fan_boast" type="bool" address="0xD770" bits="7" />
+            <property name="2nd_lock_opened" type="bool" address="0xD772" bits="0" />
+            <property name="1st_lock_opened" type="bool" address="0xD772" bits="1" />
+            <property name="beat_vermilion_gym_trainer_0" type="bool" address="0xD772" bits="2" />
+            <property name="beat_vermilion_gym_trainer_1" type="bool" address="0xD772" bits="3" />
+            <property name="beat_vermilion_gym_trainer_2" type="bool" address="0xD772" bits="4" />
+            <property name="got_tm24" type="bool" address="0xD772" bits="6" />
+            <property name="beat_lt_surge" type="bool" address="0xD772" bits="7" />
+            <property name="got_tm41" type="bool" address="0xD776" bits="0" />
+            <property name="got_tm13" type="bool" address="0xD777" bits="4" />
+            <property name="got_tm48" type="bool" address="0xD777" bits="5" />
+            <property name="got_tm49" type="bool" address="0xD777" bits="6" />
+            <property name="got_tm18" type="bool" address="0xD777" bits="7" />
+            <property name="got_tm21" type="bool" address="0xD77B" bits="0" />
+            <property name="beat_erika" type="bool" address="0xD77B" bits="1" />
+            <property name="beat_celadon_gym_trainer_0" type="bool" address="0xD77B" bits="2" />
+            <property name="beat_celadon_gym_trainer_1" type="bool" address="0xD77B" bits="3" />
+            <property name="beat_celadon_gym_trainer_2" type="bool" address="0xD77B" bits="4" />
+            <property name="beat_celadon_gym_trainer_3" type="bool" address="0xD77B" bits="5" />
+            <property name="beat_celadon_gym_trainer_4" type="bool" address="0xD77B" bits="6" />
+            <property name="beat_celadon_gym_trainer_5" type="bool" address="0xD77B" bits="7" />
+            <property name="beat_celadon_gym_trainer_6" type="bool" address="0xD77C" bits="0" />
+            <property name="1b8" type="bool" address="0xD77D" bits="0" />
+            <property name="found_rocket_hideout" type="bool" address="0xD77D" bits="1" />
+            <property name="got_10_coins" type="bool" address="0xD77D" bits="2" />
+            <property name="got_20_coins" type="bool" address="0xD77D" bits="3" />
+            <property name="got_20_coins_2" type="bool" address="0xD77D" bits="4" />
+            <property name="1bf" type="bool" address="0xD77D" bits="7" />
+            <property name="got_coin_case" type="bool" address="0xD782" bits="0" />
+            <property name="got_hm04" type="bool" address="0xD78D" bits="0" />
+            <property name="gave_gold_teeth" type="bool" address="0xD78D" bits="1" />
+            <property name="safari_game_over" type="bool" address="0xD78F" bits="6" />
+            <property name="in_safari_zone" type="bool" address="0xD78F" bits="7" />
+            <property name="got_tm06" type="bool" address="0xD791" bits="0" />
+            <property name="beat_koga" type="bool" address="0xD791" bits="1" />
+            <property name="beat_fuchsia_gym_trainer_0" type="bool" address="0xD791" bits="2" />
+            <property name="beat_fuchsia_gym_trainer_1" type="bool" address="0xD791" bits="3" />
+            <property name="beat_fuchsia_gym_trainer_2" type="bool" address="0xD791" bits="4" />
+            <property name="beat_fuchsia_gym_trainer_3" type="bool" address="0xD791" bits="5" />
+            <property name="beat_fuchsia_gym_trainer_4" type="bool" address="0xD791" bits="6" />
+            <property name="beat_fuchsia_gym_trainer_5" type="bool" address="0xD791" bits="7" />
+            <property name="mansion_switch_on" type="bool" address="0xD795" bits="0" />
+            <property name="beat_mansion_1_trainer_0" type="bool" address="0xD797" bits="1" />
+            <property name="got_tm38" type="bool" address="0xD799" bits="0" />
+            <property name="beat_blaine" type="bool" address="0xD799" bits="1" />
+            <property name="beat_cinnabar_gym_trainer_0" type="bool" address="0xD799" bits="2" />
+            <property name="beat_cinnabar_gym_trainer_1" type="bool" address="0xD799" bits="3" />
+            <property name="beat_cinnabar_gym_trainer_2" type="bool" address="0xD799" bits="4" />
+            <property name="beat_cinnabar_gym_trainer_3" type="bool" address="0xD799" bits="5" />
+            <property name="beat_cinnabar_gym_trainer_4" type="bool" address="0xD799" bits="6" />
+            <property name="beat_cinnabar_gym_trainer_5" type="bool" address="0xD799" bits="7" />
+            <property name="beat_cinnabar_gym_trainer_6" type="bool" address="0xD79A" bits="0" />
+            <property name="2a7" type="bool" address="0xD79A" bits="7" />
+            <property name="cinnabar_gym_gate0_unlocked" type="bool" address="0xD79B" bits="0" />
+            <property name="cinnabar_gym_gate1_unlocked" type="bool" address="0xD79B" bits="1" />
+            <property name="cinnabar_gym_gate2_unlocked" type="bool" address="0xD79B" bits="2" />
+            <property name="cinnabar_gym_gate3_unlocked" type="bool" address="0xD79B" bits="3" />
+            <property name="cinnabar_gym_gate4_unlocked" type="bool" address="0xD79B" bits="4" />
+            <property name="cinnabar_gym_gate5_unlocked" type="bool" address="0xD79B" bits="5" />
+            <property name="cinnabar_gym_gate6_unlocked" type="bool" address="0xD79B" bits="6" />
+            <property name="got_tm35" type="bool" address="0xD7A0" bits="7" />
+            <property name="gave_fossil_to_lab" type="bool" address="0xD7A2" bits="0" />
+            <property name="lab_still_reviving_fossil" type="bool" address="0xD7A2" bits="1" />
+            <property name="lab_handing_over_fossil_mon" type="bool" address="0xD7A2" bits="2" />
+            <property name="got_tm31" type="bool" address="0xD7AE" bits="0" />
+            <property name="defeated_fighting_dojo" type="bool" address="0xD7B0" bits="0" />
+            <property name="beat_karate_master" type="bool" address="0xD7B0" bits="1" />
+            <property name="beat_fighting_dojo_trainer_0" type="bool" address="0xD7B0" bits="2" />
+            <property name="beat_fighting_dojo_trainer_1" type="bool" address="0xD7B0" bits="3" />
+            <property name="beat_fighting_dojo_trainer_2" type="bool" address="0xD7B0" bits="4" />
+            <property name="beat_fighting_dojo_trainer_3" type="bool" address="0xD7B0" bits="5" />
+            <property name="got_hitmonlee" type="bool" address="0xD7B0" bits="6" />
+            <property name="got_hitmonchan" type="bool" address="0xD7B0" bits="7" />
+            <property name="got_tm46" type="bool" address="0xD7B2" bits="0" />
+            <property name="beat_sabrina" type="bool" address="0xD7B2" bits="1" />
+            <property name="beat_saffron_gym_trainer_0" type="bool" address="0xD7B2" bits="2" />
+            <property name="beat_saffron_gym_trainer_1" type="bool" address="0xD7B2" bits="3" />
+            <property name="beat_saffron_gym_trainer_2" type="bool" address="0xD7B2" bits="4" />
+            <property name="beat_saffron_gym_trainer_3" type="bool" address="0xD7B2" bits="5" />
+            <property name="beat_saffron_gym_trainer_4" type="bool" address="0xD7B2" bits="6" />
+            <property name="beat_saffron_gym_trainer_5" type="bool" address="0xD7B2" bits="7" />
+            <property name="beat_saffron_gym_trainer_6" type="bool" address="0xD7B3" bits="0" />
+            <property name="silph_co_receptionist_at_desk" type="bool" address="0xD7B8" bits="7" />
+            <property name="got_tm29" type="bool" address="0xD7BC" bits="0" />
+            <property name="got_potion_sample" type="bool" address="0xD7BE" bits="0" />
+            <property name="got_hm05" type="bool" address="0xD7C1" bits="0" />
+            <property name="beat_route_3_trainer_0" type="bool" address="0xD7C2" bits="2" />
+            <property name="beat_route_3_trainer_1" type="bool" address="0xD7C2" bits="3" />
+            <property name="beat_route_3_trainer_2" type="bool" address="0xD7C2" bits="4" />
+            <property name="beat_route_3_trainer_3" type="bool" address="0xD7C2" bits="5" />
+            <property name="beat_route_3_trainer_4" type="bool" address="0xD7C2" bits="6" />
+            <property name="beat_route_3_trainer_5" type="bool" address="0xD7C2" bits="7" />
+            <property name="beat_route_3_trainer_6" type="bool" address="0xD7C3" bits="0" />
+            <property name="beat_route_3_trainer_7" type="bool" address="0xD7C3" bits="1" />
+            <property name="beat_route_4_trainer_0" type="bool" address="0xD7C4" bits="2" />
+            <property name="bought_magikarp" type="bool" address="0xD7C5" bits="7" />
+            <property name="beat_route_6_trainer_0" type="bool" address="0xD7C8" bits="1" />
+            <property name="beat_route_6_trainer_1" type="bool" address="0xD7C8" bits="2" />
+            <property name="beat_route_6_trainer_2" type="bool" address="0xD7C8" bits="3" />
+            <property name="beat_route_6_trainer_3" type="bool" address="0xD7C8" bits="4" />
+            <property name="beat_route_6_trainer_4" type="bool" address="0xD7C8" bits="5" />
+            <property name="beat_route_6_trainer_5" type="bool" address="0xD7C8" bits="6" />
+            <property name="beat_route_8_trainer_0" type="bool" address="0xD7CC" bits="1" />
+            <property name="beat_route_8_trainer_1" type="bool" address="0xD7CC" bits="2" />
+            <property name="beat_route_8_trainer_2" type="bool" address="0xD7CC" bits="3" />
+            <property name="beat_route_8_trainer_3" type="bool" address="0xD7CC" bits="4" />
+            <property name="beat_route_8_trainer_4" type="bool" address="0xD7CC" bits="5" />
+            <property name="beat_route_8_trainer_5" type="bool" address="0xD7CC" bits="6" />
+            <property name="beat_route_8_trainer_6" type="bool" address="0xD7CC" bits="7" />
+            <property name="beat_route_8_trainer_7" type="bool" address="0xD7CD" bits="0" />
+            <property name="beat_route_8_trainer_8" type="bool" address="0xD7CD" bits="1" />
+            <property name="beat_route_9_trainer_0" type="bool" address="0xD7CE" bits="1" />
+            <property name="beat_route_9_trainer_1" type="bool" address="0xD7CE" bits="2" />
+            <property name="beat_route_9_trainer_2" type="bool" address="0xD7CE" bits="3" />
+            <property name="beat_route_9_trainer_3" type="bool" address="0xD7CE" bits="4" />
+            <property name="beat_route_9_trainer_4" type="bool" address="0xD7CE" bits="5" />
+            <property name="beat_route_9_trainer_5" type="bool" address="0xD7CE" bits="6" />
+            <property name="beat_route_9_trainer_6" type="bool" address="0xD7CE" bits="7" />
+            <property name="beat_route_9_trainer_7" type="bool" address="0xD7CF" bits="0" />
+            <property name="beat_route_9_trainer_8" type="bool" address="0xD7CF" bits="1" />
+            <property name="beat_route_10_trainer_0" type="bool" address="0xD7D0" bits="1" />
+            <property name="beat_route_10_trainer_1" type="bool" address="0xD7D0" bits="2" />
+            <property name="beat_route_10_trainer_2" type="bool" address="0xD7D0" bits="3" />
+            <property name="beat_route_10_trainer_3" type="bool" address="0xD7D0" bits="4" />
+            <property name="beat_route_10_trainer_4" type="bool" address="0xD7D0" bits="5" />
+            <property name="beat_route_10_trainer_5" type="bool" address="0xD7D0" bits="6" />
+            <property name="beat_rock_tunnel_1_trainer_0" type="bool" address="0xD7D1" bits="1" />
+            <property name="beat_rock_tunnel_1_trainer_1" type="bool" address="0xD7D1" bits="2" />
+            <property name="beat_rock_tunnel_1_trainer_2" type="bool" address="0xD7D1" bits="3" />
+            <property name="beat_rock_tunnel_1_trainer_3" type="bool" address="0xD7D1" bits="4" />
+            <property name="beat_rock_tunnel_1_trainer_4" type="bool" address="0xD7D1" bits="5" />
+            <property name="beat_rock_tunnel_1_trainer_5" type="bool" address="0xD7D1" bits="6" />
+            <property name="beat_rock_tunnel_1_trainer_6" type="bool" address="0xD7D1" bits="7" />
+            <property name="beat_power_plant_voltorb_0" type="bool" address="0xD7D2" bits="1" />
+            <property name="beat_power_plant_voltorb_1" type="bool" address="0xD7D2" bits="2" />
+            <property name="beat_power_plant_voltorb_2" type="bool" address="0xD7D2" bits="3" />
+            <property name="beat_power_plant_voltorb_3" type="bool" address="0xD7D2" bits="4" />
+            <property name="beat_power_plant_voltorb_4" type="bool" address="0xD7D2" bits="5" />
+            <property name="beat_power_plant_voltorb_5" type="bool" address="0xD7D2" bits="6" />
+            <property name="beat_power_plant_voltorb_6" type="bool" address="0xD7D2" bits="7" />
+            <property name="beat_power_plant_voltorb_7" type="bool" address="0xD7D3" bits="0" />
+            <property name="beat_zapdos" type="bool" address="0xD7D3" bits="1" />
+            <property name="beat_route_11_trainer_0" type="bool" address="0xD7D4" bits="1" />
+            <property name="beat_route_11_trainer_1" type="bool" address="0xD7D4" bits="2" />
+            <property name="beat_route_11_trainer_2" type="bool" address="0xD7D4" bits="3" />
+            <property name="beat_route_11_trainer_3" type="bool" address="0xD7D4" bits="4" />
+            <property name="beat_route_11_trainer_4" type="bool" address="0xD7D4" bits="5" />
+            <property name="beat_route_11_trainer_5" type="bool" address="0xD7D4" bits="6" />
+            <property name="beat_route_11_trainer_6" type="bool" address="0xD7D4" bits="7" />
+            <property name="beat_route_11_trainer_7" type="bool" address="0xD7D5" bits="0" />
+            <property name="beat_route_11_trainer_8" type="bool" address="0xD7D5" bits="1" />
+            <property name="beat_route_11_trainer_9" type="bool" address="0xD7D5" bits="2" />
+            <property name="got_itemfinder" type="bool" address="0xD7D5" bits="7" />
+            <property name="got_tm39" type="bool" address="0xD7D6" bits="0" />
+            <property name="beat_route_12_trainer_0" type="bool" address="0xD7D6" bits="2" />
+            <property name="beat_route_12_trainer_1" type="bool" address="0xD7D6" bits="3" />
+            <property name="beat_route_12_trainer_2" type="bool" address="0xD7D6" bits="4" />
+            <property name="beat_route_12_trainer_3" type="bool" address="0xD7D6" bits="5" />
+            <property name="beat_route_12_trainer_4" type="bool" address="0xD7D6" bits="6" />
+            <property name="beat_route_12_trainer_5" type="bool" address="0xD7D6" bits="7" />
+            <property name="beat_route_12_trainer_6" type="bool" address="0xD7D7" bits="0" />
+            <property name="fight_route12_snorlax" type="bool" address="0xD7D7" bits="6" />
+            <property name="beat_route12_snorlax" type="bool" address="0xD7D7" bits="7" />
+            <property name="beat_route_13_trainer_0" type="bool" address="0xD7D8" bits="1" />
+            <property name="beat_route_13_trainer_1" type="bool" address="0xD7D8" bits="2" />
+            <property name="beat_route_13_trainer_2" type="bool" address="0xD7D8" bits="3" />
+            <property name="beat_route_13_trainer_3" type="bool" address="0xD7D8" bits="4" />
+            <property name="beat_route_13_trainer_4" type="bool" address="0xD7D8" bits="5" />
+            <property name="beat_route_13_trainer_5" type="bool" address="0xD7D8" bits="6" />
+            <property name="beat_route_13_trainer_6" type="bool" address="0xD7D8" bits="7" />
+            <property name="beat_route_13_trainer_7" type="bool" address="0xD7D9" bits="0" />
+            <property name="beat_route_13_trainer_8" type="bool" address="0xD7D9" bits="1" />
+            <property name="beat_route_13_trainer_9" type="bool" address="0xD7D9" bits="2" />
+            <property name="beat_route_14_trainer_0" type="bool" address="0xD7DA" bits="1" />
+            <property name="beat_route_14_trainer_1" type="bool" address="0xD7DA" bits="2" />
+            <property name="beat_route_14_trainer_2" type="bool" address="0xD7DA" bits="3" />
+            <property name="beat_route_14_trainer_3" type="bool" address="0xD7DA" bits="4" />
+            <property name="beat_route_14_trainer_4" type="bool" address="0xD7DA" bits="5" />
+            <property name="beat_route_14_trainer_5" type="bool" address="0xD7DA" bits="6" />
+            <property name="beat_route_14_trainer_6" type="bool" address="0xD7DA" bits="7" />
+            <property name="beat_route_14_trainer_7" type="bool" address="0xD7DB" bits="0" />
+            <property name="beat_route_14_trainer_8" type="bool" address="0xD7DB" bits="1" />
+            <property name="beat_route_14_trainer_9" type="bool" address="0xD7DB" bits="2" />
+            <property name="got_exp_all" type="bool" address="0xD7DC" bits="0" />
+            <property name="beat_route_15_trainer_0" type="bool" address="0xD7DC" bits="1" />
+            <property name="beat_route_15_trainer_1" type="bool" address="0xD7DC" bits="2" />
+            <property name="beat_route_15_trainer_2" type="bool" address="0xD7DC" bits="3" />
+            <property name="beat_route_15_trainer_3" type="bool" address="0xD7DC" bits="4" />
+            <property name="beat_route_15_trainer_4" type="bool" address="0xD7DC" bits="5" />
+            <property name="beat_route_15_trainer_5" type="bool" address="0xD7DC" bits="6" />
+            <property name="beat_route_15_trainer_6" type="bool" address="0xD7DC" bits="7" />
+            <property name="beat_route_15_trainer_7" type="bool" address="0xD7DD" bits="0" />
+            <property name="beat_route_15_trainer_8" type="bool" address="0xD7DD" bits="1" />
+            <property name="beat_route_15_trainer_9" type="bool" address="0xD7DD" bits="2" />
+            <property name="beat_route_16_trainer_0" type="bool" address="0xD7DE" bits="1" />
+            <property name="beat_route_16_trainer_1" type="bool" address="0xD7DE" bits="2" />
+            <property name="beat_route_16_trainer_2" type="bool" address="0xD7DE" bits="3" />
+            <property name="beat_route_16_trainer_3" type="bool" address="0xD7DE" bits="4" />
+            <property name="beat_route_16_trainer_4" type="bool" address="0xD7DE" bits="5" />
+            <property name="beat_route_16_trainer_5" type="bool" address="0xD7DE" bits="6" />
+            <property name="fight_route16_snorlax" type="bool" address="0xD7DF" bits="0" />
+            <property name="beat_route16_snorlax" type="bool" address="0xD7DF" bits="1" />
+            <property name="got_hm02" type="bool" address="0xD7DF" bits="6" />
+            <property name="rescued_mr_fuji" type="bool" address="0xD7DF" bits="7" />
+            <property name="beat_route_17_trainer_0" type="bool" address="0xD7E0" bits="1" />
+            <property name="beat_route_17_trainer_1" type="bool" address="0xD7E0" bits="2" />
+            <property name="beat_route_17_trainer_2" type="bool" address="0xD7E0" bits="3" />
+            <property name="beat_route_17_trainer_3" type="bool" address="0xD7E0" bits="4" />
+            <property name="beat_route_17_trainer_4" type="bool" address="0xD7E0" bits="5" />
+            <property name="beat_route_17_trainer_5" type="bool" address="0xD7E0" bits="6" />
+            <property name="beat_route_17_trainer_6" type="bool" address="0xD7E0" bits="7" />
+            <property name="beat_route_17_trainer_7" type="bool" address="0xD7E1" bits="0" />
+            <property name="beat_route_17_trainer_8" type="bool" address="0xD7E1" bits="1" />
+            <property name="beat_route_17_trainer_9" type="bool" address="0xD7E1" bits="2" />
+            <property name="beat_route_18_trainer_0" type="bool" address="0xD7E2" bits="1" />
+            <property name="beat_route_18_trainer_1" type="bool" address="0xD7E2" bits="2" />
+            <property name="beat_route_18_trainer_2" type="bool" address="0xD7E2" bits="3" />
+            <property name="beat_route_19_trainer_0" type="bool" address="0xD7E4" bits="1" />
+            <property name="beat_route_19_trainer_1" type="bool" address="0xD7E4" bits="2" />
+            <property name="beat_route_19_trainer_2" type="bool" address="0xD7E4" bits="3" />
+            <property name="beat_route_19_trainer_3" type="bool" address="0xD7E4" bits="4" />
+            <property name="beat_route_19_trainer_4" type="bool" address="0xD7E4" bits="5" />
+            <property name="beat_route_19_trainer_5" type="bool" address="0xD7E4" bits="6" />
+            <property name="beat_route_19_trainer_6" type="bool" address="0xD7E4" bits="7" />
+            <property name="beat_route_19_trainer_7" type="bool" address="0xD7E5" bits="0" />
+            <property name="beat_route_19_trainer_8" type="bool" address="0xD7E5" bits="1" />
+            <property name="beat_route_19_trainer_9" type="bool" address="0xD7E5" bits="2" />
+            <property name="in_seafoam_islands" type="bool" address="0xD7E6" bits="0" />
+            <property name="beat_route_20_trainer_0" type="bool" address="0xD7E6" bits="1" />
+            <property name="beat_route_20_trainer_1" type="bool" address="0xD7E6" bits="2" />
+            <property name="beat_route_20_trainer_2" type="bool" address="0xD7E6" bits="3" />
+            <property name="beat_route_20_trainer_3" type="bool" address="0xD7E6" bits="4" />
+            <property name="beat_route_20_trainer_4" type="bool" address="0xD7E6" bits="5" />
+            <property name="beat_route_20_trainer_5" type="bool" address="0xD7E6" bits="6" />
+            <property name="beat_route_20_trainer_6" type="bool" address="0xD7E6" bits="7" />
+            <property name="beat_route_20_trainer_7" type="bool" address="0xD7E7" bits="0" />
+            <property name="beat_route_20_trainer_8" type="bool" address="0xD7E7" bits="1" />
+            <property name="beat_route_20_trainer_9" type="bool" address="0xD7E7" bits="2" />
+            <property name="seafoam1_boulder1_down_hole" type="bool" address="0xD7E7" bits="6" />
+            <property name="seafoam1_boulder2_down_hole" type="bool" address="0xD7E7" bits="7" />
+            <property name="beat_route_21_trainer_0" type="bool" address="0xD7E8" bits="1" />
+            <property name="beat_route_21_trainer_1" type="bool" address="0xD7E8" bits="2" />
+            <property name="beat_route_21_trainer_2" type="bool" address="0xD7E8" bits="3" />
+            <property name="beat_route_21_trainer_3" type="bool" address="0xD7E8" bits="4" />
+            <property name="beat_route_21_trainer_4" type="bool" address="0xD7E8" bits="5" />
+            <property name="beat_route_21_trainer_5" type="bool" address="0xD7E8" bits="6" />
+            <property name="beat_route_21_trainer_6" type="bool" address="0xD7E8" bits="7" />
+            <property name="beat_route_21_trainer_7" type="bool" address="0xD7E9" bits="0" />
+            <property name="beat_route_21_trainer_8" type="bool" address="0xD7E9" bits="1" />
+            <property name="1st_route22_rival_battle" type="bool" address="0xD7EA" bits="0" />
+            <property name="2nd_route22_rival_battle" type="bool" address="0xD7EA" bits="1" />
+            <property name="beat_route22_rival_1st_battle" type="bool" address="0xD7EA" bits="5" />
+            <property name="beat_route22_rival_2nd_battle" type="bool" address="0xD7EA" bits="6" />
+            <property name="route22_rival_wants_battle" type="bool" address="0xD7EA" bits="7" />
+            <property name="passed_cascadebadge_check" type="bool" address="0xD7EC" bits="0" />
+            <property name="passed_thunderbadge_check" type="bool" address="0xD7EC" bits="1" />
+            <property name="passed_rainbowbadge_check" type="bool" address="0xD7EC" bits="2" />
+            <property name="passed_soulbadge_check" type="bool" address="0xD7EC" bits="3" />
+            <property name="passed_marshbadge_check" type="bool" address="0xD7EC" bits="4" />
+            <property name="passed_volcanobadge_check" type="bool" address="0xD7EC" bits="5" />
+            <property name="passed_earthbadge_check" type="bool" address="0xD7EC" bits="6" />
+            <property name="victory_road_2_boulder_on_switch1" type="bool" address="0xD7ED" bits="0" />
+            <property name="beat_victory_road_2_trainer_0" type="bool" address="0xD7ED" bits="1" />
+            <property name="beat_victory_road_2_trainer_1" type="bool" address="0xD7ED" bits="2" />
+            <property name="beat_victory_road_2_trainer_2" type="bool" address="0xD7ED" bits="3" />
+            <property name="beat_victory_road_2_trainer_3" type="bool" address="0xD7ED" bits="4" />
+            <property name="beat_victory_road_2_trainer_4" type="bool" address="0xD7ED" bits="5" />
+            <property name="beat_moltres" type="bool" address="0xD7ED" bits="6" />
+            <property name="victory_road_2_boulder_on_switch2" type="bool" address="0xD7ED" bits="7" />
+            <property name="got_nugget" type="bool" address="0xD7EE" bits="0" />
+            <property name="beat_route24_rocket" type="bool" address="0xD7EE" bits="1" />
+            <property name="beat_route_24_trainer_0" type="bool" address="0xD7EE" bits="2" />
+            <property name="beat_route_24_trainer_1" type="bool" address="0xD7EE" bits="3" />
+            <property name="beat_route_24_trainer_2" type="bool" address="0xD7EE" bits="4" />
+            <property name="beat_route_24_trainer_3" type="bool" address="0xD7EE" bits="5" />
+            <property name="beat_route_24_trainer_4" type="bool" address="0xD7EE" bits="6" />
+            <property name="beat_route_24_trainer_5" type="bool" address="0xD7EE" bits="7" />
+            <property name="nugget_reward_available" type="bool" address="0xD7EF" bits="1" />
+            <property name="54f" type="bool" address="0xD7F0" bits="0" />
+            <property name="met_bill" type="bool" address="0xD7F0" bits="1" />
+            <property name="beat_route_25_trainer_0" type="bool" address="0xD7F0" bits="2" />
+            <property name="beat_route_25_trainer_1" type="bool" address="0xD7F0" bits="3" />
+            <property name="beat_route_25_trainer_2" type="bool" address="0xD7F0" bits="4" />
+            <property name="beat_route_25_trainer_3" type="bool" address="0xD7F0" bits="5" />
+            <property name="beat_route_25_trainer_4" type="bool" address="0xD7F0" bits="6" />
+            <property name="beat_route_25_trainer_5" type="bool" address="0xD7F0" bits="7" />
+            <property name="beat_route_25_trainer_6" type="bool" address="0xD7F1" bits="0" />
+            <property name="beat_route_25_trainer_7" type="bool" address="0xD7F1" bits="1" />
+            <property name="beat_route_25_trainer_8" type="bool" address="0xD7F1" bits="2" />
+            <property name="used_cell_separator_on_bill" type="bool" address="0xD7F1" bits="4" />
+            <property name="got_ss_ticket" type="bool" address="0xD7F1" bits="5" />
+            <property name="met_bill_2" type="bool" address="0xD7F1" bits="6" />
+            <property name="bill_said_use_cell_separator" type="bool" address="0xD7F1" bits="7" />
+            <property name="left_bills_house_after_helping" type="bool" address="0xD7F2" bits="0" />
+            <property name="beat_viridian_forest_trainer_0" type="bool" address="0xD7F2" bits="2" />
+            <property name="beat_viridian_forest_trainer_1" type="bool" address="0xD7F2" bits="3" />
+            <property name="beat_viridian_forest_trainer_2" type="bool" address="0xD7F2" bits="4" />
+            <property name="beat_viridian_forest_trainer_3" type="bool" address="0xD7F2" bits="5" />
+            <property name="beat_viridian_forest_trainer_4" type="bool" address="0xD7F2" bits="6" />
+            <property name="beat_mt_moon_1_trainer_0" type="bool" address="0xD7F4" bits="1" />
+            <property name="beat_mt_moon_1_trainer_1" type="bool" address="0xD7F4" bits="2" />
+            <property name="beat_mt_moon_1_trainer_2" type="bool" address="0xD7F4" bits="3" />
+            <property name="beat_mt_moon_1_trainer_3" type="bool" address="0xD7F4" bits="4" />
+            <property name="beat_mt_moon_1_trainer_4" type="bool" address="0xD7F4" bits="5" />
+            <property name="beat_mt_moon_1_trainer_5" type="bool" address="0xD7F4" bits="6" />
+            <property name="beat_mt_moon_1_trainer_6" type="bool" address="0xD7F4" bits="7" />
+            <property name="got_dome_fossil" type="bool" address="0xD7F5" bits="0" />
+            <property name="beat_mt_moon_exit_super_nerd" type="bool" address="0xD7F5" bits="1" />
+            <property name="beat_mt_moon_3_trainer_0" type="bool" address="0xD7F5" bits="2" />
+            <property name="beat_mt_moon_3_trainer_1" type="bool" address="0xD7F5" bits="3" />
+            <property name="beat_mt_moon_3_trainer_2" type="bool" address="0xD7F5" bits="4" />
+            <property name="beat_mt_moon_3_trainer_3" type="bool" address="0xD7F5" bits="5" />
+            <property name="57e" type="bool" address="0xD7F5" bits="6" />
+            <property name="got_helix_fossil" type="bool" address="0xD7F5" bits="7" />
+            <property name="beat_ss_anne_5_trainer_0" type="bool" address="0xD7FE" bits="4" />
+            <property name="beat_ss_anne_5_trainer_1" type="bool" address="0xD7FE" bits="5" />
+            <property name="got_hm01" type="bool" address="0xD802" bits="0" />
+            <property name="rubbed_captains_back" type="bool" address="0xD802" bits="1" />
+            <property name="ss_anne_left" type="bool" address="0xD802" bits="2" />
+            <property name="walked_past_guard_after_ss_anne_left" type="bool" address="0xD802" bits="3" />
+            <property name="started_walking_out_of_dock" type="bool" address="0xD802" bits="4" />
+            <property name="walked_out_of_dock" type="bool" address="0xD802" bits="5" />
+            <property name="beat_ss_anne_8_trainer_0" type="bool" address="0xD804" bits="1" />
+            <property name="beat_ss_anne_8_trainer_1" type="bool" address="0xD804" bits="2" />
+            <property name="beat_ss_anne_8_trainer_2" type="bool" address="0xD804" bits="3" />
+            <property name="beat_ss_anne_8_trainer_3" type="bool" address="0xD804" bits="4" />
+            <property name="beat_ss_anne_9_trainer_0" type="bool" address="0xD806" bits="1" />
+            <property name="beat_ss_anne_9_trainer_1" type="bool" address="0xD806" bits="2" />
+            <property name="beat_ss_anne_9_trainer_2" type="bool" address="0xD806" bits="3" />
+            <property name="beat_ss_anne_9_trainer_3" type="bool" address="0xD806" bits="4" />
+            <property name="beat_ss_anne_10_trainer_0" type="bool" address="0xD808" bits="1" />
+            <property name="beat_ss_anne_10_trainer_1" type="bool" address="0xD808" bits="2" />
+            <property name="beat_ss_anne_10_trainer_2" type="bool" address="0xD808" bits="3" />
+            <property name="beat_ss_anne_10_trainer_3" type="bool" address="0xD808" bits="4" />
+            <property name="beat_ss_anne_10_trainer_4" type="bool" address="0xD808" bits="5" />
+            <property name="beat_ss_anne_10_trainer_5" type="bool" address="0xD808" bits="6" />
+            <property name="victory_road_3_boulder_on_switch1" type="bool" address="0xD812" bits="0" />
+            <property name="beat_victory_road_3_trainer_0" type="bool" address="0xD812" bits="1" />
+            <property name="beat_victory_road_3_trainer_1" type="bool" address="0xD812" bits="2" />
+            <property name="beat_victory_road_3_trainer_2" type="bool" address="0xD812" bits="3" />
+            <property name="beat_victory_road_3_trainer_3" type="bool" address="0xD812" bits="4" />
+            <property name="victory_road_3_boulder_on_switch2" type="bool" address="0xD812" bits="6" />
+            <property name="beat_rocket_hideout_1_trainer_0" type="bool" address="0xD814" bits="1" />
+            <property name="beat_rocket_hideout_1_trainer_1" type="bool" address="0xD814" bits="2" />
+            <property name="beat_rocket_hideout_1_trainer_2" type="bool" address="0xD814" bits="3" />
+            <property name="beat_rocket_hideout_1_trainer_3" type="bool" address="0xD814" bits="4" />
+            <property name="beat_rocket_hideout_1_trainer_4" type="bool" address="0xD814" bits="5" />
+            <property name="677" type="bool" address="0xD814" bits="7" />
+            <property name="67f" type="bool" address="0xD815" bits="7" />
+            <property name="beat_rocket_hideout_2_trainer_0" type="bool" address="0xD816" bits="1" />
+            <property name="beat_rocket_hideout_3_trainer_0" type="bool" address="0xD818" bits="1" />
+            <property name="beat_rocket_hideout_3_trainer_1" type="bool" address="0xD818" bits="2" />
+            <property name="6a0" type="bool" address="0xD81A" bits="0" />
+            <property name="beat_rocket_hideout_4_trainer_0" type="bool" address="0xD81A" bits="2" />
+            <property name="beat_rocket_hideout_4_trainer_1" type="bool" address="0xD81A" bits="3" />
+            <property name="beat_rocket_hideout_4_trainer_2" type="bool" address="0xD81A" bits="4" />
+            <property name="rocket_hideout_4_door_unlocked" type="bool" address="0xD81A" bits="5" />
+            <property name="rocket_dropped_lift_key" type="bool" address="0xD81A" bits="6" />
+            <property name="beat_rocket_hideout_giovanni" type="bool" address="0xD81A" bits="7" />
+            <property name="beat_silph_co_2f_trainer_0" type="bool" address="0xD824" bits="2" />
+            <property name="beat_silph_co_2f_trainer_1" type="bool" address="0xD824" bits="3" />
+            <property name="beat_silph_co_2f_trainer_2" type="bool" address="0xD824" bits="4" />
+            <property name="beat_silph_co_2f_trainer_3" type="bool" address="0xD824" bits="5" />
+            <property name="silph_co_2_unlocked_door1" type="bool" address="0xD825" bits="5" />
+            <property name="silph_co_2_unlocked_door2" type="bool" address="0xD825" bits="6" />
+            <property name="got_tm36" type="bool" address="0xD825" bits="7" />
+            <property name="beat_silph_co_3f_trainer_0" type="bool" address="0xD826" bits="2" />
+            <property name="beat_silph_co_3f_trainer_1" type="bool" address="0xD826" bits="3" />
+            <property name="silph_co_3_unlocked_door1" type="bool" address="0xD827" bits="0" />
+            <property name="silph_co_3_unlocked_door2" type="bool" address="0xD827" bits="1" />
+            <property name="beat_silph_co_4f_trainer_0" type="bool" address="0xD828" bits="2" />
+            <property name="beat_silph_co_4f_trainer_1" type="bool" address="0xD828" bits="3" />
+            <property name="beat_silph_co_4f_trainer_2" type="bool" address="0xD828" bits="4" />
+            <property name="silph_co_4_unlocked_door1" type="bool" address="0xD829" bits="0" />
+            <property name="silph_co_4_unlocked_door2" type="bool" address="0xD829" bits="1" />
+            <property name="beat_silph_co_5f_trainer_0" type="bool" address="0xD82A" bits="2" />
+            <property name="beat_silph_co_5f_trainer_1" type="bool" address="0xD82A" bits="3" />
+            <property name="beat_silph_co_5f_trainer_2" type="bool" address="0xD82A" bits="4" />
+            <property name="beat_silph_co_5f_trainer_3" type="bool" address="0xD82A" bits="5" />
+            <property name="silph_co_5_unlocked_door1" type="bool" address="0xD82B" bits="0" />
+            <property name="silph_co_5_unlocked_door2" type="bool" address="0xD82B" bits="1" />
+            <property name="silph_co_5_unlocked_door3" type="bool" address="0xD82B" bits="2" />
+            <property name="beat_silph_co_6f_trainer_0" type="bool" address="0xD82C" bits="6" />
+            <property name="beat_silph_co_6f_trainer_1" type="bool" address="0xD82C" bits="7" />
+            <property name="beat_silph_co_6f_trainer_2" type="bool" address="0xD82D" bits="0" />
+            <property name="silph_co_6_unlocked_door" type="bool" address="0xD82D" bits="7" />
+            <property name="beat_silph_co_rival" type="bool" address="0xD82E" bits="0" />
+            <property name="beat_silph_co_7f_trainer_0" type="bool" address="0xD82E" bits="5" />
+            <property name="beat_silph_co_7f_trainer_1" type="bool" address="0xD82E" bits="6" />
+            <property name="beat_silph_co_7f_trainer_2" type="bool" address="0xD82E" bits="7" />
+            <property name="beat_silph_co_7f_trainer_3" type="bool" address="0xD82F" bits="0" />
+            <property name="silph_co_7_unlocked_door1" type="bool" address="0xD82F" bits="4" />
+            <property name="silph_co_7_unlocked_door2" type="bool" address="0xD82F" bits="5" />
+            <property name="silph_co_7_unlocked_door3" type="bool" address="0xD82F" bits="6" />
+            <property name="beat_silph_co_8f_trainer_0" type="bool" address="0xD830" bits="2" />
+            <property name="beat_silph_co_8f_trainer_1" type="bool" address="0xD830" bits="3" />
+            <property name="beat_silph_co_8f_trainer_2" type="bool" address="0xD830" bits="4" />
+            <property name="silph_co_8_unlocked_door" type="bool" address="0xD831" bits="0" />
+            <property name="beat_silph_co_9f_trainer_0" type="bool" address="0xD832" bits="2" />
+            <property name="beat_silph_co_9f_trainer_1" type="bool" address="0xD832" bits="3" />
+            <property name="beat_silph_co_9f_trainer_2" type="bool" address="0xD832" bits="4" />
+            <property name="silph_co_9_unlocked_door1" type="bool" address="0xD833" bits="0" />
+            <property name="silph_co_9_unlocked_door2" type="bool" address="0xD833" bits="1" />
+            <property name="silph_co_9_unlocked_door3" type="bool" address="0xD833" bits="2" />
+            <property name="silph_co_9_unlocked_door4" type="bool" address="0xD833" bits="3" />
+            <property name="beat_silph_co_10f_trainer_0" type="bool" address="0xD834" bits="1" />
+            <property name="beat_silph_co_10f_trainer_1" type="bool" address="0xD834" bits="2" />
+            <property name="silph_co_10_unlocked_door" type="bool" address="0xD835" bits="0" />
+            <property name="780" type="bool" address="0xD836" bits="0" />
+            <property name="781" type="bool" address="0xD836" bits="1" />
+            <property name="782" type="bool" address="0xD836" bits="2" />
+            <property name="beat_silph_co_11f_trainer_0" type="bool" address="0xD836" bits="4" />
+            <property name="beat_silph_co_11f_trainer_1" type="bool" address="0xD836" bits="5" />
+            <property name="silph_co_11_unlocked_door" type="bool" address="0xD837" bits="0" />
+            <property name="got_master_ball" type="bool" address="0xD837" bits="5" />
+            <property name="beat_silph_co_giovanni" type="bool" address="0xD837" bits="7" />
+            <property name="beat_mansion_2_trainer_0" type="bool" address="0xD846" bits="1" />
+            <property name="beat_mansion_3_trainer_0" type="bool" address="0xD848" bits="1" />
+            <property name="beat_mansion_3_trainer_1" type="bool" address="0xD848" bits="2" />
+            <property name="beat_mansion_4_trainer_0" type="bool" address="0xD84A" bits="1" />
+            <property name="beat_mansion_4_trainer_1" type="bool" address="0xD84A" bits="2" />
+            <property name="got_hm03" type="bool" address="0xD856" bits="0" />
+            <property name="beat_mewtwo" type="bool" address="0xD85E" bits="1" />
+            <property name="beat_loreleis_room_trainer_0" type="bool" address="0xD862" bits="1" />
+            <property name="autowalked_into_loreleis_room" type="bool" address="0xD862" bits="6" />
+            <property name="beat_brunos_room_trainer_0" type="bool" address="0xD863" bits="1" />
+            <property name="autowalked_into_brunos_room" type="bool" address="0xD863" bits="6" />
+            <property name="beat_agathas_room_trainer_0" type="bool" address="0xD864" bits="1" />
+            <property name="autowalked_into_agathas_room" type="bool" address="0xD864" bits="6" />
+            <property name="beat_lances_room_trainer_0" type="bool" address="0xD865" bits="1" />
+            <property name="beat_lance" type="bool" address="0xD865" bits="6" />
+            <property name="lances_room_lock_door" type="bool" address="0xD865" bits="7" />
+            <property name="beat_champion_rival" type="bool" address="0xD866" bits="1" />
+            <property name="beat_victory_road_1_trainer_0" type="bool" address="0xD868" bits="1" />
+            <property name="beat_victory_road_1_trainer_1" type="bool" address="0xD868" bits="2" />
+            <property name="victory_road_1_boulder_on_switch" type="bool" address="0xD868" bits="7" />
+            <property name="beat_rock_tunnel_2_trainer_0" type="bool" address="0xD87C" bits="1" />
+            <property name="beat_rock_tunnel_2_trainer_1" type="bool" address="0xD87C" bits="2" />
+            <property name="beat_rock_tunnel_2_trainer_2" type="bool" address="0xD87C" bits="3" />
+            <property name="beat_rock_tunnel_2_trainer_3" type="bool" address="0xD87C" bits="4" />
+            <property name="beat_rock_tunnel_2_trainer_4" type="bool" address="0xD87C" bits="5" />
+            <property name="beat_rock_tunnel_2_trainer_5" type="bool" address="0xD87C" bits="6" />
+            <property name="beat_rock_tunnel_2_trainer_6" type="bool" address="0xD87C" bits="7" />
+            <property name="beat_rock_tunnel_2_trainer_7" type="bool" address="0xD87D" bits="0" />
+            <property name="seafoam2_boulder1_down_hole" type="bool" address="0xD87E" bits="0" />
+            <property name="seafoam2_boulder2_down_hole" type="bool" address="0xD87E" bits="1" />
+            <property name="seafoam3_boulder1_down_hole" type="bool" address="0xD87F" bits="0" />
+            <property name="seafoam3_boulder2_down_hole" type="bool" address="0xD87F" bits="1" />
+            <property name="seafoam4_boulder1_down_hole" type="bool" address="0xD880" bits="0" />
+            <property name="seafoam4_boulder2_down_hole" type="bool" address="0xD880" bits="1" />
+            <property name="beat_articuno" type="bool" address="0xD881" bits="2" />
         </event_flags>
         <battle>
             <property name="mode"    type="int" address="0xD056" reference="battle_modes" />
@@ -893,27 +893,27 @@
                         <property name="evasion"  type="int" address="0xCD1F" reference="stage_modifiers" /> <!--same memory location across all Gen1 games-->
                     </modifiers>
                     <volatile_status_conditions>
-                        <property name="confusion"  type="bit" address="0xD061" position="6" />     
-                        <property name="toxic"      type="bit" address="0xD063" position="0" />
-                        <property name="leech_seed" type="bit" address="0xD062" position="7" />
+                        <property name="confusion"  type="bool" address="0xD061" bits="6" />     
+                        <property name="toxic"      type="bool" address="0xD063" bits="0" />
+                        <property name="leech_seed" type="bool" address="0xD062" bits="7" />
                     </volatile_status_conditions>
                     <effects>
-                        <property name="bide"            type="bit" address="0xD061" position="0" />
-                        <property name="thrash"          type="bit" address="0xD061" position="1" />
-                        <property name="multi_hit"       type="bit" address="0xD061" position="2" />
-                        <property name="flinch"          type="bit" address="0xD061" position="3" />
-                        <property name="charging"        type="bit" address="0xD061" position="4" />
-                        <property name="multi_turn"      type="bit" address="0xD061" position="5" />
-                        <property name="invulnerable"    type="bit" address="0xD061" position="6" />
-                        <property name="bypass_accuracy" type="bit" address="0xD062" position="0" />
-                        <property name="mist"            type="bit" address="0xD062" position="1" />
-                        <property name="focus_energy"    type="bit" address="0xD062" position="2" />
-                        <property name="substitute"      type="bit" address="0xD062" position="4" />
-                        <property name="recharge"        type="bit" address="0xD062" position="5" />
-                        <property name="rage"            type="bit" address="0xD062" position="6" />
-                        <property name="lightscreen"     type="bit" address="0xD063" position="1" />
-                        <property name="reflect"         type="bit" address="0xD063" position="2" />
-                        <property name="transformed"     type="bit" address="0xD063" position="3" />
+                        <property name="bide"            type="bool" address="0xD061" bits="0" />
+                        <property name="thrash"          type="bool" address="0xD061" bits="1" />
+                        <property name="multi_hit"       type="bool" address="0xD061" bits="2" />
+                        <property name="flinch"          type="bool" address="0xD061" bits="3" />
+                        <property name="charging"        type="bool" address="0xD061" bits="4" />
+                        <property name="multi_turn"      type="bool" address="0xD061" bits="5" />
+                        <property name="invulnerable"    type="bool" address="0xD061" bits="6" />
+                        <property name="bypass_accuracy" type="bool" address="0xD062" bits="0" />
+                        <property name="mist"            type="bool" address="0xD062" bits="1" />
+                        <property name="focus_energy"    type="bool" address="0xD062" bits="2" />
+                        <property name="substitute"      type="bool" address="0xD062" bits="4" />
+                        <property name="recharge"        type="bool" address="0xD062" bits="5" />
+                        <property name="rage"            type="bool" address="0xD062" bits="6" />
+                        <property name="lightscreen"     type="bool" address="0xD063" bits="1" />
+                        <property name="reflect"         type="bool" address="0xD063" bits="2" />
+                        <property name="transformed"     type="bool" address="0xD063" bits="3" />
                     </effects>
                     <counters>
                         <property name="multi_hit" type="int" address="0xD069" />
@@ -976,10 +976,10 @@
                         <property name="evasion"  type="int" address="0xCD33" reference="stage_modifiers" />
                     </modifiers>
                     <ivs>
-                        <property name="attack"  type="nibble" address="0xCFF0" position="0" />
-                        <property name="defense" type="nibble" address="0xCFF0" position="1" />
-                        <property name="speed"   type="nibble" address="0xCFF1" position="0" />
-                        <property name="special" type="nibble" address="0xCFF1" position="1" />
+                        <property name="attack"  type="nibble" address="0xCFF0" bits="0" />
+                        <property name="defense" type="nibble" address="0xCFF0" bits="1" />
+                        <property name="speed"   type="nibble" address="0xCFF1" bits="0" />
+                        <property name="special" type="nibble" address="0xCFF1" bits="1" />
                     </ivs>
                     <base_stats>
                         <property name="hp"      type="int" address="0xD001" after-read-value-expression="x % 16" />
@@ -990,25 +990,25 @@
                         <property name="exp"     type="int" address="0xD007" after-read-value-expression="x % 16" />
                     </base_stats>
                     <effects>
-                        <property name="bide"            type="bit" address="0xD066" position="0" />
-                        <property name="thrash"          type="bit" address="0xD066" position="1" />
-                        <property name="multi_hit"       type="bit" address="0xD066" position="2" />
-                        <property name="flinch"          type="bit" address="0xD066" position="3" />
-                        <property name="charging"        type="bit" address="0xD066" position="4" />
-                        <property name="multi_turn"      type="bit" address="0xD066" position="5" />
-                        <property name="invulnerable"    type="bit" address="0xD066" position="6" />
-                        <property name="confusion"       type="bit" address="0xD066" position="6" />     
-                        <property name="bypass_accuracy" type="bit" address="0xD067" position="0" />
-                        <property name="mist"            type="bit" address="0xD067" position="1" />
-                        <property name="focus_energy"    type="bit" address="0xD067" position="2" />
-                        <property name="substitute"      type="bit" address="0xD067" position="4" />
-                        <property name="recharge"        type="bit" address="0xD067" position="5" />
-                        <property name="rage"            type="bit" address="0xD067" position="6" />
-                        <property name="leech_seed"      type="bit" address="0xD067" position="7" />
-                        <property name="toxic"           type="bit" address="0xD068" position="0" />
-                        <property name="lightscreen"     type="bit" address="0xD068" position="1" />
-                        <property name="reflect"         type="bit" address="0xD068" position="2" />
-                        <property name="transformed"     type="bit" address="0xD068" position="3" />
+                        <property name="bide"            type="bool" address="0xD066" bits="0" />
+                        <property name="thrash"          type="bool" address="0xD066" bits="1" />
+                        <property name="multi_hit"       type="bool" address="0xD066" bits="2" />
+                        <property name="flinch"          type="bool" address="0xD066" bits="3" />
+                        <property name="charging"        type="bool" address="0xD066" bits="4" />
+                        <property name="multi_turn"      type="bool" address="0xD066" bits="5" />
+                        <property name="invulnerable"    type="bool" address="0xD066" bits="6" />
+                        <property name="confusion"       type="bool" address="0xD066" bits="6" />     
+                        <property name="bypass_accuracy" type="bool" address="0xD067" bits="0" />
+                        <property name="mist"            type="bool" address="0xD067" bits="1" />
+                        <property name="focus_energy"    type="bool" address="0xD067" bits="2" />
+                        <property name="substitute"      type="bool" address="0xD067" bits="4" />
+                        <property name="recharge"        type="bool" address="0xD067" bits="5" />
+                        <property name="rage"            type="bool" address="0xD067" bits="6" />
+                        <property name="leech_seed"      type="bool" address="0xD067" bits="7" />
+                        <property name="toxic"           type="bool" address="0xD068" bits="0" />
+                        <property name="lightscreen"     type="bool" address="0xD068" bits="1" />
+                        <property name="reflect"         type="bool" address="0xD068" bits="2" />
+                        <property name="transformed"     type="bool" address="0xD068" bits="3" />
                     </effects>
                     <counters>
                         <property name="multi_hit" type="int" address="0xD06E" />
@@ -1210,10 +1210,10 @@
         </screen>
         <options>
             <property name="text_speed"        type="int" address="0xD354" after-read-value-expression="getBits(x, 0, 3)" reference="text_speeds"  />
-            <property name="sound_1"           type="bit" address="0xD354" position="4" />
-            <property name="sound_2"           type="bit" address="0xD354" position="5" />
-            <property name="battle_style"      type="bit" address="0xD354" position="6" />
-            <property name="battle_animations" type="bit" address="0xD354" position="7" />
+            <property name="sound_1"           type="bool" address="0xD354" bits="4" />
+            <property name="sound_2"           type="bool" address="0xD354" bits="5" />
+            <property name="battle_style"      type="bool" address="0xD354" bits="6" />
+            <property name="battle_animations" type="bool" address="0xD354" bits="7" />
         </options>
         <game_time>
             <property name="hours"   type="int" address="0xDA3F" length="2" />
@@ -1222,14 +1222,14 @@
             <property name="frames"  type="int" address="0xDA44" />
         </game_time>
         <input>
-            <property name="a" type="bit" address="0xffb1" position="0"/>
-            <property name="b" type="bit" address="0xffb1" position="1"/>
-            <property name="select" type="bit" address="0xffb1" position="2"/>
-            <property name="start" type="bit" address="0xffb1" position="3"/>
-            <property name="right" type="bit" address="0xffb1" position="4"/>
-            <property name="left" type="bit" address="0xffb1" position="5"/>
-            <property name="up" type="bit" address="0xffb1" position="6"/>
-            <property name="down" type="bit" address="0xffb1" position="7"/>
+            <property name="a" type="bool" address="0xffb1" bits="0"/>
+            <property name="b" type="bool" address="0xffb1" bits="1"/>
+            <property name="select" type="bool" address="0xffb1" bits="2"/>
+            <property name="start" type="bool" address="0xffb1" bits="3"/>
+            <property name="right" type="bool" address="0xffb1" bits="4"/>
+            <property name="left" type="bool" address="0xffb1" bits="5"/>
+            <property name="up" type="bool" address="0xffb1" bits="6"/>
+            <property name="down" type="bool" address="0xffb1" bits="7"/>
         </input>
         <meta>
 			<property name="generation" type="int" value="1" />

@@ -52,11 +52,11 @@
 				<property name="special_defense" type="int" address="29" memoryContainer="{memoryContainer}" />
 			</evs>
 			<flags>
-				<property name="is_egg"          address="56" type="bit" memoryContainer="{memoryContainer}" length="4" position="30"/>
-				<property name="is_nicknamed"    address="56" type="bit" memoryContainer="{memoryContainer}" length="4" position="31"/>
-				<property name="skip_checksum_1" address="4"  type="bit" memoryContainer="{memoryContainer}" position="0"/>
-				<property name="skip_checksum_2" address="4"  type="bit" memoryContainer="{memoryContainer}" position="1"/>
-				<property name="is_bad_egg"      address="4"  type="bit" memoryContainer="{memoryContainer}" position="2"/>
+				<property name="is_egg"          address="56" type="bool" memoryContainer="{memoryContainer}" length="4" bits="30"/>
+				<property name="is_nicknamed"    address="56" type="bool" memoryContainer="{memoryContainer}" length="4" bits="31"/>
+				<property name="skip_checksum_1" address="4"  type="bool" memoryContainer="{memoryContainer}" bits="0"/>
+				<property name="skip_checksum_2" address="4"  type="bool" memoryContainer="{memoryContainer}" bits="1"/>
+				<property name="is_bad_egg"      address="4"  type="bool" memoryContainer="{memoryContainer}" bits="2"/>
 			</flags>
 			<internals>
 				<property name="personality_value" address="0"  type="uint" memoryContainer="{memoryContainer}" length="4" />
@@ -76,7 +76,7 @@
 					<property name="met_location"      type="int" address="128" memoryContainer="{memoryContainer}" length="2" />
 					<property name="pokeball"          type="int" address="131" memoryContainer="{memoryContainer}" />
 					<property name="met_level"         type="int" address="132" memoryContainer="{memoryContainer}" after-read-value-expression="getBits(x, 6, 0)" />
-					<property name="female_ot_gender"  type="bit" address="132" memoryContainer="{memoryContainer}" position="7" />
+					<property name="female_ot_gender"  type="bool" address="132" memoryContainer="{memoryContainer}" bits="7" />
 					<property name="encounter_type"    type="int" address="133" memoryContainer="{memoryContainer}" />
 				</met_info>
 				<contest>
@@ -289,14 +289,14 @@
 				<class name="5" type="party_pokemon" var:memoryContainer="player_party_structure_5" />
 			</team>
 			<badges>
-				<property name="0" type="bit" address="{global_pointer} + 0xD076" position="0" description="coalbadge" />
-                <property name="1" type="bit" address="{global_pointer} + 0xD076" position="1" description="forestbadge" />
-                <property name="2" type="bit" address="{global_pointer} + 0xD076" position="2" description="cobblebadge" />
-                <property name="3" type="bit" address="{global_pointer} + 0xD076" position="3" description="fenbadge" />
-                <property name="4" type="bit" address="{global_pointer} + 0xD076" position="4" description="relicbadge" />
-                <property name="5" type="bit" address="{global_pointer} + 0xD076" position="5" description="minebadge" />
-                <property name="6" type="bit" address="{global_pointer} + 0xD076" position="6" description="iciclebadge" />
-                <property name="7" type="bit" address="{global_pointer} + 0xD076" position="7" description="beaconbadge" />
+				<property name="0" type="bool" address="{global_pointer} + 0xD076" bits="0" description="coalbadge" />
+                <property name="1" type="bool" address="{global_pointer} + 0xD076" bits="1" description="forestbadge" />
+                <property name="2" type="bool" address="{global_pointer} + 0xD076" bits="2" description="cobblebadge" />
+                <property name="3" type="bool" address="{global_pointer} + 0xD076" bits="3" description="fenbadge" />
+                <property name="4" type="bool" address="{global_pointer} + 0xD076" bits="4" description="relicbadge" />
+                <property name="5" type="bool" address="{global_pointer} + 0xD076" bits="5" description="minebadge" />
+                <property name="6" type="bool" address="{global_pointer} + 0xD076" bits="6" description="iciclebadge" />
+                <property name="7" type="bool" address="{global_pointer} + 0xD076" bits="7" description="beaconbadge" />
 			</badges>
 		</player>
 		<bag>
@@ -665,12 +665,12 @@
 				The platinum bit flags are stored in the same region
 				This is the area of ram roughly following the key item pocket
 			-->
-			<property name="new_game_1" type="bit" address="{global_pointer} + 0xE10C" position="0" /> <!-- This flag is set to when the game is restarted; it is unknown what it actually controls -->
-			<property name="new_game_2" type="bit" address="{global_pointer} + 0xE155" position="0" /> <!-- This flag is set to when the game is restarted; it is unknown what it actually controls -->
-			<property name="new_game_3" type="bit" address="{global_pointer} + 0xE157" position="0" /> <!-- This flag is set to when the game is restarted; it is unknown what it actually controls -->
-			<property name="new_game_overworld_rendered_1" type="bit" address="{global_pointer} + 0xE06A" position="2" /> <!-- This flag is set to when the player spawns in the overworld; it is unknown what it actually controls -->
-			<property name="new_game_overworld_rendered_2" type="bit" address="{global_pointer} + 0xE07C" position="4" /> <!-- This flag is set to when the player spawns in the overworld; it is unknown what it actually controls -->
-			<property name="player_room_talked_to_barry" type="bit" address="{global_pointer} + 0xDEEA" position="0" /> <!-- This flag is set to when the player finishes talking to Barry in their room -->
+			<property name="new_game_1" type="bool" address="{global_pointer} + 0xE10C" bits="0" /> <!-- This flag is set to when the game is restarted; it is unknown what it actually controls -->
+			<property name="new_game_2" type="bool" address="{global_pointer} + 0xE155" bits="0" /> <!-- This flag is set to when the game is restarted; it is unknown what it actually controls -->
+			<property name="new_game_3" type="bool" address="{global_pointer} + 0xE157" bits="0" /> <!-- This flag is set to when the game is restarted; it is unknown what it actually controls -->
+			<property name="new_game_overworld_rendered_1" type="bool" address="{global_pointer} + 0xE06A" bits="2" /> <!-- This flag is set to when the player spawns in the overworld; it is unknown what it actually controls -->
+			<property name="new_game_overworld_rendered_2" type="bool" address="{global_pointer} + 0xE07C" bits="4" /> <!-- This flag is set to when the player spawns in the overworld; it is unknown what it actually controls -->
+			<property name="player_room_talked_to_barry" type="bool" address="{global_pointer} + 0xDEEA" bits="0" /> <!-- This flag is set to when the player finishes talking to Barry in their room -->
 			<property name="player_house_talked_to_mom" type="int" address="{global_pointer} + 0xDEE8" /> 
 				<!-- This value is incremented when:
 						the player finishes talking to Mom downstairs in their house, 
@@ -680,8 +680,8 @@
 						1x after saying your going on an adventure;
 						1x after leaving the house
 				-->
-			<property name="bumped_into_barry" type="bit" address="{global_pointer} + 0xDF6C" position="0" /> <!-- This flag is set when Barry bumps into the player outside his house -->
-			<property name="barry_room_talked_to_barry" type="bit" address="{global_pointer} + 0xDF06" position="0" /> <!-- This flag is set after you talk to Barry in his room; several other flags are set at the same time -->
+			<property name="bumped_into_barry" type="bool" address="{global_pointer} + 0xDF6C" bits="0" /> <!-- This flag is set when Barry bumps into the player outside his house -->
+			<property name="barry_room_talked_to_barry" type="bool" address="{global_pointer} + 0xDF06" bits="0" /> <!-- This flag is set after you talk to Barry in his room; several other flags are set at the same time -->
 			<property name="choosing_starter" type="int" address="{global_pointer} + 0xDEAC" /> 
 				<!-- This is incremented when: (barry finishes interacting with the player)
 						the player regains control in order to interact with the briefcase with the 3 starters; 
@@ -689,31 +689,31 @@
 						when barry follows the player (going to the lake);
 						when barry leaves at the lake;
 				-->
-			<property name="beat_barry_1a" type="bit" address="{global_pointer} + 0xDE3A" position="0" /> <!-- These flags are set after defeating Barry1 -->
-			<property name="beat_barry_1b" type="bit" address="{global_pointer} + 0xDE3A" position="2" /> <!-- These flags are set after defeating Barry1 -->
-			<property name="got_running_shoes" type="bit" address="{global_pointer} + 0xE302" position="0" /> <!-- This flag is set after obtaining the running shoes -->
-			<property name="barry_follows_1" type="bit" address="{global_pointer} + 0xE10C" position="1" /> <!-- This flag is set when barry starts following the player to the Lake -->
-			<property name="going_to_lake_valor" type="bit" address="{global_pointer} + 0xE10C" position="5" /> <!-- This flag is set when barry starts following the player to the Lake; it clears when the player moves -->
-			<property name="lake_valor_cyrus_scene_finished" type="bit" address="{global_pointer} + 0xDECA" position="0" /> <!-- This flag is set when barry leaves the lake -->
-			<property name="route_201_mart_employee_potion" type="bit" address="{global_pointer} + 0xDFED" position="4" />
-			<property name="got_pokedex" type="bit" address="{global_pointer} + 0xDFF2" position="0" />
-			<property name="lab_scene_ended" type="bit" address="{global_pointer} + 0xDEEC" position="0" />
-			<property name="got_tm27_return" type="bit" address="{global_pointer} + 0xE038" position="4" />
+			<property name="beat_barry_1a" type="bool" address="{global_pointer} + 0xDE3A" bits="0" /> <!-- These flags are set after defeating Barry1 -->
+			<property name="beat_barry_1b" type="bool" address="{global_pointer} + 0xDE3A" bits="2" /> <!-- These flags are set after defeating Barry1 -->
+			<property name="got_running_shoes" type="bool" address="{global_pointer} + 0xE302" bits="0" /> <!-- This flag is set after obtaining the running shoes -->
+			<property name="barry_follows_1" type="bool" address="{global_pointer} + 0xE10C" bits="1" /> <!-- This flag is set when barry starts following the player to the Lake -->
+			<property name="going_to_lake_valor" type="bool" address="{global_pointer} + 0xE10C" bits="5" /> <!-- This flag is set when barry starts following the player to the Lake; it clears when the player moves -->
+			<property name="lake_valor_cyrus_scene_finished" type="bool" address="{global_pointer} + 0xDECA" bits="0" /> <!-- This flag is set when barry leaves the lake -->
+			<property name="route_201_mart_employee_potion" type="bool" address="{global_pointer} + 0xDFED" bits="4" />
+			<property name="got_pokedex" type="bool" address="{global_pointer} + 0xDFF2" bits="0" />
+			<property name="lab_scene_ended" type="bool" address="{global_pointer} + 0xDEEC" bits="0" />
+			<property name="got_tm27_return" type="bool" address="{global_pointer} + 0xE038" bits="4" />
 			<property name="got_tour" type="int" address="{global_pointer} + 0xDE82" /> <!-- This value increments when Lucas finishes giving you a tour; might count Prof Aid interacts -->
-			<property name="mom_healed" type="bit" address="{global_pointer} + 0xDFE0" position="2" /> <!-- This flag is set when the Mom heals the player after return home from the tour -->
-			<property name="got_journal" type="bit" address="{global_pointer} + 0xE10C" position="3" />
-			<property name="got_parcel" type="bit" address="{global_pointer} + 0xDFF1" position="7" />
-			<property name="learned_to_catch_pokemon" type="bit" address="{global_pointer} + 0xDEAE" position="0" />
-			<property name="beat_youngster_tristan" type="bit" address="{global_pointer} + 0xE08A" position="1" />
-			<property name="beat_lass_natalie" type="bit" address="{global_pointer} + 0xE08A" position="3" />
-			<property name="beat_youngster_logan" type="bit" address="{global_pointer} + 0xE08A" position="2" />
-			<property name="got_vs_recorder" type="bit" address="{global_pointer} + 0xDE8E" position="0" /> <!-- Likely the Jubilife City Counter-->
+			<property name="mom_healed" type="bool" address="{global_pointer} + 0xDFE0" bits="2" /> <!-- This flag is set when the Mom heals the player after return home from the tour -->
+			<property name="got_journal" type="bool" address="{global_pointer} + 0xE10C" bits="3" />
+			<property name="got_parcel" type="bool" address="{global_pointer} + 0xDFF1" bits="7" />
+			<property name="learned_to_catch_pokemon" type="bool" address="{global_pointer} + 0xDEAE" bits="0" />
+			<property name="beat_youngster_tristan" type="bool" address="{global_pointer} + 0xE08A" bits="1" />
+			<property name="beat_lass_natalie" type="bool" address="{global_pointer} + 0xE08A" bits="3" />
+			<property name="beat_youngster_logan" type="bool" address="{global_pointer} + 0xE08A" bits="2" />
+			<property name="got_vs_recorder" type="bool" address="{global_pointer} + 0xDE8E" bits="0" /> <!-- Likely the Jubilife City Counter-->
 				<!-- 
 					increments when the vs recorder is received
 					increments when the rockets are defeated after returning from Oreburgh
 
 				-->
-			<property name="got_town_map" type="bit" address="{global_pointer} + 0xDFFE" position="0" /> <!-- One of these events controls delivery of the parcel -->
+			<property name="got_town_map" type="bool" address="{global_pointer} + 0xDFFE" bits="0" /> <!-- One of these events controls delivery of the parcel -->
 			<property name="jubilife_city_events" type="int" address="{global_pointer} + 0xDF6E" /> 
 				<!-- 
 					0x01: delivered parcel
@@ -721,45 +721,45 @@
 
 					One of these events controls delivery of the parcel, I believe it is this one as it is further away from the other key item flags 
 				-->
-			<property name="poketch_coupon_1" type="bit" address="{global_pointer} + 0xDFFD" position="5" /> 
-			<property name="poketch_coupon_2" type="bit" address="{global_pointer} + 0xDFFD" position="6" /> 
-			<property name="poketch_coupon_3" type="bit" address="{global_pointer} + 0xDFFD" position="7" /> 
-			<property name="got_poketch" type="bit" address="{global_pointer} + 0xDFFE" position="3" /> 
+			<property name="poketch_coupon_1" type="bool" address="{global_pointer} + 0xDFFD" bits="5" /> 
+			<property name="poketch_coupon_2" type="bool" address="{global_pointer} + 0xDFFD" bits="6" /> 
+			<property name="poketch_coupon_3" type="bool" address="{global_pointer} + 0xDFFD" bits="7" /> 
+			<property name="got_poketch" type="bool" address="{global_pointer} + 0xDFFE" bits="3" /> 
 			<!-- Route 204 -->
-			<property name="beat_lass_sarah" type="bit" address="{global_pointer} + 0xE08B" position="4" /> 
-			<property name="beat_youngster_tyler" type="bit" address="{global_pointer} + 0xE08B" position="2" /> 
-			<property name="beat_lass_samantha" type="bit" address="{global_pointer} + 0xE08B" position="3" /> 
-			<property name="beat_barry_2" type="bit" address="{global_pointer} + 0xDEB0" position="0" /> 
-			<property name="beat_youngster_dallas" type="bit" address="{global_pointer} + 0xE0B6" position="3" /> 
-			<property name="beat_youngster_sebastian" type="bit" address="{global_pointer} + 0xE0B6" position="4" />
+			<property name="beat_lass_sarah" type="bool" address="{global_pointer} + 0xE08B" bits="4" /> 
+			<property name="beat_youngster_tyler" type="bool" address="{global_pointer} + 0xE08B" bits="2" /> 
+			<property name="beat_lass_samantha" type="bool" address="{global_pointer} + 0xE08B" bits="3" /> 
+			<property name="beat_barry_2" type="bool" address="{global_pointer} + 0xDEB0" bits="0" /> 
+			<property name="beat_youngster_dallas" type="bool" address="{global_pointer} + 0xE0B6" bits="3" /> 
+			<property name="beat_youngster_sebastian" type="bool" address="{global_pointer} + 0xE0B6" bits="4" />
 			<!-- Oreburgh Gate --> 
-			<property name="beat_lass_kaitlin" type="bit" address="{global_pointer} + 0xE0B2" position="3" /> 
-			<property name="beat_picknicker_diana" type="bit" address="{global_pointer} + 0xE0B3" position="1" /> 
+			<property name="beat_lass_kaitlin" type="bool" address="{global_pointer} + 0xE0B2" bits="3" /> 
+			<property name="beat_picknicker_diana" type="bool" address="{global_pointer} + 0xE0B3" bits="1" /> 
 			<!-- Oreburgh City -->
-			<property name="walked_to_gym" type="bit" address="{global_pointer} + 0xDE92" position="0" /> 
+			<property name="walked_to_gym" type="bool" address="{global_pointer} + 0xDE92" bits="0" /> 
 			<!-- Oreburgh Mine -->
-			<property name="oreburgh_mine_hidden_heart_scale" type="bit" address="{global_pointer} + 0xE05B" position="3" /> 
-			<property name="oreburgh_mine_dire_hit" type="bit" address="{global_pointer} + 0xE07F" position="2" /> 
-			<property name="oreburgh_mine_yellow_shard" type="bit" address="{global_pointer} + 0xE07F" position="3" /> 
-			<property name="oreburgh_mine_poke_ball" type="bit" address="{global_pointer} + 0xE07C" position="1" /> 
-			<property name="oreburgh_mine_escape_rope" type="bit" address="{global_pointer} + 0xE05F" position="5" /> 
-			<property name="oreburgh_mine_potion" type="bit" address="{global_pointer} + 0xE05F" position="6" /> 
-			<property name="beat_worker_colin" type="bit" address="{global_pointer} + 0xE0A2" position="3" /> 
-			<property name="beat_worker_mason" type="bit" address="{global_pointer} + 0xE0A2" position="4" /> 
-			<property name="talked_to_roark" type="bit" address="{global_pointer} + 0xDFEF" position="0" /> 
-			<property name="got_rock_smash" type="bit" address="{global_pointer} + 0xDFE4" position="2" /> 
+			<property name="oreburgh_mine_hidden_heart_scale" type="bool" address="{global_pointer} + 0xE05B" bits="3" /> 
+			<property name="oreburgh_mine_dire_hit" type="bool" address="{global_pointer} + 0xE07F" bits="2" /> 
+			<property name="oreburgh_mine_yellow_shard" type="bool" address="{global_pointer} + 0xE07F" bits="3" /> 
+			<property name="oreburgh_mine_poke_ball" type="bool" address="{global_pointer} + 0xE07C" bits="1" /> 
+			<property name="oreburgh_mine_escape_rope" type="bool" address="{global_pointer} + 0xE05F" bits="5" /> 
+			<property name="oreburgh_mine_potion" type="bool" address="{global_pointer} + 0xE05F" bits="6" /> 
+			<property name="beat_worker_colin" type="bool" address="{global_pointer} + 0xE0A2" bits="3" /> 
+			<property name="beat_worker_mason" type="bool" address="{global_pointer} + 0xE0A2" bits="4" /> 
+			<property name="talked_to_roark" type="bool" address="{global_pointer} + 0xDFEF" bits="0" /> 
+			<property name="got_rock_smash" type="bool" address="{global_pointer} + 0xDFE4" bits="2" /> 
 			<!-- Oreburgh Gym -->
-			<property name="beat_youngster_jonathon" type="bit" address="{global_pointer} + 0xE0A8" position="4" /> 
-			<property name="beat_youngster_darius" type="bit" address="{global_pointer} + 0xE0A8" position="5" /> 
-			<property name="got_tm76_stealth_rock" type="bit" address="{global_pointer} + 0xDFEE" position="5" /> 
+			<property name="beat_youngster_jonathon" type="bool" address="{global_pointer} + 0xE0A8" bits="4" /> 
+			<property name="beat_youngster_darius" type="bool" address="{global_pointer} + 0xE0A8" bits="5" /> 
+			<property name="got_tm76_stealth_rock" type="bool" address="{global_pointer} + 0xDFEE" bits="5" /> 
 			<!-- Jubilife City (maybe?)-->
-			<property name="jubilife_city_event_counter" type="bit" address="{global_pointer} + 0xDE8C" position="5" /> 
-			<property name="got_fashion_case" type="bit" address="{global_pointer} + 0xDFFE" position="2" /> 
-			<property name="got_tm39_rock_tomb" type="bit" address="{global_pointer} + 0xE060" position="1" /> 
-			<property name="ravaged_path_potion" type="bit" address="{global_pointer} + 0xE07E" position="1" /> 
-			<property name="beat_aroma_laby_taylor" type="bit" address="{global_pointer} + 0xE08B" position="6" /> 
-			<property name="route_204_awakening" type="bit" address="{global_pointer} + 0xE07E" position="4" /> 
-			<property name="bug_catcher_brandon" type="bit" address="{global_pointer} + 0xE08B" position="5" /> 
+			<property name="jubilife_city_event_counter" type="bool" address="{global_pointer} + 0xDE8C" bits="5" /> 
+			<property name="got_fashion_case" type="bool" address="{global_pointer} + 0xDFFE" bits="2" /> 
+			<property name="got_tm39_rock_tomb" type="bool" address="{global_pointer} + 0xE060" bits="1" /> 
+			<property name="ravaged_path_potion" type="bool" address="{global_pointer} + 0xE07E" bits="1" /> 
+			<property name="beat_aroma_laby_taylor" type="bool" address="{global_pointer} + 0xE08B" bits="6" /> 
+			<property name="route_204_awakening" type="bool" address="{global_pointer} + 0xE07E" bits="4" /> 
+			<property name="bug_catcher_brandon" type="bool" address="{global_pointer} + 0xE08B" bits="5" /> 
 
 
 			<!-- 
@@ -775,15 +775,15 @@
 			-->
 			<!-- TODO: Continue mapping event flags from here, I stopped just before Floroma Town -->
 			<!-- global_pointer address: 0x22711EC-->
-			<property name="got_quick_claw" type="bit" address="{global_pointer} + 0xDF97" position="7" />
-			<property name="got_old_rod" type="bit" address="{global_pointer} + 0xDF90" position="4" />
-			<property name="route_202_potion" type="bit" address="{global_pointer} + 0xDFFE" position="6" />
-			<property name="route_204_paralyze_heal" type="bit" address="{global_pointer} + 0xE009" position="0" />
-			<property name="beat_youngster_michael" type="bit" address="{global_pointer} + 0xE02A" position="4" />
-			<property name="beat_lass_madeline" type="bit" address="{global_pointer} + 0xE0B2" position="2" />
-			<property name="route_203_poke_ball" type="bit" address="{global_pointer} + 0xDFFF" position="0" />
-			<property name="route_203_repel" type="bit" address="{global_pointer} + 0xDFFE" position="7" />
-			<property name="route_203_x_defend" type="bit" address="{global_pointer} + 0xE01E" position="6" />
+			<property name="got_quick_claw" type="bool" address="{global_pointer} + 0xDF97" bits="7" />
+			<property name="got_old_rod" type="bool" address="{global_pointer} + 0xDF90" bits="4" />
+			<property name="route_202_potion" type="bool" address="{global_pointer} + 0xDFFE" bits="6" />
+			<property name="route_204_paralyze_heal" type="bool" address="{global_pointer} + 0xE009" bits="0" />
+			<property name="beat_youngster_michael" type="bool" address="{global_pointer} + 0xE02A" bits="4" />
+			<property name="beat_lass_madeline" type="bool" address="{global_pointer} + 0xE0B2" bits="2" />
+			<property name="route_203_poke_ball" type="bool" address="{global_pointer} + 0xDFFF" bits="0" />
+			<property name="route_203_repel" type="bool" address="{global_pointer} + 0xDFFE" bits="7" />
+			<property name="route_203_x_defend" type="bool" address="{global_pointer} + 0xE01E" bits="6" />
 		</flags>
 		<battle>
             <property name="mode"    type="string" />

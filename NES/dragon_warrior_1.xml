@@ -45,16 +45,16 @@
                 </items>
             </inventory>
             <spells>
-                <property name="heal" type="bit" address="0xCE" position="0" />
-                <property name="hurt" type="bit" address="0xCE" position="1" />
-                <property name="sleep" type="bit" address="0xCE" position="2" />
-                <property name="radiant" type="bit" address="0xCE" position="3" />
-                <property name="stopspell" type="bit" address="0xCE" position="4" />
-                <property name="outside" type="bit" address="0xCE" position="5" />
-                <property name="return" type="bit" address="0xCE" position="6" />
-                <property name="repel" type="bit" address="0xCE" position="7" />
-                <property name="healmore" type="bit" address="0xCF" position="0" />
-                <property name="hurtmore" type="bit" address="0xCF" position="1" />
+                <property name="heal" type="bool" address="0xCE" bits="0" />
+                <property name="hurt" type="bool" address="0xCE" bits="1" />
+                <property name="sleep" type="bool" address="0xCE" bits="2" />
+                <property name="radiant" type="bool" address="0xCE" bits="3" />
+                <property name="stopspell" type="bool" address="0xCE" bits="4" />
+                <property name="outside" type="bool" address="0xCE" bits="5" />
+                <property name="return" type="bool" address="0xCE" bits="6" />
+                <property name="repel" type="bool" address="0xCE" bits="7" />
+                <property name="healmore" type="bool" address="0xCF" bits="0" />
+                <property name="hurtmore" type="bool" address="0xCF" bits="1" />
             </spells>
         </player>
         <battle>
@@ -65,10 +65,10 @@
                 <property name="strength" type="int" address="0x100" />
                 <property name="agility" type="int" address="0x101" />
                 <property name="abilities" type="string" address="0x103" reference="abilities" />
-                <property name="sleep_resist" type="nibble" address="0x104" position="0" />
-                <property name="stopspell_resist" type="nibble" address="0x104" position="1" />
-                <property name="hurt_resist" type="nibble" address="0x105" position="0" />
-                <property name="dodge_chance" type="nibble" address="0x105" position="1" />
+                <property name="sleep_resist" type="nibble" address="0x104" bits="0" />
+                <property name="stopspell_resist" type="nibble" address="0x104" bits="1" />
+                <property name="hurt_resist" type="nibble" address="0x105" bits="0" />
+                <property name="dodge_chance" type="nibble" address="0x105" bits="1" />
                 <property name="xp_reward" type="int" address="0x106" />
                 <property name="gold_reward" type="int" address="0x107" />
             </enemy>

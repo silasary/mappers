@@ -12,7 +12,7 @@
             <property name="level"      type="int"    address="84"      memoryContainer="{memoryContainer}" />
             <property name="exp"        type="uint"   address="32 + 4"  memoryContainer="{memoryContainer}" length="4" />
             <property name="ot_id"      type="uint"   address="4"       memoryContainer="{memoryContainer}" length="2" />
-            <property name="ability"    type="bit"    address="32 + 40" memoryContainer="{memoryContainer}" length="4" position="31" />
+            <property name="ability"    type="bool"    address="32 + 40" memoryContainer="{memoryContainer}" length="4" bits="31" />
             <property name="nature"     type="uint"   address="0"       memoryContainer="{memoryContainer}" length="4" after-read-value-expression="x % 25" />
             <property name="held_item"  type="int"    address="32 + 2"  memoryContainer="{memoryContainer}" length="2" reference="items" />
             <property name="friendship" type="int"    address="32 + 9"  memoryContainer="{memoryContainer}" />
@@ -54,16 +54,16 @@
                 <property name="checksum"   type="int"    address="28"      memoryContainer="{memoryContainer}" length="2" description="Used to valid the decrypted data block" />
             </internals>
             <misc> 
-                <property name="is_egg"            type="bit"    address="40" memoryContainer="{memoryContainer}" length="4" position="30" />
+                <property name="is_egg"            type="bool"    address="40" memoryContainer="{memoryContainer}" length="4" bits="30" />
                 <property name="language"          type="int"    address="18" memoryContainer="{memoryContainer}" reference="language" />
-                <property name="is_bad_egg"        type="bit"    address="19" memoryContainer="{memoryContainer}" position="0" />
-                <property name="has_species"       type="bit"    address="19" memoryContainer="{memoryContainer}" position="1" />
-                <property name="use_egg_name"      type="bit"    address="19" memoryContainer="{memoryContainer}" position="2" />
+                <property name="is_bad_egg"        type="bool"    address="19" memoryContainer="{memoryContainer}" bits="0" />
+                <property name="has_species"       type="bool"    address="19" memoryContainer="{memoryContainer}" bits="1" />
+                <property name="use_egg_name"      type="bool"    address="19" memoryContainer="{memoryContainer}" bits="2" />
                 <property name="ot_name"           type="string" address="20" memoryContainer="{memoryContainer}" length="7"/>
-                <property name="marking_circle"    type="bit"    address="27" memoryContainer="{memoryContainer}" position="0" />
-                <property name="marking_square"    type="bit"    address="27" memoryContainer="{memoryContainer}" position="1" />
-                <property name="marking_triangle"  type="bit"    address="27" memoryContainer="{memoryContainer}" position="2" />
-                <property name="marking_heart"     type="bit"    address="27" memoryContainer="{memoryContainer}" position="3" />
+                <property name="marking_circle"    type="bool"    address="27" memoryContainer="{memoryContainer}" bits="0" />
+                <property name="marking_square"    type="bool"    address="27" memoryContainer="{memoryContainer}" bits="1" />
+                <property name="marking_triangle"  type="bool"    address="27" memoryContainer="{memoryContainer}" bits="2" />
+                <property name="marking_heart"     type="bool"    address="27" memoryContainer="{memoryContainer}" bits="3" />
                 <property name="pokerus_status"    type="int"    address="36" memoryContainer="{memoryContainer}" />
                 <property name="met_location"      type="int"    address="37" memoryContainer="{memoryContainer}" />
                 <property name="origins_info"      type="int"    address="38" memoryContainer="{memoryContainer}" length="2" />
@@ -159,7 +159,7 @@
             <property name="personality_value" type="uint"   address="{address} + 72" length="4"/>
             <property name="ability"           type="int"    address="{address} + 32" reference="abilities" />
             <property name="held_item"         type="int"    address="{address} + 46" length="2" reference="items" />
-            <property name="focus_energy"      type="bit"    address="{address} + 82" position="4" />
+            <property name="focus_energy"      type="bool"    address="{address} + 82" bits="4" />
             <property name="type_1"            type="int"    address="{address} + 33" reference="pokemon_types" />
             <property name="type_2"            type="int"    address="{address} + 34" reference="pokemon_types" />
             <property name="status_1"          type="int"    address="{address} + 76" reference="status_conditions" />
@@ -240,14 +240,14 @@
                 <class name="5" type="party_pokemon" var:memoryContainer="player_party_structure_5" />
             </team>
             <badges>
-                <property name="0" type="bit" position="0" address="{dma_a} + 3958" description="boulderbadge" />
-                <property name="1" type="bit" position="1" address="{dma_a} + 3958" description="cascadebadge" />
-                <property name="2" type="bit" position="2" address="{dma_a} + 3958" description="thunderbadge" />
-                <property name="3" type="bit" position="3" address="{dma_a} + 3958" description="rainbowbadge" />
-                <property name="4" type="bit" position="4" address="{dma_a} + 3958" description="soulbadge" />
-                <property name="5" type="bit" position="5" address="{dma_a} + 3958" description="marshbadge" />
-                <property name="6" type="bit" position="6" address="{dma_a} + 3958" description="volcanobadge" />
-                <property name="7" type="bit" position="7" address="{dma_a} + 3958" description="earthbadge" />
+                <property name="0" type="bool" bits="0" address="{dma_a} + 3958" description="boulderbadge" />
+                <property name="1" type="bool" bits="1" address="{dma_a} + 3958" description="cascadebadge" />
+                <property name="2" type="bool" bits="2" address="{dma_a} + 3958" description="thunderbadge" />
+                <property name="3" type="bool" bits="3" address="{dma_a} + 3958" description="rainbowbadge" />
+                <property name="4" type="bool" bits="4" address="{dma_a} + 3958" description="soulbadge" />
+                <property name="5" type="bool" bits="5" address="{dma_a} + 3958" description="marshbadge" />
+                <property name="6" type="bool" bits="6" address="{dma_a} + 3958" description="volcanobadge" />
+                <property name="7" type="bool" bits="7" address="{dma_a} + 3958" description="earthbadge" />
             </badges>
             <vs_seeker>
                 <property name="steps_until_use"     type="uint" address="{dma_a} + 1592" />
@@ -483,7 +483,7 @@
                 <property name="team_count" type="int" address="0x202402A" />
                 <!-- <property name="party_position" type="int" length="2" address="0x02023BD0" /> --> <!-- TODO: address -->
                 <!-- <property name="party_position_2" type="int" length="2" address="0x02023BD4" /> --> <!-- TODO: address -->
-                <class name="active_pokemon" type="battle_structure" var:address="0x2023C3C" var:party_position="0x2024070" length="2" />
+                <class name="active_pokemon" type="battle_structure" var:address="0x2023C3C" var:party_bits="0x2024070" length="2" />
                 <class name="active_pokemon_2" type="battle_structure" address="0x2023CEC" />
                 <team>
                     <class name="0" type="party_pokemon" var:memoryContainer="opponentA_party_structure_0" />
@@ -500,17 +500,17 @@
             </opponent_2>
             <field>
                 <player>
-                    <property name="safeguard"   type="bit" address="0x2023DDE" length="2" position="5" />
-                    <property name="reflect"     type="bit" address="0x2023DDE" length="2" position="0" />
-                    <property name="lightscreen" type="bit" address="0x2023DDE" length="2" position="1" />
+                    <property name="safeguard"   type="bool" address="0x2023DDE" length="2" bits="5" />
+                    <property name="reflect"     type="bool" address="0x2023DDE" length="2" bits="0" />
+                    <property name="lightscreen" type="bool" address="0x2023DDE" length="2" bits="1" />
                     <property name="safeguard_count"   type="int" address="0x2023DEA" />
                     <property name="lightscreen_count" type="int" address="0x2023DE6" />
                     <property name="reflect_count"     type="int" address="0x2023DE4" />
                 </player>
                 <opponent>
-                    <property name="safeguard"   type="bit" address="0x2023DE0" length="2" position="5" />
-                    <property name="reflect"     type="bit" address="0x2023DE0" length="2" position="0" />
-                    <property name="lightscreen" type="bit" address="0x2023DE0" length="2" position="1" />
+                    <property name="safeguard"   type="bool" address="0x2023DE0" length="2" bits="5" />
+                    <property name="reflect"     type="bool" address="0x2023DE0" length="2" bits="0" />
+                    <property name="lightscreen" type="bool" address="0x2023DE0" length="2" bits="1" />
                     <property name="safeguard_count"   type="int" address="0x2023DF5" />
                     <property name="lightscreen_count" type="int" address="0x2023DF1" />
                     <property name="reflect_count"     type="int" address="0x2023DEF" />
@@ -519,26 +519,26 @@
                 <property name="weather_count" type="int" address="0x2023F48" />
             </field>
             <flags>
-                <property name="double"           type="bit" address="0x2022B4C" length="4" position="0" />
-                <property name="link"             type="bit" address="0x2022B4C" length="4" position="1" />
-                <property name="is_battle"        type="bit" address="0x2022B4C" length="4" position="2" />
-                <property name="trainer"          type="bit" address="0x2022B4C" length="4" position="3" />
-                <property name="first_battle"     type="bit" address="0x2022B4C" length="4" position="4" />
-                <property name="link_in_battle"   type="bit" address="0x2022B4C" length="4" position="5" />
-                <property name="multi"            type="bit" address="0x2022B4C" length="4" position="6" />
-                <property name="safari"           type="bit" address="0x2022B4C" length="4" position="7" />
-                <property name="battle_tower"     type="bit" address="0x2022B4C" length="4" position="8" />
-                <property name="old_man_tutorial" type="bit" address="0x2022B4C" length="4" position="9" />
-                <property name="roamer"           type="bit" address="0x2022B4C" length="4" position="10" />
-                <property name="eReader_trainer"  type="bit" address="0x2022B4C" length="4" position="11" />
-                <property name="kyogre_groudon"   type="bit" address="0x2022B4C" length="4" position="12" />
-                <property name="ghost_unveiled"   type="bit" address="0x2022B4C" length="4" position="13" />
-                <property name="regi"             type="bit" address="0x2022B4C" length="4" position="14" />
-                <property name="ghost"            type="bit" address="0x2022B4C" length="4" position="15" />
-                <property name="pokedude"         type="bit" address="0x2022B4C" length="4" position="16" />
-                <property name="wild_scripted"    type="bit" address="0x2022B4C" length="4" position="17" />
-                <property name="legenadry_frlg"   type="bit" address="0x2022B4C" length="4" position="18" />
-                <property name="trainer_tower"    type="bit" address="0x2022B4C" length="4" position="19" />
+                <property name="double"           type="bool" address="0x2022B4C" length="4" bits="0" />
+                <property name="link"             type="bool" address="0x2022B4C" length="4" bits="1" />
+                <property name="is_battle"        type="bool" address="0x2022B4C" length="4" bits="2" />
+                <property name="trainer"          type="bool" address="0x2022B4C" length="4" bits="3" />
+                <property name="first_battle"     type="bool" address="0x2022B4C" length="4" bits="4" />
+                <property name="link_in_battle"   type="bool" address="0x2022B4C" length="4" bits="5" />
+                <property name="multi"            type="bool" address="0x2022B4C" length="4" bits="6" />
+                <property name="safari"           type="bool" address="0x2022B4C" length="4" bits="7" />
+                <property name="battle_tower"     type="bool" address="0x2022B4C" length="4" bits="8" />
+                <property name="old_man_tutorial" type="bool" address="0x2022B4C" length="4" bits="9" />
+                <property name="roamer"           type="bool" address="0x2022B4C" length="4" bits="10" />
+                <property name="eReader_trainer"  type="bool" address="0x2022B4C" length="4" bits="11" />
+                <property name="kyogre_groudon"   type="bool" address="0x2022B4C" length="4" bits="12" />
+                <property name="ghost_unveiled"   type="bool" address="0x2022B4C" length="4" bits="13" />
+                <property name="regi"             type="bool" address="0x2022B4C" length="4" bits="14" />
+                <property name="ghost"            type="bool" address="0x2022B4C" length="4" bits="15" />
+                <property name="pokedude"         type="bool" address="0x2022B4C" length="4" bits="16" />
+                <property name="wild_scripted"    type="bool" address="0x2022B4C" length="4" bits="17" />
+                <property name="legenadry_frlg"   type="bool" address="0x2022B4C" length="4" bits="18" />
+                <property name="trainer_tower"    type="bool" address="0x2022B4C" length="4" bits="19" />
             </flags>
             <other>
                 <property name="battle_outcomes" type="int" address="0x2023e8a" reference="battle_outcomes"/>
@@ -548,18 +548,18 @@
             </other>
         </battle>
         <events>
-            <property name="trash_can_puzzle" type="bit" position="4" address="{dma_a} + 3884" />
-            <property name="beat_champion" type="bit" position="4" address="{dma_a} + 3959" />
-            <property name="game_clear"    type="bit" position="4" address="{dma_a} + 4069" />
+            <property name="trash_can_puzzle" type="bool" bits="4" address="{dma_a} + 3884" />
+            <property name="beat_champion" type="bool" bits="4" address="{dma_a} + 3959" />
+            <property name="game_clear"    type="bool" bits="4" address="{dma_a} + 4069" />
         </events>
         <!-- <flags></flags> -->
         <!-- <screens></screens> -->
         <!-- <trainers></trainers> -->
         <options>
             <!-- <property name="text_speed"   type="int" address="dma_967d10cc(0x0300500C, 20), 2, 0)" after-read-value-expression="BitRange(x, 2, 0)" /> -->
-            <property name="battle_animations" type="bit" address="{dma_a} + 21" position="2" />
-            <property name="battle_style"      type="bit" address="{dma_a} + 21" position="1" />
-            <property name="sound"             type="bit" address="{dma_a} + 21" position="0" />
+            <property name="battle_animations" type="bool" address="{dma_a} + 21" bits="2" />
+            <property name="battle_style"      type="bool" address="{dma_a} + 21" bits="1" />
+            <property name="sound"             type="bool" address="{dma_a} + 21" bits="0" />
             <property name="button_mode"       type="int" address="{dma_a} + 19" />
             <!-- <property name="window_frame" type="int" address="dma_967d10cc(0x0300500C, 20), 7, 3)" after-read-value-expression="BitRange(x, 2, 0)" /> -->
         </options>

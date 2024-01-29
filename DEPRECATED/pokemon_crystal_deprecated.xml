@@ -15,90 +15,90 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
 
     <classes>
         <pokemonInParty>
-            <property name="nickname"      address="nicknameAddress" type="string" reference="defaultCharacterMap" />
-            <property name="species"       address="address + 0" type="int" reference="pokemonSpecies" />
-            <property name="pokedexNumber" address="address + 0" type="int" reference="pokemonPokedexNumbers" />
-            <property name="level"           address="address + 31" type="int" />
-            <property name="expPoints"       address="address + 8" type="int" length="3" />
-            <property name="friendship"      address="address + 27" type="int" />
-            <property name="statusCondition" address="address + 32" type="int" reference="statusConditions" />
-            <property name="heldItem"        address="address + 1" type="int" reference="items" />
-            <property name="hp"             address="address + 34" type="int" length="2" />
-            <property name="maxHp"          address="address + 36" type="int" length="2" />
-            <property name="attack"         address="address + 38" type="int" length="2" />
-            <property name="defense"        address="address + 40" type="int" length="2" />
-            <property name="specialAttack"  address="address + 44" type="int" length="2" />
-            <property name="specialDefense" address="address + 46" type="int" length="2" />
-            <property name="speed"          address="address + 42" type="int" length="2" />
-            <property name="dvAttack"  address="address + 21" type="int" after-read-value-expression="(x - (x % 16))/16" />
-            <property name="dvDefense" address="address + 21" type="int" after-read-value-expression="x % 16" />
-            <property name="dvSpeed"   address="address + 22" type="int" after-read-value-expression="(x - (x % 16))/16" />
-            <property name="dvSpecial" address="address + 22" type="int" after-read-value-expression="x % 16" />
-            <property name="move1" address="address + 2" type="int" reference="moves" />
-            <property name="move2" address="address + 3" type="int" reference="moves" />
-            <property name="move3" address="address + 4" type="int" reference="moves" />
-            <property name="move4" address="address + 5" type="int" reference="moves" />
-            <property name="move1pp" address="address + 23" type="int" after-read-value-expression="x % 64" />
-            <property name="move2pp" address="address + 24" type="int" after-read-value-expression="x % 64" />
-            <property name="move3pp" address="address + 25" type="int" after-read-value-expression="x % 64" />
-            <property name="move4pp" address="address + 26" type="int" after-read-value-expression="x % 64" />
-            <property name="move1ppUp" address="address + 23" type="int" after-read-value-expression="Math.floor(x / 64)" />
-            <property name="move2ppUp" address="address + 24" type="int" after-read-value-expression="Math.floor(x / 64)" />
-            <property name="move3ppUp" address="address + 25" type="int" after-read-value-expression="Math.floor(x / 64)" />
-            <property name="move4ppUp" address="address + 26" type="int" after-read-value-expression="Math.floor(x / 64)" />
-            <property name="statExpHp"      address="address + 11" type="int" length="2" />
-            <property name="statExpAttack"  address="address + 13" type="int" length="2" />
-            <property name="statExpDefense" address="address + 15" type="int" length="2" />
-            <property name="statExpSpeed"   address="address + 17" type="int" length="2" />
-            <property name="statExpSpecial" address="address + 19" type="int" length="2" />
-            <property name="pokerus"   address="address + 28" type="int" />
-            <property name="trainerId" address="address + 6" type="int" length="2" />
+            <property name="nickname"      address="{nicknameAddress}" type="string" reference="defaultCharacterMap" />
+            <property name="species"       address="{address} + 0" type="int" reference="pokemonSpecies" />
+            <property name="pokedexNumber" address="{address} + 0" type="int" reference="pokemonPokedexNumbers" />
+            <property name="level"           address="{address} + 31" type="int" />
+            <property name="expPoints"       address="{address} + 8" type="int" length="3" />
+            <property name="friendship"      address="{address} + 27" type="int" />
+            <property name="statusCondition" address="{address} + 32" type="int" reference="statusConditions" />
+            <property name="heldItem"        address="{address} + 1" type="int" reference="items" />
+            <property name="hp"             address="{address} + 34" type="int" length="2" />
+            <property name="maxHp"          address="{address} + 36" type="int" length="2" />
+            <property name="attack"         address="{address} + 38" type="int" length="2" />
+            <property name="defense"        address="{address} + 40" type="int" length="2" />
+            <property name="specialAttack"  address="{address} + 44" type="int" length="2" />
+            <property name="specialDefense" address="{address} + 46" type="int" length="2" />
+            <property name="speed"          address="{address} + 42" type="int" length="2" />
+            <property name="dvAttack"  address="{address} + 21" type="int" bits="4-7" />
+            <property name="dvDefense" address="{address} + 21" type="int" bits="0-3" />
+            <property name="dvSpeed"   address="{address} + 22" type="int" bits="4-7" />
+            <property name="dvSpecial" address="{address} + 22" type="int" bits="0-3" />
+            <property name="move1" address="{address} + 2" type="int" reference="moves" />
+            <property name="move2" address="{address} + 3" type="int" reference="moves" />
+            <property name="move3" address="{address} + 4" type="int" reference="moves" />
+            <property name="move4" address="{address} + 5" type="int" reference="moves" />
+            <property name="move1pp" address="{address} + 23" type="int" after-read-value-expression="x % 64" />
+            <property name="move2pp" address="{address} + 24" type="int" after-read-value-expression="x % 64" />
+            <property name="move3pp" address="{address} + 25" type="int" after-read-value-expression="x % 64" />
+            <property name="move4pp" address="{address} + 26" type="int" after-read-value-expression="x % 64" />
+            <property name="move1ppUp" address="{address} + 23" type="int" after-read-value-expression="Math.floor(x / 64)" />
+            <property name="move2ppUp" address="{address} + 24" type="int" after-read-value-expression="Math.floor(x / 64)" />
+            <property name="move3ppUp" address="{address} + 25" type="int" after-read-value-expression="Math.floor(x / 64)" />
+            <property name="move4ppUp" address="{address} + 26" type="int" after-read-value-expression="Math.floor(x / 64)" />
+            <property name="statExpHp"      address="{address} + 11" type="int" length="2" />
+            <property name="statExpAttack"  address="{address} + 13" type="int" length="2" />
+            <property name="statExpDefense" address="{address} + 15" type="int" length="2" />
+            <property name="statExpSpeed"   address="{address} + 17" type="int" length="2" />
+            <property name="statExpSpecial" address="{address} + 19" type="int" length="2" />
+            <property name="pokerus"   address="{address} + 28" type="int" />
+            <property name="trainerId" address="{address} + 6" type="int" length="2" />
         </pokemonInParty>
         <playerItem>
-            <property name="item"     address="address + 0" type="int" reference="items" />
-            <property name="quantity" address="address + 1" type="int" />
+            <property name="item"     address="{address} + 0" type="int" reference="items" />
+            <property name="quantity" address="{address} + 1" type="int" />
         </playerItem>
         <audioChannel>
-            <property name="musicId"   address="address + 0" type="int" length="2" />
-            <property name="musicBank" address="address + 2" type="int" />
-            <property name="flags1" address="address + 3" type="int" />
-            <property name="flags2" address="address + 4" type="int" />
-            <property name="flags3" address="address + 5" type="int" />
-            <property name="musicAddress" address="address + 6" type="int" length="2" />
-            <property name="lastMusicAddress" address="address + 8" type="int" length="4" />
-            <property name="noteFlags" address="address + 12" type="int" />
-            <property name="condition" address="address + 13" type="int" />
-            <property name="dutyCycle" address="address + 14" type="int" />
-            <property name="volumeEnvelope" address="address + 15" type="int" />
-            <property name="frequency" address="address + 16" type="int" length="2" />
-            <property name="pitch"     address="address + 18" type="int" />
-            <property name="octave"    address="address + 19" type="int" />
-            <property name="transposition" address="address + 20" type="int" />
-            <property name="noteDuration"  address="address + 21" type="int" />
-            <property name="loopCount" address="address + 24" type="int" />
-            <property name="tempo"     address="address + 25" type="int" length="2" />
-            <property name="tracks"    address="address + 27" type="int" />
-            <property name="dutyCyclePattern"  address="address + 28" type="int" />
-            <property name="vibratoDelayCount" address="address + 29" type="int" />
-            <property name="vibratoDelay"  address="address + 30" type="int" />
-            <property name="vibratoExtent" address="address + 31" type="int" />
-            <property name="vibratoRate"   address="address + 32" type="int" />
-            <property name="pitchSlideTarget" address="address + 33" type="int" length="2" />
-            <property name="pitchSlideAmount" address="address + 35" type="int" />
-            <property name="pitchSlideAmountFraction" address="address + 36" type="int" />
-            <property name="pitchOffset" address="address + 38" type="int" length="2" />
-            <property name="noteLength" address="address + 44" type="int" />
+            <property name="musicId"   address="{address} + 0" type="int" length="2" />
+            <property name="musicBank" address="{address} + 2" type="int" />
+            <property name="flags1" address="{address} + 3" type="int" />
+            <property name="flags2" address="{address} + 4" type="int" />
+            <property name="flags3" address="{address} + 5" type="int" />
+            <property name="musicAddress" address="{address} + 6" type="int" length="2" />
+            <property name="lastMusicAddress" address="{address} + 8" type="int" length="4" />
+            <property name="noteFlags" address="{address} + 12" type="int" />
+            <property name="condition" address="{address} + 13" type="int" />
+            <property name="dutyCycle" address="{address} + 14" type="int" />
+            <property name="volumeEnvelope" address="{address} + 15" type="int" />
+            <property name="frequency" address="{address} + 16" type="int" length="2" />
+            <property name="pitch"     address="{address} + 18" type="int" />
+            <property name="octave"    address="{address} + 19" type="int" />
+            <property name="transposition" address="{address} + 20" type="int" />
+            <property name="noteDuration"  address="{address} + 21" type="int" />
+            <property name="loopCount" address="{address} + 24" type="int" />
+            <property name="tempo"     address="{address} + 25" type="int" length="2" />
+            <property name="tracks"    address="{address} + 27" type="int" />
+            <property name="dutyCyclePattern"  address="{address} + 28" type="int" />
+            <property name="vibratoDelayCount" address="{address} + 29" type="int" />
+            <property name="vibratoDelay"  address="{address} + 30" type="int" />
+            <property name="vibratoExtent" address="{address} + 31" type="int" />
+            <property name="vibratoRate"   address="{address} + 32" type="int" />
+            <property name="pitchSlideTarget" address="{address} + 33" type="int" length="2" />
+            <property name="pitchSlideAmount" address="{address} + 35" type="int" />
+            <property name="pitchSlideAmountFraction" address="{address} + 36" type="int" />
+            <property name="pitchOffset" address="{address} + 38" type="int" length="2" />
+            <property name="noteLength" address="{address} + 44" type="int" />
         </audioChannel>
         <roamer>
-            <!-- _:         address="address + 0" type="macro" macro: "pokemonMacro" /> -->
-            <property name="level"     address="address + 1" type="int" length="1" />
-            <property name="mapGroup"  address="address + 2" type="int" length="1" reference="mapGroups" />
-            <property name="mapNumber" address="address + 3" type="int" length="1" />
-            <property name="hp"        address="address + 4" type="int" length="1" />
-            <!-- <property name="dvAttack"  address="address + 5" type="int" after-read-value-expression="(x - (x % 16))/16" /> -->
-            <!-- <property name="dvDefense" address="address + 5" type="int" after-read-value-expression="x % 16" /> -->
-            <!-- <property name="dvSpeed"   address="address + 6" type="int" after-read-value-expression="(x - (x % 16))/16" /> -->
-            <!-- <property name="dvSpecial" address="address + 6" type="int" after-read-value-expression="x % 16" /> -->
+            <!-- _:         address="{address} + 0" type="macro" macro: "pokemonMacro" /> -->
+            <property name="level"     address="{address} + 1" type="int" length="1" />
+            <property name="mapGroup"  address="{address} + 2" type="int" length="1" reference="mapGroups" />
+            <property name="mapNumber" address="{address} + 3" type="int" length="1" />
+            <property name="hp"        address="{address} + 4" type="int" length="1" />
+            <!-- <property name="dvAttack"  address="{address} + 5" type="int" bits="4-7" /> -->
+            <!-- <property name="dvDefense" address="{address} + 5" type="int" bits="0-3" /> -->
+            <!-- <property name="dvSpeed"   address="{address} + 6" type="int" bits="4-7" /> -->
+            <!-- <property name="dvSpecial" address="{address} + 6" type="int" bits="0-3" /> -->
         </roamer>
     </classes>
 
@@ -245,43 +245,43 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
         <property name="TM50-Nightmare"    type="int" address="0xD88A" />
       </tms>
       <hms>
-        <property name="HM01-Cut" type="bit" address="0xD88B" position="1" />
-        <property name="HM02-Fly" type="bit" address="0xD88C" position="1" />
-        <property name="HM03-Surf" type="bit" address="0xD88D" position="1" />
-        <property name="HM04-Strength" type="bit" address="0xD88E" position="1" />
-        <property name="HM05-Flash" type="bit" address="0xD88F" position="1" />
-        <property name="HM06-Whirlpool" type="bit" address="0xD890" position="1" />
-        <property name="HM07-Waterfall" type="bit" address="0xD891" position="1" />
+        <property name="HM01-Cut"       type="bool" address="0xD88B" bits="1" />
+        <property name="HM02-Fly"       type="bool" address="0xD88C" bits="1" />
+        <property name="HM03-Surf"      type="bool" address="0xD88D" bits="1" />
+        <property name="HM04-Strength"  type="bool" address="0xD88E" bits="1" />
+        <property name="HM05-Flash"     type="bool" address="0xD88F" bits="1" />
+        <property name="HM06-Whirlpool" type="bool" address="0xD890" bits="1" />
+        <property name="HM07-Waterfall" type="bool" address="0xD891" bits="1" />
       </hms>
       <badges>
-        <property name="badge1" type="bit"  address="0xd857" position="0" description="zephyrBadge" />
-        <property name="badge2" type="bit"  address="0xd857" position="1" description="hiveBadge" />
-        <property name="badge3" type="bit"  address="0xd857" position="2" description="plainBadge" />
-        <property name="badge4" type="bit"  address="0xd857" position="3" description="fogBadge" />
-        <property name="badge5" type="bit"  address="0xd857" position="5" description="stormBadge" />
-        <property name="badge6" type="bit"  address="0xd857" position="4" description="mineralBadge" />
-        <property name="badge7" type="bit"  address="0xd857" position="6" description="glacierBadge" />
-        <property name="badge8" type="bit"  address="0xd857" position="7" description="risingBadge" />
-        <property name="badge9" type="bit"  address="0xd858" position="0" description="boulderBadge" />
-        <property name="badge10" type="bit" address="0xd858" position="1" description="cascadeBadge" />
-        <property name="badge11" type="bit" address="0xd858" position="2" description="thunderBadge" />
-        <property name="badge12" type="bit" address="0xd858" position="3" description="rainbowBadge" />
-        <property name="badge13" type="bit" address="0xd858" position="4" description="soulBadge" />
-        <property name="badge14" type="bit" address="0xd858" position="5" description="marshBadge" />
-        <property name="badge15" type="bit" address="0xd858" position="6" description="volcanoBadge" />
-        <property name="badge16" type="bit" address="0xd858" position="7" description="earthBadge" />
+        <property name="badge1"  type="bool" address="0xd857" bits="0" description="zephyrBadge" />
+        <property name="badge2"  type="bool" address="0xd857" bits="1" description="hiveBadge" />
+        <property name="badge3"  type="bool" address="0xd857" bits="2" description="plainBadge" />
+        <property name="badge4"  type="bool" address="0xd857" bits="3" description="fogBadge" />
+        <property name="badge5"  type="bool" address="0xd857" bits="5" description="stormBadge" />
+        <property name="badge6"  type="bool" address="0xd857" bits="4" description="mineralBadge" />
+        <property name="badge7"  type="bool" address="0xd857" bits="6" description="glacierBadge" />
+        <property name="badge8"  type="bool" address="0xd857" bits="7" description="risingBadge" />
+        <property name="badge9"  type="bool" address="0xd858" bits="0" description="boulderBadge" />
+        <property name="badge10" type="bool" address="0xd858" bits="1" description="cascadeBadge" />
+        <property name="badge11" type="bool" address="0xd858" bits="2" description="thunderBadge" />
+        <property name="badge12" type="bool" address="0xd858" bits="3" description="rainbowBadge" />
+        <property name="badge13" type="bool" address="0xd858" bits="4" description="soulBadge" />
+        <property name="badge14" type="bool" address="0xd858" bits="5" description="marshBadge" />
+        <property name="badge15" type="bool" address="0xd858" bits="6" description="volcanoBadge" />
+        <property name="badge16" type="bool" address="0xd858" bits="7" description="earthBadge" />
       </badges>
       <pokegear>
-        <property name="mapCard"       type="bit" address="0xD957" position="0" />
-        <property name="radioCard"     type="bit" address="0xD957" position="1" />
-        <property name="phoneCard"     type="bit" address="0xD957" position="2" />
-        <property name="expansionCard" type="bit" address="0xD957" position="3" />
-        <property name="obtained"      type="bit" address="0xD957" position="7" />
+        <property name="mapCard"       type="bool" address="0xD957" bits="0" />
+        <property name="radioCard"     type="bool" address="0xD957" bits="1" />
+        <property name="phoneCard"     type="bool" address="0xD957" bits="2" />
+        <property name="expansionCard" type="bool" address="0xD957" bits="3" />
+        <property name="obtained"      type="bool" address="0xD957" bits="7" />
       </pokegear>
-      <property name="money"     type="int" address="0xD84E" length="3" />
-      <property name="moneyMom"  type="int" address="0xD851" length="3" />
-      <property name="momSaving" type="bit" address="0xD854" position="0" />
-      <property name="coins"     type="int" address="0xD855" length="2" />
+      <property name="money"     type="int"  address="0xD84E" length="3" />
+      <property name="moneyMom"  type="int"  address="0xD851" length="3" />
+      <property name="momSaving" type="bool" address="0xD854" bits="0" />
+      <property name="coins"     type="int"  address="0xD855" length="2" />
       <!-- <property name="repelStepsLeft" type="int" address="0xXXXX" /> -->
       <!-- <property name="bikeStatus"     type="int" address="0xXXXX" reference="bikeStatus" /> -->
     </player>
@@ -293,7 +293,7 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
       <property name="x" type="int" address="0xDCB8" />
     </overworld>
     <events>
-      <property name="beatChampion" type="bit" position="1" address="0xdb29" />
+      <property name="beatChampion" type="bool" address="0xdb29" bits="1" />
     </events>
     <roamers>
       <class name="0" type="roamer" address="0xDFCF" />
@@ -343,7 +343,7 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
         <property name="modStageSpecialDefense" type="int" address="0xC6D0" reference="stageModifiers" />
         <property name="modStageAccuracy"       type="int" address="0xC6D1" reference="stageModifiers" />
         <property name="modStageEvasion"        type="int" address="0xC6D2" reference="stageModifiers" />
-        <property name="hp" type="int" address="0xC63C" length="2" />
+        <property name="hp"      type="int" address="0xC63C" length="2" />
         <property name="maxHp"   type="int" address="0xC63E" length="2" description="The Player's active Pokemon's max HP" />
         <property name="attack"  type="int" address="0xC640" length="2" description="The Player's active Pokemon's Attack stat as calculated in battle (badge boosts and stat modifications included" />
         <property name="defense" type="int" address="0xC642" length="2" description="The Player's active Pokemon's Defense stat as calculated in battle (badge boosts and stat modifications included" />
@@ -373,36 +373,36 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
           <property name="protect"    type="int" address="0xC679" />
         </counters>
         <status>
-          <property name="nightmare"   type="bit" address="0xc668" position="0" />
-          <property name="curse"       type="bit" address="0xc668" position="1" />
-          <property name="protect"     type="bit" address="0xc668" position="2" />
-          <property name="identified"  type="bit" address="0xc668" position="3" />
-          <property name="perish"      type="bit" address="0xc668" position="4" />
-          <property name="endure"      type="bit" address="0xc668" position="5" />
-          <property name="rollout"     type="bit" address="0xc668" position="6" />
-          <property name="in_love"     type="bit" address="0xc668" position="7" />
-          <property name="curled"      type="bit" address="0xc669" position="0" />
-          <property name="bide"        type="bit" address="0xc66a" position="0" />
-          <property name="rampage"     type="bit" address="0xc66a" position="1" />
-          <property name="in_loop"     type="bit" address="0xc66a" position="2" />
-          <property name="flinched"    type="bit" address="0xc66a" position="3" />
-          <property name="charged"     type="bit" address="0xc66a" position="4" />
-          <property name="underground" type="bit" address="0xc66a" position="5" />
-          <property name="flying"      type="bit" address="0xc66a" position="6" />
-          <property name="confused"    type="bit" address="0xc66a" position="7" />
-          <property name="x_accuracy"  type="bit" address="0xc66b" position="0" />
-          <property name="mist"        type="bit" address="0xc66b" position="1" />
-          <property name="focus_energ" type="bit" address="0xc66b" position="2" />
-          <property name="substitute"  type="bit" address="0xc66b" position="4" />
-          <property name="recharge"    type="bit" address="0xc66b" position="5" />
-          <property name="rage"        type="bit" address="0xc66b" position="6" />
-          <property name="leech_seed"  type="bit" address="0xc66b" position="7" />
-          <property name="toxic"       type="bit" address="0xc66c" position="0" />
-          <property name="transformed" type="bit" address="0xc66c" position="3" />
-          <property name="encored"     type="bit" address="0xc66c" position="4" />
-          <property name="lock_on"     type="bit" address="0xc66c" position="5" />
-          <property name="destiny_bon" type="bit" address="0xc66c" position="6" />
-          <property name="cant_run"    type="bit" address="0xc66c" position="7" />
+          <property name="nightmare"   type="bool" address="0xc668" bits="0" />
+          <property name="curse"       type="bool" address="0xc668" bits="1" />
+          <property name="protect"     type="bool" address="0xc668" bits="2" />
+          <property name="identified"  type="bool" address="0xc668" bits="3" />
+          <property name="perish"      type="bool" address="0xc668" bits="4" />
+          <property name="endure"      type="bool" address="0xc668" bits="5" />
+          <property name="rollout"     type="bool" address="0xc668" bits="6" />
+          <property name="in_love"     type="bool" address="0xc668" bits="7" />
+          <property name="curled"      type="bool" address="0xc669" bits="0" />
+          <property name="bide"        type="bool" address="0xc66a" bits="0" />
+          <property name="rampage"     type="bool" address="0xc66a" bits="1" />
+          <property name="in_loop"     type="bool" address="0xc66a" bits="2" />
+          <property name="flinched"    type="bool" address="0xc66a" bits="3" />
+          <property name="charged"     type="bool" address="0xc66a" bits="4" />
+          <property name="underground" type="bool" address="0xc66a" bits="5" />
+          <property name="flying"      type="bool" address="0xc66a" bits="6" />
+          <property name="confused"    type="bool" address="0xc66a" bits="7" />
+          <property name="x_accuracy"  type="bool" address="0xc66b" bits="0" />
+          <property name="mist"        type="bool" address="0xc66b" bits="1" />
+          <property name="focus_energ" type="bool" address="0xc66b" bits="2" />
+          <property name="substitute"  type="bool" address="0xc66b" bits="4" />
+          <property name="recharge"    type="bool" address="0xc66b" bits="5" />
+          <property name="rage"        type="bool" address="0xc66b" bits="6" />
+          <property name="leech_seed"  type="bool" address="0xc66b" bits="7" />
+          <property name="toxic"       type="bool" address="0xc66c" bits="0" />
+          <property name="transformed" type="bool" address="0xc66c" bits="3" />
+          <property name="encored"     type="bool" address="0xc66c" bits="4" />
+          <property name="lock_on"     type="bool" address="0xc66c" bits="5" />
+          <property name="destiny_bon" type="bool" address="0xc66c" bits="6" />
+          <property name="cant_run"    type="bool" address="0xc66c" bits="7" />
         </status>
       </yourPokemon>
       <enemyPokemon>
@@ -457,36 +457,36 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
           <property name="protect"    type="int" address="0xc681" />
         </counters>
         <status>
-          <property name="nightmare"   type="bit" address="0xc66d" position="0" />
-          <property name="curse"       type="bit" address="0xc66d" position="1" />
-          <property name="protect"     type="bit" address="0xc66d" position="2" />
-          <property name="identified"  type="bit" address="0xc66d" position="3" />
-          <property name="perish"      type="bit" address="0xc66d" position="4" />
-          <property name="endure"      type="bit" address="0xc66d" position="5" />
-          <property name="rollout"     type="bit" address="0xc66d" position="6" />
-          <property name="in_love"     type="bit" address="0xc66d" position="7" />
-          <property name="curled"      type="bit" address="0xc66e" position="0" />
-          <property name="bide"        type="bit" address="0xc66f" position="0" />
-          <property name="rampage"     type="bit" address="0xc66f" position="1" />
-          <property name="in_loop"     type="bit" address="0xc66f" position="2" />
-          <property name="flinched"    type="bit" address="0xc66f" position="3" />
-          <property name="charged"     type="bit" address="0xc66f" position="4" />
-          <property name="underground" type="bit" address="0xc66f" position="5" />
-          <property name="flying"      type="bit" address="0xc66f" position="6" />
-          <property name="confused"    type="bit" address="0xc66f" position="7" />
-          <property name="x_accuracy"  type="bit" address="0xc670" position="0" />
-          <property name="mist"        type="bit" address="0xc670" position="1" />
-          <property name="focus_energ" type="bit" address="0xc670" position="2" />
-          <property name="substitute"  type="bit" address="0xc670" position="4" />
-          <property name="recharge"    type="bit" address="0xc670" position="5" />
-          <property name="rage"        type="bit" address="0xc670" position="6" />
-          <property name="leech_seed"  type="bit" address="0xc670" position="7" />
-          <property name="toxic"       type="bit" address="0xc671" position="0" />
-          <property name="transformed" type="bit" address="0xc671" position="3" />
-          <property name="encored"     type="bit" address="0xc671" position="4" />
-          <property name="lock_on"     type="bit" address="0xc671" position="5" />
-          <property name="destiny_bon" type="bit" address="0xc671" position="6" />
-          <property name="cant_run"    type="bit" address="0xc671" position="7" />
+          <property name="nightmare"   type="bool" address="0xc66d" bits="0" />
+          <property name="curse"       type="bool" address="0xc66d" bits="1" />
+          <property name="protect"     type="bool" address="0xc66d" bits="2" />
+          <property name="identified"  type="bool" address="0xc66d" bits="3" />
+          <property name="perish"      type="bool" address="0xc66d" bits="4" />
+          <property name="endure"      type="bool" address="0xc66d" bits="5" />
+          <property name="rollout"     type="bool" address="0xc66d" bits="6" />
+          <property name="in_love"     type="bool" address="0xc66d" bits="7" />
+          <property name="curled"      type="bool" address="0xc66e" bits="0" />
+          <property name="bide"        type="bool" address="0xc66f" bits="0" />
+          <property name="rampage"     type="bool" address="0xc66f" bits="1" />
+          <property name="in_loop"     type="bool" address="0xc66f" bits="2" />
+          <property name="flinched"    type="bool" address="0xc66f" bits="3" />
+          <property name="charged"     type="bool" address="0xc66f" bits="4" />
+          <property name="underground" type="bool" address="0xc66f" bits="5" />
+          <property name="flying"      type="bool" address="0xc66f" bits="6" />
+          <property name="confused"    type="bool" address="0xc66f" bits="7" />
+          <property name="x_accuracy"  type="bool" address="0xc670" bits="0" />
+          <property name="mist"        type="bool" address="0xc670" bits="1" />
+          <property name="focus_energ" type="bool" address="0xc670" bits="2" />
+          <property name="substitute"  type="bool" address="0xc670" bits="4" />
+          <property name="recharge"    type="bool" address="0xc670" bits="5" />
+          <property name="rage"        type="bool" address="0xc670" bits="6" />
+          <property name="leech_seed"  type="bool" address="0xc670" bits="7" />
+          <property name="toxic"       type="bool" address="0xc671" bits="0" />
+          <property name="transformed" type="bool" address="0xc671" bits="3" />
+          <property name="encored"     type="bool" address="0xc671" bits="4" />
+          <property name="lock_on"     type="bool" address="0xc671" bits="5" />
+          <property name="destiny_bon" type="bool" address="0xc671" bits="6" />
+          <property name="cant_run"    type="bool" address="0xc671" bits="7" />
         </status>
       </enemyPokemon>
       <info>
@@ -499,20 +499,20 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
       </info>
       <field>
         <player>
-          <property name="statusSafeguard"    type="bit" address="0xC6FF" position="2" />
-          <property name="statusReflect"      type="bit" address="0xC6FF" position="4" />
-          <property name="statusLightScreen"  type="bit" address="0xC6FF" position="3" />
-          <property name="safeguardCount"     type="int" address="0xC701" />
-          <property name="lightScreenCount"   type="int" address="0xC702" />
-          <property name="reflectCount"       type="int" address="0xC703" />
+          <property name="statusSafeguard"    type="bool" address="0xC6FF" bits="2" />
+          <property name="statusReflect"      type="bool" address="0xC6FF" bits="4" />
+          <property name="statusLightScreen"  type="bool" address="0xC6FF" bits="3" />
+          <property name="safeguardCount"     type="int"  address="0xC701" />
+          <property name="lightScreenCount"   type="int"  address="0xC702" />
+          <property name="reflectCount"       type="int"  address="0xC703" />
         </player>
         <enemy>
-          <property name="statusSafeguard"    type="bit" address="0xC700" position="2" />
-          <property name="statusReflect"      type="bit" address="0xC700" position="4" />
-          <property name="statusLightScreen"  type="bit" address="0xC700" position="3" />
-          <property name="safeguardCount"     type="int" address="0xCBE3" />
-          <property name="lightScreenCount"   type="int" address="0xCBE4" />
-          <property name="reflectCount"       type="int" address="0xCBE5" />
+          <property name="statusSafeguard"    type="bool" address="0xC700" bits="2" />
+          <property name="statusReflect"      type="bool" address="0xC700" bits="4" />
+          <property name="statusLightScreen"  type="bool" address="0xC700" bits="3" />
+          <property name="safeguardCount"     type="int"  address="0xCBE3" />
+          <property name="lightScreenCount"   type="int"  address="0xCBE4" />
+          <property name="reflectCount"       type="int"  address="0xCBE5" />
         </enemy>
         <property name="weather"  type="int" address="0xc70a" reference="weather" />
         <property name="weatherCount" type="int" address="0xc70b" />
@@ -527,11 +527,11 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
     <options>
       <!-- <property name="clockDay"         type="string" address="0xXXXX" length="5" /> -->
       <!-- <property name="clockTime"        type="string" address="0xXXXX" length="5" /> -->
-      <property name="textSpeed2"       type="bit"    address="0xCFCC" position="1" description="False+False = Fast, True+False = Mid, True+True = Slow" />
-      <property name="textSpeed3"       type="bit"    address="0xCFCC" position="2" description="False+False = Fast, True+False = Mid, True+True = Slow" />
-      <property name="sound"            type="bit"    address="0xCFCC" position="5" description="Mono = False, Stereo = True" />
-      <property name="battleStyle"      type="bit"    address="0xCFCC" position="6" description="Shift = False, Set = True" />
-      <property name="battleAnimations" type="bit"    address="0xCFCC" position="7" description="On = False, Off = True" />
+      <property name="textSpeed2"       type="bool" address="0xCFCC" bits="1" description="False+False = Fast, True+False = Mid, True+True = Slow" />
+      <property name="textSpeed3"       type="bool" address="0xCFCC" bits="2" description="False+False = Fast, True+False = Mid, True+True = Slow" />
+      <property name="sound"            type="bool" address="0xCFCC" bits="5" description="Mono = False, Stereo = True" />
+      <property name="battleStyle"      type="bool" address="0xCFCC" bits="6" description="Shift = False, Set = True" />
+      <property name="battleAnimations" type="bool" address="0xCFCC" bits="7" description="On = False, Off = True" />
     </options>
 
     <gameTime>
@@ -547,7 +547,7 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
         <property name="hour"      type="int" address="0xff94" />
         <property name="minute"    type="int" address="0xff96" />
         <property name="second"    type="int" address="0xff98" />
-        <property name="dst"       type="bit" address="0xd4c2" position="7" />
+        <property name="dst"       type="bool" address="0xd4c2" bits="7" />
         <property name="timeOfDay" type="int" address="0xd269" reference="timeOfDay" />
       </current>
       <start>
@@ -648,9 +648,9 @@ For all new software, please use the paths within 'pokemon_crystal.xml'
       <property name="inBattleHeldItem"    type="int" address="0xC62D" reference="items" />
       <property name="playerMinimized" type="int" address="0xC6FE"/>
       <property name="enemyMinimized"    type="int" address="0xC6FA"/>
-      <property name="hallOfFame" type="bit" address="0xD84C" position="6" />
-      <property name="isFlash" type="bit" address="0xD84C" position="2" />
-      <property name="wildEncounters" type="bit" address="0xD84C" position="5" />
+      <property name="hallOfFame" type="bool" address="0xD84C" bits="6" />
+      <property name="isFlash" type="bool" address="0xD84C" bits="2" />
+      <property name="wildEncounters" type="bool" address="0xD84C" bits="5" />
       <property name="battleFlag64"    type="int" address="0xC664" />
       <property name="playerMoveUsed1"    type="int" address="0xc712" reference="moves" />
       <property name="playerMoveUsed2"    type="int" address="0xc713" reference="moves" />

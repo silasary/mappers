@@ -26,136 +26,136 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
   <classes>
     <pokemonInParty>
       <!-- #MAIN DATA -->
-      <property name="personalityValue" memoryContainer="memoryContainer" address="0" type="uint" length="4" />
-      <property name="checksum"         memoryContainer="memoryContainer" address="28" type="int" length="2" description="Used to valid the decrypted data block" />
-      <property name="otID"             memoryContainer="memoryContainer" address="4" type="uint" length="4" />
-      <property name="nickname"         memoryContainer="memoryContainer" address="8" type="string" length="10"/>
-      <property name="speciesArray"     memoryContainer="memoryContainer" address="32" type="int" length="2" reference="pokemon" />
-      <property name="species"          memoryContainer="memoryContainer" address="32" type="int" length="2" reference="pokemonSpecies" />
-      <property name="pokedexNumber"    memoryContainer="memoryContainer" address="32" type="int" length="2" reference="pokemonPokedexNumbers" />
-      <property name="level"            memoryContainer="memoryContainer" address="84" type="int" />
-      <property name="expPoints"        memoryContainer="memoryContainer" address="36" type="uint" length="4" />
-      <property name="nature"           memoryContainer="memoryContainer" address="0" type="uint" length="4" after-read-value-expression="x % 25" />
-      <property name="friendship"       memoryContainer="memoryContainer" address="32 + 9" type="int" />
-      <property name="pokerus"          memoryContainer="memoryContainer" address="85" type="int" />
-      <property name="itemHeld"         memoryContainer="memoryContainer" address="32 + 2" type="int" length="2" reference="items" />
-      <property name="statusCondition"  memoryContainer="memoryContainer" address="80" type="int" reference="statusConditions" />
+      <property name="personalityValue" memoryContainer="{memoryContainer}" address="0" type="uint" length="4" />
+      <property name="checksum"         memoryContainer="{memoryContainer}" address="28" type="int" length="2" description="Used to valid the decrypted data block" />
+      <property name="otID"             memoryContainer="{memoryContainer}" address="4" type="uint" length="4" />
+      <property name="nickname"         memoryContainer="{memoryContainer}" address="8" type="string" length="10"/>
+      <property name="speciesArray"     memoryContainer="{memoryContainer}" address="32" type="int" length="2" reference="pokemon" />
+      <property name="species"          memoryContainer="{memoryContainer}" address="32" type="int" length="2" reference="pokemonSpecies" />
+      <property name="pokedexNumber"    memoryContainer="{memoryContainer}" address="32" type="int" length="2" reference="pokemonPokedexNumbers" />
+      <property name="level"            memoryContainer="{memoryContainer}" address="84" type="int" />
+      <property name="expPoints"        memoryContainer="{memoryContainer}" address="36" type="uint" length="4" />
+      <property name="nature"           memoryContainer="{memoryContainer}" address="0" type="uint" length="4" after-read-value-expression="x % 25" />
+      <property name="friendship"       memoryContainer="{memoryContainer}" address="32 + 9" type="int" />
+      <property name="pokerus"          memoryContainer="{memoryContainer}" address="85" type="int" />
+      <property name="itemHeld"         memoryContainer="{memoryContainer}" address="32 + 2" type="int" length="2" reference="items" />
+      <property name="statusCondition"  memoryContainer="{memoryContainer}" address="80" type="int" reference="statusConditions" />
       <!-- #STATS -->
-      <property name="hp"                memoryContainer="memoryContainer" address="86" type="int" length="2" />
-      <property name="maxHp"             memoryContainer="memoryContainer" address="88" type="int" length="2" />
-      <property name="attack"            memoryContainer="memoryContainer" address="90" type="int" length="2" />
-      <property name="defense"           memoryContainer="memoryContainer" address="92" type="int" length="2" />
-      <property name="speed"             memoryContainer="memoryContainer" address="94" type="int" length="2" />
-      <property name="specialAttack"     memoryContainer="memoryContainer" address="96" type="int" length="2" />
-      <property name="specialDefense"    memoryContainer="memoryContainer" address="98" type="int" length="2" />
-      <property name="ivEggAbilityBlock" memoryContainer="memoryContainer" address="32 + 40" type="uint" length="4" />
-      <property name="ivHp"              memoryContainer="memoryContainer" address="32 + 40" type="uint" length="4" after-read-value-expression="BitRange(x, 4, 0)"/>
-      <property name="ivAttack"          memoryContainer="memoryContainer" address="32 + 40" type="uint" length="4" after-read-value-expression="BitRange(x, 9, 5)"/>
-      <property name="ivDefense"         memoryContainer="memoryContainer" address="32 + 40" type="uint" length="4" after-read-value-expression="BitRange(x, 14, 10)"/>
-      <property name="ivSpeed"           memoryContainer="memoryContainer" address="32 + 40" type="uint" length="4" after-read-value-expression="BitRange(x, 19, 15)"/>
-      <property name="ivSpecialAttack"   memoryContainer="memoryContainer" address="32 + 40" type="uint" length="4" after-read-value-expression="BitRange(x, 24, 20)"/>
-      <property name="ivSpecialDefense"  memoryContainer="memoryContainer" address="32 + 40" type="uint" length="4" after-read-value-expression="BitRange(x, 29, 25)"/>
-      <property name="isEgg"             memoryContainer="memoryContainer" address="32 + 40" type="bit" length="4" position="30" />
-      <property name="ability"           memoryContainer="memoryContainer" address="32 + 40" type="bit" length="4" position="31" />
-      <property name="evHp"              memoryContainer="memoryContainer" address="32 + 24" type="int" />
-      <property name="evAttack"          memoryContainer="memoryContainer" address="32 + 25" type="int" />
-      <property name="evDefense"         memoryContainer="memoryContainer" address="32 + 26" type="int" />
-      <property name="evSpeed"           memoryContainer="memoryContainer" address="32 + 27" type="int" />
-      <property name="evSpecialAttack"   memoryContainer="memoryContainer" address="32 + 28" type="int" />
-      <property name="evSpecialDefense"  memoryContainer="memoryContainer" address="32 + 29" type="int" />
-      <property name="move1" memoryContainer="memoryContainer" address="32 + 12" type="int" length="2" reference="moves" />
-      <property name="move2" memoryContainer="memoryContainer" address="32 + 14" type="int" length="2" reference="moves" />
-      <property name="move3" memoryContainer="memoryContainer" address="32 + 16" type="int" length="2" reference="moves" />
-      <property name="move4" memoryContainer="memoryContainer" address="32 + 18" type="int" length="2" reference="moves" />
-      <property name="move1pp" memoryContainer="memoryContainer" address="32 + 20" type="int" />
-      <property name="move2pp" memoryContainer="memoryContainer" address="32 + 21" type="int" />
-      <property name="move3pp" memoryContainer="memoryContainer" address="32 + 22" type="int" />
-      <property name="move4pp" memoryContainer="memoryContainer" address="32 + 23" type="int" />
-      <property name="move1ppUp" memoryContainer="memoryContainer" address="32 + 59" type="int" after-read-value-expression="BitRange(x, 1, 0)" />
-      <property name="move2ppUp" memoryContainer="memoryContainer" address="32 + 59" type="int" after-read-value-expression="BitRange(x, 3, 2)" />
-      <property name="move3ppUp" memoryContainer="memoryContainer" address="32 + 59" type="int" after-read-value-expression="BitRange(x, 5, 4)" />
-      <property name="move4ppUp" memoryContainer="memoryContainer" address="32 + 59" type="int" after-read-value-expression="BitRange(x, 7, 6)" />
+      <property name="hp"                memoryContainer="{memoryContainer}" address="86" type="int" length="2" />
+      <property name="maxHp"             memoryContainer="{memoryContainer}" address="88" type="int" length="2" />
+      <property name="attack"            memoryContainer="{memoryContainer}" address="90" type="int" length="2" />
+      <property name="defense"           memoryContainer="{memoryContainer}" address="92" type="int" length="2" />
+      <property name="speed"             memoryContainer="{memoryContainer}" address="94" type="int" length="2" />
+      <property name="specialAttack"     memoryContainer="{memoryContainer}" address="96" type="int" length="2" />
+      <property name="specialDefense"    memoryContainer="{memoryContainer}" address="98" type="int" length="2" />
+      <property name="ivEggAbilityBlock" memoryContainer="{memoryContainer}" address="32 + 40" type="uint" length="4" />
+      <property name="ivHp"              memoryContainer="{memoryContainer}" address="32 + 40" type="uint" length="4" bits="0-4"   />
+      <property name="ivAttack"          memoryContainer="{memoryContainer}" address="32 + 40" type="uint" length="4" bits="5-9"   />
+      <property name="ivDefense"         memoryContainer="{memoryContainer}" address="32 + 40" type="uint" length="4" bits="10-14" />
+      <property name="ivSpeed"           memoryContainer="{memoryContainer}" address="32 + 40" type="uint" length="4" bits="15-19" />
+      <property name="ivSpecialAttack"   memoryContainer="{memoryContainer}" address="32 + 40" type="uint" length="4" bits="20-24" />
+      <property name="ivSpecialDefense"  memoryContainer="{memoryContainer}" address="32 + 40" type="uint" length="4" bits="25-29" />
+      <property name="isEgg"             memoryContainer="{memoryContainer}" address="32 + 40" type="bool" length="4" bits="30" />
+      <property name="ability"           memoryContainer="{memoryContainer}" address="32 + 40" type="bool" length="4" bits="31" />
+      <property name="evHp"              memoryContainer="{memoryContainer}" address="32 + 24" type="int" />
+      <property name="evAttack"          memoryContainer="{memoryContainer}" address="32 + 25" type="int" />
+      <property name="evDefense"         memoryContainer="{memoryContainer}" address="32 + 26" type="int" />
+      <property name="evSpeed"           memoryContainer="{memoryContainer}" address="32 + 27" type="int" />
+      <property name="evSpecialAttack"   memoryContainer="{memoryContainer}" address="32 + 28" type="int" />
+      <property name="evSpecialDefense"  memoryContainer="{memoryContainer}" address="32 + 29" type="int" />
+      <property name="move1" memoryContainer="{memoryContainer}" address="32 + 12" type="int" length="2" reference="moves" />
+      <property name="move2" memoryContainer="{memoryContainer}" address="32 + 14" type="int" length="2" reference="moves" />
+      <property name="move3" memoryContainer="{memoryContainer}" address="32 + 16" type="int" length="2" reference="moves" />
+      <property name="move4" memoryContainer="{memoryContainer}" address="32 + 18" type="int" length="2" reference="moves" />
+      <property name="move1pp" memoryContainer="{memoryContainer}" address="32 + 20" type="int" />
+      <property name="move2pp" memoryContainer="{memoryContainer}" address="32 + 21" type="int" />
+      <property name="move3pp" memoryContainer="{memoryContainer}" address="32 + 22" type="int" />
+      <property name="move4pp" memoryContainer="{memoryContainer}" address="32 + 23" type="int" />
+      <property name="move1ppUp" memoryContainer="{memoryContainer}" address="32 + 59" type="int" bits="0-1" />
+      <property name="move2ppUp" memoryContainer="{memoryContainer}" address="32 + 59" type="int" bits="2-3" />
+      <property name="move3ppUp" memoryContainer="{memoryContainer}" address="32 + 59" type="int" bits="4-5" />
+      <property name="move4ppUp" memoryContainer="{memoryContainer}" address="32 + 59" type="int" bits="6-7" />
       <!-- #MISC  -->
-      <property name="language"   memoryContainer="memoryContainer" address="18" type="int" reference="language" />
-      <property name="isBadEgg"   memoryContainer="memoryContainer" address="19" type="bit" position="0" />
-      <property name="hasSpecies" memoryContainer="memoryContainer" address="19" type="bit" position="1" />
-      <property name="useEggName" memoryContainer="memoryContainer" address="19" type="bit" position="2" />
-      <property name="otName"     memoryContainer="memoryContainer" address="20" type="string" length="7" />
-      <property name="markingCircle"   memoryContainer="memoryContainer" address="27" type="bit" position="0" />
-      <property name="markingSquare"   memoryContainer="memoryContainer" address="27" type="bit" position="1" />
-      <property name="markingTriangle" memoryContainer="memoryContainer" address="27" type="bit" position="2" />
-      <property name="markingHeart"    memoryContainer="memoryContainer" address="27" type="bit" position="3" />
-      <property name="pokerusStatus"    memoryContainer="memoryContainer" address="36" type="int" />
-      <property name="metLocation"      memoryContainer="memoryContainer" address="37" type="int" />
-      <property name="originsInfo"      memoryContainer="memoryContainer" address="38" type="int" length="2" />
-      <property name="robbinsObedience" memoryContainer="memoryContainer" address="44" type="int" length="4" />
+      <property name="language"   memoryContainer="{memoryContainer}" address="18" type="int" reference="language" />
+      <property name="isBadEgg"   memoryContainer="{memoryContainer}" address="19" type="bool" bits="0" />
+      <property name="hasSpecies" memoryContainer="{memoryContainer}" address="19" type="bool" bits="1" />
+      <property name="useEggName" memoryContainer="{memoryContainer}" address="19" type="bool" bits="2" />
+      <property name="otName"     memoryContainer="{memoryContainer}" address="20" type="string" length="7" />
+      <property name="markingCircle"    memoryContainer="{memoryContainer}" address="27" type="bool" bits="0" />
+      <property name="markingSquare"    memoryContainer="{memoryContainer}" address="27" type="bool" bits="1" />
+      <property name="markingTriangle"  memoryContainer="{memoryContainer}" address="27" type="bool" bits="2" />
+      <property name="markingHeart"     memoryContainer="{memoryContainer}" address="27" type="bool" bits="3" />
+      <property name="pokerusStatus"    memoryContainer="{memoryContainer}" address="36" type="int" />
+      <property name="metLocation"      memoryContainer="{memoryContainer}" address="37" type="int" />
+      <property name="originsInfo"      memoryContainer="{memoryContainer}" address="38" type="int" length="2" />
+      <property name="robbinsObedience" memoryContainer="{memoryContainer}" address="44" type="int" length="4" />
     </pokemonInParty>
     <battleStructure>
-      <property name="partyPos" address="partyPosAddress" type="int" length="2" />
-      <property name="nickname" address="address + 48" type="string" length="11" characterMap="defaultCharacterMap" />
-      <property name="species"       address="address" type="int" length="2" reference="pokemonSpecies" />
-      <property name="pokedexNumber" address="address" type="int" length="2" reference="pokemonPokedexNumbers" />
-      <property name="speciesArray" address="address" type="int" length="2" reference="pokemon" />
-      <property name="level" address="address + 42" type="int" />
-      <property name="expPoints" address="address + 68" type="uint" length="4" />
-      <property name="friendship" address="address + 43" type="int" />
-      <property name="personalityValue" address="address + 72" type="uint" length="4" />
-      <property name="ability"  address="address + 32" type="int" reference="abilities" />
-      <property name="heldItem" address="address + 46" type="int" length="2" reference="items" />
+      <property name="partyPos" address="{partyPosAddress}" type="int" length="2" />
+      <property name="nickname" address="{address} + 48" type="string" length="11" characterMap="defaultCharacterMap" />
+      <property name="species"       address="{address}" type="int" length="2" reference="pokemonSpecies" />
+      <property name="pokedexNumber" address="{address}" type="int" length="2" reference="pokemonPokedexNumbers" />
+      <property name="speciesArray" address="{address}" type="int" length="2" reference="pokemon" />
+      <property name="level" address="{address} + 42" type="int" />
+      <property name="expPoints" address="{address} + 68" type="uint" length="4" />
+      <property name="friendship" address="{address} + 43" type="int" />
+      <property name="personalityValue" address="{address} + 72" type="uint" length="4" />
+      <property name="ability"  address="{address} + 32" type="int" reference="abilities" />
+      <property name="heldItem" address="{address} + 46" type="int" length="2" reference="items" />
       <!-- #STATS -->
-      <property name="maxHp"           address="address + 44" type="int" length="2" />
-      <property name="hp"              address="address + 40" type="int" length="2" />
-      <property name="attack"          address="address + 2" type="int" length="2" />
-      <property name="defense"         address="address + 4" type="int" length="2" />
-      <property name="speed"           address="address + 6" type="int" length="2" />
-      <property name="specialAttack"   address="address + 8" type="int" length="2" />
-      <property name="specialDefense"  address="address + 10" type="int" length="2" />
-      <property name="ivEggAbilityBlock" address="address + 20" type="uint" length="4"/>
-      <property name="ivHp"             address="address + 20" type="int" length="4" after-read-value-expression="BitRange(x, 4, 0)"/>
-      <property name="ivAttack"         address="address + 20" type="int" length="4" after-read-value-expression="BitRange(x, 9, 5)"/>
-      <property name="ivDefense"        address="address + 20" type="int" length="4" after-read-value-expression="BitRange(x, 14, 10)"/>
-      <property name="ivSpeed"          address="address + 20" type="int" length="4" after-read-value-expression="BitRange(x, 19, 15)"/>
-      <property name="ivSpecialAttack"  address="address + 20" type="int" length="4" after-read-value-expression="BitRange(x, 24, 20)"/>
-      <property name="ivSpecialDefense" address="address + 20" type="int" length="4" after-read-value-expression="BitRange(x, 29, 25)"/>
+      <property name="maxHp"           address="{address} + 44" type="int" length="2" />
+      <property name="hp"              address="{address} + 40" type="int" length="2" />
+      <property name="attack"          address="{address} + 2" type="int" length="2" />
+      <property name="defense"         address="{address} + 4" type="int" length="2" />
+      <property name="speed"           address="{address} + 6" type="int" length="2" />
+      <property name="specialAttack"   address="{address} + 8" type="int" length="2" />
+      <property name="specialDefense"  address="{address} + 10" type="int" length="2" />
+      <property name="ivEggAbilityBlock" address="{address} + 20" type="uint" length="4"/>
+      <property name="ivHp"             address="{address} + 20" type="int" length="4" bits="0-4"   />
+      <property name="ivAttack"         address="{address} + 20" type="int" length="4" bits="5-9"   />
+      <property name="ivDefense"        address="{address} + 20" type="int" length="4" bits="10-14" />
+      <property name="ivSpeed"          address="{address} + 20" type="int" length="4" bits="15-19" />
+      <property name="ivSpecialAttack"  address="{address} + 20" type="int" length="4" bits="20-24" />
+      <property name="ivSpecialDefense" address="{address} + 20" type="int" length="4" bits="25-29" />
       <!-- #MOVES -->
-      <property name="move1" address="address + 12" type="int" length="2" reference="moves" />
-      <property name="move2" address="address + 14" type="int" length="2" reference="moves" />
-      <property name="move3" address="address + 16" type="int" length="2" reference="moves" />
-      <property name="move4" address="address + 18" type="int" length="2" reference="moves" />
-      <property name="move1pp" address="address + 36" type="int" />
-      <property name="move2pp" address="address + 37" type="int" />
-      <property name="move3pp" address="address + 38" type="int" />
-      <property name="move4pp" address="address + 39" type="int" />
-      <property name="move1ppUp" address="address + 59" type="int" after-read-value-expression="BitRange(x, 1, 0)" />
-      <property name="move2ppUp" address="address + 59" type="int" after-read-value-expression="BitRange(x, 3, 2)" />
-      <property name="move3ppUp" address="address + 59" type="int" after-read-value-expression="BitRange(x, 5, 4)" />
-      <property name="move4ppUp" address="address + 59" type="int" after-read-value-expression="BitRange(x, 7, 6)" />
-      <!-- # modUnknown: address="address + 24" type="int", reference: "stageModifiers" /> #probably critical hit mod -->
-      <property name="modStageAttack"         address="address + 25" type="int" reference="stageModifiers" />
-      <property name="modStageDefense"        address="address + 26" type="int" reference="stageModifiers" />
-      <property name="modStageSpeed"          address="address + 27" type="int" reference="stageModifiers" />
-      <property name="modStageSpecialAttack"  address="address + 28" type="int" reference="stageModifiers" />
-      <property name="modStageSpecialDefense" address="address + 29" type="int" reference="stageModifiers" />
-      <property name="modStageAccuracy" address="address + 30" type="int" reference="stageModifiers" />
-      <property name="modStageEvasion"  address="address + 31" type="int" reference="stageModifiers" />
-      <property name="focusEnergy"      address="address + 82" type="bit" position="4" />
-      <property name="type1"   address="address + 33" type="int" reference="pokemonTypes" />
-      <property name="type2"   address="address + 34" type="int" reference="pokemonTypes" />
-      <property name="status1"   address="address + 76" type="int"  reference="statusConditions" />
-      <property name="status2"   address="address + 76" type="int"  reference="statusConditions" />
-      <property name="otName" address="address + 60" type="string" length="8" characterMap="defaultCharacterMap" />
+      <property name="move1" address="{address} + 12" type="int" length="2" reference="moves" />
+      <property name="move2" address="{address} + 14" type="int" length="2" reference="moves" />
+      <property name="move3" address="{address} + 16" type="int" length="2" reference="moves" />
+      <property name="move4" address="{address} + 18" type="int" length="2" reference="moves" />
+      <property name="move1pp" address="{address} + 36" type="int" />
+      <property name="move2pp" address="{address} + 37" type="int" />
+      <property name="move3pp" address="{address} + 38" type="int" />
+      <property name="move4pp" address="{address} + 39" type="int" />
+      <property name="move1ppUp" address="{address} + 59" type="int" bits="0-1" />
+      <property name="move2ppUp" address="{address} + 59" type="int" bits="2-3" />
+      <property name="move3ppUp" address="{address} + 59" type="int" bits="4-5" />
+      <property name="move4ppUp" address="{address} + 59" type="int" bits="6-7" />
+      <!-- # modUnknown: address="{address} + 24" type="int", reference: "stageModifiers" /> #probably critical hit mod -->
+      <property name="modStageAttack"         address="{address} + 25" type="int" reference="stageModifiers" />
+      <property name="modStageDefense"        address="{address} + 26" type="int" reference="stageModifiers" />
+      <property name="modStageSpeed"          address="{address} + 27" type="int" reference="stageModifiers" />
+      <property name="modStageSpecialAttack"  address="{address} + 28" type="int" reference="stageModifiers" />
+      <property name="modStageSpecialDefense" address="{address} + 29" type="int" reference="stageModifiers" />
+      <property name="modStageAccuracy" address="{address} + 30" type="int" reference="stageModifiers" />
+      <property name="modStageEvasion"  address="{address} + 31" type="int" reference="stageModifiers" />
+      <property name="focusEnergy"      address="{address} + 82" type="bool" bits="4" />
+      <property name="type1"   address="{address} + 33" type="int" reference="pokemonTypes" />
+      <property name="type2"   address="{address} + 34" type="int" reference="pokemonTypes" />
+      <property name="status1" address="{address} + 76" type="int"  reference="statusConditions" />
+      <property name="status2" address="{address} + 76" type="int"  reference="statusConditions" />
+      <property name="otName"  address="{address} + 60" type="string" length="8" characterMap="defaultCharacterMap" />
     </battleStructure>
     <playerItem>
-      <property name="item"     type="int" length="2" address="dma_a + offset" reference="items" />
-      <property name="quantity" type="int" length="2" address="dma_a + offset + 2" />
+      <property name="item"     type="int" length="2" address="{dma_a} + offset" reference="items" />
+      <property name="quantity" type="int" length="2" address="{dma_a} + offset + 2" />
     </playerItem>
   </classes>
 
   <properties>
     <player>
       <!-- # playerId:  { type: "string", address: 0x020228CC, size: 2, int: "defaultCharacterdescription: "The active player user Id, better tracking for if the game has loaded a new or saved game" } -->
-      <property name="name"      type="string" length="8" address="dma_b + 0" characterMap="defaultCharacterMap" />
-      <property name="gender"    type="int" address="dma_b + 8" reference="gender" />
+      <property name="name"      type="string" length="8" address="{dma_b} + 0" characterMap="defaultCharacterMap" />
+      <property name="gender"    type="int" address="{dma_b} + 8" reference="gender" />
       <property name="teamCount" type="int" address="0x20244E9" />
       <team>
           <class name="0" type="pokemonInParty" var:memoryContainer="player_party_structure_0" />
@@ -166,21 +166,21 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
           <class name="5" type="pokemonInParty" var:memoryContainer="player_party_structure_5" />
       </team>
       <badges>
-        <property name="badge1" type="bit" position="0" address="dma_a + 3958" description="boulderbadge" /> 
-        <property name="badge2" type="bit" position="1" address="dma_a + 3958" description="cascadebadge" />
-        <property name="badge3" type="bit" position="2" address="dma_a + 3958" description="thunderbadge" />
-        <property name="badge4" type="bit" position="3" address="dma_a + 3958" description="rainbowbadge" />
-        <property name="badge5" type="bit" position="4" address="dma_a + 3958" description="soulbadge" />
-        <property name="badge6" type="bit" position="5" address="dma_a + 3958" description="marshbadge" />
-        <property name="badge7" type="bit" position="6" address="dma_a + 3958" description="volcanobadge" />
-        <property name="badge8" type="bit" position="7" address="dma_a + 3958" description="earthbadge" />
+        <property name="badge1" type="bool" bits="0" address="{dma_a} + 3958" description="boulderbadge" /> 
+        <property name="badge2" type="bool" bits="1" address="{dma_a} + 3958" description="cascadebadge" />
+        <property name="badge3" type="bool" bits="2" address="{dma_a} + 3958" description="thunderbadge" />
+        <property name="badge4" type="bool" bits="3" address="{dma_a} + 3958" description="rainbowbadge" />
+        <property name="badge5" type="bool" bits="4" address="{dma_a} + 3958" description="soulbadge" />
+        <property name="badge6" type="bool" bits="5" address="{dma_a} + 3958" description="marshbadge" />
+        <property name="badge7" type="bool" bits="6" address="{dma_a} + 3958" description="volcanobadge" />
+        <property name="badge8" type="bool" bits="7" address="{dma_a} + 3958" description="earthbadge" />
       </badges>
       <vsSeeker>
-        <property name="stepsUntilUse" type="uint" address="dma_a + 1592" />
-        <property name="stepsUntilCharged" type="uint" address="dma_a + 1593" />
+        <property name="stepsUntilUse" type="uint" address="{dma_a} + 1592" />
+        <property name="stepsUntilCharged" type="uint" address="{dma_a} + 1593" />
       </vsSeeker>
       <bag>
-        <property name="quantityDecyptionKey" type="int" length="2" address="dma_b + 3872" />
+        <property name="quantityDecyptionKey" type="int" length="2" address="{dma_b} + 3872" />
         <items>
           <class name="0"  type="playerItem" var:offset="784" />
           <class name="1"  type="playerItem" var:offset="788" />
@@ -420,26 +420,26 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
     <battle>
       <property name="outcome" type="int" address="0x02023e8a" reference="battleOutcome" />
       <type>
-        <property name="double" type="bit" address="0x02022b4c" length="4" position="0" />
-        <property name="link" type="bit" address="0x02022b4c" length="4" position="1" />
-        <property name="is_battle" type="bit" address="0x02022b4c" length="4" position="2" />
-        <property name="trainer" type="bit" address="0x02022b4c" length="4" position="3" />
-        <property name="first_battle" type="bit" address="0x02022b4c" length="4" position="4" />
-        <property name="link_in_battle" type="bit" address="0x02022b4c" length="4" position="5" />
-        <property name="multi" type="bit" address="0x02022b4c" length="4" position="6" />
-        <property name="safari" type="bit" address="0x02022b4c" length="4" position="7" />
-        <property name="battle_tower" type="bit" address="0x02022b4c" length="4" position="8" />
-        <property name="old_man_tutorial" type="bit" address="0x02022b4c" length="4" position="9" />
-        <property name="roamer" type="bit" address="0x02022b4c" length="4" position="10" />
-        <property name="eReader_trainer" type="bit" address="0x02022b4c" length="4" position="11" />
-        <property name="kyogre_groudon" type="bit" address="0x02022b4c" length="4" position="12" />
-        <property name="ghost_unveiled" type="bit" address="0x02022b4c" length="4" position="13" />
-        <property name="regi" type="bit" address="0x02022b4c" length="4" position="14" />
-        <property name="ghost" type="bit" address="0x02022b4c" length="4" position="15" />
-        <property name="pokedude" type="bit" address="0x02022b4c" length="4" position="16" />
-        <property name="wild_scripted" type="bit" address="0x02022b4c" length="4" position="17" />
-        <property name="legenadry_frlg" type="bit" address="0x02022b4c" length="4" position="18" />
-        <property name="trainer_tower" type="bit" address="0x02022b4c" length="4" position="19" />
+        <property name="double" type="bool" address="0x02022b4c" length="4" bits="0" />
+        <property name="link" type="bool" address="0x02022b4c" length="4" bits="1" />
+        <property name="is_battle" type="bool" address="0x02022b4c" length="4" bits="2" />
+        <property name="trainer" type="bool" address="0x02022b4c" length="4" bits="3" />
+        <property name="first_battle" type="bool" address="0x02022b4c" length="4" bits="4" />
+        <property name="link_in_battle" type="bool" address="0x02022b4c" length="4" bits="5" />
+        <property name="multi" type="bool" address="0x02022b4c" length="4" bits="6" />
+        <property name="safari" type="bool" address="0x02022b4c" length="4" bits="7" />
+        <property name="battle_tower" type="bool" address="0x02022b4c" length="4" bits="8" />
+        <property name="old_man_tutorial" type="bool" address="0x02022b4c" length="4" bits="9" />
+        <property name="roamer" type="bool" address="0x02022b4c" length="4" bits="10" />
+        <property name="eReader_trainer" type="bool" address="0x02022b4c" length="4" bits="11" />
+        <property name="kyogre_groudon" type="bool" address="0x02022b4c" length="4" bits="12" />
+        <property name="ghost_unveiled" type="bool" address="0x02022b4c" length="4" bits="13" />
+        <property name="regi" type="bool" address="0x02022b4c" length="4" bits="14" />
+        <property name="ghost" type="bool" address="0x02022b4c" length="4" bits="15" />
+        <property name="pokedude" type="bool" address="0x02022b4c" length="4" bits="16" />
+        <property name="wild_scripted" type="bool" address="0x02022b4c" length="4" bits="17" />
+        <property name="legenadry_frlg" type="bool" address="0x02022b4c" length="4" bits="18" />
+        <property name="trainer_tower" type="bool" address="0x02022b4c" length="4" bits="19" />
       </type>
       <trainer>
         <property name="opponent"    type="int" length="2" address="0x20386AE" reference="trainerClasses" />
@@ -460,17 +460,17 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
       <class name="enemySecondPokemon" type="battleStructure" var:address="0x2023CEC" var:partyPosAddress="0x02023BD4" />
       <field>
         <player>
-          <property name="statusSafeguard"    type="bit" address="0x02023DDE" length="2" position="5" />
-          <property name="statusReflect"      type="bit" address="0x02023DDE" length="2" position="0" />
-          <property name="statusLightScreen"  type="bit" address="0x02023DDE" length="2" position="1" />
+          <property name="statusSafeguard"    type="bool" address="0x02023DDE" length="2" bits="5" />
+          <property name="statusReflect"      type="bool" address="0x02023DDE" length="2" bits="0" />
+          <property name="statusLightScreen"  type="bool" address="0x02023DDE" length="2" bits="1" />
           <property name="safeguardCount"     type="int" address="0x02023DEA" />
           <property name="lightScreenCount"   type="int" address="0x02023DE6" />
           <property name="reflectCount"       type="int" address="0x02023DE4" />
         </player>
         <enemy>
-          <property name="statusSafeguard"    type="bit" address="0x02023DE0" length="2" position="5" />
-          <property name="statusReflect"      type="bit" address="0x02023DE0" length="2" position="0" />
-          <property name="statusLightScreen"  type="bit" address="0x02023DE0" length="2" position="1" />
+          <property name="statusSafeguard"    type="bool" address="0x02023DE0" length="2" bits="5" />
+          <property name="statusReflect"      type="bool" address="0x02023DE0" length="2" bits="0" />
+          <property name="statusLightScreen"  type="bool" address="0x02023DE0" length="2" bits="1" />
           <property name="safeguardCount"     type="int" address="0x02023DF5" />
           <property name="lightScreenCount"   type="int" address="0x02023DF1" />
           <property name="reflectCount"       type="int" address="0x02023DEF" />
@@ -488,23 +488,23 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
       </turnInfo>
     </battle>
     <events>
-      <property name="trashCanPuzzle" type="bit" position="4" address="dma_a + 3884" />
-      <property name="beatChampion"   type="bit" position="4" address="dma_a + 3959" />
-      <property name="gameClear" type="bit" position="4" address="dma_a + 4069" />  
+      <property name="trashCanPuzzle" type="bool" bits="4" address="{dma_a} + 3884" />
+      <property name="beatChampion"   type="bool" bits="4" address="{dma_a} + 3959" />
+      <property name="gameClear" type="bool" bits="4" address="{dma_a} + 4069" />  
     </events>
     <options> 
       <!-- textSpeed:   { type: "int", preprocessor: "dma_967d10cc(0x0300500C, 20), 2, 0)", postprocessor: "BitRange(x, 2, 0)" } # 0:SLOW, 1:MID, 2:FAST -->
-      <property name="battleAnim"  type="bit" address="dma_b + 21" position="2" />
-      <property name="battleStyle" type="bit" address="dma_b + 21" position="1" />
-      <property name="sound"       type="bit" address="dma_b + 21" position="0" />
-      <property name="buttonMode"  type="int" address="dma_b + 19" />
+      <property name="battleAnim"  type="bool" address="{dma_b} + 21" bits="2" />
+      <property name="battleStyle" type="bool" address="{dma_b} + 21" bits="1" />
+      <property name="sound"       type="bool" address="{dma_b} + 21" bits="0" />
+      <property name="buttonMode"  type="int" address="{dma_b} + 19" />
       <!-- windowFrame: { type: "int", preprocessor: "dma_967d10cc(0x0300500C, 20), 7, 3)", postprocessor: "BitRange(x, 2, 0)" } #  -->
     </options> 
     <gameTime>
-      <property name="hours"   type="int" address="dma_b + 14" />
-      <property name="minutes" type="int" address="dma_b + 16" />
-      <property name="seconds" type="int" address="dma_b + 17" />
-      <property name="frames"  type="int" address="dma_b + 18" />
+      <property name="hours"   type="int" address="{dma_b} + 14" />
+      <property name="minutes" type="int" address="{dma_b} + 16" />
+      <property name="seconds" type="int" address="{dma_b} + 17" />
+      <property name="frames"  type="int" address="{dma_b} + 18" />
     </gameTime>
     <pointers>
       <property name="dma1" type="uint" length="4" address="0x3005008" />
@@ -518,7 +518,7 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
 			<property name="gameName"   type="string" value="FireRed and LeafGreen" />
 			<property name="gameType"   type="string" value="Remakes" />
 			<property name="mapperType" type="string" value="Deprecated" />
-			<property name="state" type="string" />
+			<property name="state"      type="string" />
 			<!-- <property name="state_enemy" type="string" /> -->
 		</meta>
   </properties>

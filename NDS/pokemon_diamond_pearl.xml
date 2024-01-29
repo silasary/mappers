@@ -52,11 +52,11 @@
 				<property name="special_defense" type="int" address="29" memoryContainer="{memoryContainer}" />
 			</evs>
 			<flags>
-				<property name="is_egg"          address="56" type="bit" memoryContainer="{memoryContainer}" length="4" position="30"/>
-				<property name="is_nicknamed"    address="56" type="bit" memoryContainer="{memoryContainer}" length="4" position="31"/>
-				<property name="skip_checksum_1" address="4"  type="bit" memoryContainer="{memoryContainer}" position="0"/>
-				<property name="skip_checksum_2" address="4"  type="bit" memoryContainer="{memoryContainer}" position="1"/>
-				<property name="is_bad_egg"      address="4"  type="bit" memoryContainer="{memoryContainer}" position="2"/>
+				<property name="is_egg"          address="56" type="bool" memoryContainer="{memoryContainer}" length="4" bits="30"/>
+				<property name="is_nicknamed"    address="56" type="bool" memoryContainer="{memoryContainer}" length="4" bits="31"/>
+				<property name="skip_checksum_1" address="4"  type="bool" memoryContainer="{memoryContainer}" bits="0"/>
+				<property name="skip_checksum_2" address="4"  type="bool" memoryContainer="{memoryContainer}" bits="1"/>
+				<property name="is_bad_egg"      address="4"  type="bool" memoryContainer="{memoryContainer}" bits="2"/>
 			</flags>
 			<internals>
 				<property name="personality_value" address="0"  type="uint" memoryContainer="{memoryContainer}" length="4" />
@@ -76,7 +76,7 @@
 					<property name="met_location"      type="int" address="128" memoryContainer="{memoryContainer}" length="2" />
 					<property name="pokeball"          type="int" address="131" memoryContainer="{memoryContainer}" />
 					<property name="met_level"         type="int" address="132" memoryContainer="{memoryContainer}" after-read-value-expression="getBits(x, 6, 0)" />
-					<property name="female_ot_gender"  type="bit" address="132" memoryContainer="{memoryContainer}" position="7" />
+					<property name="female_ot_gender"  type="bool" address="132" memoryContainer="{memoryContainer}" bits="7" />
 					<property name="encounter_type"    type="int" address="133" memoryContainer="{memoryContainer}" />
 				</met_info>
 				<contest>
@@ -290,14 +290,14 @@
 				<class name="5" type="party_pokemon" var:memoryContainer="player_party_structure_5" />
 			</team>
 			<badges>
-				<property name="0" type="bit" address="{global_pointer} + 0xD292" position="0" description="coalbadge" />
-                <property name="1" type="bit" address="{global_pointer} + 0xD292" position="1" description="forestbadge" />
-                <property name="2" type="bit" address="{global_pointer} + 0xD292" position="2" description="cobblebadge" />
-                <property name="3" type="bit" address="{global_pointer} + 0xD292" position="3" description="fenbadge" />
-                <property name="4" type="bit" address="{global_pointer} + 0xD292" position="4" description="relicbadge" />
-                <property name="5" type="bit" address="{global_pointer} + 0xD292" position="5" description="minebadge" />
-                <property name="6" type="bit" address="{global_pointer} + 0xD292" position="6" description="iciclebadge" />
-                <property name="7" type="bit" address="{global_pointer} + 0xD292" position="7" description="beaconbadge" />
+				<property name="0" type="bool" address="{global_pointer} + 0xD292" bits="0" description="coalbadge" />
+                <property name="1" type="bool" address="{global_pointer} + 0xD292" bits="1" description="forestbadge" />
+                <property name="2" type="bool" address="{global_pointer} + 0xD292" bits="2" description="cobblebadge" />
+                <property name="3" type="bool" address="{global_pointer} + 0xD292" bits="3" description="fenbadge" />
+                <property name="4" type="bool" address="{global_pointer} + 0xD292" bits="4" description="relicbadge" />
+                <property name="5" type="bool" address="{global_pointer} + 0xD292" bits="5" description="minebadge" />
+                <property name="6" type="bool" address="{global_pointer} + 0xD292" bits="6" description="iciclebadge" />
+                <property name="7" type="bool" address="{global_pointer} + 0xD292" bits="7" description="beaconbadge" />
 			</badges>
 		</player>
 		<bag>

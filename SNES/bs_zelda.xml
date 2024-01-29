@@ -30,47 +30,47 @@
             </items>
             <dungeons>
                 <level_1>
-                    <property name="compass" type="bit" address="0x7E7430" position="7" />
-                    <property name="dungeon_map" type="bit" address="0x7E7432" position="7" />
+                    <property name="compass" type="bool" address="0x7E7430" bits="7" />
+                    <property name="dungeon_map" type="bool" address="0x7E7432" bits="7" />
                 </level_1>
                 <level_2>
-                    <property name="compass" type="bit" address="0x7E7430" position="6" />
-                    <property name="dungeon_map" type="bit" address="0x7E7432" position="6" />
+                    <property name="compass" type="bool" address="0x7E7430" bits="6" />
+                    <property name="dungeon_map" type="bool" address="0x7E7432" bits="6" />
                 </level_2>
                 <level_3>
-                    <property name="compass" type="bit" address="0x7E7430" position="5" />
-                    <property name="dungeon_map" type="bit" address="0x7E7432" position="5" />
+                    <property name="compass" type="bool" address="0x7E7430" bits="5" />
+                    <property name="dungeon_map" type="bool" address="0x7E7432" bits="5" />
                 </level_3>
                 <level_4>
-                    <property name="compass" type="bit" address="0x7E7430" position="4" />
-                    <property name="dungeon_map" type="bit" address="0x7E7432" position="4" />
+                    <property name="compass" type="bool" address="0x7E7430" bits="4" />
+                    <property name="dungeon_map" type="bool" address="0x7E7432" bits="4" />
                 </level_4>
                 <level_5>
-                    <property name="compass" type="bit" address="0x7E7430" position="3" />
-                    <property name="dungeon_map" type="bit" address="0x7E7432" position="3" />
+                    <property name="compass" type="bool" address="0x7E7430" bits="3" />
+                    <property name="dungeon_map" type="bool" address="0x7E7432" bits="3" />
                 </level_5>
                 <level_6>
-                    <property name="compass" type="bit" address="0x7E7430" position="2" />
-                    <property name="dungeon_map" type="bit" address="0x7E7432" position="2" />
+                    <property name="compass" type="bool" address="0x7E7430" bits="2" />
+                    <property name="dungeon_map" type="bool" address="0x7E7432" bits="2" />
                 </level_6>
                 <level_7>
-                    <property name="compass" type="bit" address="0x7E7430" position="1" />
-                    <property name="dungeon_map" type="bit" address="0x7E7432" position="1" />
+                    <property name="compass" type="bool" address="0x7E7430" bits="1" />
+                    <property name="dungeon_map" type="bool" address="0x7E7432" bits="1" />
                 </level_7>
                 <level_8>
-                    <property name="compass" type="bit" address="0x7E7430" position="0" />
-                    <property name="dungeon_map" type="bit" address="0x7E7432" position="0" />
+                    <property name="compass" type="bool" address="0x7E7430" bits="0" />
+                    <property name="dungeon_map" type="bool" address="0x7E7432" bits="0" />
                 </level_8>
             </dungeons>
             <triforce_pieces>
-                <property name="0" type="bit" address="0x7E7439" position="7" />
-                <property name="1" type="bit" address="0x7E7439" position="6" />
-                <property name="2" type="bit" address="0x7E7439" position="5" />
-                <property name="3" type="bit" address="0x7E7439" position="4" />
-                <property name="4" type="bit" address="0x7E7439" position="3" />
-                <property name="5" type="bit" address="0x7E7439" position="2" />
-                <property name="6" type="bit" address="0x7E7439" position="1" />
-                <property name="7" type="bit" address="0x7E7439" position="0" />
+                <property name="0" type="bool" address="0x7E7439" bits="7" />
+                <property name="1" type="bool" address="0x7E7439" bits="6" />
+                <property name="2" type="bool" address="0x7E7439" bits="5" />
+                <property name="3" type="bool" address="0x7E7439" bits="4" />
+                <property name="4" type="bool" address="0x7E7439" bits="3" />
+                <property name="5" type="bool" address="0x7E7439" bits="2" />
+                <property name="6" type="bool" address="0x7E7439" bits="1" />
+                <property name="7" type="bool" address="0x7E7439" bits="0" />
             </triforce_pieces>
         </player>
     </properties>
