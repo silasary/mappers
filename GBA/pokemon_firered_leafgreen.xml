@@ -12,7 +12,7 @@
             <property name="level"      type="int"    address="84"      memoryContainer="{memoryContainer}" />
             <property name="exp"        type="uint"   address="32 + 4"  memoryContainer="{memoryContainer}" length="4" />
             <property name="ot_id"      type="uint"   address="4"       memoryContainer="{memoryContainer}" length="2" />
-            <property name="ability"    type="bool"    address="32 + 40" memoryContainer="{memoryContainer}" length="4" bits="31" />
+            <property name="ability"    type="bool"   address="32 + 40" memoryContainer="{memoryContainer}" length="4" bits="31" />
             <property name="nature"     type="uint"   address="0"       memoryContainer="{memoryContainer}" length="4" after-read-value-expression="x % 25" />
             <property name="held_item"  type="int"    address="32 + 2"  memoryContainer="{memoryContainer}" length="2" reference="items" />
             <property name="friendship" type="int"    address="32 + 9"  memoryContainer="{memoryContainer}" />
@@ -50,8 +50,8 @@
                 <property name="special_defense" type="int" address="32 + 29" memoryContainer="{memoryContainer}" />
             </evs>
             <internals>
-                <property name="personality_value" type="uint" address="0"  memoryContainer="{memoryContainer}" length="4" />
-                <property name="checksum"   type="int"    address="28"      memoryContainer="{memoryContainer}" length="2" description="Used to valid the decrypted data block" />
+                <property name="personality_value" type="uint" address="0" memoryContainer="{memoryContainer}" length="4" />
+                <property name="checksum" type="int" address="28" memoryContainer="{memoryContainer}" length="2" description="Used to valid the decrypted data block" />
             </internals>
             <misc> 
                 <property name="is_egg"            type="bool"   address="40" memoryContainer="{memoryContainer}" length="4" bits="30" />
@@ -159,7 +159,7 @@
             <property name="personality_value" type="uint"   address="{address} + 72" length="4"/>
             <property name="ability"           type="int"    address="{address} + 32" reference="abilities" />
             <property name="held_item"         type="int"    address="{address} + 46" length="2" reference="items" />
-            <property name="focus_energy"      type="bool"    address="{address} + 82" bits="4" />
+            <property name="focus_energy"      type="bool"   address="{address} + 82" bits="4" />
             <property name="type_1"            type="int"    address="{address} + 33" reference="pokemon_types" />
             <property name="type_2"            type="int"    address="{address} + 34" reference="pokemon_types" />
             <property name="status_1"          type="int"    address="{address} + 76" reference="status_conditions" />
@@ -225,8 +225,8 @@
 
     <properties>
         <player>
-            <property name="name"      type="string" address="{dma_b}"     length="8" characterMap="defaultCharacterMap" />
-            <property name="gender"    type="int"    address="{dma_b} + 8" reference="gender" />
+            <property name="name"      type="string" address="{dma_b}"      length="8" characterMap="defaultCharacterMap" />
+            <property name="gender"    type="int"    address="{dma_b} + 8"  reference="gender" />
             <property name="player_id" type="int"    address="{dma_b} + 10" length="2" /> <!-- TODO: check address -->
             <!-- <property name="team_count" type="int" address="0x03004350" /> --> <!-- TODO: address -->
             <property name="party_position" type="int" />
