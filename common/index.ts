@@ -45,7 +45,7 @@ interface IByteArray {
     get_byte(memoryAddress: number): number
 }
 
-interface IMapperProperty {
+export interface IMapperProperty {
     path: string
     memoryContainer?: string | null
     address?: number | null
@@ -53,8 +53,14 @@ interface IMapperProperty {
     size?: number | null
     bits?: string | null
     reference?: string | null
+    description?: string | null
     value?: any
     bytes?: number[] | null
+    bytesFrozen?: number[] | null
+    readFunction?: string | null
+    writeFunction?: string | null
+    afterReadValueExpression?: string | null
+    beforeWriteValueFunction?: string | null
 }
 
 interface IMapperSetCommand {
@@ -64,8 +70,14 @@ interface IMapperSetCommand {
     size?: number | null
     bits?: string | null
     reference?: string | null
+    description?: string | null
     value?: any | null
     bytes?: number[] | null
+    bytesFrozen?: number[] | null
+    readFunction?: string | null
+    writeFunction?: string | null
+    afterReadValueExpression?: string | null
+    beforeWriteValueFunction?: string | null
 }
 
 interface PropertiesDictionary {
@@ -142,18 +154,10 @@ export function copyProperties(sourcePath: string, destinationPath: string) {
 
     destinationProps.forEach(property => {
         const restOfThePath = property.path.replace(destinationPath, '')
-
         const source = sourceProps.find(x => x.path === `${sourcePath}${restOfThePath}`)
+        
         if (source) {
-            setProperty(property.path, {
-                memoryContainer: source.memoryContainer,
-                address: source.address,
-                length: source.length,
-                size: source.size,
-                bits: source.bits,
-                reference: source.reference,
-                value: source.value
-            })
+            setProperty(property.path, source)
         }
     })
 }
