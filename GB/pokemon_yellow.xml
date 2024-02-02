@@ -1269,7 +1269,7 @@
         <movement_states>
             <entry key="0x00" value="Walk" />
             <entry key="0x01" value="Bike" />
-            <entry key="0x01" value="Surf" />
+            <entry key="0x02" value="Surf" />
         </movement_states>
         <pokemon_types>
             <entry key="0x00" value="Normal" />
