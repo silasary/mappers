@@ -157,10 +157,9 @@ For all new software, please use the paths within 'pokemon_yellow.xml'
 					<class name="1" type="encounter" var:address="0xD889" />
 					<class name="2" type="encounter" var:address="0xD88B" />
 					<class name="3" type="encounter" var:address="0xD88D" />
-					<class name="4" type="encounter" var:address="0xD88F" />
 				</common>
 				<uncommon>
-					<class name="0" type="encounter" var:address="0xD889" />
+					<class name="0" type="encounter" var:address="0xD88F" />
 					<class name="1" type="encounter" var:address="0xD891" />
 					<class name="2" type="encounter" var:address="0xD893" />
 					<class name="3" type="encounter" var:address="0xD895" />

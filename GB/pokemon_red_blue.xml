@@ -282,10 +282,9 @@
                     <class name="1" type="encounter" var:address="0xD88A" />
                     <class name="2" type="encounter" var:address="0xD88C" />
                     <class name="3" type="encounter" var:address="0xD88E" />
-                    <class name="4" type="encounter" var:address="0xD890" />
                 </common>
                 <uncommon>
-                    <class name="0" type="encounter" var:address="0xD88A" />
+                    <class name="0" type="encounter" var:address="0xD890" />
                     <class name="1" type="encounter" var:address="0xD892" />
                     <class name="2" type="encounter" var:address="0xD894" />
                     <class name="3" type="encounter" var:address="0xD896" />
