@@ -297,6 +297,7 @@
             <safari_zone>
                 <property name="safari_time"  type="int" address="0xD70D" length="2" />
                 <property name="safari_balls" type="int" address="0xDA47" />
+		<property name="rock_factor" type="int" address="0xCCE8" />
                 <property name="baiting_factor" type="int" address="0xCCE9" />
             </safari_zone>
             <map_data>
