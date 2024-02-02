@@ -13,43 +13,6 @@ For all new software, please use the paths within 'pokemon_emerald.xml'
     xsi:schemaLocation="https://schemas.gamehook.io/mapper https://schemas.gamehook.io/mapper.xsd"
     xmlns:var="https://schemas.gamehook.io/attributes/var">
 
-  <memory>
-    <read name="Partial EWRAM 1"  start="0x0000000" end="0x0003FFF" />
-    <!-- <read name="Partial EWRAM 2"  start="0x2020000" end="0x202DFFF" /> -->
-    
-    <!-- <read name="Partial EWRAM 3"  start="0x2021000" end="0x2022FFF" /> -->
-    <read name="Partial EWRAM 4"  start="0x2023000" end="0x2023FFF" />
-    <read name="Partial EWRAM 5"  start="0x2024000" end="0x2027FFF" />
-    <!-- <read name="Partial EWRAM 6"  start="0x2030000" end="0x2033FFF" /> -->
-    <!-- <read name="Partial EWRAM 7"  start="0x2037000" end="0x2039999" /> -->
-    <!-- <read name="Partial EWRAM 8"  start="0x203A000" end="0x203AFFF" /> -->
-    <!-- <read name="Partial EWRAM 9"  start="0x203B000" end="0x000BFFF" /> -->
-    <!-- <read name="Partial EWRAM 10" start="0x203C000" end="0x000CFFF" /> -->
-    <!-- <read name="Partial EWRAM 11" start="0x203D000" end="0x000DFFF" />  -->
-   
-    <read name="Partial IWRAM"    start="0x3001000" end="0x3007FFF" />
-    <!-- 
-    <read name="Partial IWRAM"    start="0x3005000" end="0x3005FFF" />
-    <read name="Partial IWRAM"    start="0x3006000" end="0x3006FFF" />
-    <read name="Partial IWRAM"    start="0x3007000" end="0x3007FFF" /> 
-    -->
-    <!-- <read name="Partial EWRAM 1"  start="0x0000000" end="0x0003FFF" />
-    <read name="Partial EWRAM 2"  start="0x2020000" end="0x2020FFF" />
-    <read name="Partial EWRAM 3"  start="0x2021000" end="0x2022FFF" />
-    <read name="Partial EWRAM 4"  start="0x2023000" end="0x2023FFF" />
-    <read name="Partial EWRAM 5"  start="0x2024000" end="0x2027FFF" />
-    <read name="Partial EWRAM 6"  start="0x2030000" end="0x2033FFF" />
-    <read name="Partial EWRAM 7"  start="0x2037000" end="0x2039999" />
-    <read name="Partial EWRAM 8"  start="0x203A000" end="0x203AFFF" />
-    <read name="Partial EWRAM 9"  start="0x203B000" end="0x000BFFF" />
-    <read name="Partial EWRAM 10" start="0x203C000" end="0x000CFFF" />
-    <read name="Partial EWRAM 11" start="0x203D000" end="0x000DFFF" />
-    <read name="Partial IWRAM"    start="0x3001000" end="0x3004FFF" />
-    <read name="Partial IWRAM"    start="0x3005000" end="0x3005FFF" />
-    <read name="Partial IWRAM"    start="0x3006000" end="0x3006FFF" />
-    <read name="Partial IWRAM"    start="0x3007000" end="0x3007FFF" /> -->
-  </memory>
-
   <macros>
     <pokemonMacro>
       <property name="species"       address="0" type="int" length="2" reference="pokemonSpecies" />
