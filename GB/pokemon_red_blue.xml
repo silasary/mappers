@@ -1193,7 +1193,7 @@
             </column_1>
         </screen>
         <options>
-            <property name="text_speed"        type="int" address="0xD354"  bits="0-2" reference="text_speeds"  />
+            <property name="text_speed"        type="int" address="0xD355"  bits="0-2" reference="text_speeds"  />
             <property name="sound_1"           type="bool" address="0xD355" bits="4" />
             <property name="sound_2"           type="bool" address="0xD355" bits="5" />
             <property name="battle_style"      type="bool" address="0xD355" bits="6" />
