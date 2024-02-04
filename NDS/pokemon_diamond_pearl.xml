@@ -741,7 +741,7 @@
                 <property name="weather_count" type="int" address="{global_pointer} + 0x529C0 + 4" />
             </field>
 			<other>
-            	<property name="outcome_flags" type="int" address="{global_pointer} + 0x5595E" />
+            	<property name="outcome_flags" type="int" address="{global_pointer} + 0x5595F" />
 			</other>
 		</battle>
 		<rival>
