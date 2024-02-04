@@ -59,8 +59,12 @@ export function getGamestate(): string {
     const active_pokemonPv: number = getValue<number>('battle.player.active_pokemon.internals.personality_value')
     const teamPokemonPv: number = getValue<number>('player.team.0.internals.personality_value')
     const outcome_flags: number = getValue<number>('battle.other.outcome_flags')
+    const party_position: number = getValue<number>('battle.player.party_position')
     if (team_count === 0) {
         return 'No Pokemon'
+    }
+    else if (active_pokemonPv !== teamPokemonPv || party_position > 5) {
+        return 'Overworld'
     }
     else if (active_pokemonPv === teamPokemonPv && outcome_flags == 1) {
         return 'From Battle'
@@ -68,9 +72,7 @@ export function getGamestate(): string {
     else if (active_pokemonPv === teamPokemonPv) {
         return 'Battle'
     }
-    else if (active_pokemonPv !== teamPokemonPv) {
-        return 'Overworld'
-    }
+
     return 'No Pokemon'
 }
 
