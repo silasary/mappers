@@ -1016,7 +1016,6 @@
                     <class name="3" type="party_pokemon" var:address="0xD928" var:nicknameAddress="0xDA0F"/>
                     <class name="4" type="party_pokemon" var:address="0xD954" var:nicknameAddress="0xDA1A"/>
                     <class name="5" type="party_pokemon" var:address="0xD980" var:nicknameAddress="0xDA25"/>
-
                 </team>
             </opponent>
             <other>
