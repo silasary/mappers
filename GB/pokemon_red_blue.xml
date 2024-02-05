@@ -877,7 +877,7 @@
                         <property name="evasion"  type="int" address="0xCD1F" reference="stage_modifiers" /> <!--same memory location across all Gen1 games-->
                     </modifiers>
                     <volatile_status_conditions>
-                        <property name="confusion"  type="bool" address="0xD062" bits="6" />     
+                        <property name="confusion"  type="bool" address="0xD062" bits="7" />     
                         <property name="toxic"      type="bool" address="0xD064" bits="0" />
                         <property name="leech_seed" type="bool" address="0xD063" bits="7" />
                     </volatile_status_conditions>
@@ -981,7 +981,7 @@
                         <property name="charging"        type="bool" address="0xD067" bits="4" />
                         <property name="multi_turn"      type="bool" address="0xD067" bits="5" />
                         <property name="invulnerable"    type="bool" address="0xD067" bits="6" />
-                        <property name="confusion"       type="bool" address="0xD067" bits="6" />     
+                        <property name="confusion"       type="bool" address="0xD067" bits="7" />     
                         <property name="bypass_accuracy" type="bool" address="0xD068" bits="0" />
                         <property name="mist"            type="bool" address="0xD068" bits="1" />
                         <property name="focus_energy"    type="bool" address="0xD068" bits="2" />
@@ -1010,12 +1010,12 @@
                     </last_move>
                 </active_pokemon>
                 <team>
-                    <class name="0" type="party_pokemon" var:address="0xD9EE" var:nicknameAddress="0xD8A4"/>
-                    <class name="1" type="party_pokemon" var:address="0xD9F9" var:nicknameAddress="0xD8D0"/>
-                    <class name="2" type="party_pokemon" var:address="0xDA04" var:nicknameAddress="0xD8FC"/>
-                    <class name="3" type="party_pokemon" var:address="0xDA0F" var:nicknameAddress="0xD928"/>
-                    <class name="4" type="party_pokemon" var:address="0xDA1A" var:nicknameAddress="0xD954"/>
-                    <class name="5" type="party_pokemon" var:address="0xDA25" var:nicknameAddress="0xD980"/>
+                    <class name="0" type="party_pokemon" var:address="0xD8A4" var:nicknameAddress="0xD9EE"/>
+                    <class name="1" type="party_pokemon" var:address="0xD8D0" var:nicknameAddress="0xD9F9"/>
+                    <class name="2" type="party_pokemon" var:address="0xD8FC" var:nicknameAddress="0xDA04"/>
+                    <class name="3" type="party_pokemon" var:address="0xD928" var:nicknameAddress="0xDA0F"/>
+                    <class name="4" type="party_pokemon" var:address="0xD954" var:nicknameAddress="0xDA1A"/>
+                    <class name="5" type="party_pokemon" var:address="0xD980" var:nicknameAddress="0xDA25"/>
                 </team>
             </opponent>
             <other>
