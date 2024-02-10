@@ -469,7 +469,7 @@
             <player>
                 <property name="party_position" type="int" length="2" address="0x02023BCE" />
                 <property name="party_position_2" type="int" length="2" address="0x02023BD2" />
-                <class name="active_pokemon" type="battle_structure" address="0x2023BE4" />
+                <class name="active_pokemon" type="battle_structure" var:address="0x2023BE4" />
                 <class name="active_pokemon_2" type="battle_structure" address="0x2023C94" />
             </player>
             <ally>
