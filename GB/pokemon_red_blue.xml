@@ -966,12 +966,12 @@
                         <property name="special" type="int" address="0xCFF2" bits="0-3" />
                     </ivs>
                     <base_stats>
-                        <property name="hp"      type="int" address="0xD002" after-read-value-expression="x % 16" />
-                        <property name="attack"  type="int" address="0xD003" after-read-value-expression="x % 16" />
-                        <property name="defense" type="int" address="0xD004" after-read-value-expression="x % 16" />
-                        <property name="speed"   type="int" address="0xD005" after-read-value-expression="x % 16" />
-                        <property name="special" type="int" address="0xD006" after-read-value-expression="x % 16" />
-                        <property name="exp"     type="int" address="0xD008" after-read-value-expression="x % 16" />
+                        <property name="hp"      type="int" address="0xD002" />
+                        <property name="attack"  type="int" address="0xD003" />
+                        <property name="defense" type="int" address="0xD004" />
+                        <property name="speed"   type="int" address="0xD005" />
+                        <property name="special" type="int" address="0xD006" />
+                        <property name="exp"     type="int" address="0xD008" />
                     </base_stats>
                     <effects>
                         <property name="bide"            type="bool" address="0xD067" bits="0" />
