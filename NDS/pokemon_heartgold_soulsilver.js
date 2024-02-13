@@ -1,15 +1,12 @@
 import { 
     variables, 
     memory, 
-    // console,
     setValue, 
-    getValue,
-    // copyProperties, 
-    // setProperty, 
-} from "../common";
+    getValue
+} from "../common/index.js";
 
 // prng function; used for decryption.
-function prngNext(prngSeed: number) {
+function prngNext(prngSeed) {
     // Ensure 32-bit unsigned result
     const newSeed = (0x41C64E6D * prngSeed + 0x6073) >>> 0;
     const value = (newSeed >>> 16) & 0xFFFF;
@@ -47,7 +44,7 @@ const shuffleOrders = {
     23: [3, 2, 1, 0]
 };
 
-export function getGamestate(): string {
+export function getGamestate() {
     // FSM FOR GAMESTATE TRACKING
     // MAIN GAMESTATE: This tracks the three basic states the game can be in.
     // 1. "No Pokemon": cartridge reset; player has not received a Pokemon
@@ -55,12 +52,12 @@ export function getGamestate(): string {
     // 3. "Battle": In battle
     // 4. "To Battle": not yet implemented //TODO: Implement the To Battle state, this requires a new property to accurately track it
     // 5. "From Battle": not yet implemented
-    const team_count: number = getValue<number>('player.team_count')
-    const active_pokemonPv: number = getValue<number>('battle.player.active_pokemon.internals.personality_value')
-    const teamPokemonPv: number = getValue<number>('player.team.0.internals.personality_value')
-    const teamNickname: number = getValue<number>('player.team.0.nickname') //TODO: remove these once all properties are mapped - HGSS and Plat should have the same state functions
-    const battleNickname: number = getValue<number>('battle.player.active_pokemon.nickname') //TODO: remove these once all properties are mapped - HGSS and Plat should have the same state functions
-    const outcome_flags: number = getValue<number>('battle.other.outcome_flags')
+    const team_count = getValue('player.team_count')
+    const active_pokemonPv = getValue('battle.player.active_pokemon.internals.personality_value')
+    const teamPokemonPv = getValue('player.team.0.internals.personality_value')
+    const teamNickname = getValue('player.team.0.nickname') //TODO: remove these once all properties are mapped - HGSS and Plat should have the same state functions
+    const battleNickname = getValue('battle.player.active_pokemon.nickname') //TODO: remove these once all properties are mapped - HGSS and Plat should have the same state functions
+    const outcome_flags = getValue('battle.other.outcome_flags')
     if (team_count === 0) {
         return 'No Pokemon'
     }
@@ -76,7 +73,7 @@ export function getGamestate(): string {
     return 'No Pokemon'
 }
 
-export function getMetaEnemyState(state: string, battle_outcomes: number, enemyBarSyncedHp: number): string | null {
+export function getMetaEnemyState(state, battle_outcomes, enemyBarSyncedHp) {
     // ENEMY POKEMON MID-BATTLE STATE: Allows for precise timing during battles
     if (state === "No Pokemon" || state === "Overworld") return 'N/A'
     else if (state === "Battle" && battle_outcomes === 1) return 'Battle Finished'
@@ -85,7 +82,7 @@ export function getMetaEnemyState(state: string, battle_outcomes: number, enemyB
     return null
 }
 
-export function getBattleMode(state: string, opponentTrainer: string | null): string | null {
+export function getBattleMode(state, opponentTrainer) {
     if (state === 'Battle') {
         if (opponentTrainer === null) return 'Wild'
         else return 'Trainer'
@@ -94,9 +91,9 @@ export function getBattleMode(state: string, opponentTrainer: string | null): st
     }
 }
 
-export function getBattleOutcome(): string | null {
-    const outcome_flags: number = getValue('battle.other.outcome_flags')
-    const state: string = getGamestate()
+export function getBattleOutcome() {
+    const outcome_flags = getValue('battle.other.outcome_flags')
+    const state = getGamestate()
     switch (state) {
         case 'From Battle':
             switch (outcome_flags) {
@@ -110,8 +107,8 @@ export function getBattleOutcome(): string | null {
 }
 
 /** Calculate the encounter rate based on other variables */
-export function getEncounterRate(): number {
-    const walking: number = getValue("overworld.encounter_rates.walking");
+export function getEncounterRate() {
+    const walking = getValue("overworld.encounter_rates.walking");
     // Need properties to correctly determine which of these to return
     // const surfing = getValue("overworld.encounter_rates.surfing");
     // const old_rod = getValue("overworld.encounter_rates.old_rod");
@@ -120,17 +117,17 @@ export function getEncounterRate(): number {
     return walking;
 }
 
-function getPlayerPartyPosition(): number {
-    const state: string = getGamestate()
+function getPlayerPartyPosition() {
+    const state = getGamestate()
     switch (state) {
         case 'Battle':
             return getValue('battle.player.party_position')
         case 'From Battle':
             return getValue('battle.player.party_position')
         default: {
-            const team: number[] = [0, 1, 2, 3, 4, 5]
+            const team = [0, 1, 2, 3, 4, 5]
             for (let i = 0; i < team.length; i++) {
-                if (getValue<number>(`player.team.${i}.stats.hp`) > 0) {
+                if (getValue(`player.team.${i}.stats.hp`) > 0) {
                     return i
                 }
             }
@@ -142,7 +139,7 @@ function getPlayerPartyPosition(): number {
 // Preprocessor runs every loop (everytime gamehook updates)
 export function preprocessor() {
     // This is the same as the global_pointer, it is named "base_ptr" for consistency with the old C# code    
-    const base_ptr: number = memory.defaultNamespace.get_uint32_le(0x211186C) //HGSS pointer (Test value: 226F234)
+    const base_ptr = memory.defaultNamespace.get_uint32_le(0x211186C) //HGSS pointer (Test value: 226F234)
     
     if (base_ptr === 0 || base_ptr >= 38438215) {
         return
@@ -157,10 +154,10 @@ export function preprocessor() {
     const enemy_ptr = memory.defaultNamespace.get_uint32_le(base_ptr + 0x37970) // Only needs to be calculated once per loop
 
     // Set property values
-    const gamestate: string = getGamestate()
-    const battle_outcomes: number = getValue<number>('battle.outcome')
-    const enemyBarSyncedHp: number = getValue<number>('battle.opponent.enemy_bar_synced_hp')
-    const opponentTrainer: string | null = getValue<string | null>('battle.opponent.trainer')
+    const gamestate = getGamestate()
+    const battle_outcomes = getValue('battle.outcome')
+    const enemyBarSyncedHp = getValue('battle.opponent.enemy_bar_synced_hp')
+    const opponentTrainer = getValue('battle.opponent.trainer')
     setValue('meta.state', gamestate)
     setValue('battle.mode', getBattleMode(gamestate, opponentTrainer))
     setValue('meta.state_enemy', getMetaEnemyState(gamestate, battle_outcomes, enemyBarSyncedHp))

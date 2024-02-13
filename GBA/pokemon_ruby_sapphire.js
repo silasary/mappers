@@ -1,15 +1,13 @@
 import { 
     variables, 
     memory,
-    // state, 
-    // console,
     getValue,
     setValue,
     copyProperties, 
     setProperty, 
-} from "../common";
+} from "../common/index.js";
 
-function DATA32_LE(data: number[], offset: number) {
+function DATA32_LE(data, offset) {
     let val = (data[offset] << 0)
         | (data[offset + 1] << 8)
         | (data[offset + 2] << 16)
@@ -48,7 +46,7 @@ const shuffleOrders = {
     23: [3, 2, 1, 0]
 };
 
-export function getGamestate(): string {
+export function getGamestate() {
     // FSM FOR GAMESTATE TRACKING
     // MAIN GAMESTATE: This tracks the three basic states the game can be in.
     // 1. "No Pokemon": cartridge reset; player has not received a Pokemon
@@ -56,10 +54,10 @@ export function getGamestate(): string {
     // 3. "To Battle": Battle has started but player hasn't sent their Pokemon in yet
     // 4. "From Battle": Battle result has been decided but the battle has not transition to the overworld yet
     // 5. "Battle": In battle
-    const team_0_level: number = getValue('player.team.0.level')
-    const callback_1: string = getValue('pointers.callback_1')
-    const callback_2: string = getValue('pointers.callback_2')
-    const battle_outcomes: string = getValue('battle.other.battle_outcomes')
+    const team_0_level = getValue('player.team.0.level')
+    const callback_1 = getValue('pointers.callback_1')
+    const callback_2 = getValue('pointers.callback_2')
+    const battle_outcomes = getValue('battle.other.battle_outcomes')
     // const battle_dialogue: string = getValue('battle.other.battle_dialogue')
     // const state: string = getValue('meta.state') ?? "No Pokemon"
     if (team_0_level == 0) 
@@ -79,9 +77,9 @@ export function getGamestate(): string {
     return "Error"
 }
 
-export function getBattleOutcome(): string | null {
-    const outcome_flags: string | null = getValue('battle.other.battle_outcomes')
-    const gamestate: string = getGamestate()
+export function getBattleOutcome() {
+    const outcome_flags = getValue('battle.other.battle_outcomes')
+    const gamestate = getGamestate()
     switch (gamestate) {
         case 'From Battle':
             switch (outcome_flags) {
@@ -112,17 +110,17 @@ export function getBattleOutcome(): string | null {
     return null
 }
 
-function getPlayerPartyPosition(): number {
-    const gamestate: string = getGamestate()
+function getPlayerPartyPosition() {
+    const gamestate = getGamestate()
     switch (gamestate) {
         case 'Battle':
             return getValue('battle.player.party_position')
         case 'From Battle':
             return getValue('battle.player.party_position')
         default: {
-            const team: number[] = [0, 1, 2, 3, 4, 5]
+            const team = [0, 1, 2, 3, 4, 5]
             for (let i = 0; i < team.length; i++) {
-                if (getValue<number>(`player.team.${i}.stats.hp`) > 0) {
+                if (getValue(`player.team.${i}.stats.hp`) > 0) {
                     return i
                 }
             }
@@ -179,7 +177,7 @@ export function preprocessor() {
             let pid = pokemonData.get_uint32_le();
             let ot_id = pokemonData.get_uint32_le(4);
 
-            let decryptedData = [] as number[]
+            let decryptedData = []
             for (let i = 0; i < 100; i++) { //Transfer the first 32-bytes of unencrypted data to the decrypted data array
                 decryptedData[i] = pokemonData.data[i];
             }

@@ -1,45 +1,11 @@
-import { 
-    variables, 
-    memory,
-    getValue,
-    setValue,
-} from "../common";
+import { memory } from "../common/index.js";
 
-function DATA32_LE(data: number[], offset: number) {
+function DATA32_LE(data, offset) {
     let val = (data[offset] << 0)
         | (data[offset + 1] << 8)
         | (data[offset + 2] << 16)
         | (data[offset + 3] << 24);
     return val >>> 0;
-}
-
-function getGamestate(): string {
-    // FSM FOR GAMESTATE TRACKING
-    // MAIN GAMESTATE: This tracks the three basic states the game can be in.
-    // 1. "No Pokemon": cartridge reset; player has not received a Pokemon
-    // 2. "Overworld": Pokemon in party, but not in battle
-    // 3. "To Battle": Battle has started but player hasn't sent their Pokemon in yet
-    // 4. "From Battle": Battle result has been decided but the battle has not transition to the overworld yet
-    // 5. "Battle": In battle
-    const team_0_level: number = getValue('player.team.0.level')
-    const callback_1: string = getValue('pointers.callback1')
-    const callback_2: string = getValue('pointers.callback2')
-    const battle_outcomes: string | null = getValue('battle.outcome')
-    if (team_0_level == 0) 
-        return "No Pokemon"
-    else if (callback_1 == null)
-        return "No Pokemon"
-    else if (callback_2 == "Battle Animation") //! CURRENTLY NOT WORKING, Need a better property to track
-        return "To Battle"
-    else if (callback_1 == "Overworld")
-        return "Overworld"
-    else if (callback_1 == "Battle") {
-        if (battle_outcomes != null) {
-            return "From Battle"
-        }
-        return "Battle"
-    }
-    return "Error"
 }
 
 // Block shuffling orders - used for Party structure encryption and decryption
@@ -73,15 +39,7 @@ const shuffleOrders = {
     23: [3, 2, 1, 0]
 };
 
-export function preprocessor() {
-    const gamestate = getGamestate();
-    setValue('meta.state', gamestate);
-    variables.dma_a = memory.defaultNamespace.get_uint32_le(0x3005008)
-    variables.dma_b = memory.defaultNamespace.get_uint32_le(0x300500C)
-    variables.dma_c = memory.defaultNamespace.get_uint32_le(0x3005010)
-    variables.callback1 = memory.defaultNamespace.get_uint32_le(0x30030F0)
-    variables.callback2 = memory.defaultNamespace.get_uint32_le(0x30030F4)
-    
+export function preprocessor() {    
     // DECRYPTION OF THE PARTY POKEMON
     // This process applies to all the the Player's Pokemon as well as to Pokemon loaded NPCs parties
     // All Pokemon have a data structure of 100-bytes
@@ -94,17 +52,17 @@ export function preprocessor() {
             // Determine the starting address for the party we are decrypting
             let startingAddress = 0
             if (user == "player") {
-                startingAddress = 0x2024284 + (100 * slotIndex); 
+                startingAddress = 0x3004360 + (100 * slotIndex); 
             }
             if (user == "opponent") {
-                startingAddress = 0x202402C + (100 * slotIndex); 
+                startingAddress = 0x30045c0 + (100 * slotIndex); 
             }
 
             let pokemonData = memory.defaultNamespace.get_bytes(startingAddress, 100)
             let pid = pokemonData.get_uint32_le();
             let otid = pokemonData.get_uint32_le(4);
 
-            let decryptedData = [] as number[]
+            let decryptedData = []
             for (let i = 0; i < 100; i++) {
                 // Transfer the first 32-bytes of unencrypted data to the decrypted data array
                 decryptedData[i] = pokemonData.data[i];
@@ -122,9 +80,9 @@ export function preprocessor() {
                 decryptedData[i + 3] = (data >> 24) & 0xFF; // Isolates the most significant byte
             }
 
-            // Determine how the block data is shuffled
+            // Determine how the block data is shuffled   
             const shuffleId = pid % 24;
-
+            
             // Determine the shuffle order index
             let shuffleOrder = shuffleOrders[shuffleId];
             if (!shuffleOrder) {

@@ -1,4 +1,4 @@
-import { getValue, setValue } from "../common";
+import { getValue, setValue } from "../common/index.js";
 
 export function preprocessor() {
     // FSM FOR GAMESTATE TRACKING
@@ -7,16 +7,16 @@ export function preprocessor() {
     // 2. "Overworld": Pokemon in party, but not in battle
     // 3. "Battle": In battle
 
-    if (getValue<number>('player.team.0.level') === 0) {
+    if (getValue('player.team.0.level') === 0) {
         setValue('meta.state', 'No Pokemon')
     }
-    else if (getValue<string>("battle.type") === "None") {
+    else if (getValue("battle.type") === "None") {
         setValue('meta.state', 'Overworld')
     }
-    else if (getValue<number>("battle.turnInfo.battleStart") == 0) {
+    else if (getValue("battle.turnInfo.battleStart") == 0) {
         setValue('meta.state', 'To Battle')
     }
-    else if (getValue<string>("battle.lowHealthAlarm") === "Disabled") {
+    else if (getValue("battle.lowHealthAlarm") === "Disabled") {
         setValue('meta.state', 'From Battle')
     }
     else {

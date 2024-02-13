@@ -7,16 +7,16 @@ import {
     setValue,
     copyProperties, 
     setProperty, 
-} from "../common";
+} from "../common/index.js";
 
 //Decryption Functions
 //16-bit and 32-bit data access functions
-function DATA16_LE(data: number[], offset: number) {
+function DATA16_LE(data, offset) {
     let val = (data[offset] << 0) | (data[offset + 1] << 8);
     return val & 0xFFFF;
 }
 
-function DATA32_LE(data: number[], offset: number) {
+function DATA32_LE(data, offset) {
     let val = (data[offset] << 0)
         | (data[offset + 1] << 8)
         | (data[offset + 2] << 16)
@@ -24,7 +24,7 @@ function DATA32_LE(data: number[], offset: number) {
     return val >>> 0;
 }
 
-function getTotalgame_time(): number {
+function getTotalgame_time() {
     return (
         (216000 * memory.defaultNamespace.get_byte(variables.dma_b + 14)) +
         (  3600 * memory.defaultNamespace.get_byte(variables.dma_b + 16)) +
@@ -33,12 +33,11 @@ function getTotalgame_time(): number {
     );
 }
 
-export function decryptItemQuantity(x: number) {
-    let quantity_key: number = memory.defaultNamespace.get_uint16_le(variables.dma_b + 0xAC);
-    return x ^ quantity_key;
+export function decryptItemQuantity(x) {
+    return x.value ^ memory.defaultNamespace.get_uint16_le(variables.dma_b + 0xAC)
 }
 
-function equalArrays(a1: number[], a2: number[]) { 
+function equalArrays(a1, a2) { 
     if (a1 === undefined || a2 === undefined) return a1 == a2;
     if (a1.length != a2.length) return false;
     for (let i = 0; i < a1.length; i++){
@@ -78,7 +77,7 @@ const shuffleOrders = {
     23: [3, 2, 1, 0]
 };
 
-function getGamestate(): string {
+function getGamestate() {
     // FSM FOR GAMESTATE TRACKING
     // MAIN GAMESTATE: This tracks the three basic states the game can be in.
     // 1. "No Pokemon": cartridge reset; player has not received a Pokemon
@@ -86,10 +85,10 @@ function getGamestate(): string {
     // 3. "To Battle": Battle has started but player hasn't sent their Pokemon in yet
     // 4. "From Battle": Battle result has been decided but the battle has not transition to the overworld yet
     // 5. "Battle": In battle
-    const team_0_level: number = getValue('player.team.0.level')
-    const callback_1: string = getValue('pointers.callback_1')
-    const callback_2: string = getValue('pointers.callback_2')
-    const battle_outcomes: string = getValue('battle.other.battle_outcomes')
+    const team_0_level = getValue('player.team.0.level')
+    const callback_1 = getValue('pointers.callback_1')
+    const callback_2 = getValue('pointers.callback_2')
+    const battle_outcomes = getValue('battle.other.battle_outcomes')
     // const battle_dialogue: string = getValue('battle.other.battle_dialogue')
     // const state: string = getValue('meta.state') ?? "No Pokemon"
     if (team_0_level == 0) 
@@ -109,9 +108,9 @@ function getGamestate(): string {
     return "Error"
 }
 
-function getBattleOutcome(): string | null {
-    const outcome_flags: string | null = getValue('battle.other.battle_outcomes')
-    const state: string = getGamestate()
+function getBattleOutcome() {
+    const outcome_flags = getValue('battle.other.battle_outcomes')
+    const state = getGamestate()
     switch (state) {
         case 'From Battle':
             switch (outcome_flags) {
@@ -142,17 +141,17 @@ function getBattleOutcome(): string | null {
     return null
 }
 
-function getPlayerPartyPosition(): number {
-    const state: string = getGamestate()
+function getPlayerPartyPosition() {
+    const state = getGamestate()
     switch (state) {
         case 'Battle':
             return getValue('battle.player.party_position')
         case 'From Battle':
             return getValue('battle.player.party_position')
         default: {
-            const team: number[] = [0, 1, 2, 3, 4, 5]
+            const team = [0, 1, 2, 3, 4, 5]
             for (let i = 0; i < team.length; i++) {
-                if (getValue<number>(`player.team.${i}.stats.hp`) > 0) {
+                if (getValue(`player.team.${i}.stats.hp`) > 0) {
                     return i
                 }
             }
@@ -324,7 +323,7 @@ export function preprocessor() {
             let pid = pokemonData.get_uint32_le();
             let ot_id = pokemonData.get_uint32_le(4);
 
-            let decrypted_data = [] as number[]
+            let decrypted_data = []
             for (let i = 0; i < 100; i++) { //Transfer the first 32-bytes of unencrypted data to the decrypted data array
                 decrypted_data[i] = pokemonData.data[i];
             }

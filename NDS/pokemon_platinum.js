@@ -1,15 +1,12 @@
 import { 
     variables, 
     memory, 
-    // console,
     setValue, 
-    getValue,
-    // copyProperties, 
-    // setProperty, 
-} from "../common";
+    getValue
+} from "../common/index.js";
 
 // prng function; used for decryption.
-function prngNext(prngSeed: number) {
+function prngNext(prngSeed) {
     // Ensure 32-bit unsigned result
     const newSeed = (0x41C64E6D * prngSeed + 0x6073) >>> 0;
     const value = (newSeed >>> 16) & 0xFFFF;
@@ -47,7 +44,7 @@ const shuffleOrders = {
     23: [3, 2, 1, 0]
 };
 
-export function getGamestate(): string {
+export function getGamestate() {
     // FSM FOR GAMESTATE TRACKING
     // MAIN GAMESTATE: This tracks the three basic states the game can be in.
     // 1. "No Pokemon": cartridge reset; player has not received a Pokemon
@@ -55,16 +52,12 @@ export function getGamestate(): string {
     // 3. "Battle": In battle
     // 4. "To Battle": not yet implemented //TODO: Implement the To Battle state, this requires a new property to accurately track it
     // 5. "From Battle": not yet implemented
-    const team_count: number = getValue<number>('player.team_count')
-    const active_pokemonPv: number = getValue<number>('battle.player.active_pokemon.internals.personality_value')
-    const teamPokemonPv: number = getValue<number>('player.team.0.internals.personality_value')
-    const outcome_flags: number = getValue<number>('battle.other.outcome_flags')
-    const party_position: number = getValue<number>('battle.player.party_position')
+    const team_count = getValue('player.team_count')
+    const active_pokemonPv = getValue('battle.player.active_pokemon.internals.personality_value')
+    const teamPokemonPv = getValue('player.team.0.internals.personality_value')
+    const outcome_flags = getValue('battle.other.outcome_flags')
     if (team_count === 0) {
         return 'No Pokemon'
-    }
-    else if (active_pokemonPv !== teamPokemonPv || party_position > 5) {
-        return 'Overworld'
     }
     else if (active_pokemonPv === teamPokemonPv && outcome_flags == 1) {
         return 'From Battle'
@@ -72,11 +65,13 @@ export function getGamestate(): string {
     else if (active_pokemonPv === teamPokemonPv) {
         return 'Battle'
     }
-
+    else if (active_pokemonPv !== teamPokemonPv) {
+        return 'Overworld'
+    }
     return 'No Pokemon'
 }
 
-export function getMetaEnemyState(state: string, battle_outcomes: number, enemyBarSyncedHp: number): string | null {
+export function getMetaEnemyState(state, battle_outcomes, enemyBarSyncedHp) {
     // ENEMY POKEMON MID-BATTLE STATE: Allows for precise timing during battles
     if (state === "No Pokemon" || state === "Overworld") return 'N/A'
     else if (state === "Battle" && battle_outcomes === 1) return 'Battle Finished'
@@ -85,7 +80,7 @@ export function getMetaEnemyState(state: string, battle_outcomes: number, enemyB
     return null
 }
 
-export function getBattleMode(state: string, opponentTrainer: string | null): string | null {
+export function getBattleMode(state, opponentTrainer) {
     if (state === 'Battle') {
         if (opponentTrainer === null) return 'Wild'
         else return 'Trainer'
@@ -94,9 +89,9 @@ export function getBattleMode(state: string, opponentTrainer: string | null): st
     }
 }
 
-export function getBattleOutcome(): string | null {
-    const outcome_flags: number = getValue('battle.other.outcome_flags')
-    const state: string = getGamestate()
+export function getBattleOutcome() {
+    const outcome_flags = getValue('battle.other.outcome_flags')
+    const state = getGamestate()
     switch (state) {
         case 'From Battle':
             switch (outcome_flags) {
@@ -110,8 +105,8 @@ export function getBattleOutcome(): string | null {
 }
 
 /** Calculate the encounter rate based on other variables */
-export function getEncounterRate(): number {
-    const walking: number = getValue("overworld.encounter_rates.walking");
+export function getEncounterRate() {
+    const walking = getValue("overworld.encounter_rates.walking");
     // Need properties to correctly determine which of these to return
     // const surfing = getValue("overworld.encounter_rates.surfing");
     // const old_rod = getValue("overworld.encounter_rates.old_rod");
@@ -120,17 +115,17 @@ export function getEncounterRate(): number {
     return walking;
 }
 
-function getPlayerPartyPosition(): number {
-    const state: string = getGamestate()
+function getPlayerPartyPosition() {
+    const state = getGamestate()
     switch (state) {
         case 'Battle':
             return getValue('battle.player.party_position')
         case 'From Battle':
             return getValue('battle.player.party_position')
         default: {
-            const team: number[] = [0, 1, 2, 3, 4, 5]
+            const team = [0, 1, 2, 3, 4, 5]
             for (let i = 0; i < team.length; i++) {
-                if (getValue<number>(`player.team.${i}.stats.hp`) > 0) {
+                if (getValue(`player.team.${i}.stats.hp`) > 0) {
                     return i
                 }
             }
@@ -142,7 +137,7 @@ function getPlayerPartyPosition(): number {
 // Preprocessor runs every loop (everytime gamehook updates)
 export function preprocessor() {
     // This is the same as the global_pointer, it is named "base_ptr" for consistency with the old C# code    
-    const base_ptr: number = memory.defaultNamespace.get_uint32_le(0x2106FAC) // Diamond and Pearl pointer (Test value: 2260300)
+    const base_ptr = memory.defaultNamespace.get_uint32_le(0x2101D2C) // Platinum pointer (Test value: 22711B8)
 
     if (base_ptr === 0) {
         // Ends logic is the base_ptr is 0, this is to prevent errors during reset and getting on a bike.
@@ -151,24 +146,24 @@ export function preprocessor() {
     }
     
     variables.global_pointer = base_ptr // Variable used for mapper addresses, it is the same as "base_ptr"
-    variables.dynamic_player = base_ptr + 0x597D8
-    variables.dynamic_opponent = base_ptr +  0x59D88
-    variables.dynamic_ally = base_ptr + 0x5A338 
-    variables.dynamic_opponent_2 = base_ptr + 0x5A8E8
-    variables.current_party_indexes = base_ptr + 0x5596C
-    const enemy_ptr = memory.defaultNamespace.get_uint32_le(base_ptr + 0x364C8) // Only needs to be calculated once per loop
+    variables.dynamic_player = base_ptr + 0x5888C
+    variables.dynamic_opponent = base_ptr +  0x58E3C
+    variables.dynamic_ally = base_ptr + 0x593EC 
+    variables.dynamic_opponent_2 = base_ptr + 0x5999C
+    variables.current_party_indexes = base_ptr + 0x54598 + 0x3EC
+    const enemy_ptr = memory.defaultNamespace.get_uint32_le(base_ptr + 0x352F4) // Only needs to be calculated once per loop
 
     // Set property values
-    const gamestate: string = getGamestate()
-    const battle_outcomes: number = getValue<number>('battle.outcome')
-    const enemyBarSyncedHp: number = getValue<number>('battle.opponent.enemy_bar_synced_hp')
-    const opponentTrainer: string | null = getValue<string | null>('battle.opponent.trainer')
+    const gamestate = getGamestate()
+    const battle_outcomes = getValue('battle.outcome')
+    const enemyBarSyncedHp = getValue('battle.opponent.enemy_bar_synced_hp')
+    const opponentTrainer = getValue('battle.opponent.trainer')
     setValue('meta.state', gamestate)
     setValue('battle.mode', getBattleMode(gamestate, opponentTrainer))
     setValue('meta.state_enemy', getMetaEnemyState(gamestate, battle_outcomes, enemyBarSyncedHp))
     setValue('overworld.encounter_rate', getEncounterRate())
     setValue('player.party_position', getPlayerPartyPosition())
-    
+
     // //Set player.active_pokemon properties
     // const party_position_overworld = getPlayerPartyPosition()
     // const party_position_battle = getValue('battle.player.party_position')
@@ -189,7 +184,7 @@ export function preprocessor() {
 
     // Loop through various party-structures to decrypt the Pokemon data
     const partyStructures = [
-        "player", 
+        "player", "static_wild",
         // "static_player", "static_opponent", "static_ally", "static_opponent_2",
         "dynamic_player", "dynamic_opponent", "dynamic_ally", "dynamic_opponent_2",
     ];
@@ -200,19 +195,19 @@ export function preprocessor() {
         // Updating structures start offset from the global_pointer by 0x5888C; they are 0x5B0 bytes long
         // team_count is always offset from the start of the team structure by -0x04 and it's a 1-byte value
         const offsets = {
-            player: 0xD2AC,
-            // static_player: 0x35514,
-            // static_wild: 0x35AC4,
-            // static_opponent: 0x774,
-            // static_ally: 0x7A0 + 0x5B0,
-            // static_opponent_2: 0x7A0 + 0xB60,
-            dynamic_player: 0x597D8,
-            dynamic_opponent: 0x59D88, 
-            dynamic_ally: 0x5A338, // TODO: Requires testing
-            dynamic_opponent_2: 0x5A8E8, // TODO: Requires testing
+            player: 0xD094,
+            static_player: 0x35514,
+            static_wild: 0x35AC4,
+            static_opponent: 0x7A0,
+            static_ally: 0x7A0 + 0x5B0,
+            static_opponent_2: 0x7A0 + 0xB60,
+            dynamic_player: 0x5888C,
+            dynamic_opponent: 0x58E3C, 
+            dynamic_ally: 0x593EC, // TODO: Requires testing
+            dynamic_opponent_2: 0x5999C, // TODO: Requires testing
         };
 
-        let baseAddress = (user === "static_opponent" || user === "static_ally" || user === "static_opponent_2" ) ? enemy_ptr : base_ptr;
+        let baseAddress = (user === "static_opponent" || user === "static_ally" || user === "static_opponent_2") ? enemy_ptr : base_ptr;
 
         // Loop through each party-slot within the given party-structure
         for (let slotIndex = 0; slotIndex < 6; slotIndex++) {
