@@ -7,18 +7,18 @@
 
 	<classes>
 		<party_pokemon>
-			<property name="species"    type="int"    address="8"   memoryContainer="{memoryContainer}" length="2" reference="species" />
-			<property name="dex_number" type="int"    address="8"   memoryContainer="{memoryContainer}" length="2" />
-			<property name="nickname"   type="string" address="72"  memoryContainer="{memoryContainer}" length="22" size="2" />
-			<property name="level"      type="int"    address="140" memoryContainer="{memoryContainer}"  />
-			<property name="exp"        type="int"    address="16"  memoryContainer="{memoryContainer}" length="4" />
-			<property name="ot_name"    type="string" address="104" memoryContainer="{memoryContainer}" length="16" size="2" />
-			<property name="ot_id"      type="int"    address="12"  memoryContainer="{memoryContainer}" length="2" />
-			<property name="ability"    type="int"    address="21"  memoryContainer="{memoryContainer}" reference="abilities" />
-			<property name="nature"     type="uint"   address="0"   memoryContainer="{memoryContainer}" length="4" reference="natures" after-read-value-expression="x % 25" />
-			<property name="held_item"  type="int"    address="10"  memoryContainer="{memoryContainer}" length="2" reference="items" />
-			<property name="friendship" type="int"    address="20"  memoryContainer="{memoryContainer}"  />
-			<property name="pokerus"    type="int"    address="130" memoryContainer="{memoryContainer}"  />
+			<property name="species"    type="int"       address="8"   memoryContainer="{memoryContainer}" length="2" reference="species" />
+			<property name="dex_number" type="int"       address="8"   memoryContainer="{memoryContainer}" length="2" />
+			<property name="nickname"   type="string"    address="72"  memoryContainer="{memoryContainer}" length="22" size="2" />
+			<property name="level"      type="int"       address="140" memoryContainer="{memoryContainer}"  />
+			<property name="exp"        type="int"       address="16"  memoryContainer="{memoryContainer}" length="4" />
+			<property name="ot_name"    type="string"    address="104" memoryContainer="{memoryContainer}" length="16" size="2" />
+			<property name="ot_id"      type="int"       address="12"  memoryContainer="{memoryContainer}" length="2" />
+			<property name="ability"    type="int"       address="21"  memoryContainer="{memoryContainer}" reference="abilities" />
+			<property name="nature"     type="uint"      address="0"   memoryContainer="{memoryContainer}" length="4" reference="natures" after-read-value-expression="x % 25" />
+			<property name="held_item"  type="int"       address="10"  memoryContainer="{memoryContainer}" length="2" reference="items" />
+			<property name="friendship" type="int"       address="20"  memoryContainer="{memoryContainer}"  />
+			<property name="pokerus"    type="int"       address="130" memoryContainer="{memoryContainer}"  />
 			<property name="status_condition" type="int" address="136" memoryContainer="{memoryContainer}" reference="status_conditions" />
 			<moves>
 				<class name="0" type="pokemon_moves" var:moveNumberOffset="40" var:ppOffset="48" var:ppUpOffset="52" memoryContainer="{memoryContainer}" />
@@ -7284,7 +7284,7 @@
 			<entry key="196" value="Icy Wind" />
 			<entry key="197" value="Detect" />
 			<entry key="198" value="Bone Rush" />
-			<entry key="199" value="Lock On" />
+			<entry key="199" value="Lock-On" />
 			<entry key="200" value="Outrage" />
 			<entry key="201" value="Sandstorm" />
 			<entry key="202" value="Giga Drain" />
