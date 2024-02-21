@@ -5271,7 +5271,7 @@
 			<entry key="539" value="Pokemon League - Map 8" />
 		</maps>
 		<trainers>
-			<entry key="0" value="Pokemon Trainer  -" />
+			<entry key="0" />
 			<entry key="1" value="Rival Silver" />
 			<entry key="2" value="Rival Silver" />
 			<entry key="3" value="Rival Silver" />

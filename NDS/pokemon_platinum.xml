@@ -5326,7 +5326,7 @@
 			<entry key="592" value="Rock Peak Ruins - Map 1" />
 		</maps>
 		<trainers>
-			<entry key="0" value="Pokemon Trainer  -" />
+			<entry key="0" />
 			<entry key="1" value="Youngster Tristan" />
 			<entry key="2" value="Youngster Logan" />
 			<entry key="3" value="Lass Natalie" />

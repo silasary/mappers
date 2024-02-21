@@ -5157,7 +5157,7 @@
 			<entry key="558" value="Contest Hall - Map 3" />
 		</maps>
 		<trainers>
-			<entry key="0" value="Pokemon Trainer  -" />
+			<entry key="0" />
 			<entry key="1" value="Youngster Tristan" />
 			<entry key="2" value="Youngster Logan" />
 			<entry key="3" value="Lass Natalie" />
