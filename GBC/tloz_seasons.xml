@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mapper id="f7e3d3c8-eef4-4f4d-8f7c-44780100e967" name="The Legend of Zelda: Oracle of Seasons" platform="GBC"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://schemas.gamehook.io/mapper https://schemas.gamehook.io/mapper.xsd"
+    xmlns:var="https://schemas.gamehook.io/attributes/var">
+    <!-- <macros>
+    </macros>
+
+    <classes>
+    </classes> -->
+
+    <properties>
+        <player>
+            <property name="name"                type="string" address="0xC602" length="6" />
+            <stats>
+                <property name="deaths"          type="int"    address="0xC61E" length="2" />
+                <property name="enemies_killed"  type="int"    address="0xC620" length="2" />
+                <property name="signs_destroyed" type="int"    address="0xC626" length="2" />
+            </stats>
+            <position>
+                <property name="overworld_position" type="int" address="0xC63B" />
+                <property name="dungeon_position"   type="int" address="0xC63C" />
+                <property name="dungeon_floor"      type="int" address="0xC63D" />
+            </position>
+            <property name="message_speed"       type="int"    address="0xC629" length="1" />            
+        </player>
+        <items>
+            <property name="item_b"          type="int"    address="0xC680" length="1" />
+            <property name="item_a"          type="int"    address="0xC681" length="1" />
+            <property name="ember_seeds"     type="int"    address="0xC6B5" length="1" />
+            <property name="scent_seeds"     type="int"    address="0xC6B6" length="1" />
+            <property name="pegasus_seeds"   type="int"    address="0xC6B7" length="1" />
+            <property name="gale_seeds"      type="int"    address="0xC6B8" length="1" />
+            <property name="mystery_seeds"   type="int"    address="0xC6B9" length="1" />
+            <property name="gasha_seeds"     type="int"    address="0xC6BA" length="1" />
+
+            <property name="current_hearts"  type="int"    address="0xC6A2" length="1" />
+            <property name="max_hearts"      type="int"    address="0xC6A3" length="1" />
+            <property name="heart_pieces"    type="int"    address="0xC6A4" length="1" />
+            <property name="rupees"          type="int"    address="0xC6A5" length="2" />
+            <property name="ore_chunks"      type="int"    address="0xC6A7" length="2" />
+            <property name="shield_level"    type="int"    address="0xC6A9" length="1" />
+            <property name="current_bombs"   type="int"    address="0xC6AA" length="1" />
+            <property name="max_bombs"       type="int"    address="0xC6AB" length="1" />
+            <property name="sword_level"     type="int"    address="0xC6AC" length="1" />
+            <property name="current_bombchus" type="int"   address="0xC6AD" length="1" />
+            <property name="seed_satchel"    type="int"    address="0xC6AE" length="1" />
+            <property name="boomerang_level" type="int"    address="0xC6B1" length="1" />
+            <property name="slingshot_level" type="int"    address="0xC6B3" length="1" />
+            <property name="feather_level"   type="int"    address="0xC6B4" length="1" />
+        </items>
+        <state>
+            <property name="cutscene" type="int" address="0xC2EF" reference="cutscenes"/>
+            <property name="enemies_on_screen" type="int" address="0xCC30" />
+        </state>
+    </properties>
+
+    <references>
+        <defaultCharacterMap>
+            <entry key="0x00" value=" " />
+            <entry key="0x20" value=" " />
+            <entry key="0x41" value="A" />
+            <entry key="0x42" value="B" />
+            <entry key="0x43" value="C" />
+            <entry key="0x44" value="D" />
+            <entry key="0x45" value="E" />
+            <entry key="0x46" value="F" />
+            <entry key="0x47" value="G" />
+            <entry key="0x48" value="H" />
+            <entry key="0x49" value="I" />
+            <entry key="0x4A" value="J" />
+            <entry key="0x4B" value="K" />
+            <entry key="0x4C" value="L" />
+            <entry key="0x4D" value="M" />
+            <entry key="0x4E" value="N" />
+            <entry key="0x4F" value="O" />
+            <entry key="0x50" value="P" />
+            <entry key="0x51" value="Q" />
+            <entry key="0x52" value="R" />
+            <entry key="0x53" value="S" />
+            <entry key="0x54" value="T" />
+            <entry key="0x55" value="U" />
+            <entry key="0x56" value="V" />
+            <entry key="0x57" value="W" />
+            <entry key="0x58" value="X" />
+            <entry key="0x59" value="Y" />
+            <entry key="0x5A" value="Z" />
+            <entry key="0x60" />
+            <entry key="0x61" value="a" />
+            <entry key="0x62" value="b" />
+            <entry key="0x63" value="c" />
+            <entry key="0x64" value="d" />
+            <entry key="0x65" value="e" />
+            <entry key="0x66" value="f" />
+            <entry key="0x67" value="g" />
+            <entry key="0x68" value="h" />
+            <entry key="0x69" value="i" />
+            <entry key="0x6A" value="j" />  
+            <entry key="0x6B" value="k" />
+            <entry key="0x6C" value="l" />
+            <entry key="0x6D" value="m" />
+            <entry key="0x6E" value="n" />
+            <entry key="0x6F" value="o" />
+            <entry key="0x70" value="p" />
+            <entry key="0x71" value="q" />
+            <entry key="0x72" value="r" />
+            <entry key="0x73" value="s" />
+            <entry key="0x74" value="t" />
+            <entry key="0x75" value="u" />
+            <entry key="0x76" value="v" />
+            <entry key="0x77" value="w" />
+            <entry key="0x78" value="x" />
+            <entry key="0x79" value="y" />
+            <entry key="0x7A" value="z" />
+        </defaultCharacterMap>
+
+        <cutscenes>
+            <entry key="0x00" value="Loading Room" />
+            <entry key="0x01" value="In Game" />
+            <entry key="0x06" value="Din Dancing" />
+            <entry key="0x07" value="Din Imprisoned" />
+            <entry key="0x08" value="Temple Sinking" />
+            <entry key="0x09" value="Din Crystal Descending" />
+            <entry key="0x0A" value="Credits" />
+            <entry key="0x0B" value="Volcano Erupting" />
+            <entry key="0x0C" value="Pirates Depart" />
+            <entry key="0x0D" value="Pre-Game Intro" />
+            <entry key="0x0E" value="Onox Taunting" />
+            <entry key="0x0F" value="Room of Rites Collapse" />
+            <entry key="0x10" value="Flame of Destruction" />
+            <entry key="0x11" value="Zelda Villagers (Linked)" />
+            <entry key="0x12" value="Zelda Kidnapped" />
+            <entry key="0x13" value="Onox Final Form" />
+            <entry key="0x14" value="Onox Castle Force" />
+            <entry key="0x16" value="In Gale Seed Menu " />
+            <entry key="0x17" value="Warp to Twinrova Fight" />
+            <entry key="0x18" value="Flames Flickering" />
+            <entry key="0x19" value="Twinrova Sacrifice" />
+
+        </cutscenes>
+    </references>
+</mapper>
